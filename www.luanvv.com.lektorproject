@@ -1,0 +1,6 @@
+[project]
+name = www.luanvv.com
+
+[packages]
+lektor-tags = 0.2
+lektor-markdown-highlighter = 0.3

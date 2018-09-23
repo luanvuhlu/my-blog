@@ -1,0 +1,10 @@
+{% extends "layout.html" %}
+{% block title %}{{ this.title }}{% endblock %}
+{% block content %}
+<ul>
+      {% for value in bag('tags.all') %}
+        <li><a href="{{ value }}">{{ value }}</a>
+        </li>
+      {% endfor %}
+</ul>
+{% endblock %}

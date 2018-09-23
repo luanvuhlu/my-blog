@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+{% from "macros/blog.html" import render_blog_post %}
+{% from "macros/pagination.html" import render_pagination %}
+{% block title %}{{ this.title }}{% endblock %}
+{% block content %}
+<div class="blog">
+    <div class="blog-grid" style="position: relative; height: 2180.31px;">
+        <div class="grid-sizer"></div>
+  {% for child in this.pagination.items %}
+    {{ render_blog_post(child, from_index=true) }}
+  {% endfor %}
+</div>
+</div>
+  {{ render_pagination(this.pagination) }}
+  {% endblock %}

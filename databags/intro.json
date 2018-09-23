@@ -1,0 +1,64 @@
+{
+    "intro": {
+        "about": "Hello! I'm Luan Vu. Senior Web Developer specializing in Java development. Experienced with all stages of the development cycle for dynamic web projects. Well-versed in numerous programming languages including Python, Swift, JavaScript, SQL and of course, specialy Java. I have OCAJP and OCPJP certificates.",
+        "skills": [
+            {
+                "title": "Java",
+                "value": "90"
+            },
+            {
+                "title": "JavaScript",
+                "value": "70"
+            },
+            {
+                "title": "Spring",
+                "value": "70"
+            },
+            {   
+                "title": "Hibernate",
+                "value": "85"
+            },
+            {
+                "title": "Python",
+                "value": "60"
+            },
+            {
+                "title": "Django",
+                "value": "60"
+            },
+            {
+                "title": "Linux",
+                "value": "80"
+            },
+            {
+                "title": "Docker",
+                "value": "60"
+            }
+        ],
+        "works": [
+            {
+                "date": "03/2018 - now",
+                "address": "V.N.E.X.T",
+                "position": "FULL STACK DEVELOPER",
+                "desciption": "Worked as part of a multi-disciplinary team, carrying out ad-hoc tasks as requested by the IT Manager. Had a specific brief to ensure the websites build for customer’s precisely matched their requirements.developers and marketers."
+            }
+        ],
+        "educations": [
+            {
+                "date": "06/2018",
+                "name": "Oracle Certified Professional Java SE 8 Programmer II",
+                "supplier": "ORACLE",
+                "desciption": ""
+            }
+        ],
+        "references": [
+            {
+                "name": "",
+                "avatar": "",
+                "work": "",
+                "content": ""
+            }
+        ],
+        "fun_description": "Hello! I’m Robert Smith and this is custom editor section. You can add here any text or \"Strikethrough\" text and even you can add bulleted or numbered text and even you will be able to add blockquot text. You can align this text to left/right/center. One of the most interesting options is to divide this section to \"One half\" \"One Third\" and \"One Fourth\". You can use this for Honors or Achievments or Awards sections. You can insert images and photos right in this editor!"
+    }
+}

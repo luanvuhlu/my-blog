@@ -1,0 +1,32 @@
+{% macro render_blog_post(post, from_index=false) %}
+<div class="grid-item" style="position: absolute; left: 0%; top: 0px;">
+    <article class="post-box animate-up animated">
+        <div class="post-media">
+            <div class="post-image">
+                <a href="{{ post|url }}"><img src="{{post.cover}}" alt=""> </a>
+            </div>
+        </div>
+
+        <div class="post-data">
+            <time class="post-datetime" datetime="{{post.pub_date}}">
+                <span class="day">03</span>
+                <span class="month">MAY</span>
+            </time>
+
+            <div class="post-tag">
+                <a href="">#Photo</a>
+                <a href="">#Architect</a>
+            </div>
+
+            <h3 class="post-title">
+                <a href="{{ post|url }}">{{post.title}}</a>
+            </h3>
+
+            <div class="post-info">
+                <a href=""><i class="rsicon rsicon-user"></i>by admin</a>
+                <a href=""><i class="rsicon rsicon-comments"></i>56</a>
+            </div>
+        </div>
+    </article>
+</div>
+{% endmacro %}

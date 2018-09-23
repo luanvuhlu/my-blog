@@ -1,0 +1,13 @@
+{% macro render_pagination(pagination) %}
+
+<div class="pagination">
+    {% if pagination.has_prev %}
+      <a class="next page-numbers" href="{{ pagination.prev|url }}"><i class="rsicon rsicon-chevron_left"></i></a>
+    {% endif %}
+    | {{ pagination.page }} | 
+    <!-- <span class="page-numbers current">1</span> -->
+    {% if pagination.has_next %}
+    <a class="next page-numbers" href="{{ pagination.next|url }}"><i class="rsicon rsicon-chevron_right"></i></a>
+    {% endif %}
+</div>
+{% endmacro %}

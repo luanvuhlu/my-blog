@@ -1,0 +1,79 @@
+{% extends "layout.html" %}
+{% block title %}{{ this.title }}{% endblock %}
+{% block static %}
+{% endblock %}
+{% block content %}
+<div class="row animate-up animated">
+  <div class="col-sm-12">
+    <main class="post-single">
+      <article class="post-content section-box">
+          <div class="post-media">
+              <img src="{{ this.cover }}" alt="" title="" style="outline: red dashed 1px;">								
+            </div>
+
+        <div class="post-inner">
+          <header class="post-header">
+            <div class="post-data">
+              <div class="post-tag">
+                {% for t in this.tags -%}
+                    <a href="{{ ('/blog@tag/' ~ t.lower())|url }}">
+                      #{{ t }}
+                    </a>
+                {% endfor %}
+              </div>
+
+              <div class="post-title-wrap">
+                <h1 class="post-title">{{ this.title }}</h1>
+                <time class="post-datetime" datetime="2015-03-13T07:44:01+00:00">
+                  <span class="day">03</span>
+                  <span class="month">MAY</span>
+                  <span class="year">2018</span>
+                </time>
+              </div>
+
+              <div class="post-info">
+                <a href=""><i class="rsicon rsicon-user"></i>by luanvv</a>
+                <a href=""><i class="rsicon rsicon-comments"></i>56</a>
+              </div>
+            </div>
+          </header>
+
+          <div class="post-editor clearfix">
+            {{ this.body }}
+          </div>
+
+          <footer class="post-footer">
+            <div class="post-share">
+              <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-503b5cbf65c3f4d8"
+                async="async"></script>
+              <div class="addthis_sharing_toolbox"></div>
+            </div>
+          </footer>
+        </div><!-- .post-inner -->
+      </article><!-- .post-content -->
+
+      <nav class="post-pagination section-box">
+        <div class="post-next">
+          <div class="post-tag">Previous Article <a href="">#Tagapple</a></div>
+          <h3 class="post-title"><a href="">How ipsum project web dolor sit amet</a></h3>
+
+          <div class="post-info">
+            <a href=""><i class="rsicon rsicon-user"></i>by admin</a>
+            <a href=""><i class="rsicon rsicon-comments"></i>56</a>
+          </div>
+        </div>
+        <div class="post-prev">
+          <div class="post-tag">Next Article <a href="">#Photography</a></div>
+          <h3 class="post-title"><a href="">project web dolor sit amet</a></h3>
+
+          <div class="post-info">
+            <a href=""><i class="rsicon rsicon-user"></i>by admin</a>
+            <a href=""><i class="rsicon rsicon-comments"></i>56</a>
+          </div>
+        </div>
+      </nav><!-- .post-pagination -->
+    </main>
+    <!-- .post-single -->
+  </div>
+</div>
+{% endblock %}

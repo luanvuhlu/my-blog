@@ -1,0 +1,7 @@
+_model: page
+---
+title: Tags
+---
+_template: tags.html
+---
+_slug: blog@tag

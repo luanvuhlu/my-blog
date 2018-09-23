@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en" class="theme-color-07cb79 theme-skin-light"></html>
+<meta charset="utf-8">
+<link rel="stylesheet" href="{{ '/static/style.css'|url }}">
+<title>{% block title %}Luan Vu Resume{% endblock %} — luanvv.com</title>
+<!-- Favicon -->
+<link rel="shortcut icon" type="image/ico" href="{{ '/static/img/favicon.png'|url }}" />
+<!-- Google Fonts -->
+<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Fredoka+One">
+<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic,700,700italic,800,800italic">
+<!-- Icon Fonts -->
+<link rel="stylesheet" type="text/css" href="{{ '/static/fonts/map-icons/css/map-icons.min.css'|url }}">
+<link rel="stylesheet" type="text/css" href="{{ '/static/fonts/icomoon/style.css'|url }}">
+<!-- Styles -->
+<link rel="stylesheet" type="text/css" href="{{ '/static/js/plugins/jquery.bxslider/jquery.bxslider.css'|url }}">
+<link rel="stylesheet" type="text/css" href="{{ '/static/js/plugins/jquery.customscroll/jquery.mCustomScrollbar.min.css'|url }}">
+<link rel="stylesheet" type="text/css" href="{{ '/static/js/plugins/jquery.mediaelement/mediaelementplayer.min.css'|url }}">
+<link rel="stylesheet" type="text/css" href="{{ '/static/js/plugins/jquery.fancybox/jquery.fancybox.css'|url }}">
+<link rel="stylesheet" type="text/css" href="{{ '/static/js/plugins/jquery.owlcarousel/owl.carousel.css'|url }}">
+<link rel="stylesheet" type="text/css" href="{{ '/static/js/plugins/jquery.owlcarousel/owl.theme.css'|url }}">
+<link rel="stylesheet" type="text/css" href="{{ '/static/style.css'|url }}">
+<link rel="stylesheet" type="text/css" href="{{ '/static/colors/green.css'|url }}">
+{% block static %}{% endblock %}
+<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+<![endif]-->
+<!-- Modernizer for detect what features the user’s browser has to offer -->
+<script type="text/javascript" src="{{ '/static/js/libs/modernizr.js'|url }}"></script>
+
+<body class="home header-has-img"> <!-- add loading for progress bar -->
+  <div class="mobile-nav">
+    <button class="btn-mobile mobile-nav-close"><i class="rsicon rsicon-close"></i></button>
+
+    <div class="mobile-nav-inner">
+      <nav id="mobile-nav" class="nav">
+        <ul class="clearfix">
+          <li><a href="{{ '/'|url }}#about">About</a></li>
+          <li><a href="{{ '/'|url }}#skills">Skills</a></li>
+          <li><a href="{{ '/'|url }}#portfolio">Portfolio</a> </li>
+          <li><a href="{{ '/'|url }}#experience">Experience</a></li>
+          <li><a href="{{ '/'|url }}#education">Education</a></li>
+          <li><a href="{{ '/'|url }}#references">References</a></li>
+          <li>
+            <a href="category.html">Blog</a>
+          </li>
+          <li><a href="{{ '/'|url }}#calendar">Calendar <span></span></a></li>
+          <li><a href="{{ '/'|url }}#contact">Contact <span></span></a></li>
+        </ul>
+      </nav>
+    </div>
+
+  </div><!-- .mobile-nav -->
+  <div class="wrapper">
+    <header class="header">
+      <div class="head-bg" style="background-image: url('./static/img/uploads/rs-cover.jpg')"></div>
+      <div class="head-bar">
+        <div class="head-bar-inner">
+          <div class="row">
+            <div class="col-sm-3 col-xs-6">
+              <a class="logo" href="{{ '/'|url }}"><span>RS</span>card</a>
+              <!-- <a class="head-logo" href=""><img src="img/rs-logo.png" alt="RScard"/></a> -->
+            </div>
+            <div class="col-sm-9 col-xs-6">
+              <div class="nav-wrap">
+                <nav id="nav" class="nav">
+                  <ul class="clearfix">
+                    <li><a href="{{ '/'|url }}#about">About</a></li>
+                    <li><a href="{{ '/'|url }}#skills">Skills</a></li>
+                    <li><a href="{{ '/'|url }}#portfolio">Portfolio</a> </li>
+                    <li><a href="{{ '/'|url }}#experience">Experience</a></li>
+                    <li><a href="{{ '/'|url }}#education">Education</a></li>
+                    <li><a href="{{ '/'|url }}#references">References</a></li>
+                    <li>
+                      <a href="{{ '/blog'|url }}">Blog</a>
+                    </li>
+                    <li><a href="{{ '/'|url }}#calendar">Calendar <span></span></a></li>
+                    <li><a href="{{ '/'|url }}#contact">Contact <span></span></a></li>
+                  </ul>
+                </nav>
+                <button class="btn-mobile btn-mobile-nav">Menu</button>
+                <!-- <button class="btn-sidebar btn-sidebar-open"><i class="rsicon rsicon-menu"></i></button> -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header><!-- .header -->
+    <div class="content">
+        <div class="container">
+      {% block content %}
+      {% endblock %}
+      </div>
+    </div><!-- .content -->
+    <footer class="footer">
+      <div class="footer-social">
+        <ul class="social">
+          <li><a class="ripple-centered" href="" target="_blank"><i class="rsicon rsicon-facebook"></i></a></li>
+          <li><a class="ripple-centered" href="" target="_blank"><i class="rsicon rsicon-twitter"></i></a></li>
+          <li><a class="ripple-centered" href="" target="_blank"><i class="rsicon rsicon-linkedin"></i></a></li>
+          <li><a class="ripple-centered" href="" target="_blank"><i class="rsicon rsicon-google-plus"></i></a></li>
+          <li><a class="ripple-centered" href="" target="_blank"><i class="rsicon rsicon-dribbble"></i></a></li>
+          <li><a class="ripple-centered" href="" target="_blank"><i class="rsicon rsicon-instagram"></i></a></li>
+        </ul>
+      </div>
+    </footer><!-- .footer -->
+  </div><!-- .wrapper -->
+
+  <a class="btn-scroll-top" href="#"><i class="rsicon rsicon-arrow-up"></i></a>
+  <div id="overlay"></div>
+  <div id="preloader">
+    <div class="preload-icon"><span></span><span></span></div>
+    <div class="preload-text">Loading ...</div>
+  </div>
+  <!-- Scripts -->
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"></script>
+  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
+  <script type="text/javascript" src="{{ '/static/fonts/map-icons/js/map-icons.min.js'|url }}"></script>
+  <script type="text/javascript" src="{{ '/static/js/plugins/jquery.mousewheel-3.0.6.pack.js'|url }}"></script>
+  <script type="text/javascript" src="{{ '/static/js/plugins/imagesloaded.pkgd.min.js'|url }}"></script>
+  <script type="text/javascript" src="{{ '/static/js/plugins/isotope.pkgd.min.js'|url }}"></script>
+  <script type="text/javascript" src="{{ '/static/js/plugins/jquery.appear.min.js'|url }}"></script>
+  <script type="text/javascript" src="{{ '/static/js/plugins/jquery.onepagenav.min.js'|url }}"></script>
+  <script type="text/javascript" src="{{ '/static/js/plugins/jquery.bxslider/jquery.bxslider.min.js'|url }}"></script>
+  <script type="text/javascript" src="{{ '/static/js/plugins/jquery.customscroll/jquery.mCustomScrollbar.concat.min.js'|url }}"></script>
+  <script type="text/javascript" src="{{ '/static/js/plugins/jquery.mediaelement/mediaelement-and-player.min.js'|url }}"></script>
+  <script type="text/javascript" src="{{ '/static/js/plugins/jquery.fancybox/jquery.fancybox.pack.js'|url }}"></script>
+  <script type="text/javascript" src="{{ '/static/js/plugins/jquery.fancybox/helpers/jquery.fancybox-media.js'|url }}"></script>
+  <script type="text/javascript" src="{{ '/static/js/plugins/jquery.owlcarousel/owl.carousel.min.js'|url }}"></script>
+  <script type="text/javascript" src="{{ '/static/js/options.js'|url }}"></script>
+  <script type="text/javascript" src="{{ '/static/js/site.js'|url }}"></script>
+</body>
+</html>
