@@ -1,10 +1,11 @@
 title: Luồng học cho Java developer
 ---
-pub_date: 2018-09-18
----
 author: luanvv
 ---
 cover: /../static/img/uploads/thumb-449x286-7.jpg
+---
+pub_date:
+2018-09-21
 ---
 body:
 Thấy khá nhiều bạn sinh viên mới ra trường hiện nay khá mù mờ về con đường học, vẫn mãi lẹt đẹt học nhỏ giọt, thiếu chọn lọc và hiệu quả. Với kinh nghiệm éo có nhiều (nên nghe thì nghe, ko nghe thì cũng không ảnh hưởng đến hòa bình thế giới ạ), theo mình thì Java Web Developer Starter pack nên như sau:
@@ -42,6 +43,5 @@ CSS thường ko phải là điểm cộng. Bootstrap cũng chỉ là optional. 
 Muốn giỏi, phải liên tục trau dồi, luyện tập ở cty và ở nhà, chăm chỉ đọc sách hoặc các site đánh giá, phân tích chuyên sâu về các kỹ thuật lập trình,... nếu kiến thức bạn chỉ lẩn quẩn như mấy cái trang mức basic như [tutorialspoint](https://www.tutorialspoint.com/) là chưa đủ. Mỗi khi học cái mới, mình cũng hay vào những trang đó để quan sát những cái nhìn ban đầu, sau đó mình thường tìm ebook trên mạng, tìm một loạt các bài viết phân tích về đọc, cuối cùng là thử làm một project nào đó, vừa làm vừa giải quyết vấn đề. Nói hươu nói vượn gì thì thành hay bại vẫn là ở chính các bạn. **_Đọc thật nhiều và code thật nhiều, đó chính là bí quyết_**
 ---
 tags:
-
 dev
 photo

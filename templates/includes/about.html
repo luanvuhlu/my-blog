@@ -1,3 +1,5 @@
+{% from "macros/translation.html" import transbag %}
+{% from "macros/translation.html" import transbagname %}
 <section id="about" class="section section-about">
     <div class="animate-up">
         <div class="section-box">
@@ -8,29 +10,29 @@
                     </div>
                     <div class="col-xs-7">
                         <div class="profile-info">
-                            <div class="profile-preword"><span>Hello</span></div>
-                            <h1 class="profile-title"><span>I'm</span> Luan Vu</h1>
+                            <div class="profile-preword"><span>{{ transbag('translate', this.alt, 'hello') }}</span></div>
+                            <h1 class="profile-title"><span>{{ transbag('translate', this.alt, 'i_m') }}</span> {{ transbag('translate', this.alt, 'my_name') }}</h1>
 
-                            <h2 class="profile-position">Developer</h2></div>
+                            <h2 class="profile-position">{{ transbag('translate', this.alt, 'developer') }}</h2></div>
                         <ul class="profile-list">
                             <li class="clearfix">
-                                <strong class="title">Age</strong>
+                                <strong class="title">{{ transbag('translate', this.alt, 'age') }}</strong>
                                 <span class="cont">26</span>
                             </li>
                             <li class="clearfix">
-                                <strong class="title">Address</strong>
+                                <strong class="title">{{ transbag('translate', this.alt, 'address') }}</strong>
                                 <span class="cont">Hanoi, Vietnam</span>
                             </li>
                             <li class="clearfix">
-                                <strong class="title">E-mail</strong>
+                                <strong class="title">{{ transbag('translate', this.alt, 'e-mail') }}</strong>
                                 <span class="cont"><a href="mailto:luanvuhlu@gmail.com">luanvuhlu@gmail.com</a></span>
                             </li>
                             <li class="clearfix">
-                                <strong class="title">Phone</strong>
+                                <strong class="title">{{ transbag('translate', this.alt, 'phone') }}</strong>
                                 <span class="cont"><a href="tel:+841648089101">+84 164 808 9101</a></span>
                             </li>
                             <li class="clearfix">
-                                <strong class="title">Freelance</strong>
+                                <strong class="title">{{ transbag('translate', this.alt, 'freelance') }}</strong>
                                 <span class="cont">maybe, why not</span>
                             </li>
                             <li class="clearfix">
@@ -58,8 +60,11 @@
         <div class="section-txt-btn">
             <p><a class="btn btn-lg btn-border ripple" target="_blank"
                   href="http://dev.novembit.com/rs_card/wp-content/uploads/2015/11/test-1.pdf">Download Resume</a></p>
-
-            <p>{{ bag('intro.intro.about') }}</p>
+            <div class="text-left">
+                {% for line in bag(transbagname('intro', this.alt) + 'intro.about') %}
+                    <div>{{ line }}</div>
+                {% endfor %}
+            </div>
         </div>
     </div>
 </section>

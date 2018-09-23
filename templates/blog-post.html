@@ -16,7 +16,7 @@
             <div class="post-data">
               <div class="post-tag">
                 {% for t in this.tags -%}
-                    <a href="{{ ('/blog@tag/' ~ t.lower())|url }}">
+                    <a href="{{ ('/tags/' ~ t.lower())|url }}">
                       #{{ t }}
                     </a>
                 {% endfor %}

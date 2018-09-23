@@ -29,7 +29,7 @@
 <!-- Modernizer for detect what features the user’s browser has to offer -->
 <script type="text/javascript" src="{{ '/static/js/libs/modernizr.js'|url }}"></script>
 
-<body class="home header-has-img"> <!-- add loading for progress bar -->
+<body class="home header-has-img {% block loading %}{% endblock %}"> <!-- add loading for progress bar -->
   <div class="mobile-nav">
     <button class="btn-mobile mobile-nav-close"><i class="rsicon rsicon-close"></i></button>
 
@@ -43,10 +43,12 @@
           <li><a href="{{ '/'|url }}#education">Education</a></li>
           <li><a href="{{ '/'|url }}#references">References</a></li>
           <li>
-            <a href="category.html">Blog</a>
+            <!-- <a href="{{ '/blog'|url }}">Blog</a> -->
+            <a href="{{ '/'|url }}#blog">Blog</a>
           </li>
-          <li><a href="{{ '/'|url }}#calendar">Calendar <span></span></a></li>
-          <li><a href="{{ '/'|url }}#contact">Contact <span></span></a></li>
+          <li><a href="{{ '/'|url }}#text-section">Fun <span></span></a></li>
+          <!-- <li><a href="{{ '/'|url }}#calendar">Calendar <span></span></a></li> -->
+          <!-- <li><a href="{{ '/'|url }}#contact">Contact <span></span></a></li> -->
         </ul>
       </nav>
     </div>
@@ -73,10 +75,12 @@
                     <li><a href="{{ '/'|url }}#education">Education</a></li>
                     <li><a href="{{ '/'|url }}#references">References</a></li>
                     <li>
-                      <a href="{{ '/blog'|url }}">Blog</a>
+                      <!-- <a href="{{ '/blog'|url }}">Blog</a> -->
+                      <a href="{{ '/'|url }}#blog">Blog</a>
                     </li>
-                    <li><a href="{{ '/'|url }}#calendar">Calendar <span></span></a></li>
-                    <li><a href="{{ '/'|url }}#contact">Contact <span></span></a></li>
+                    <li><a href="{{ '/'|url }}#text-section">Fun <span></span></a></li>
+                    <!-- <li><a href="{{ '/'|url }}#calendar">Calendar <span></span></a></li> -->
+                    <!-- <li><a href="{{ '/'|url }}#contact">Contact <span></span></a></li> -->
                   </ul>
                 </nav>
                 <button class="btn-mobile btn-mobile-nav">Menu</button>

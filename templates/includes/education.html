@@ -1,3 +1,5 @@
+{% from "macros/translation.html" import transbag %}
+{% from "macros/translation.html" import transbagname %}
 <section id="education" class="section section-education">
     <div class="animate-up">
         <h2 class="section-title">Education</h2>
@@ -5,55 +7,19 @@
         <div class="timeline">
             <div class="timeline-bar"></div>
             <div class="timeline-inner clearfix">
+                {% for education in bag(transbagname('intro', this.alt) + 'intro.educations') %}
+                    <div class="timeline-box timeline-box-compact timeline-box-{{ loop.cycle('left', 'right') }}">
+                        <span class="dot"></span>
 
-                <div class="timeline-box timeline-box-compact timeline-box-left">
-                    <span class="dot"></span>
+                        <div class="timeline-box-inner animate-{{ loop.cycle('right', 'left') }}">
+                            <span class="arrow"></span>
 
-                    <div class="timeline-box-inner animate-right">
-                        <span class="arrow"></span>
-
-                        <div class="date"><span>06/2018</span></div>
-                        <h3>Oracle Certified Professional Java SE 8 Programmer II</h3>
-                        <h4>Oracle</h4>
+                            <div class="date"><span>{{ education.date }}</span></div>
+                            <h3>{{ education.name }}</h3>
+                            <h4>{{ education.supplier }}</h4>
+                        </div>
                     </div>
-                </div>
-
-                <div class="timeline-box timeline-box-compact timeline-box-right">
-                    <span class="dot"></span>
-
-                    <div class="timeline-box-inner animate-left">
-                        <span class="arrow"></span>
-
-                        <div class="date"><span>03/2018</span></div>
-                        <h3>Oracle Certified Associate Java SE 8 Programmer I</h3>
-                        <h4>Oracle</h4>
-                    </div>
-                </div>
-
-                <div class="timeline-box timeline-box-compact timeline-box-left">
-                    <span class="dot"></span>
-
-                    <div class="timeline-box-inner animate-right">
-                        <span class="arrow"></span>
-
-                        <div class="date"><span>2012 - 2014</span></div>
-                        <h3>Aptech Certified Computer Professional</h3>
-                        <h4>Hanoi Aptech</h4>
-                    </div>
-                </div>
-
-                <div class="timeline-box timeline-box-compact timeline-box-right">
-                    <span class="dot"></span>
-
-                    <div class="timeline-box-inner animate-left">
-                        <span class="arrow"></span>
-
-                        <div class="date"><span>2010 - 2014</span></div>
-                        <h3>Bachelor of Laws</h3>
-                        <h4>Hanoi Law University</h4>
-                    </div>
-                </div>
-
+                {% endfor %}
             </div>
         </div>
     </div>

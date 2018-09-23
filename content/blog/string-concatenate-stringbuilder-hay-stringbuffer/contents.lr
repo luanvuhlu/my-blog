@@ -2,6 +2,9 @@ title: String concatenate, StringBuilder hay StringBuffer
 ---
 author: luanvv
 ---
+pub_date:
+2018-09-22
+---
 body:
 
 Đây có thể coi là một trong những vấn đề kinh điển khi phỏng vấn Java core. Và theo kinh nghiệm trải qua nhiều cuộc phỏng vấn của mình, những lập trình viên Java có từ 3 năm kinh nghiệm trở lên thì chỉ có khoảng 70% phân biệt được và tỉ lệ sử dụng chính xác(lý giải được lý do và cách sử dụng đúng) chỉ dưới 5%.
@@ -176,9 +179,6 @@ Với vòng lặp lớn, chắc chắn việc dùng *MessageFormat *hay khiến 
 ---
 cover: /../static/img/covers/1_-LxrwFGbck2QwGBBlVE48w.png
 ---
-pub_date: 2018-09-12
----
 tags:
-
 dev
 java

@@ -14,8 +14,11 @@
             </time>
 
             <div class="post-tag">
-                <a href="">#Photo</a>
-                <a href="">#Architect</a>
+                {% for t in post.tags -%}
+                    <a href="{{ ('/tags/' ~ t.lower())|url }}">
+                      #{{ t }}
+                    </a>
+                {% endfor %}
             </div>
 
             <h3 class="post-title">

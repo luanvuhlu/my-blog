@@ -4,3 +4,13 @@ name = www.luanvv.com
 [packages]
 lektor-tags = 0.2
 lektor-markdown-highlighter = 0.3
+
+[alternatives.en]
+name = English
+primary = yes
+locale = en_US
+
+[alternatives.vi]
+name = Việt Nam
+url_prefix = /vi/
+locale = vi_VN

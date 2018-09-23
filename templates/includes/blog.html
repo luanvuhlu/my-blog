@@ -1,75 +1,50 @@
 <section id="blog" class="section section-blog">
     <div class="animate-up">
         <h2 class="section-title">From The Blog</h2>
-
         <div class="blog-grid">
             <div class="grid-sizer"></div>
-            <div class="grid-item">
-                <article class="post-box">
-                    <div class="post-media">
-                        <div class="post-image">
-                            <a href="single.html"><img src="{{ '/static/img/uploads/thumb-449x286-1.jpg'|url }}" alt=""> </a>
-                        </div>
+            {% with blogposts = site.query('/blog').order_by('-pub_date').limit(4) %} 
+                {% for blogpost in blogposts %}
+                    <div class="grid-item">
+                        <article class="post-box">
+                            <div class="post-media">
+                                <div class="post-image">
+                                    <a href="{{ blogpost.url }}"><img src="{{ blogpost.cover }}" alt=""> </a>
+                                </div>
+                            </div>
+
+                            <div class="post-data">
+                                <time class="post-datetime" datetime="{{ blogpost.pub_date }}">
+                                    <span class="day">03</span>
+                                    <span class="month">MAY</span>
+                                </time>
+
+                                <div class="post-tag">
+                                    {% for t in blogpost.tags -%}
+                                        <a href="{{ ('/tags/' ~ t.lower())|url }}">
+                                        #{{ t }}
+                                        </a>
+                                    {% endfor %}
+                                </div>
+
+                                <h3 class="post-title">
+                                    <a href="{{ blogpost|url }}">{{ blogpost.title}}</a>
+                                </h3>
+
+                                <div class="post-info">
+                                    <a href=""><i class="rsicon rsicon-user"></i>by {{ blogpost.author }}</a>
+                                </div>
+                            </div>
+                        </article>
                     </div>
-
-                    <div class="post-data">
-                        <time class="post-datetime" datetime="2015-03-13T07:44:01+00:00">
-                            <span class="day">03</span>
-                            <span class="month">MAY</span>
-                        </time>
-
-                        <div class="post-tag">
-                            <a href="">#Java</a>
-                            <a href="">#Web</a>
-                        </div>
-
-                        <h3 class="post-title">
-                            <a href="luong-hoc-java-web.html">LUỒNG HỌC CHO JAVA WEB DEVELOPER</a>
-                        </h3>
-
-                        <div class="post-info">
-                            <a href=""><i class="rsicon rsicon-user"></i>by luanvv</a>
-                            <a href=""><i class="rsicon rsicon-comments"></i>56</a>
-                        </div>
-                    </div>
-                </article>
-            </div>
-
-            <div class="grid-item">
-                <article class="post-box">
-                    <div class="post-media">
-                        <div class="post-image">
-                            <a href="single-vimeo.html">
-                                <img src="{{ '/static/img/uploads/thumb-449x286-5.jpg'|url }}" alt="">
-                                <span class="post-type-icon"><i class="rsicon rsicon-play"></i></span>
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="post-data">
-                        <time class="post-datetime" datetime="2015-03-13T07:44:01+00:00">
-                            <span class="day">03</span>
-                            <span class="month">MAY</span>
-                        </time>
-
-                        <div class="post-tag">
-                            <a href="">#Photo</a>
-                            <a href="">#Architect</a>
-                        </div>
-
-                        <h3 class="post-title">
-                            <a href="single-vimeo.html">Vimeo Video Post</a>
-                        </h3>
-
-                        <div class="post-info">
-                            <a href=""><i class="rsicon rsicon-user"></i>by admin</a>
-                            <a href=""><i class="rsicon rsicon-comments"></i>56</a>
-                        </div>
-                    </div>
-                </article>
-            </div>
+                {% endfor %}
+            {% endwith  %}
         </div>
+        {% if blogposts|length > 4 %}
+            <div class="more-blog text-center">
+                <a href="#">Read more</a>
+            </div>
+        {% endif %}
     </div>
-
 </section>
 <!-- #blog -->
