@@ -2,6 +2,6 @@ title: Welcome to luan's blog!
 ---
 body: 
 ---
-_template: index.html
+_template: page.html
 ---
 _discoverable: yes

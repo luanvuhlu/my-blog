@@ -1,6 +1,11 @@
 {
     "intro": {
-        "about": "Hello ! I'm Luan Vu. Senior Web Developer specializing in Java development. Experienced with all stages of the development cycle for dynamic web projects. Well-versed in numerous programming languages including Python, Swift, JavaScript, SQL and of course, specialy Java. I have OCAJP and OCPJP certificates.",
+        "about": [
+            "Chào bạn ! Mình là Vũ Văn Luân, Senior Web Developer. 4 năm kinh nghiệm lập trình web, tất cả đều dùng Java, lại được tham gia hầu hết các giai đoạn của chu kỳ phát triển dự án web, đã từng dựng base nhiều dự án. Tuy vẫn còn rất nhiều mảng trong J2EE chưa có cơ hội thử sức, nhưng vẫn rất tự tin có thể làm việc tốt. Mình cũng vừa thi đố chứng chỉ OCAJP và OCPJP, dự định trong vài năm tới sẽ cố gắng thử sức với chứng chỉ OCM.",
+            "Ngoài Java web, mình cũng khá hứng thú với python, javascript và swift. Những lúc nhàn rỗi, mình rất thích code python. Truớc có thử Django và mình cực phấn khích với nó. Hiện vẫn còn vài project Django trên gihub. Ngoài ra cũng hay viết những script bằng python để crawl data, edit file, upload ảnh,...",
+            "Javascript thì cũng thử code ReactJs và React Native. ReactJs cũng khá hay, nhưng việc can thiệp quá nhiều HTML(thực tế là làm gì còn file HTML) lại không phải điều mình mong đợi. React Native thì thực sự là một trải nghiệm ...không vui vẻ gì. Ý tưởng rất hay, cách code quen thuộc, nhưng Performance tệ, code liên tục lỗi(không phải lỗi của mình) làm mình cực khó chịu, vậy nên \"say good bye\" luôn.",
+            "Song song với code, Devops cũng là một sở thích của mình, hiện đang tập tành sử dụng Docker."
+        ],
         "skills": [
             {
                 "title": "Java",
@@ -35,12 +40,24 @@
                 "value": "60"
             }
         ],
-        "works": [
+        "experiences": [
             {
-                "date": "03/2018 - now",
-                "address": "V.N.E.X.T",
-                "position": "FULL STACK DEVELOPER",
-                "desciption": "Worked as part of a multi-disciplinary team, carrying out ad-hoc tasks as requested by the IT Manager. Had a specific brief to ensure the websites build for customer’s precisely matched their requirements.developers and marketers."
+                "date": "03/2018 - hiện nay",
+                "address": "Công ty cổ phần V.N.E.X.T",
+                "position": "Senior Java developer",
+                "description": "Worked as part of a multi-disciplinary team, carrying out ad-hoc tasks as requested by the IT Manager. Had a specific brief to ensure the websites build for customer’s precisely matched their requirements.developers and marketers."
+            },
+            {
+                "date": "03/2015 - 03/2017",
+                "address": "Công ty TNHH Rikkeisoft",
+                "position": "Java developer",
+                "description": "Worked as part of a multi-disciplinary team, carrying out ad-hoc tasks as requested by the IT Manager. Had a specific brief to ensure the websites build for customer’s precisely matched their requirements.developers and marketers."
+            },
+            {
+                "date": "07/2014 - 01/2015",
+                "address": "Công ty điện toán và truyền số liệu (VDC)",
+                "position": "Cộng tác viên",
+                "description": "VDC là trải nghiệm đầu tiên của mình khi bước ra khỏi ghế nhà trường, và mình phải nói đó là một trải nghiệm rất tuyệt vời. Ở đây, mình thật sự choáng ngợp trước môi trường làm việc và những đàn anh, đàn chị nơi đây. Và mình, đã rất may mắn khi được làm việc tại đây, được các anh chị nơi đây chỉ dạy. "
             }
         ],
         "educations": [
@@ -48,6 +65,24 @@
                 "date": "06/2018",
                 "name": "Oracle Certified Professional Java SE 8 Programmer II",
                 "supplier": "ORACLE",
+                "desciption": ""
+            },
+            {
+                "date": "03/2018",
+                "name": "Oracle Certified Professional Java SE 8 Programmer I",
+                "supplier": "ORACLE",
+                "desciption": ""
+            },
+            {
+                "date": "2012 - 2014",
+                "name": "Aptech Certified Computer Professional",
+                "supplier": "HANOI APTECH",
+                "desciption": ""
+            },
+            {
+                "date": "2010 - 2014",
+                "name": "Bachelor of Laws",
+                "supplier": "HANOI LAW UNIVERSITY",
                 "desciption": ""
             }
         ],
@@ -59,6 +94,8 @@
                 "content": ""
             }
         ],
-        "fun_description": "Hello! I’m Robert Smith and this is custom editor section. You can add here any text or \"Strikethrough\" text and even you can add bulleted or numbered text and even you will be able to add blockquot text. You can align this text to left/right/center. One of the most interesting options is to divide this section to \"One half\" \"One Third\" and \"One Fourth\". You can use this for Honors or Achievments or Awards sections. You can insert images and photos right in this editor!"
+        "fun_description": [
+            "Hello! I’m Robert Smith and this is custom editor section. You can add here any text or \"Strikethrough\" text and even you can add bulleted or numbered text and even you will be able to add blockquot text. You can align this text to left/right/center. One of the most interesting options is to divide this section to \"One half\" \"One Third\" and \"One Fourth\". You can use this for Honors or Achievments or Awards sections. You can insert images and photos right in this editor!"
+        ]
     }
 }
