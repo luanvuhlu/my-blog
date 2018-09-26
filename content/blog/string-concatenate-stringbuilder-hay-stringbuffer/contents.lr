@@ -177,7 +177,7 @@ Với vòng lặp lớn, chắc chắn việc dùng *MessageFormat *hay khiến 
 
 *String/StringBuilder/StringBuffer *tưởng đơn giản mà thật ra lại có rất nhiều vấn đề cần tìm hiểu, các bạn nên nghiên cứu kỹ về cấu trúc và cách thức hoạt động của chúng, từ đó biết được cách code tối ưu nhất. Thật tiếc là hiện nay mình chưa có điều kiện làm việc với Java 9, vì Java 9 có cách xử lý String cực kỳ khác so với từ Java 8 trở về trước, đành nợ các bạn ở những bài viết sau.
 ---
-cover: /../static/img/covers/1_-LxrwFGbck2QwGBBlVE48w.png
+cover: covers/1_-LxrwFGbck2QwGBBlVE48w.png
 ---
 tags:
 dev
