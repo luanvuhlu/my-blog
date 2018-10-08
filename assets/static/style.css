@@ -6681,4 +6681,7 @@ body {
     padding: 20px;
     font-size: 20px;
  }
+ .section-clients .client-logo img {
+    max-height: 80px;
+ }
 /* end my style */

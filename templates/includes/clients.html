@@ -1,50 +1,16 @@
+{% from "macros/translation.html" import transbag %}
+{% from "macros/translation.html" import transbagname %}
 <section id="clients" class="section section-clients">
     <div class="animate-up">
 
         <div class="clients-carousel">
-            <div class="client-logo">
-                <a href="http://market.envato.com" target="_blank"><img src="{{ '/static/img/uploads/logos/logo-envato.png'|url }}"
-                                                                        title="envato" alt="envato"/></a>
-            </div>
-
-            <div class="client-logo">
-                <img src="{{ '/static/img/uploads/logos/logo-angularjs.png'|url }}" title="angular js" alt="angular js"/>
-            </div>
-
-            <div class="client-logo">
-                <a href="https://www.omniref.com/ruby/gems/teaspoon/0.7.9" target="_blank"><img
-                        src="{{ '/static/img/uploads/logos/logo-teaspoon.png'|url }}" title="teaspoon" alt="teaspoon"/></a>
-            </div>
-
-            <div class="client-logo">
-                <a href="https://wordpress.com" target="_blank"><img src="{{ '/static/img/uploads/logos/logo-wordpress.png'|url }}"
-                                                                     title="wordpress" alt="wordpress"/></a>
-            </div>
-
-            <div class="client-logo">
-                <a href="https://evernote.com" target="_blank"><img src="{{ '/static/img/uploads/logos/logo-evernote.png'|url }}"
-                                                                    title="evernote" alt="evernote"/></a>
-            </div>
-
-            <div class="client-logo">
-                <a href="http://compass-style.org" target="_blank"><img src="{{ '/static/img/uploads/logos/logo-compass.png'|url }}"
-                                                                        title="compass" alt="compass"/></a>
-            </div>
-
-            <div class="client-logo">
-                <a href="http://getbootstrap.com" target="_blank"><img src="{{ '/static/img/uploads/logos/logo-bootstrap.png'|url }}"
-                                                                       title="bootstrap" alt="bootstrap"/></a>
-            </div>
-
-            <div class="client-logo">
-                <a href="http://jasmine.github.io" target="_blank"><img src="{{ '/static/img/uploads/logos/logo-jasmine.png'|url }}"
-                                                                        title="jasmine" alt="jasmine"/></a>
-            </div>
-
-            <div class="client-logo">
-                <a href="https://jquery.com" target="_blank"><img src="{{ '/static/img/uploads/logos/logo-jquery.png'|url }}" title="jquery"
-                                                                  alt="jquery"/></a>
-            </div>
+            {% for brand in bag(transbagname('intro', this.alt) + 'intro.brands') %}
+                <div class="client-logo">
+                    <a href="{{ brand,url }}" target="_blank">
+                        <img src="{{ '/static/img/'|url + brand.img }}"
+                            title="{{ brand.title }}" alt="{{ brand.title }}"/></a>
+                </div>
+            {% endfor %}
         </div>
     </div>
 </section>
