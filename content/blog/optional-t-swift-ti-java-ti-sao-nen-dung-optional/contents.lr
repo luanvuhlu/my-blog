@@ -1,3 +1,4 @@
+
 title: Optional, từ Swift tới Java. Tại sao nên dùng Optional?
 ---
 author: luanvv
@@ -16,7 +17,7 @@ Còn Apple thì nói *Optional* là:
 
 ![](https://cdn-images-1.medium.com/max/2000/0*sOLaII80edhn7K9y.jpg)
 
-Giải pháp này tương tự như [*Null Object](https://en.wikipedia.org/wiki/Null_object_pattern)* trong ***Design Pattern***. Tư tưởng của *Null Object* là thay vì sử dụng một reference có thể null, ta sử dụng một đối tượng thay thế cho reference đó, nhưng ở “trạng thái” null, và thực tế khi sử dụng, thay vì sử dụng những behavior thông thường của reference thì ta cài đè những behavior riêng cho nullable reference. Từ đó, người sử dụng không cần quan tâm đến việc reference đó có null hay không? Vì code implement bên trong đã điều hướng giúp họ rồi.
+Giải pháp này tương tự như **[Null Object](https://en.wikipedia.org/wiki/Null_object_pattern)** trong ***Design Pattern***. Tư tưởng của *Null Object* là thay vì sử dụng một reference có thể null, ta sử dụng một đối tượng thay thế cho reference đó, nhưng ở “trạng thái” null, và thực tế khi sử dụng, thay vì sử dụng những behavior thông thường của reference thì ta cài đè những behavior riêng cho nullable reference. Từ đó, người sử dụng không cần quan tâm đến việc reference đó có null hay không? Vì code implement bên trong đã điều hướng giúp họ rồi.
 
 ### **Lý do tại sao nhiều người chưa dùng Optional?**
 
@@ -115,15 +116,15 @@ Câu trả lời, thật ra đã được nói ở trên. Giống như *Swift*, 
 
 Hãy thử với một số method khá quen thuộc trong JPA/Spring Data JPA/Hibernate(bản mới nhất hiện nay):
 
-Dưới đây là hàm tìm kiếm theo ID của[ *javax.persistence.EntityManager](https://docs.oracle.com/javaee/7/api/javax/persistence/EntityManager.html#find-java.lang.Class-java.lang.Object-)*
+Dưới đây là hàm tìm kiếm theo ID của **[javax.persistence.EntityManager](https://docs.oracle.com/javaee/7/api/javax/persistence/EntityManager.html#find-java.lang.Class-java.lang.Object-)**
 
     public <T> T getReference(Class<T> entityClass, Object primaryKey)
 
-vẫn là chức năng đó, nhưng được viết trong [*JpaRepository](https://docs.spring.io/spring-data/data-jpa/docs/current/api/org/springframework/data/jpa/repository/JpaRepository.html#getOne-ID-)*
+vẫn là chức năng đó, nhưng được viết trong **[JpaRepository](https://docs.spring.io/spring-data/data-jpa/docs/current/api/org/springframework/data/jpa/repository/JpaRepository.html#getOne-ID-)**
 
     T getOne(ID id)
 
-còn đây là trong [*CrudRepository](https://docs.spring.io/spring-data/commons/docs/current/api/org/springframework/data/repository/CrudRepository.html#findById-ID-)*
+còn đây là trong **[CrudRepository](https://docs.spring.io/spring-data/commons/docs/current/api/org/springframework/data/repository/CrudRepository.html#findById-ID-)**
 
     Optional<T> findById(ID id)
 
@@ -155,7 +156,7 @@ Hãy nở nụ cười thật tươi và nói: Welcome to Java 8!
 
 ### Tóm lại
 
-*Optional *trong *Swift *có thể tốt hơn Java, *Null Safety* trong *Kotlin *có vẻ có ích hơn, nhưng lỗi *null reference* vẫn sẽ không bao giờ buông tha các dev dùng ngôn ngữ đó. Công cụ có thể quan trọng, nhưng con người mới là yếu tốt quan trọng hơn cả. Bạn vẫn có thể code **Java 8** mà không cần dùng *Optional*, cũng giống như bạn có thể code mà không cần có bất kỳ kiến thức nào về **C*oding convention**, **Refactoring** *hay ***Design Pattern***. Còn nếu bạn nói: “*tôi cần Coding convention, Refactoring hay Design Pattern”, *hãy thử *Optional *của Java nhưng tưởng tượng như đang dùng *Swift*.
+**Optional** trong *Swift* có thể tốt hơn Java, **Null Safety** trong *Kotlin* có vẻ có ích hơn, nhưng lỗi *null reference* vẫn sẽ không bao giờ buông tha các dev dùng ngôn ngữ đó. Công cụ có thể quan trọng, nhưng con người mới là yếu tốt quan trọng hơn cả. Bạn vẫn có thể code **Java 8** mà không cần dùng *Optional*, cũng giống như bạn có thể code mà không cần có bất kỳ kiến thức nào về **Coding convention**, **Refactoring** *hay **Design Pattern**. Còn nếu bạn nói: “*tôi cần Coding convention, Refactoring hay Design Pattern*”, hãy thử *Optional* của Java nhưng tưởng tượng như đang dùng *Swift.
 
 ### **Tham khảo**
 
