@@ -41,6 +41,10 @@ Output maybe, I'm not sure.
 ```
 /Users/luanvv/.../build-cache/6fdaeecab78d6aa99f86f586ab15da06
 ```
+Upload to Google Cloud Storage
+```
+gsutil cp -r -m -o -U [LOCAL_OBJECT_LOCATION] gs://[DESTINATION_BUCKET_NAME]/
+```
 ## Usage
 Lektor provides an admin site(at link [http://localhost:5000/admin](http://localhost:5000/admin)), so you can create, edit and preview any blog/page here
 ## Built With
