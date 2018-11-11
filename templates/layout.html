@@ -31,7 +31,7 @@
 <!-- Modernizer for detect what features the user’s browser has to offer -->
 <script type="text/javascript" src="{{ '/static/js/libs/modernizr.js'|url }}"></script>
 
-<body class="home header-has-img {% block loading %}{% endblock %}"> <!-- add loading for progress bar -->
+<body class="home {% block loading %}{% endblock %}"> <!-- add loading for progress bar -->
   <div class="mobile-nav">
     <button class="btn-mobile mobile-nav-close"><i class="rsicon rsicon-close"></i></button>
 
@@ -122,7 +122,7 @@ x`
     <div class="preload-text">Loading ...</div>
   </div>
   <!-- Scripts -->
-  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"></script>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
   <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
   <script type="text/javascript" src="{{ '/static/fonts/map-icons/js/map-icons.min.js'|url }}"></script>
   <script type="text/javascript" src="{{ '/static/js/plugins/jquery.mousewheel-3.0.6.pack.js'|url }}"></script>
@@ -138,5 +138,6 @@ x`
   <script type="text/javascript" src="{{ '/static/js/plugins/jquery.owlcarousel/owl.carousel.min.js'|url }}"></script>
   <script type="text/javascript" src="{{ '/static/js/options.js'|url }}"></script>
   <script type="text/javascript" src="{{ '/static/js/site.js'|url }}"></script>
+  <script type="text/javascript" src="{{ '/static/js/myjs.js'|url }}"></script>
 </body>
 </html>

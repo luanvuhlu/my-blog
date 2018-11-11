@@ -25,9 +25,9 @@
               <div class="post-title-wrap">
                 <h1 class="post-title">{{ this.title }}</h1>
                 <time class="post-datetime" datetime="2015-03-13T07:44:01+00:00">
-                  <span class="day">03</span>
-                  <span class="month">MAY</span>
-                  <!-- <span class="year">2018</span> -->
+                  <span class="day">{{ this.pub_date.day }}</span>
+                  <span class="month">{{ this.pub_date.strftime("%b")|upper }}</span>
+                  <span class="year">{{ this.pub_date.year }}</span>
                 </time>
               </div>
 

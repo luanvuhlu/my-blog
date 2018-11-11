@@ -6684,4 +6684,16 @@ body {
  .section-clients .client-logo img {
     max-height: 80px;
  }
+ .post-datetime{
+    height: 82px;
+ }
+ .post-datetime .month{
+    font-size: 17px;
+ }
+ .post-datetime .year{
+    font-size: 20px;
+ }
+.post-editor .img-block{
+  text-align: center;
+}
 /* end my style */

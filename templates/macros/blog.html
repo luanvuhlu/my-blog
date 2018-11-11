@@ -9,8 +9,9 @@
 
         <div class="post-data">
             <time class="post-datetime" datetime="{{post.pub_date}}">
-                <span class="day">03</span>
-                <span class="month">MAY</span>
+                <span class="day">{{ post.pub_date.day }}</span>
+                <span class="month">{{ post.pub_date.strftime("%b")|upper }}</span>
+                <span class="year">{{ post.pub_date.year }}</span>
             </time>
 
             <div class="post-tag">

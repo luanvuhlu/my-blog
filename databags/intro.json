@@ -44,7 +44,7 @@
                 "date": "03/2018 - hiện nay",
                 "address": "Công ty cổ phần V.N.E.X.T",
                 "position": "Senior Java developer",
-                "description": "Cảm thấy khoảng chững khi làm việc tại Rikkeisoft, lại thêm một số vấn đề khác nên mình rời Rikkeisoft. Những tưởng ở công ty là khó khăn, sang bên V.N.E.X.T còn kinh khủng hơn. Mới chân ướt chân ráo bước ra ngoài xã hội đã bị vứt ngay vào dự án khó nhằn, lại còn bắt làm lead, chịu trách nhiệm tất cả kỹ thuật trong dự án. Khách hàng thì ngồi cạnh, cứ ba buổi một tuần lại lôi đi hỏi kỹ thuật, tình hình đến đâu rồi, sợ vãi linh hồn. Nhưng chính những điều đó đã giúp mình trưởng thành rất nhiều. Không còn anh lead để \"đứng mũi chịu xào\" cho dự án; luôn phải đối mặt với khách hàng(rất giỏi kỹ thuật), sự giúp đỡ về mặt tinh thần và vật chất của anh chị em, của các sếp là nguồn động lực rất lớn để mình học tập, trau dồi và hoàn thiện kiến thức không ngừng nghỉ."
+                "description": "Cảm thấy khoảng chững khi làm việc tại Rikkeisoft, lại thêm một số vấn đề khác nên mình rời Rikkeisoft. Những tưởng ở Rikkeisoft là khó khăn, sang bên V.N.E.X.T còn kinh khủng hơn. Mới chân ướt chân ráo bước ra ngoài xã hội đã bị vứt ngay vào dự án khó nhằn, lại còn bắt làm lead, chịu trách nhiệm tất cả kỹ thuật trong dự án. Khách hàng thì ngồi cạnh, cứ ba buổi một tuần lại lôi đi hỏi kỹ thuật, tình hình đến đâu rồi, sợ vãi linh hồn. Nhưng chính những điều đó đã giúp mình trưởng thành rất nhiều. Không còn anh lead để \"đứng mũi chịu xào\" cho dự án; luôn phải đối mặt với khách hàng(rất giỏi kỹ thuật), sự giúp đỡ về mặt tinh thần và vật chất của anh chị em, của các sếp là nguồn động lực rất lớn để mình học tập, trau dồi và hoàn thiện kiến thức không ngừng nghỉ."
             },
             {
                 "date": "03/2015 - 03/2017",
@@ -60,6 +60,12 @@
             }
         ],
         "educations": [
+            {
+                "date": "11/2018",
+                "name": "Certified IT Architect – Foundation (CITA-F)",
+                "supplier": "IASA Global",
+                "desciption": ""
+            },
             {
                 "date": "06/2018",
                 "name": "Oracle Certified Professional Java SE 8 Programmer II",
