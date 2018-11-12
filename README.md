@@ -29,9 +29,18 @@ lektor serve
 lekto monitors your files so any change will apply immediately. Open link [http://localhost:5000](http://localhost:5000) and view your(or mine) website
 ## Deployment
 
-I said that is's a static website, right? You don't need *"serve"* it by a python program, just build it to static content(maybe any thing your browsers can understand perfectly)
+I said that is's a static website, right? You don't need *"serve"* it by a python program, just build it to static content(maybe any thing your browsers can understand perfectly)  
+First, clean your build
+```
+lektor clean --yes
+```
+then, lets build it
 ```
 lektor build
+```
+or
+```
+lektor build -f minify
 ```
 Then, lektor build it to an folder. This is a part which I don't like lektor. It creates whole files to  what the hell folder we can't know surely. You have to run below command to know(that's really inconvenient way to know)
 ```
@@ -43,7 +52,7 @@ Output maybe, I'm not sure.
 ```
 Upload to Google Cloud Storage
 ```
-gsutil cp -r -m -o -U [LOCAL_OBJECT_LOCATION] gs://[DESTINATION_BUCKET_NAME]/
+gsutil -m cp -R [LOCAL_OBJECT_LOCATION] gs://[DESTINATION_BUCKET_NAME]/
 ```
 ## Usage
 Lektor provides an admin site(at link [http://localhost:5000/admin](http://localhost:5000/admin)), so you can create, edit and preview any blog/page here
