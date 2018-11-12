@@ -54,6 +54,10 @@ Upload to Google Cloud Storage
 ```
 gsutil -m cp -R [LOCAL_OBJECT_LOCATION] gs://[DESTINATION_BUCKET_NAME]/
 ```
+or you want to set cache-control
+```
+gsutil -h "Cache-Control:public,max-age=7200" -m cp -a public-read -r [LOCAL_OBJECT_LOCATION] gs://[DESTINATION_BUCKET_NAME]/
+```
 ## Usage
 Lektor provides an admin site(at link [http://localhost:5000/admin](http://localhost:5000/admin)), so you can create, edit and preview any blog/page here
 ## Built With
