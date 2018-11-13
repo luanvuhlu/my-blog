@@ -3,7 +3,14 @@
     <article class="post-box animate-up animated">
         <div class="post-media">
             <div class="post-image">
-                <a href="{{ post|url }}"><img src="{{ '/static/img/'|url + post.cover}}" alt=""> </a>
+                <a href="{{ post|url }}">
+                    {% with cover = '/static/img/'|url + post.cover %}
+                    <img 
+                        src="#" 
+                        style="background-size: contain;background-repeat: no-repeat; background-position: center center;background-image: url('{{cover}}');width: 458px;height:300px;"
+                        alt="">
+                    {% endwith %}
+                </a>
             </div>
         </div>
 

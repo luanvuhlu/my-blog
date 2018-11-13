@@ -3,19 +3,19 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="{{ '/static/style.css'|url }}">
+<!-- <link rel="stylesheet" href="{{ '/static/style.css'|url }}"> -->
 <title>{% block title %}Luan Vu Resume{% endblock %} — luanvv.com</title>
 <!-- Favicon -->
-<link rel="shortcut icon" type="image/ico" href="{{ '/static/img/favicon.png'|url }}" />
+<!-- <link rel="shortcut icon" type="image/ico" href="{{ '/static/img/favicon.png'|url }}" /> -->
 <!-- Google Fonts -->
-<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Fredoka+One">
-<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic,700,700italic,800,800italic">
+<!-- <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Fredoka+One">
+<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic,700,700italic,800,800italic"> -->
 <!-- Icon Fonts -->
-<link rel="stylesheet" type="text/css" href="{{ '/static/fonts/map-icons/css/map-icons.min.css'|url }}">
+<!-- <link rel="stylesheet" type="text/css" href="{{ '/static/fonts/map-icons/css/map-icons.min.css'|url }}"> -->
 <link rel="stylesheet" type="text/css" href="{{ '/static/fonts/icomoon/style.css'|url }}">
 <!-- Styles -->
 <link rel="stylesheet" type="text/css" href="{{ '/static/js/plugins/jquery.bxslider/jquery.bxslider.css'|url }}">
-<link rel="stylesheet" type="text/css" href="{{ '/static/js/plugins/jquery.customscroll/jquery.mCustomScrollbar.min.css'|url }}">
+<!-- <link rel="stylesheet" type="text/css" href="{{ '/static/js/plugins/jquery.customscroll/jquery.mCustomScrollbar.min.css'|url }}"> -->
 <link rel="stylesheet" type="text/css" href="{{ '/static/js/plugins/jquery.mediaelement/mediaelementplayer.min.css'|url }}">
 <link rel="stylesheet" type="text/css" href="{{ '/static/js/plugins/jquery.fancybox/jquery.fancybox.css'|url }}">
 <link rel="stylesheet" type="text/css" href="{{ '/static/js/plugins/jquery.owlcarousel/owl.carousel.css'|url }}">
@@ -58,9 +58,9 @@ x`
   </div><!-- .mobile-nav -->
   <div class="wrapper">
     <header class="header">
-      {% with cover = '/static/img/uploads/rs-cover.jpg'|url %}
+      {#{% with cover = '/static/img/uploads/rs-cover.jpg'|url %}
       <div class="head-bg" style="background-image: url('{{ cover }}')"></div>
-      {% endwith %}
+      {% endwith %}#}
       <div class="head-bar">
         <div class="head-bar-inner">
           <div class="row">
@@ -104,13 +104,31 @@ x`
     <footer class="footer">
       <div class="footer-social">
         <ul class="social">
-          <li><a class="ripple-centered" href="" target="_blank"><i class="rsicon rsicon-facebook"></i></a></li>
-          <li><a class="ripple-centered" href="" target="_blank"><i class="rsicon rsicon-twitter"></i></a></li>
-          <li><a class="ripple-centered" href="" target="_blank"><i class="rsicon rsicon-linkedin"></i></a></li>
-          <li><a class="ripple-centered" href="" target="_blank"><i class="rsicon rsicon-google-plus"></i></a></li>
-          <li><a class="ripple-centered" href="" target="_blank"><i class="rsicon rsicon-dribbble"></i></a></li>
-          <li><a class="ripple-centered" href="" target="_blank"><i class="rsicon rsicon-instagram"></i></a></li>
-        </ul>
+          <li>
+              <a class="ripple-centered" rel="noopener" target="_blank" href="https://github.com/luanvuhlu">
+                  <i class="rsicon rsicon-github"></i>
+              </a>
+          </li>
+          <li>
+              <a class="ripple-centered" rel="noopener" target="_blank" href="https://www.facebook.com/luanvuhlu" target="_blank">
+                  <i class="rsicon rsicon-facebook"></i>
+              </a>
+          </li>
+          <li>
+              <a class="ripple-centered" rel="noopener" target="_blank" href="https://www.linkedin.com/in/luanvv/" target="_blank">
+                  <i class="rsicon rsicon-linkedin"></i>
+              </a>
+          </li>
+          <li>
+              <a class="ripple-centered" rel="noopener" target="_blank" href="skype:luanvuhlu"><i
+                  class="rsicon rsicon-skype"></i>
+              </a>
+          </li>
+          <li>
+              <a class="ripple-centered" rel="noopener" target="_blank" href="mailto:luanvuhlu@gmail.com">
+                  <i class="rsicon rsicon-email"></i>
+              </a>
+          </li>
       </div>
     </footer><!-- .footer -->
   </div><!-- .wrapper -->
@@ -123,18 +141,17 @@ x`
   </div>
   <!-- Scripts -->
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
-  <script type="text/javascript" src="{{ '/static/fonts/map-icons/js/map-icons.min.js'|url }}"></script>
+<!--   <script type="text/javascript" src="{{ '/static/fonts/map-icons/js/map-icons.min.js'|url }}"></script> -->
   <script type="text/javascript" src="{{ '/static/js/plugins/jquery.mousewheel-3.0.6.pack.js'|url }}"></script>
   <script type="text/javascript" src="{{ '/static/js/plugins/imagesloaded.pkgd.min.js'|url }}"></script>
   <script type="text/javascript" src="{{ '/static/js/plugins/isotope.pkgd.min.js'|url }}"></script>
   <script type="text/javascript" src="{{ '/static/js/plugins/jquery.appear.min.js'|url }}"></script>
   <script type="text/javascript" src="{{ '/static/js/plugins/jquery.onepagenav.min.js'|url }}"></script>
   <script type="text/javascript" src="{{ '/static/js/plugins/jquery.bxslider/jquery.bxslider.min.js'|url }}"></script>
-  <script type="text/javascript" src="{{ '/static/js/plugins/jquery.customscroll/jquery.mCustomScrollbar.concat.min.js'|url }}"></script>
-  <script type="text/javascript" src="{{ '/static/js/plugins/jquery.mediaelement/mediaelement-and-player.min.js'|url }}"></script>
+ <!--  <script type="text/javascript" src="{{ '/static/js/plugins/jquery.customscroll/jquery.mCustomScrollbar.concat.min.js'|url }}"></script> -->
+  <!-- <script type="text/javascript" src="{{ '/static/js/plugins/jquery.mediaelement/mediaelement-and-player.min.js'|url }}"></script> -->
   <script type="text/javascript" src="{{ '/static/js/plugins/jquery.fancybox/jquery.fancybox.pack.js'|url }}"></script>
-  <script type="text/javascript" src="{{ '/static/js/plugins/jquery.fancybox/helpers/jquery.fancybox-media.js'|url }}"></script>
+ <!--  <script type="text/javascript" src="{{ '/static/js/plugins/jquery.fancybox/helpers/jquery.fancybox-media.js'|url }}"></script> -->
   <script type="text/javascript" src="{{ '/static/js/plugins/jquery.owlcarousel/owl.carousel.min.js'|url }}"></script>
   <script type="text/javascript" src="{{ '/static/js/options.js'|url }}"></script>
   <script type="text/javascript" src="{{ '/static/js/site.js'|url }}"></script>
@@ -147,5 +164,6 @@ x`
     gtag('js', new Date());
     gtag('config', 'UA-128976168-1');
   </script>
+  {% block foot_static %}{% endblock %}
 </body>
 </html>

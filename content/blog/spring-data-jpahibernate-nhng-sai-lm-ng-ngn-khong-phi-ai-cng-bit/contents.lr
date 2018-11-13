@@ -2,7 +2,7 @@ title: Spring data JPA/Hibernate: Những sai lầm rất dễ gặp phải
 ---
 author: luanvv
 ---
-pub_date: 2018-10-18
+pub_date: 2018-11-11
 ---
 tags:
 
@@ -25,7 +25,7 @@ Những điều dưới đây phụ thuộc rất nhiều vào loại database, 
 
 ## Thứ nhất, bỏ quên Eager Fetching
 
-Thời điểm đầu tiên khi sử dụng Hibernate, mình không hề biết: Fetching Type mặc định của *ManyToOne *là **EAGER Fetching**. Một ngày đẹp trời, sếp quay ra hỏi: “*Sao đoạn này select có một record mà câu SQL nó dài 2 trang A4 với 30 câu JOIN thế này?*”. Lúc này mới té ngửa ra đi tìm hiểu, cảm giác mình rất chi là “*gà*”.
+Thời điểm đầu tiên khi sử dụng Hibernate, mình không hề biết: Fetching Type mặc định của *ManyToOne *là **EAGER Fetching**. Một ngày đẹp trời, sếp quay ra hỏi: *“Sao đoạn này select có một record mà câu SQL nó dài 2 trang A4 với 30 câu JOIN thế này?”*. Lúc này mới té ngửa ra đi tìm hiểu, cảm giác mình rất chi là “*gà*”.
 
 EAGER Fetching là một tính năng rất hay của Hibernate, nó giúp bạn sử dụng ORM một cách tự nhiên hơn.
 
@@ -71,7 +71,7 @@ Khi bạn viết câu select, bạn có thể tùy ý chọn lựa việc join l
 
 Cuộc sống luôn có những điều trái ngang!
 
-Nếu bạn sử dụng **Lazy Fetching **như ở trên thì lại gặp trường hợp [*org.hibernate.LazyInitializationException](https://docs.jboss.org/hibernate/orm/3.5/api/org/hibernate/LazyInitializationException.html), *hoặc đau đớn hơn là vấn đề N+1 query âm thầm tiêu diệt chương trình của bạn một cách chậm rãi.
+Nếu bạn sử dụng **Lazy Fetching **như ở trên thì lại gặp trường hợp *[org.hibernate.LazyInitializationException](https://docs.jboss.org/hibernate/orm/3.5/api/org/hibernate/LazyInitializationException.html)*, hoặc đau đớn hơn là vấn đề N+1 query âm thầm tiêu diệt chương trình của bạn một cách chậm rãi.
 
 ### LazyInitializationException và N+1 query
 
@@ -91,9 +91,9 @@ Nên nhớ fetching type của association **Company **đã là Lazy, sẽ khôn
 
 Hãy để ý trong trường hợp trên, Hibernate sẽ lấy tất cả các column của bảng User, bao gồm cả các FK(car_id, office_id và company_id). Dữ liệu trong bảng User là
 
-    car_id = **null;**
-    office_id = **null;**
-    company_id = **1;**
+    car_id = *null;*
+    office_id = *null;*
+    company_id = *1;*
 
 khi nhận thấy FK company có giá trị, Hibernate lập tức khởi tạo một object Company(dù ta chưa hề join) và gán id cho nó bằng 1. Điều đó có nghĩa là ta có thể lấy ra id của company object từ user một cách bình thường, nhưng *code* của company đó thì không.
 
@@ -267,7 +267,7 @@ Câu lệnh SQL nên là:
 
 ![](https://cdn-images-1.medium.com/max/2000/1*bXpbe-oxGlWp3acRZdn0fw.png)
 
-Trường hợp tương tự khi bạn sử dụng điều kiện hỗn hợp, trong đó có một điều kiến ử dụng với composite primary key
+Trường hợp tương tự khi bạn sử dụng điều kiện hỗn hợp, trong đó có một điều kiện sử dụng với composite primary key
 
 Ta thử dùng một method trong repository của User entity
 
@@ -333,7 +333,7 @@ Làm sao phân biệt? Câu trả lời là không thể nếu bạn select như
 
 ![](https://cdn-images-1.medium.com/max/2000/1*0SUpSkSAG3Z5dR6EZomdXQ.png)
 
-Nhiều bạn sẽ thắc mắc ở đây là tại sao không lấy ra mảng Object thôi, tại sao lại phải list mảng object. Thì câu trả lời là dù bạn khai báo kiểu trả về là ***Object[]** *thì trên thực tế trả về vẫn là ***Object[][]***, và bạn phải cast rất nhiều mới lấy ra cái cần, vậy nên hãy luôn trả về ***List<Object[]> ***dù bạn chỉ lấy 1 record(tuyệt đối đừng bao giờ là **Object[] **với nhiều field)
+Nhiều bạn sẽ thắc mắc ở đây là tại sao không lấy ra mảng Object thôi, tại sao lại phải list mảng object. Thì câu trả lời là dù bạn khai báo kiểu trả về là **_Object[]_** thì trên thực tế trả về vẫn là **_Object[][]_**, và bạn phải cast rất nhiều mới lấy ra cái cần, vậy nên hãy luôn trả về **_List<Object[]>_** dù bạn chỉ lấy 1 record(tuyệt đối đừng bao giờ là **_Object[]_** với nhiều field)
 
 Sửa service như sau:
 

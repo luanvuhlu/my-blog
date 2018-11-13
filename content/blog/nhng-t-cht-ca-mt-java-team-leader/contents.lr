@@ -1,0 +1,69 @@
+title: Những tố chất của một Java Team Leader
+---
+author: luanvv
+---
+_hidden: yes
+---
+body:
+
+### Những tố chất của Java Team Leader:
+
+1. Nguồn gốc, đặc điểm của Java
+
+- Hiểu được nguồn gốc của Java: Sự ra đời, lịch sử
+- Ưu, nhược điểm của Java
+- Sự phát triển của Java hiện nay
+
+1.  Java core
+
+-  Nắm vững được kỹ thuật lập trình hướng đối tượng OOP
+- Nắm vững các feature của Java: class, interface, data type, exception, generic, varargs, I/O, NIO.
+
+1. Java advance
+
+- Hiểu biết tốt về JDBC: các loại ResultSet, Statement, batch process,…
+- Nêu và nắm vững các Java collection cơ bản: List, Set, Map, ArrayList, LinkedList, HashSet, LinkedHashSet,… Nêu được ưu, nhược điểm và đưa ra lựa chọn collection phù hợp cho mỗi bài toán cụ thể.
+- Hiểu và làm việc tốt với đa luồng: các khái niệm trong đa luồng(Race Conditions, Synchronized, Deadlocks, Livelocks, Lock Starvation), các keyword trong Java cho xử lý đa luồng, các class, collection tối ưu cho đa luồng
+- Có hiểu biết và sử dụng tốt một số library, framework: JSP/Servlet, Spring, JPA, Hibernate, EJB,… 
+
+1. Database
+
+   Oracle Database, MySQL,…
+
+2. Coding skill
+
+   Design Pattern, Refactoring.
+
+3. Version Control
+
+   làm việc tốt với các VCS như Git, SVN, Visual Sourcesafe
+
+4. Khác
+
+- Có hiểu biết về nguyên lý, các thành phần cơ bản của các hệ điều hành máy tính phổ biến : window, unix, linux. Đặc biệt cần làm việc tốt với Linux.
+- Hiểu một số khái niệm cơ bản về IT : network, server, client, TCP/IP,…
+- Nắm được một số công nghệ để xây dựng các ứng dụng high security, availability, scalability,…
+
+1. Kỹ năng
+
+- Nắm bắt nhanh các library, framework mới. Có khả năng modify, extend cho phù hợp hơn với yêu cầu của dự án. Khi đã sử dụng một thời gian thì phải có khả năng nêu được điểm mạnh, điểu yếu, điểm thiếu xót, từ đó đưa ra được đánh giá để lựa chọn kỹ thuật cho những dự án về sau.
+- Khi gặp issue, cần phân tích được các khả năng gây ra lỗi, từ đó xác định được nguyên nhân và đưa ra được các giải pháp, đánh giá được các ưu, nhược điểm của mỗi giải pháp. Sau mỗi issue thì cần lưu giữ và truyền đạt lại cho các member hiện nay cũng như sau này.
+
+### Kết luận
+
+Một Java Team Leader phải có:
+
+- Cái nhìn rộng: cái nhìn bao quát công nghệ. Công nghệ này có phù hợp với yêu cầu dự án?  Các vấn đề về nguồn nhân lực, security, maintainability, extensibility, scalability có đảm bảo?
+- Cái nhìn sâu: thay vì chỉ hiểu cú pháp hay copy/paste từ stackoverflow, cần phải hiểu rõ flow hoạt động, bản chất của vấn đề, tổng hợp các giải pháp và đưa ra giải pháp phù hợp nhất. Khi tìm hiểu vấn đề, cần nắm những pattern, style trong đó chứ không phải vẻ bề ngoài, từ đó áp dụng và tìm ra những cái chưa biết khác.
+- Khả năng giao tiếp: giao tiếp với các bên liên quan: khách hàng, end user, PM, QA, tester, dev. Mỗi đối tượng lại có cách giao tiếp phù hợp
+- Khả năng truyền đạt: cần truyền đạt những kiến thức cần thiết cho các team member với mong muốn xây dựng team ngày một chất lượng.
+- Khả năng đưa ra được quyết định: Quyết định công nghệ, quyết định giải pháp, quyết định nhân sự,… cần được đưa ra đầy đủ và rõ ràng. Mỗi quyết định đưa ra phải đi kèm với tinh thần trách nhiệm cao nhất của người leader. Dám đưa ra quyết định và chịu trách nhiệm cho những quyết định sai lầm mới là người leader thực sự.
+---
+cover: #
+---
+pub_date: 2018-11-12
+---
+tags:
+
+#dev
+#leader

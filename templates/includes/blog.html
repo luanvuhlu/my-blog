@@ -12,7 +12,14 @@
                         <article class="post-box">
                             <div class="post-media">
                                 <div class="post-image">
-                                    <a href="{{ blogpost|url }}"><img src="{{ '/static/img/'|url + blogpost.cover }}" alt=""> </a>
+                                    <a href="{{ blogpost|url }}">
+                                        {% with cover = '/static/img/'|url + blogpost.cover %}
+                                          <img
+                                            src="#"
+                                            style="background-size: contain;background-repeat: no-repeat; background-position: center center;background-image: url('{{cover}}');width: 458px;height:300px;" 
+                                            alt="" title="">
+                                          {% endwith %}
+                                    </a>
                                 </div>
                             </div>
 

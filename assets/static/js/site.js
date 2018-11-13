@@ -644,9 +644,9 @@
 
         // init mobile navigation custom scroll
         if ($('.mobile-nav').length > 0) {
-            $(".mobile-nav-inner").mCustomScrollbar({
-                theme: "dark"
-            });
+            // $(".mobile-nav-inner").mCustomScrollbar({
+            //     theme: "dark"
+            // });
         }
 		
 		/** Material Inputs */
@@ -744,12 +744,12 @@
         // init sidebar custom scroll
         var sidebarFixed = $('.sidebar-fixed');
         if( sidebarFixed.length > 0 ) {
-            var sidebarScrollArea = sidebarFixed.find('.widget-area');
-            sidebarScrollArea.mCustomScrollbar({
-                theme: "dark",
-                updateOnContentResize: true,
-                updateOnImageLoad: true
-            });
+            // var sidebarScrollArea = sidebarFixed.find('.widget-area');
+            // sidebarScrollArea.mCustomScrollbar({
+            //     theme: "dark",
+            //     updateOnContentResize: true,
+            //     updateOnImageLoad: true
+            // });
         }
 
         /** Overlay:

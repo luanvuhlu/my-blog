@@ -1,0 +1,25 @@
+title: Refactoring #1: Replace Data Value with Object
+---
+author: luanvv
+---
+cover: #
+---
+pub_date: 2018-11-12
+---
+tags:
+
+#dev
+#refactoring
+#cleancode
+---
+_hidden: yes
+---
+body: 
+public class ChatData {
+	private List<String> triggers;
+	 Add more
+	private List<String> templates;
+}
+Bây giờ cần add thêm warn vào cột template -> làm cách nào
+![Replace Data Value with Object - Before](/static/img/uploads/Replace Data Value with Object - Before.png)
+![Replace Data Value with Object - After](/static/img/uploads/Replace Data Value with Object - After.png)
