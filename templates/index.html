@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 {% block title %}{{ this.title }}{% endblock %}
-{% block loading %}loading{% endblock %}
+{% block loading %}{% endblock %}
 {% block content %}
     {% include "includes/about.html" %}
     {% include "includes/skills.html" %}  
@@ -8,7 +8,7 @@
     {% include "includes/experience.html" %}
     {% include "includes/education.html" %}
     {#% include "includes/achievements.html" %#}
-    {% include "includes/clients.html" %}  
+    {#% include "includes/clients.html" %#}  
     {#% include "includes/references.html" %#}
     {% include "includes/blog.html" %} 
     {% include "includes/text-selection.html" %}

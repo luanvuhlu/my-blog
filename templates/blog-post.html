@@ -7,17 +7,13 @@
   <div class="col-sm-12">
     <main class="post-single">
       <article class="post-content section-box">
-          <div class="post-media">
-              {% with cover = '/static/img/'|url + this.cover %}
-              <img
-                src="#"
-                style="background-size: contain;background-repeat: no-repeat; background-position: center center;background-image: url('{{cover}}');width: 100%;height:650px;" 
-                alt="" title="">
-              {% endwith %}						
-            </div>
-        <div class="post-inner">
           <header class="post-header">
             <div class="post-data">
+              
+
+              <div class="post-title-wrap">
+                <h1 class="post-title">{{ this.title }}</h1>
+              </div>
               <div class="post-tag">
                 {% for t in this.tags -%}
                     <a href="{{ ('/tags/' ~ t.lower())|url }}">
@@ -25,22 +21,21 @@
                     </a>
                 {% endfor %}
               </div>
-
-              <div class="post-title-wrap">
-                <h1 class="post-title">{{ this.title }}</h1>
-                <time class="post-datetime" datetime="2015-03-13T07:44:01+00:00">
-                  <span class="day">{{ this.pub_date.day }}</span>
-                  <span class="month">{{ this.pub_date.strftime("%b")|upper }}</span>
-                  <span class="year">{{ this.pub_date.year }}</span>
-                </time>
-              </div>
-
               <div class="post-info">
                 <a href=""><i class="rsicon rsicon-user"></i>by luanvv</a>
-                <a href=""><i class="rsicon rsicon-comments"></i>56</a>
+                <a href=""><i class="rsicon"></i>{{ this.pub_date.strftime('%b %d %Y') }}</a>
               </div>
+
             </div>
           </header>
+          <div class="post-media">
+              <img class="lozad"
+                src="{{ '/static/img/uploads/458x300.png'|url }}" 
+                data-src="{{ '/static/img/'|url + this.cover }}" 
+                alt="{{ this.title }}" />
+            </div>
+        <div class="post-inner">
+          
 
           <div class="post-editor clearfix">
             {{ this.body }}

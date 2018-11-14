@@ -13,23 +13,15 @@
                             <div class="post-media">
                                 <div class="post-image">
                                     <a href="{{ blogpost|url }}">
-                                        {% with cover = '/static/img/'|url + blogpost.cover %}
-                                          <img
-                                            src="#"
-                                            style="background-size: contain;background-repeat: no-repeat; background-position: center center;background-image: url('{{cover}}');width: 458px;height:300px;" 
-                                            alt="" title="">
-                                          {% endwith %}
+                                        <img class="lozad"
+                                            src="{{ '/static/img/uploads/458x300.png'|url }}" 
+                                            data-src="{{ '/static/img/'|url + blogpost.cover }}" 
+                                            alt="{{ blogpost.title }}" />
                                     </a>
                                 </div>
                             </div>
 
                             <div class="post-data">
-                                <time class="post-datetime" datetime="{{ blogpost.pub_date }}">
-                                    <span class="day">{{ blogpost.pub_date.day }}</span>
-                                    <span class="month">{{ blogpost.pub_date.strftime("%b")|upper }}</span>
-                                    <span class="year">{{ blogpost.pub_date.year }}</span>
-                                </time>
-
                                 <div class="post-tag">
                                     {% for t in blogpost.tags -%}
                                         <a href="{{ ('/tags/' ~ t.lower())|url }}">
@@ -43,7 +35,8 @@
                                 </h3>
 
                                 <div class="post-info">
-                                    <a href=""><i class="rsicon rsicon-user"></i>by {{ blogpost.author }}</a>
+                                    <a href="javascript: void(0)"><i class="rsicon rsicon-user"></i>by {{ blogpost.author }}</a>
+                                    <a href="javascript: void(0)"><i class="rsicon"></i>{{ blogpost.pub_date.strftime('%b %d %Y') }}</a>
                                 </div>
                             </div>
                         </article>

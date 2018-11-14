@@ -1,26 +1,18 @@
 {% macro render_blog_post(post, from_index=false) %}
 <div class="grid-item" style="position: absolute; left: 0%; top: 0px;">
-    <article class="post-box animate-up animated">
+    <article class="post-box animated">
         <div class="post-media">
             <div class="post-image">
                 <a href="{{ post|url }}">
-                    {% with cover = '/static/img/'|url + post.cover %}
-                    <img 
-                        src="#" 
-                        style="background-size: contain;background-repeat: no-repeat; background-position: center center;background-image: url('{{cover}}');width: 458px;height:300px;"
-                        alt="">
-                    {% endwith %}
+                    <img class="lozad"
+                        src="{{ '/static/img/uploads/458x300.png'|url }}" 
+                        data-src="{{ '/static/img/'|url + post.cover }}" 
+                        alt="{{ post.title }}" />
                 </a>
             </div>
         </div>
 
         <div class="post-data">
-            <time class="post-datetime" datetime="{{post.pub_date}}">
-                <span class="day">{{ post.pub_date.day }}</span>
-                <span class="month">{{ post.pub_date.strftime("%b")|upper }}</span>
-                <span class="year">{{ post.pub_date.year }}</span>
-            </time>
-
             <div class="post-tag">
                 {% for t in post.tags -%}
                     <a href="{{ ('/tags/' ~ t.lower())|url }}">
@@ -35,7 +27,7 @@
 
             <div class="post-info">
                 <a href=""><i class="rsicon rsicon-user"></i>by admin</a>
-                <a href=""><i class="rsicon rsicon-comments"></i>56</a>
+                <a href=""><i class="rsicon"></i>{{ post.pub_date.strftime('%b %d %Y') }}</a>
             </div>
         </div>
     </article>
