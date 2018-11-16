@@ -15,7 +15,7 @@
 <title>{% block title %}Luan Vu Resume{% endblock %} — luanvv.com</title>
 <link rel="manifest" href="{{ '/static/manifest.json'|url }}">
 <!-- Favicon -->
-<!-- <link rel="shortcut icon" type="image/ico" href="{{ '/static/img/favicon.png'|url }}" /> -->
+<link rel="shortcut icon" type="image/ico" href="{{ '/static/img/favicon.ico'|url }}" />
 <!-- Google Fonts -->
 <!-- <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Fredoka+One">
 <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic,700,700italic,800,800italic"> -->
@@ -167,7 +167,6 @@ x`
   <script type="text/javascript" src="{{ '/static/js/plugins/jquery.owlcarousel/owl.carousel.min.js'|url }}"></script>
   <script type="text/javascript" src="{{ '/static/js/options.js'|url }}"></script>
   <script type="text/javascript" src="{{ '/static/js/site.js'|url }}"></script>
-  <script type="text/javascript" src="{{ '/static/js/myjs.js'|url }}"></script>
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-128976168-1"></script>
   <script>
@@ -175,6 +174,14 @@ x`
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'UA-128976168-1');
+
+    const observer = lozad(); // lazy loads elements with default selector as '.lozad'
+    observer.observe();
+
+    (function ($) {
+        "use strict";
+        $('.post-editor>p>img').parent().addClass('img-block');
+    })(jQuery);
   </script>
   {% block foot_static %}{% endblock %}
 </body>
