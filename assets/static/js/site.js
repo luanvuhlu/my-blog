@@ -770,178 +770,26 @@
 		
     });    
 
-
     /**
      * Window Load
      */
-    $(window).load(function () {
+    $(window).on("load", function () {
 		/** Blog */
-        var blog_grid_selector = $('.blog-grid');
-        if (blog_grid_selector.length > 0) {
-            var blog_grid = blog_grid_selector.isotope({
-                isOriginLeft: !rsOptions.rtl,
-                itemSelector: '.blog-grid .grid-item',
-                percentPosition: true,
-                masonry: {
-                    columnWidth: '.grid-sizer'
-                }
-            });
+        // var blog_grid_selector = $('.blog-grid');
+        // if (blog_grid_selector.length > 0) {
+        //     var blog_grid = blog_grid_selector.isotope({
+        //         isOriginLeft: !rsOptions.rtl,
+        //         itemSelector: '.blog-grid .grid-item',
+        //         percentPosition: true,
+        //         masonry: {
+        //             columnWidth: '.grid-sizer'
+        //         }
+        //     });
 
-            blog_grid.imagesLoaded().progress(function () {
-                blog_grid.isotope('layout');
-            });
-        } 
-        
-        /** Portfolio */
-        var grid_seector = $('.grid');
-        if (grid_seector.length > 0) {
-
-            // Isotope Initialization
-            var $grid = grid_seector.isotope({
-				isOriginLeft: !rsOptions.rtl,
-                itemSelector: '.grid .grid-item',
-                percentPosition: true,
-                masonry: {
-                    columnWidth: '.grid-sizer'
-                }
-            });
-
-            $grid.imagesLoaded().progress(function () {
-                $grid.isotope('layout');
-            });
-
-            // Isotope Filter
-            var filter = $('.filter');
-            if (filter.length > 0) {
-                var filter_btn = filter.find('button');
-                var filter_btn_first = $('.filter-btn-group button:first-child');
-
-                filterBarLinePositioning($grid, filter_btn_first);
-                filter_btn_first.addClass('active');
-
-                filter_btn.on('click', function () {
-                    filter_btn.removeClass('active');
-                    $(this).addClass('active');
-                    $('.grid-box').addClass('animated');
-                    filterBarLinePositioning($grid, $(this));
-                });
-            }
-
-            // Isotope Append New Elements
-            var $elemTotalCount = 0;
-            var $elemLoadedCount = 0;
-            var $elemCountPerLoad = 3;
-            var $gridMore = $('.grid-more');
-            var $gridMoreBtn = $gridMore.find('.btn');
-            var $gridAjaxLoader = $gridMore.find('.ajax-loader');
-
-            $gridMoreBtn.on('click', function () {
-                $.ajax({
-                    url: "ajax/portfolio.html",
-                    dataType: "html",
-                    beforeSend: function () {
-                        // show ajax loader
-                        $gridMoreBtn.css('display', 'none');
-                        $gridAjaxLoader.css('display', 'inline-block');
-                    },
-                    success: function (data) {
-                        $elemTotalCount = $.grep($.parseHTML(data), function (el, i) {
-                            return $(el).hasClass("grid-item")
-                        }).length;
-
-                        if ($elemLoadedCount < $elemTotalCount) {
-                            for (var i = 1; i <= $elemCountPerLoad; i++) {
-
-                                var $item = $(data).filter('.grid-item:eq(' + $elemLoadedCount + ')'); // started from 0
-                                grid_seector.append($item).isotope('appended', $item);
-
-                                $elemLoadedCount++;
-                            }
-                        }
-
-                        if ($elemLoadedCount >= $elemTotalCount) {
-                            $gridMore.hide();
-                        }
-
-                        // hide ajax loader
-                        $gridMoreBtn.css('display', 'inline-block');
-                        $gridAjaxLoader.css('display', 'none');
-                    }
-                })
-            });
-
-
-            // Portfolio fancybox
-            var _player;
-            $('.portfolioFancybox').fancybox({
-                padding: 0,
-                wrapCSS: 'fancybox-portfolio',
-                maxWidth: '795px',
-                maxHeight: '85%',
-                minWidth: '250px',
-                mouseWheel: 'true',
-                scrolling: "no",
-                autoCenter: true,
-                beforeShow: function () {
-                    // Get current popup
-                    var currentID = $(this.element).attr("href");
-                    var currentPopup = $('.fancybox-portfolio ' + currentID);
-
-                    // Append current popup embed
-                    var currentEmbed = currentPopup.find('.inline-embed');
-                    if (currentEmbed.length > 0) {
-                        var currentEmbedType = currentEmbed.data('embed-type');
-                        var curentEmbedUrl = currentEmbed.data('embed-url');
-
-                        switch (currentEmbedType) {
-                            case "image":
-                                currentEmbed.empty();
-                                currentEmbed.addClass('inline-embed-image');
-                                currentEmbed.append('<img src="' + curentEmbedUrl + '" />');
-                                break;
-                            case "iframe":
-                                currentEmbed.empty();
-                                currentEmbed.addClass('inline-embed-iframe');
-                                currentEmbed.append('<iframe src="' + curentEmbedUrl + '" allowfullscreen></iframe>');
-                                break;
-                            case "video":
-                                _player = ''; // reset player
-                                currentEmbed.addClass('inline-embed-video');
-                                var currentVideo = $('' + currentID + '').find('video');
-                                if (currentVideo.length > 0) {
-                                    new MediaElementPlayer(currentID + ' video', { // initialize player
-                                        loop: false,
-                                        defaultVideoWidth: 723,
-                                        defaultVideoHeight: 405,
-                                        videoWidth: -1,
-                                        videoHeight: -1,
-                                        startVolume: 0.7,
-                                        enableAutosize: true,
-                                        alwaysShowControls: true,
-                                        success: function (mediaElement, domObject) {
-                                            _player = mediaElement;
-                                            _player.load();
-                                        }
-                                    });
-                                }
-                                break;
-                        }
-                    }
-                },
-                afterShow: function () {
-                    // Get current popup
-                    var currentID = $(this.element).attr("href");
-                    var currentPopup = $('.fancybox-portfolio ' + currentID);
-
-                    // Make current popup visible with css
-                    currentPopup.addClass('opened');
-                },
-                beforeClose: function () {
-                    // reset player
-                    _player = '';
-                }
-            });
-        }
+        //     blog_grid.imagesLoaded().progress(function () {
+        //         blog_grid.isotope('layout');
+        //     });
+        // } 
         
         /** Timeline:
          *  positioning timeline elements */

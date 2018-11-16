@@ -50,13 +50,17 @@ Output maybe, I'm not sure.
 ```
 /Users/luanvv/.../build-cache/6fdaeecab78d6aa99f86f586ab15da06
 ```
+Use Linux command to gzip. I donot know an alternative for Window OS
+```
+find . -type f -exec gzip -9 "{}" \; -exec mv "{}.gz" "{}" \;
+```
 Upload to Google Cloud Storage
 ```
 gsutil -m cp -R [LOCAL_OBJECT_LOCATION] gs://[DESTINATION_BUCKET_NAME]/
 ```
-or you want to set cache-control
+or you want to set cache-control and compress
 ```
-gsutil -h "Cache-Control:public,max-age=86400" -m cp -a public-read -r [LOCAL_OBJECT_LOCATION] gs://[DESTINATION_BUCKET_NAME]/
+gsutil -h "Cache-Control:public,max-age=86400" -h "Content-Encoding:gzip" -m cp -a public-read -r [LOCAL_OBJECT_LOCATION] gs://[DESTINATION_BUCKET_NAME]/
 ```
 ## Usage
 Lektor provides an admin site(at link [http://localhost:5000/admin](http://localhost:5000/admin)), so you can create, edit and preview any blog/page here

@@ -6,57 +6,62 @@ _hidden: yes
 ---
 body:
 
-### Những tố chất của Java Team Leader:
-
-1. Nguồn gốc, đặc điểm của Java
-
+Nhân việc anh CTO của công ty hỏi mình về những tố chất của một người Java team leader, thấy việc này khá là hữu ích cho nhiều bạn trên con đường sự nghiệp, nên mình cố gắng viết bài này.
+Dưới đây là những tố chất, mà theo mình, là điều không thể thiếu đối với một Java Team leader
+### Nguồn gốc, đặc điểm của Java  
 - Hiểu được nguồn gốc của Java: Sự ra đời, lịch sử
+Hiểu được nguồn gốc ra đời, sự phát triển qua các thời kỳ của một ngôn ngữ lập trình sẽ giúp chúng ta giải thích được rất nhiều điều: tại sao ngôn ngữ này lại phát triển trên những lĩnh vực này mà không phải lĩnh vực kia? Tại sao lại chọn feature này? Tại sao cú pháp nó lại vậy?
 - Ưu, nhược điểm của Java
 - Sự phát triển của Java hiện nay
 
-1.  Java core
-
--  Nắm vững được kỹ thuật lập trình hướng đối tượng OOP
+### Java core
+- Nắm vững được kỹ thuật lập trình hướng đối tượng(OOP)
 - Nắm vững các feature của Java: class, interface, data type, exception, generic, varargs, I/O, NIO.
 
-1. Java advance
+<!-- Mình đã pass qua cả 2 kỳ thi của Java SE là Oracle Certified Professional Java SE 8 Programmer I & II, nhưng để nói là nắm vững Java, mình không dám nói. -->
 
+### Java advance
 - Hiểu biết tốt về JDBC: các loại ResultSet, Statement, batch process,…
 - Nêu và nắm vững các Java collection cơ bản: List, Set, Map, ArrayList, LinkedList, HashSet, LinkedHashSet,… Nêu được ưu, nhược điểm và đưa ra lựa chọn collection phù hợp cho mỗi bài toán cụ thể.
-- Hiểu và làm việc tốt với đa luồng: các khái niệm trong đa luồng(Race Conditions, Synchronized, Deadlocks, Livelocks, Lock Starvation), các keyword trong Java cho xử lý đa luồng, các class, collection tối ưu cho đa luồng
+- Hiểu và làm việc tốt với đa luồng: các khái niệm trong đa luồng(Race Conditions, Synchronized, Deadlocks,...), các keyword trong Java cho xử lý đa luồng, các class, collection tối ưu cho đa luồng
 - Có hiểu biết và sử dụng tốt một số library, framework: JSP/Servlet, Spring, JPA, Hibernate, EJB,… 
 
-1. Database
-
+### Database
    Oracle Database, MySQL,…
-
-2. Coding skill
-
+### Coding skill
    Design Pattern, Refactoring.
-
-3. Version Control
-
+### Version Control
    làm việc tốt với các VCS như Git, SVN, Visual Sourcesafe
-
-4. Khác
-
+### Khác
 - Có hiểu biết về nguyên lý, các thành phần cơ bản của các hệ điều hành máy tính phổ biến : window, unix, linux. Đặc biệt cần làm việc tốt với Linux.
 - Hiểu một số khái niệm cơ bản về IT : network, server, client, TCP/IP,…
-- Nắm được một số công nghệ để xây dựng các ứng dụng high security, availability, scalability,…
+- Nắm được một số công nghệ để xây dựng  các ứng dụng high security, availability, scalability,…
 
-1. Kỹ năng
-
+### Kỹ năng
 - Nắm bắt nhanh các library, framework mới. Có khả năng modify, extend cho phù hợp hơn với yêu cầu của dự án. Khi đã sử dụng một thời gian thì phải có khả năng nêu được điểm mạnh, điểu yếu, điểm thiếu xót, từ đó đưa ra được đánh giá để lựa chọn kỹ thuật cho những dự án về sau.
 - Khi gặp issue, cần phân tích được các khả năng gây ra lỗi, từ đó xác định được nguyên nhân và đưa ra được các giải pháp, đánh giá được các ưu, nhược điểm của mỗi giải pháp. Sau mỗi issue thì cần lưu giữ và truyền đạt lại cho các member hiện nay cũng như sau này.
 
-### Kết luận
-
+# Kết luận
 Một Java Team Leader phải có:
-
-- Cái nhìn rộng: cái nhìn bao quát công nghệ. Công nghệ này có phù hợp với yêu cầu dự án?  Các vấn đề về nguồn nhân lực, security, maintainability, extensibility, scalability có đảm bảo?
+- Cái nhìn rộng: 
+    Mình đi phỏng vấn khá nhiều, junior có, senior có, mình đều hỏi ứng viên có hiểu biết Java core như thế nào, câu trả lời luôn là: "*nắm rất vững!*". Tuy nhiên khi hỏi về *generic*, *varargs*, *try-with-resources* thì các bạn cứ ngạc nhiên kiểu: "*Mình tưởng ta đang phỏng vấn Java!*". Hoặc nhiều bạn hay đổi lỗi cho việc "*Lâu quá rồi chưa dùng nên quên*", "*Cái này anh chưa làm bao giờ nên không biết*", "*Cái này nếu có làm thì tìm hiểu là ra thôi!*",... Những câu nói như vậy, không bao giờ là điều mà những team member của các bạn muốn nghe đâu. Bạn phải có kiến thức sâu rộng về lĩnh vực mà bạn làm việc. Bạn phải luôn là chỗ dựa vững chắc cho các developer khác dựa vào. Bạn càng biết ít, bạn càng mất dần niềm tin từ các developer khác, mà một khi niềm tin đã mất thì liệu bạn có thể lãnh đạo họ được không? 
+- Tinh thần học hỏi không ngừng
+    Mình thấy khá nhiều team lead dần dần bị "*lạm quyền*", họ dần dần chuyển hướng sang làm công việc của project manager. Họ ngừng code, họ ngừng tìm hiểu công nghệ, thay vào đó, họ kiểm tra schedule, họ trả lời khách hàng,...
+    Một team lead cần phải không ngừng học hỏi, cập nhật những công nghệ mới, bổ sung những công nghệ còn thiếu.
 - Cái nhìn sâu: thay vì chỉ hiểu cú pháp hay copy/paste từ stackoverflow, cần phải hiểu rõ flow hoạt động, bản chất của vấn đề, tổng hợp các giải pháp và đưa ra giải pháp phù hợp nhất. Khi tìm hiểu vấn đề, cần nắm những pattern, style trong đó chứ không phải vẻ bề ngoài, từ đó áp dụng và tìm ra những cái chưa biết khác.
-- Khả năng giao tiếp: giao tiếp với các bên liên quan: khách hàng, end user, PM, QA, tester, dev. Mỗi đối tượng lại có cách giao tiếp phù hợp
-- Khả năng truyền đạt: cần truyền đạt những kiến thức cần thiết cho các team member với mong muốn xây dựng team ngày một chất lượng.
+Trước mình có làm việc với một bạn. Cách làm việc, cách fix bug của bạn đó đều rất nhanh, nhanh hơn mình rất nhiều. Cách làm của bạn đó luôn là:
+
+![Flow fix bug](/static/img/uploads/flow-fix-bug.png)
+
+Một hôm cu cậu báo với mình đã fix được cái lazy load(dùng Hibernate), "*Em thêm cái config eager vào entity rồi!*", "*Em thêm cái cascade vào nữa*", "*Em thấy nó chạy ok rồi*",.... Mình kiểu
+
+![WTH](/static/img/uploads/wth.jpg)  
+
+Cách làm như vậy quá nhiều rủi ro. Bạn sẽ không lường được cái hậu quả của solution, liệu nó có "*tác dụng phụ*" nào hay không? Nó có đọng lại được kiến thức gì cho bạn hay không?
+Hãy luôn hiểu rõ bản chất của vấn đề.
+- Khả năng giao tiếp: giao tiếp với các bên liên quan: khách hàng, end user, PM, QA, tester, dev. Mỗi đối tượng lại có cách giao tiếp phù hợp. Bạn là người lãnh đạo, bạn phải quản lý tốt những member của mình. Bạn sẽ làm gì khi các developer trong team không nghe lời bạn? Có những tranh cãi nảy lửa giữa các thành viên hoặc giữa developer với tester? Tinh thần làm việc của cả team đi xuống, làm sao để kéo lên, user, sếp phàn nàn về bạn, về team bạn, làm sao để đối ứng? Tất tần tật những điều đó bạn sẽ đều có thể gặp phải trong vai trò một team lead.
+- Khả năng xây dựng: một team lead thành công không phải cá nhân đó thành công mà là phải cả team đó thành công.
+Người team lead phải có khả năng đánh giá thành viên, từ đó đưa ra những đối sách phù hợp để giúp nâng cao kiến thức của tất cả các thành viên. 
 - Khả năng đưa ra được quyết định: Quyết định công nghệ, quyết định giải pháp, quyết định nhân sự,… cần được đưa ra đầy đủ và rõ ràng. Mỗi quyết định đưa ra phải đi kèm với tinh thần trách nhiệm cao nhất của người leader. Dám đưa ra quyết định và chịu trách nhiệm cho những quyết định sai lầm mới là người leader thực sự.
 ---
 cover: #

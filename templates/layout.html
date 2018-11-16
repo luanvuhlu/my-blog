@@ -1,11 +1,19 @@
 <!DOCTYPE html>
-<html lang="en" class="theme-color-07cb79 theme-skin-light"></html>
-<meta charset="utf-8">
+<html lang="en" class="theme-color-07cb79 theme-skin-light">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="white"/>
+<META NAME="geo.position" CONTENT="21.028511, 105.804817">
+<META NAME="geo.placename" CONTENT="Hanoi, Vietnam">
+<META NAME="geo.region" CONTENT="vi">
+<meta name="theme-color" content="#536878" />
+{% block meta %}
+<meta name="description" content="Chào! Mình là Luân. Blog này nhiệm vụ chủ yếu không phải là blog, mà là để mình thử optimize front-end thôi" />
+{% endblock %}
 <!-- <link rel="stylesheet" href="{{ '/static/style.css'|url }}"> -->
 <title>{% block title %}Luan Vu Resume{% endblock %} — luanvv.com</title>
+<link rel="manifest" href="{{ '/static/manifest.json'|url }}">
 <!-- Favicon -->
 <!-- <link rel="shortcut icon" type="image/ico" href="{{ '/static/img/favicon.png'|url }}" /> -->
 <!-- Google Fonts -->
@@ -17,7 +25,7 @@
 <!-- Styles -->
 <link rel="stylesheet" type="text/css" href="{{ '/static/js/plugins/jquery.bxslider/jquery.bxslider.css'|url }}">
 <!-- <link rel="stylesheet" type="text/css" href="{{ '/static/js/plugins/jquery.customscroll/jquery.mCustomScrollbar.min.css'|url }}"> -->
-<link rel="stylesheet" type="text/css" href="{{ '/static/js/plugins/jquery.mediaelement/mediaelementplayer.min.css'|url }}">
+<!-- <link rel="stylesheet" type="text/css" href="{{ '/static/js/plugins/jquery.mediaelement/mediaelementplayer.min.css'|url }}"> -->
 <!-- <link rel="stylesheet" type="text/css" href="{{ '/static/js/plugins/jquery.fancybox/jquery.fancybox.css'|url }}"> -->
 <link rel="stylesheet" type="text/css" href="{{ '/static/js/plugins/jquery.owlcarousel/owl.carousel.css'|url }}">
 <link rel="stylesheet" type="text/css" href="{{ '/static/js/plugins/jquery.owlcarousel/owl.theme.css'|url }}">
@@ -33,10 +41,11 @@
 <!-- Modernizer for detect what features the user’s browser has to offer -->
 <script type="text/javascript" src="{{ '/static/js/libs/modernizr.js'|url }}"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lozad/dist/lozad.min.js"></script>
-
+<!-- <script type="text/javascript" src="{{ '/static/js/service-worker.js'|url }}"></script> -->
+</head>
 <body class="home {% block loading %}{% endblock %}"> <!-- add loading for progress bar -->
   <div class="mobile-nav">
-    <button class="btn-mobile mobile-nav-close"><i class="rsicon rsicon-close"></i></button>
+    <button class="btn-mobile mobile-nav-close" aria-label="Close menu"><i class="rsicon rsicon-close"></i></button>
 
     <div class="mobile-nav-inner">
       <nav id="mobile-nav" class="nav">
@@ -108,27 +117,27 @@ x`
       <div class="footer-social">
         <ul class="social">
           <li>
-              <a class="ripple-centered" rel="noopener" target="_blank" href="https://github.com/luanvuhlu">
+              <a class="ripple-centered" aria-label="Github" rel="noopener" target="_blank" href="https://github.com/luanvuhlu">
                   <i class="rsicon rsicon-github"></i>
               </a>
           </li>
           <li>
-              <a class="ripple-centered" rel="noopener" target="_blank" href="https://www.facebook.com/luanvuhlu" target="_blank">
+              <a class="ripple-centered" aria-label="Facebook" rel="noopener" target="_blank" href="https://www.facebook.com/luanvuhlu" target="_blank">
                   <i class="rsicon rsicon-facebook"></i>
               </a>
           </li>
           <li>
-              <a class="ripple-centered" rel="noopener" target="_blank" href="https://www.linkedin.com/in/luanvv/" target="_blank">
+              <a class="ripple-centered" aria-label="LinkedIn" rel="noopener" target="_blank" href="https://www.linkedin.com/in/luanvv/" target="_blank">
                   <i class="rsicon rsicon-linkedin"></i>
               </a>
           </li>
           <li>
-              <a class="ripple-centered" rel="noopener" target="_blank" href="skype:luanvuhlu"><i
+              <a class="ripple-centered" aria-label="Skype" rel="noopener" target="_blank" href="skype:luanvuhlu"><i
                   class="rsicon rsicon-skype"></i>
               </a>
           </li>
           <li>
-              <a class="ripple-centered" rel="noopener" target="_blank" href="mailto:luanvuhlu@gmail.com">
+              <a class="ripple-centered" aria-label="Email" rel="noopener" target="_blank" href="mailto:luanvuhlu@gmail.com">
                   <i class="rsicon rsicon-email"></i>
               </a>
           </li>
@@ -143,7 +152,7 @@ x`
     <div class="preload-text">Loading ...</div>
   </div>
   <!-- Scripts -->
-  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <!--   <script type="text/javascript" src="{{ '/static/fonts/map-icons/js/map-icons.min.js'|url }}"></script> -->
   <script type="text/javascript" src="{{ '/static/js/plugins/jquery.mousewheel-3.0.6.pack.js'|url }}"></script>
   <script type="text/javascript" src="{{ '/static/js/plugins/imagesloaded.pkgd.min.js'|url }}"></script>

@@ -3216,7 +3216,7 @@ body {
  * 11.1 - Section Text
  */
 .section-txt-btn {
-    color: #000;
+    color: rgba(0,0,0,.84);
     font-size: 20px;
     font-weight: 300;
     line-height: 1.8;
@@ -4796,11 +4796,29 @@ body {
     background-color: white;
 }
 .timeline-box{
-    color: black;
+    color: rgba(0,0,0,.84);
 }
 @media (max-width: 768px) {
     .post-single .post-inner {
         padding: 0 30px 40px;
     }
+}
+.blog .blog-item {
+    margin-bottom: 10px;
+}
+.blog h3 a, .blog div a {
+    color: rgba(0,0,0,.84);
+}
+.blog .post-author a {
+    font-weight: 700;
+}
+body {
+    color: rgba(0,0,0,.84);
+}
+.post-summary {
+    color: rgba(0,0,0,.54);
+}
+.section-blog .post-title, .blog .post-title {
+    font-size: 21px;
 }
 /* end my style */

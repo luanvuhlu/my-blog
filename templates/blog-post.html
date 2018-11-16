@@ -1,4 +1,8 @@
 {% extends "layout.html" %}
+{% from "macros/blog.html" import render_blog_sibling_nav %}
+{% block meta %}
+<meta name="description" content="{{ this.summary }}" />
+{% endblock %}
 {% block title %}{{ this.title }}{% endblock %}
 {% block static %}
 {% endblock %}
@@ -9,8 +13,6 @@
       <article class="post-content section-box">
           <header class="post-header">
             <div class="post-data">
-              
-
               <div class="post-title-wrap">
                 <h1 class="post-title">{{ this.title }}</h1>
               </div>
@@ -22,10 +24,9 @@
                 {% endfor %}
               </div>
               <div class="post-info">
-                <a href=""><i class="rsicon rsicon-user"></i>by luanvv</a>
-                <a href=""><i class="rsicon"></i>{{ this.pub_date.strftime('%b %d %Y') }}</a>
+                <a href="javascript: void(0)"><i class="rsicon rsicon-user"></i>by {{ this.author }}</a>
+                <a href="javascript: void(0)"><i class="rsicon"></i>{{ this.pub_date.strftime('%b %d %Y') }}</a>
               </div>
-
             </div>
           </header>
           <div class="post-media">
@@ -35,14 +36,12 @@
                 alt="{{ this.title }}" />
             </div>
         <div class="post-inner">
-          
-
           <div class="post-editor clearfix">
             {{ this.body }}
           </div>
-
         </div><!-- .post-inner -->
       </article><!-- .post-content -->
+      {{ render_blog_sibling_nav(this) }}
     </main>
     <!-- .post-single -->
   </div>

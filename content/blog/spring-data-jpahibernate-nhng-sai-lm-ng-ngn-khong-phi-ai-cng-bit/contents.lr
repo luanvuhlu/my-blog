@@ -31,19 +31,19 @@ EAGER Fetching là một tính năng rất hay của Hibernate, nó giúp bạn 
 
 Ta thử với các bảng dưới đây
 
-![](https://cdn-images-1.medium.com/max/2000/1*RGPjO76yL01nt41sO3cmoA.png)
+![](/static/img/uploads/1RGPjO76yL01nt41sO3cmoA.png)
 
 Hibernate là ORM, bạn query để lấy ra *User, *thì một cách tự nhiên nhất, bạn sẽ lấy ra được *Office*.
 
-![](https://cdn-images-1.medium.com/max/2000/1*YHjgn57s_uXep399spVFYQ.png)
+![](/static/img/uploads/1YHjgn57s_uXep399spVFYQ.png)
 
-![](https://cdn-images-1.medium.com/max/2000/1*7E_S3MKs0UGOFJUrKyfodA.png)
+![](/static/img/uploads/17E_S3MKs0UGOFJUrKyfodA.png)
 
 Điều này có lợi khi bạn là người chưa hiểu nhiều về Hibernate hoặc cần phát triển chương trình một cách nhanh chóng.
 
 Nhưng, cái giá phải trả là không hề nhỏ. Đây là câu SQL được sinh ra:
 
-![](https://cdn-images-1.medium.com/max/2000/1*33ogQTVapTq5sx0bCjYhHQ.png)
+![](/static/img/uploads/133ogQTVapTq5sx0bCjYhHQ.png)
 
 rất nhiều column được select và câu lệnh này join với hết các bảng. Đây mới là trường hợp đơn giản, còn trên thực tế, các bảng có thể có liên hệ với nhau nhiều hơn. Bảng User có quan hệ n-1 đến nhiều bảng hơn nữa, trong đó có Office, Office có thể có quan hệ n-1 với bảng khác, và cứ thế, câu lệnh của bạn sẽ có hàng dài *join. *Đúng là dùng thì dễ, nhưng để dùng tốt lại là chuyện khác.
 
@@ -59,11 +59,11 @@ Khuyến khích dùng Lazy Fetching cho hầu hết các trường hợp(trừ 
 
 **Không nên**
 
-![](https://cdn-images-1.medium.com/max/2000/1*1XD8acsiEpolzhk8hfG4xw.png)
+![](/static/img/uploads/11XD8acsiEpolzhk8hfG4xw.png)
 
 **Nên**
 
-![](https://cdn-images-1.medium.com/max/2000/1*i2JnN47DSwIZpFs1-8Ycag.png)
+![](/static/img/uploads/1i2JnN47DSwIZpFs1-8Ycag.png)
 
 Khi bạn viết câu select, bạn có thể tùy ý chọn lựa việc join lấy ra những property nào(hoặc entity nào), join với bảng nào, tất cả đều nằm trong tay bạn.
 
@@ -79,15 +79,15 @@ Các vấn đề này xảy ra do đâu? Cùng xem ví dụ bên dưới.
 
 Giả sử ta có bài toán cần lấy ra thông tin của user, bao gồm cả company của user đó. Cùng nhìn lại đoạn mapping của **User** entity:
 
-![](https://cdn-images-1.medium.com/max/2000/1*MuOtYlF6HAZJ8dTXrDP3YQ.png)
+![](/static/img/uploads/1MuOtYlF6HAZJ8dTXrDP3YQ.png)
 
 và code lấy ra thông tin
 
-![](https://cdn-images-1.medium.com/max/2000/1*R2JOfiA4C-FuE9cMExupgw.png)
+![](/static/img/uploads/1R2JOfiA4C-FuE9cMExupgw.png)
 
 Nên nhớ fetching type của association **Company **đã là Lazy, sẽ không còn câu lệnh join với bảng Company nữa, giờ SQL sẽ như sau:
 
-![](https://cdn-images-1.medium.com/max/2000/1*elYctH1cqEN8jnXUSfJV8A.png)
+![](/static/img/uploads/1elYctH1cqEN8jnXUSfJV8A.png)
 
 Hãy để ý trong trường hợp trên, Hibernate sẽ lấy tất cả các column của bảng User, bao gồm cả các FK(car_id, office_id và company_id). Dữ liệu trong bảng User là
 
@@ -111,9 +111,9 @@ Hibernate cũng làm tương tự như vậy.
     car = null
     company = ???
 
-![](https://cdn-images-1.medium.com/max/2000/1*EX0s-u2gglu27LmSlkfpeQ.png)
+![](/static/img/uploads/1EX0s-u2gglu27LmSlkfpeQ.png)
 
-![](https://cdn-images-1.medium.com/max/2000/1*ZJ8mz_VgUWx-rHpO4JL-bw.png)
+![](/static/img/uploads/1ZJ8mz_VgUWx-rHpO4JL-bw.png)
 
 Vậy là Hibernate đã khởi tạo company bằng một instance của một class hơi khang khác(proxy object) so với của ta khai báo, từ đó mà nó có thể làm thêm điều bên dưới
 
@@ -123,11 +123,11 @@ Tai nạn xảy ra ở đây là để truy vấn database, Hibernate phải có
 
 Thử thêm một đoạn code hơi kì cục vào *Service *method
 
-![](https://cdn-images-1.medium.com/max/2000/1*sr_31iubzkPwLT9b7Muhew.png)
+![](/static/img/uploads/1sr_31iubzkPwLT9b7Muhew.png)
 
 và chạy lại đoạn test, ngoài câu lệnh select user, thêm một câu SQL nữa sẽ được sinh ra
 
-![](https://cdn-images-1.medium.com/max/2000/1*M9U4IMJbsM_YNm8RdCGtcw.png)
+![](/static/img/uploads/1M9U4IMJbsM_YNm8RdCGtcw.png)
 
 và lỗi đã biến mất.
 
@@ -147,11 +147,11 @@ Cái nguy hiểm của **N+1 query **chính là bạn sẽ không nhìn thấy b
 
 Đây là cách mình hay dùng nhất, vừa gọn, vừa tường minh, lại vừa đơn giản.
 
-![](https://cdn-images-1.medium.com/max/2000/1*G_TUZx9b7hVExD6PpLhX_g.png)
+![](/static/img/uploads/1G_TUZx9b7hVExD6PpLhX_g.png)
 
 Câu lệnh SQL được sinh ra khá giống với tùy chọn Eager Fetching
 
-![](https://cdn-images-1.medium.com/max/2000/1*_VhkkGTlR1GgnyjBoWjR4g.png)
+![](/static/img/uploads/1_VhkkGTlR1GgnyjBoWjR4g.png)
 
 Có rất nhiều cách mà không biết vì vô tình hay cố ý mà Spring tự động lấy ra dữ liệu cho bạn tương tự khi viết thêm FETCH. Nhưng do nó quá “*tùm lum*” nên thôi, mình cứ viết FETCH vào cho chắc.
 
@@ -159,13 +159,13 @@ Có rất nhiều cách mà không biết vì vô tình hay cố ý mà Spring t
 
 Giả sử ta có database như sau:
 
-![](https://cdn-images-1.medium.com/max/2000/1*JUl98uSj2zv9zIGX6SiEqA.png)
+![](/static/img/uploads/1JUl98uSj2zv9zIGX6SiEqA.png)
 
 Mỗi company có nhiều office, mỗi office lại có nhiều user. Giờ mình cần lấy ra đối tượng company, đồng thời lấy ra tất cả office của company đó, và tiếp nữa là lấy ra tất cả các user của mỗi office.
 
 Ví dụ có thể thấy như dưới đây, mong muốn chương trình in ra đầy đủ office và user.
 
-![](https://cdn-images-1.medium.com/max/2000/1*A6rCrfloSt3SB_g2HgzbbQ.png)
+![](/static/img/uploads/1A6rCrfloSt3SB_g2HgzbbQ.png)
 
 Nhiều bạn chưa nắm rõ về Hibernate, rất dễ mắc lỗi **N+1 query **hoặc **LazyLoad** do không chú ý. Cũng có bạn chọn giải pháp dùng nhiều câu SQL để lấy ra. Nhưng như vậy thì thường quá, dưới đây mình chỉ dùng **duy nhất một câu SQL** để lấy ra tất cả!
 
@@ -191,11 +191,11 @@ Với Query method, bạn có thể trực tiếp sử dụng EntityGraph anonna
 
 Đoạn code lấy ra kết quả
 
-![](https://cdn-images-1.medium.com/max/2000/1*EEOkaTJ0Vd_ohMbvqJYS4Q.png)
+![](/static/img/uploads/1EEOkaTJ0Vd_ohMbvqJYS4Q.png)
 
 Đã xong, bây giờ chạy nó, 1 câu lệnh SQL duy nhất được tạo ra:
 
-![](https://cdn-images-1.medium.com/max/2000/1*XfUFewc5ZlRXR1xOT7aqFQ.png)
+![](/static/img/uploads/1XfUFewc5ZlRXR1xOT7aqFQ.png)
 
 Và đây là output:
 
@@ -231,15 +231,15 @@ ORM cung cấp những tiện lợi cho việc thao tác với RMDB. Không cầ
 
 *Ta có hai bảng **Account **và **User***(một số trường có thể hơi khác do mình quá lười để viết thêm)**. **Bảng User đặc biệt hơn, với 1 compose primary key gồm 2 trường: key1 và key2
 
-![](https://cdn-images-1.medium.com/max/2000/1*xNP1qd6LYAwAdtt9CwXaEQ.png)
+![](/static/img/uploads/1xNP1qd6LYAwAdtt9CwXaEQ.png)
 
 Thử viết câu HQL dùng IN Operator với bảng **Account**
 
-![](https://cdn-images-1.medium.com/max/2000/1*ptKnBQYQW9sbOoLRO33akA.png)
+![](/static/img/uploads/1ptKnBQYQW9sbOoLRO33akA.png)
 
 Và dưới đây là câu lệnh ta nhận được khi Hibernate compile ra native SQL
 
-![](https://cdn-images-1.medium.com/max/2000/1*T5ST3Qq5pPba5EfKRaRMEA.png)
+![](/static/img/uploads/1T5ST3Qq5pPba5EfKRaRMEA.png)
 
 Câu lệnh SQL trên sẽ chạy bình thường và cho ra kết quả chính xác mà bạn mong muốn.
 
@@ -247,31 +247,31 @@ Bây giờ ta thử với bảng **User**, bảng có 1 compose primary key(*key
 
 Dưới đây là một đoạn code mapping của bảng **User**
 
-![](https://cdn-images-1.medium.com/max/2000/1*AB0G47Qe8C6ZS4N3nKQJfA.png)
+![](/static/img/uploads/1AB0G47Qe8C6ZS4N3nKQJfA.png)
 
-![](https://cdn-images-1.medium.com/max/2000/1*qkxzmoavWfT86v4DFR4NLA.png)
+![](/static/img/uploads/1qkxzmoavWfT86v4DFR4NLA.png)
 
 Và đây là câu HQL dùng để select
 
-![](https://cdn-images-1.medium.com/max/2000/1*6TXfgd1fVyMYGmNyHiA6yw.png)
+![](/static/img/uploads/16TXfgd1fVyMYGmNyHiA6yw.png)
 
 Trông có vẻ ổn!
 
 Câu lệnh HQL trên sẽ được Hibernate compile ra SQL một cách bình thường. Đây là kết quả:
 
-![](https://cdn-images-1.medium.com/max/2000/1*4QVuhbfCNWFdEfd5KOHwVw.png)
+![](/static/img/uploads/14QVuhbfCNWFdEfd5KOHwVw.png)
 
 Câu lệnh trên rõ ràng là sai. Cú pháp hợp lệ nhưng kết quả thì không.
 
 Câu lệnh SQL nên là:
 
-![](https://cdn-images-1.medium.com/max/2000/1*bXpbe-oxGlWp3acRZdn0fw.png)
+![](/static/img/uploads/1bXpbe-oxGlWp3acRZdn0fw.png)
 
 Trường hợp tương tự khi bạn sử dụng điều kiện hỗn hợp, trong đó có một điều kiện sử dụng với composite primary key
 
 Ta thử dùng một method trong repository của User entity
 
-![](https://cdn-images-1.medium.com/max/2000/1*pwzoBlSy5vPn8VPveg26PA.png)
+![](/static/img/uploads/1pwzoBlSy5vPn8VPveg26PA.png)
 
 Câu lệnh SQL được compile ra, sai hoàn toàn:
 
@@ -279,7 +279,7 @@ Câu lệnh SQL được compile ra, sai hoàn toàn:
 
 Thử dùng HQL và *trick* thêm dấu ngoặc
 
-![](https://cdn-images-1.medium.com/max/2000/1*WD3Jd5VAyKK1fXdPo2LBcQ.png)
+![](/static/img/uploads/1WD3Jd5VAyKK1fXdPo2LBcQ.png)
 
 nhưng kết quả không khác
 
@@ -301,7 +301,7 @@ Trong suốt quá trình sử dụng Spring JPA, mình đã gặp một số bug
 
 Mình thấy nhiều bạn hay code như sau
 
-![](https://cdn-images-1.medium.com/max/2000/1*2q_X9x45Sb8_ryqVQcae4A.png)
+![](/static/img/uploads/12q_X9x45Sb8_ryqVQcae4A.png)
 
 Bạn nên bỏ điều kiện kiểm tra null, vì dù thế nào đi chăng nữa, data cũng sẽ không bao giờ null.
 
@@ -309,35 +309,35 @@ Bạn nên bỏ điều kiện kiểm tra null, vì dù thế nào đi chăng n�
 
 Tình huống là ta chỉ cẩn lấy ra một field của entity, code như sau:
 
-![](https://cdn-images-1.medium.com/max/2000/1*YuC5DUodZoodrL3zLW7ESQ.png)
+![](/static/img/uploads/1YuC5DUodZoodrL3zLW7ESQ.png)
 
 Có bạn code như thế này:
 
-![](https://cdn-images-1.medium.com/max/2000/1*x815klDfW2_LXD2Gpx_WBQ.png)
+![](/static/img/uploads/1x815klDfW2_LXD2Gpx_WBQ.png)
 
 Nếu bạn code bằng JDBC đơn thuần, sử dụng *ResultSet *hoặc sử dụng query thông qua *EntityManager *thì rõ ràng trường hợp không có record nào và record chứa một field mang giá trị **null** nó là khác nhau hoàn toàn, nhưng Spring Data JPA trong cách viết này thì không, nó không phân biệt.
 
 Thử đoạn test
 
-![](https://cdn-images-1.medium.com/max/2000/1*wD6kBUP_5-MiN5qFD6wPoQ.png)
+![](/static/img/uploads/1wD6kBUP_5-MiN5qFD6wPoQ.png)
 
 Mình thêm một company(với code là null) vào database, sau đó lấy ra bằng method *getCodeById* ở trên, mong muốn là code này sẽ là null, nhưng kết quả lại là exception javax.persistence.EntityNotFoundException(nhưng rõ ràng Company có tồn tại mà?), khá cay đắng nhưng sự thật là vậy.
 
 Giờ thay vì dùng một id có tồn tại, mình chọn một id không tồn tại
 
-![](https://cdn-images-1.medium.com/max/2000/1*xCH9DuMfHxYX7H0_nMw2JA.png)
+![](/static/img/uploads/1xCH9DuMfHxYX7H0_nMw2JA.png)
 
 Kết quả vẫn là exception javax.persistence.EntityNotFoundException.
 
 Làm sao phân biệt? Câu trả lời là không thể nếu bạn select như vậy. Hãy select thêm trường để tạo sự khác biệt
 
-![](https://cdn-images-1.medium.com/max/2000/1*0SUpSkSAG3Z5dR6EZomdXQ.png)
+![](/static/img/uploads/10SUpSkSAG3Z5dR6EZomdXQ.png)
 
 Nhiều bạn sẽ thắc mắc ở đây là tại sao không lấy ra mảng Object thôi, tại sao lại phải list mảng object. Thì câu trả lời là dù bạn khai báo kiểu trả về là **_Object[]_** thì trên thực tế trả về vẫn là **_Object[][]_**, và bạn phải cast rất nhiều mới lấy ra cái cần, vậy nên hãy luôn trả về **_List<Object[]>_** dù bạn chỉ lấy 1 record(tuyệt đối đừng bao giờ là **_Object[]_** với nhiều field)
 
 Sửa service như sau:
 
-![](https://cdn-images-1.medium.com/max/2000/1*jnQRFWycutEsNPi3N059sQ.png)
+![](/static/img/uploads/1jnQRFWycutEsNPi3N059sQ.png)
 
 Giờ thì kết quả đúng ý rồi.
 
@@ -351,13 +351,13 @@ Cách mình làm:
 
 Lấy ra các id trong database với kiểu **String**(có lẽ là nó sẽ cast từ int sang String được vì id của company khai báo là **int**)
 
-![](https://cdn-images-1.medium.com/max/2000/1*AtoRolEr49JwrY0bwxQjfA.png)
+![](/static/img/uploads/1AtoRolEr49JwrY0bwxQjfA.png)
 
 Giả sử trong database hiện đang có 10 company với id từ 1 đến 10.
 
 Thử với test dưới đây
 
-![](https://cdn-images-1.medium.com/max/2000/1*bqdicNvJPuHsTgr0SyiYhw.png)
+![](/static/img/uploads/1bqdicNvJPuHsTgr0SyiYhw.png)
 
 Đáng lẽ test trên phải pass, nhưng kết quả lại fail! Tại sao? Rõ ràng trong database có id từ 1 đến 10, *ids “nên” *có dạng
 
@@ -365,19 +365,19 @@ Thử với test dưới đây
 
 thì chắc chắn nó phải chứa *“1”*.
 
-Nhưng, mình đã bị *chúng *lừa. Biến ids vẻ ngoài là ***List<String>***, nhưng “*tâm hồn*” lại là ***List<Integer>***
+Nhưng, mình đã bị *chúng *lừa. Biến ids vẻ ngoài là **_List&lt;String&gt;_**, nhưng “*tâm hồn*” lại là **_List&lt;Integer&gt;_**
 
 Thử đổi lại
 
-![](https://cdn-images-1.medium.com/max/2000/1*GrOaJvcfZBx9lpO5qEdDHQ.png)
+![](/static/img/uploads/1GrOaJvcfZBx9lpO5qEdDHQ.png)
 
 đoạn code có warning, không vấn đề, nó vẫn pass.
 
 Giờ ta không trả về String hay Integer nữa, trả hẳn về Double
 
-![](https://cdn-images-1.medium.com/max/2000/1*lL924TN1IQ8GZQNsxyVopA.png)
+![](/static/img/uploads/1lL924TN1IQ8GZQNsxyVopA.png)
 
-thì trên thực tế cái được trả về vẫn là **List<Integer>**
+thì trên thực tế cái được trả về vẫn là **_List&lt;Integer&gt;_**
 
 Mình chưa có dịp tìm hiểu sâu nguyên nhân, nhưng đoán là nguyên nhân đến từ cả hai, cách convert dữ liệu từ database sang Java type của Spring và cách dùng “*tùm lum*” Generic của Java(do yêu cầu phải tương thích ngược với các version cũ). Nhưng điều quan trọng không phải nguyên nhân, tốt nhất trong trường hợp này, hãy trả về đúng kiểu của field được khai báo trong entity.
 
@@ -402,3 +402,5 @@ Về Hibernate, khuyến khích mọi người nên follow website [https://www.
 [EAGER fetching is a code smell when using JPA and Hibernate](https://vladmihalcea.com/eager-fetching-is-a-code-smell/)
 
 [JPA 2.1 Entity Graph : Part 1- Named entity graphs](https://www.thoughts-on-java.org/jpa-21-entity-graph-part-1-named-entity/)
+---
+summary: Dùng một framework là điều không khó, nhưng để dùng tốt thì không. Chúng ta thường bắt đầu với JPA/Hibernate quá dễ dàng, nhưng lại rất dễ bị mắc lỗi mà không hề hay biết.

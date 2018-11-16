@@ -2,8 +2,7 @@ title: String concatenate, StringBuilder hay StringBuffer
 ---
 author: luanvv
 ---
-pub_date:
-2018-09-22
+pub_date: 2018-09-22
 ---
 body:
 
@@ -180,5 +179,8 @@ Với vòng lặp lớn, chắc chắn việc dùng *MessageFormat *hay khiến 
 cover: covers/1_-LxrwFGbck2QwGBBlVE48w.png
 ---
 tags:
+
 dev
 java
+---
+summary: String là một trong những kiểu dữ liệu quen thuộc trong Java, nhưng vẫn còn đó, những bí mật bên trong không phải ai cũng biết

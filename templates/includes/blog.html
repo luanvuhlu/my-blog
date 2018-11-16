@@ -1,3 +1,4 @@
+{% from "macros/blog.html" import render_blog_post %}
 <section id="blog" class="section section-blog">
     <div class="animate-up">
         <h2 class="section-title">From The Blog</h2>
@@ -6,43 +7,15 @@
         </div>
         <div class="blog-grid">
             <div class="grid-sizer"></div>
-            {% with blogposts = site.query('/blog').order_by('-pub_date').limit(4) %} 
-                {% for blogpost in blogposts %}
-                    <div class="grid-item">
-                        <article class="post-box">
-                            <div class="post-media">
-                                <div class="post-image">
-                                    <a href="{{ blogpost|url }}">
-                                        <img class="lozad"
-                                            src="{{ '/static/img/uploads/458x300.png'|url }}" 
-                                            data-src="{{ '/static/img/'|url + blogpost.cover }}" 
-                                            alt="{{ blogpost.title }}" />
-                                    </a>
-                                </div>
-                            </div>
-
-                            <div class="post-data">
-                                <div class="post-tag">
-                                    {% for t in blogpost.tags -%}
-                                        <a href="{{ ('/tags/' ~ t.lower())|url }}">
-                                        #{{ t }}
-                                        </a>
-                                    {% endfor %}
-                                </div>
-
-                                <h3 class="post-title">
-                                    <a href="{{ blogpost|url }}">{{ blogpost.title}}</a>
-                                </h3>
-
-                                <div class="post-info">
-                                    <a href="javascript: void(0)"><i class="rsicon rsicon-user"></i>by {{ blogpost.author }}</a>
-                                    <a href="javascript: void(0)"><i class="rsicon"></i>{{ blogpost.pub_date.strftime('%b %d %Y') }}</a>
-                                </div>
-                            </div>
-                        </article>
-                    </div>
-                {% endfor %}
-            {% endwith  %}
+            <div class="blog">
+                <div class="row">
+                    {% with blogposts = site.query('/blog').order_by('-pub_date').limit(4) %} 
+                        {% for blogpost in blogposts %}
+                            {{ render_blog_post(blogpost, from_index=true) }}
+                        {% endfor %}
+                    {% endwith  %}
+                </div>
+            </div>
         </div>
         {% if blogposts|length > 4 %}
             <div class="more-blog text-center">

@@ -1,4 +1,3 @@
-
 title: Optional, từ Swift tới Java. Tại sao nên dùng Optional?
 ---
 author: luanvv
@@ -15,7 +14,7 @@ Còn Apple thì nói *Optional* là:
 
 *Optional *trong Java được định nghĩa như một **container object**, chứa bên trong là một non-nullable reference. Nếu bạn nhìn vào source code của Optional sẽ thấy đúng là nó “*chỉ có vậy”, *không hề có sự khác biệt giữa Optional của Java 8 và của guava(đã có từ 2011)
 
-![](https://cdn-images-1.medium.com/max/2000/0*sOLaII80edhn7K9y.jpg)
+![](/static/img/uploads/0sOLaII80edhn7K9y.jpg)
 
 Giải pháp này tương tự như **[Null Object](https://en.wikipedia.org/wiki/Null_object_pattern)** trong ***Design Pattern***. Tư tưởng của *Null Object* là thay vì sử dụng một reference có thể null, ta sử dụng một đối tượng thay thế cho reference đó, nhưng ở “trạng thái” null, và thực tế khi sử dụng, thay vì sử dụng những behavior thông thường của reference thì ta cài đè những behavior riêng cho nullable reference. Từ đó, người sử dụng không cần quan tâm đến việc reference đó có null hay không? Vì code implement bên trong đã điều hướng giúp họ rồi.
 
@@ -25,11 +24,11 @@ Mình đã từng hỏi một số người đã biết qua Java 8, liệu họ 
 
 Mình thậm chí còn bắt gặp một bình luận như dưới đây:
 
-![](https://cdn-images-1.medium.com/max/2158/0*uUKt5bbcbOApdOde)
+![](/static/img/uploads/0_uUKt5bbcbOApdOde.png)
 
 Lý do mọi người đưa ra cũng thường là vậy. Suy nghĩ đó là hoàn toàn đúng! Dùng Optional **không giúp ích nhiều** cho bạn trong việc **check null**. Nhưng bạn hãy khoan. *Optional *là … optional, hay như **Kotlin **họ gọi là ***Null Safety***. Nếu chỉ là check null, thì hãy gọi nó là ***Null Checker*** mới phải chứ?
 
-![](https://cdn-images-1.medium.com/max/2000/0*PLW6PKWLx9KcRTOw)
+![](/static/img/uploads/0PLW6PKWLx9KcRTOw.png)
 
 Đứng dưới góc độ là một Java developer, nhiều người nhìn Optional qua cú pháp, từ đó sẽ luôn chỉ thấy **check null**. Nhưng câu chuyện đằng sau Optional lại là một câu chuyện khác.
 
@@ -45,11 +44,11 @@ Theo ý hiểu của mình thì, trong Swift, kiểu dữ liệu chia ra 2 loạ
 
 Ví dụ khi ta chỉ khai báo kiểu dữ liệu cho biến là *String *và không chỉ định gì thêm, có nghĩa biến này là kiểu Non-Optional String. Nếu ta cố gắng gán *nil *cho nó, compile error sẽ xảy ra ngay.
 
-![không được phép gán nil cho Non-Optional](https://cdn-images-1.medium.com/max/2000/1*X41_2mO4yLzn0CImi1VI4g.png)*không được phép gán nil cho Non-Optional*
+![không được phép gán nil cho Non-Optional](/static/img/uploads/1X41_2mO4yLzn0CImi1VI4g.png)*không được phép gán nil cho Non-Optional*
 
 Thay vào đó, ta phải gán giá trị non-nil vào cho biến:
 
-![](https://cdn-images-1.medium.com/max/2000/1*YEu-87GiNGHNUqFZHhrOBg.png)
+![](/static/img/uploads/1YEu-87GiNGHNUqFZHhrOBg.png)
 
 Bây giờ ta khai báo kiểu là Optional bằng cách thêm dấu “?” vào sau kiểu dữ liệu
 
@@ -59,9 +58,9 @@ Bây giờ ta khai báo kiểu là Optional bằng cách thêm dấu “?” và
 
 Cùng so sánh một số đoạn code khi sử dụng *Swift* và *Java*(chưa dùng *Optional*)
 
-![Swift](https://cdn-images-1.medium.com/max/2000/1*QAri_FnrmmP8PiT_oKuGKA.png)
+![Swift](/static/img/uploads/1QAri_FnrmmP8PiT_oKuGKA.png)
 
-![Java](https://cdn-images-1.medium.com/max/2000/1*T5HFztJokajBCZ0zGGTK-g.png)
+![Java](/static/img/uploads/1T5HFztJokajBCZ0zGGTK-g.png)
 
 Mỗi người đều có gia đình nên *family *là non-nullable, nhưng có thể không có bạn gái nên *girlfriend *sẽ là nullable. Điều này rất dễ thấy với *Swift*, nhưng *Java *thì không, bạn không thể phân biệt được.
 
@@ -100,13 +99,13 @@ Trong *Swift*, bạn có thể viết
 
 còn với *Java*, hãy nhìn đoạn code ở trên và tưởng tượng
 
-![Nghĩ đến mà chán](https://cdn-images-1.medium.com/max/2000/1*UiusvJn4r-hT_ly8D-evvQ.png)
+![Nghĩ đến mà chán](/static/img/uploads/1UiusvJn4r-hT_ly8D-evvQ.png)
 
 * không thể check khi compile,
 
     Optional.of(null) // -> Compile bình thường !!
 
-![Thật hả trời](https://cdn-images-1.medium.com/max/2000/1*7YqeBK5U-Pb3dGdSq3xYNA.png)
+![Thật hả trời](/static/img/uploads/17YqeBK5U-Pb3dGdSq3xYNA.png)
 
 ### Optional của Java thật tệ, nhưng hãy thử dùng nó!
 
@@ -176,3 +175,5 @@ tags:
 dev
 java
 java8
+---
+summary: Optional, một feature mới trong Java 8

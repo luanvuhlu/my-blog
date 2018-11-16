@@ -1,35 +1,70 @@
 {% macro render_blog_post(post, from_index=false) %}
-<div class="grid-item" style="position: absolute; left: 0%; top: 0px;">
-    <article class="post-box animated">
-        <div class="post-media">
-            <div class="post-image">
-                <a href="{{ post|url }}">
+<div class="col-xs-12 blog-item">
+    <div class="row">
+        <div class="col-xs-7">
+            <div class="post-title">
+                <h3 class="post-title">
+                    <a href="{{ post|url }}">{{post.title}}</a>
+                </h3>
+            </div>
+            <div class="post-summary">
+                {{ post.summary }}
+            </div>
+            <div class="post-author">
+                <a href=""><i class=""></i>by {{ post.author }}</a>
+            </div>
+            <div class="post-date">
+                <a href=""><i class="rsicon"></i>{{ post.pub_date.strftime('%b %d %Y') }}</a>
+            </div>
+        </div>
+        <div class="col-xs-5">
+            <a href="{{ post|url }}">
                     <img class="lozad"
                         src="{{ '/static/img/uploads/458x300.png'|url }}" 
                         data-src="{{ '/static/img/'|url + post.cover }}" 
                         alt="{{ post.title }}" />
                 </a>
-            </div>
         </div>
-
-        <div class="post-data">
-            <div class="post-tag">
-                {% for t in post.tags -%}
-                    <a href="{{ ('/tags/' ~ t.lower())|url }}">
-                      #{{ t }}
-                    </a>
-                {% endfor %}
-            </div>
-
-            <h3 class="post-title">
-                <a href="{{ post|url }}">{{post.title}}</a>
-            </h3>
-
-            <div class="post-info">
-                <a href=""><i class="rsicon rsicon-user"></i>by admin</a>
-                <a href=""><i class="rsicon"></i>{{ post.pub_date.strftime('%b %d %Y') }}</a>
-            </div>
-        </div>
-    </article>
+    </div>
 </div>
+{% endmacro %}
+{% macro render_blog_sibling_nav(post, from_index=false) %}
+  {% from "macros/pagination.html" import render_pagination %}
+  <nav class="post-pagination section-box">
+    {% set siblings = post.get_siblings() %}
+
+    {# prev/next are swapped since blog children ordered_by is negative
+    {# nav logic for previous page #}
+    {% if siblings.next_page %}
+      {% set prev = siblings.next_page %}
+    {% endif %}
+
+    {# nav logic for next page #}
+    {% if siblings.prev_page %}
+      {% set next = siblings.prev_page %}
+    {% endif %}
+
+    {# previous / nex nav links #}
+
+    {% if next %}
+        <div class="post-next">
+          <h3 class="post-title"><a href="{{ next|url }}">{{ next.title }}</a></h3>
+
+          <div class="post-info">
+            <a href="javascript: void(0)"><i class="rsicon rsicon-user"></i>by {{ next.author }}</a>
+            <a href="javascript: void(0)"><i class="rsicon"></i>{{ next.pub_date.strftime('%b %d %Y') }}</a>
+          </div>
+        </div>
+    {% endif %}
+    {% if prev %}
+        <div class="post-next">
+          <h3 class="post-title"><a href="{{ prev|url }}">{{ prev.title }}</a></h3>
+
+          <div class="post-info">
+            <a href="javascript: void(0)"><i class="rsicon rsicon-user"></i>by {{ prev.author }}</a>
+            <a href="javascript: void(0)"><i class="rsicon"></i>{{ prev.pub_date.strftime('%b %d %Y') }}</a>
+          </div>
+        </div>
+    {% endif %}
+  </nav><!-- .post-pagination -->
 {% endmacro %}

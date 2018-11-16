@@ -27,12 +27,12 @@
                             </li>
                             <li class="clearfix">
                                 <strong class="title">{{ transbag('translate', this.alt, 'phone') }}</strong>
-                                <span class="cont"><a href="tel:+841648089101">+84 164 808 9101</a></span>
+                                <span class="cont"><a href="tel:+841648089101">+84 34 808 9101</a></span>
                             </li>
-                            <li class="clearfix">
+                            <!-- <li class="clearfix">
                                 <strong class="title">{{ transbag('translate', this.alt, 'freelance') }}</strong>
                                 <span class="cont">maybe, why not</span>
-                            </li>
+                            </li> -->
                             <li class="clearfix">
                                 <strong class="title"><span class="button">Not open for hire</span></strong>
                                 <span class="cont"><i class="rsicon rsicon-calendar"></i>till unknow</span>
@@ -52,27 +52,27 @@
             <div class="profile-social">
                 <ul class="social">
                     <li>
-                        <a class="ripple-centered" rel="noopener" target="_blank" href="https://github.com/luanvuhlu">
+                        <a class="ripple-centered" aria-label="Github" rel="noopener" target="_blank" href="https://github.com/luanvuhlu">
                             <i class="rsicon rsicon-github"></i>
                         </a>
                     </li>
                     <li>
-                        <a class="ripple-centered" rel="noopener" target="_blank" href="https://www.facebook.com/luanvuhlu" target="_blank">
+                        <a class="ripple-centered" aria-label="Facebook" rel="noopener" target="_blank" href="https://www.facebook.com/luanvuhlu" target="_blank">
                             <i class="rsicon rsicon-facebook"></i>
                         </a>
                     </li>
                     <li>
-                        <a class="ripple-centered" rel="noopener" target="_blank" href="https://www.linkedin.com/in/luanvv/" target="_blank">
+                        <a class="ripple-centered" aria-label="LinkedIn" rel="noopener" target="_blank" href="https://www.linkedin.com/in/luanvv/" target="_blank">
                             <i class="rsicon rsicon-linkedin"></i>
                         </a>
                     </li>
                     <li>
-                        <a class="ripple-centered" rel="noopener" target="_blank" href="skype:luanvuhlu"><i
+                        <a class="ripple-centered" aria-label="Skype" rel="noopener" target="_blank" href="skype:luanvuhlu"><i
                             class="rsicon rsicon-skype"></i>
                         </a>
                     </li>
                     <li>
-                        <a class="ripple-centered" rel="noopener" target="_blank" href="mailto:luanvuhlu@gmail.com">
+                        <a class="ripple-centered" aria-label="Email" rel="noopener" target="_blank" href="mailto:luanvuhlu@gmail.com">
                             <i class="rsicon rsicon-email"></i>
                         </a>
                     </li>
@@ -81,7 +81,7 @@
         </div>
 
         <div class="section-txt-btn">
-            <p><a class="btn btn-lg btn-border ripple" target="_blank"
+            <p><a href="javascript: void(0)" rel="noopener" class="btn btn-lg btn-border ripple" target="_blank"
                   onclick="alert('Làm gì có! Cuộc sống mà!')">Download Resume</a></p>
             <div class="text-left">
                 {% for line in bag(transbagname('intro', this.alt) + 'intro.about') %}
