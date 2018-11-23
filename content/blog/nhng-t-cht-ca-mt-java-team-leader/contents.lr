@@ -21,6 +21,7 @@ Hiểu được nguồn gốc ra đời, sự phát triển qua các thời kỳ
 <!-- Mình đã pass qua cả 2 kỳ thi của Java SE là Oracle Certified Professional Java SE 8 Programmer I & II, nhưng để nói là nắm vững Java, mình không dám nói. -->
 
 ### Java advance
+- Tạo và sử dụng annotation
 - Hiểu biết tốt về JDBC: các loại ResultSet, Statement, batch process,…
 - Nêu và nắm vững các Java collection cơ bản: List, Set, Map, ArrayList, LinkedList, HashSet, LinkedHashSet,… Nêu được ưu, nhược điểm và đưa ra lựa chọn collection phù hợp cho mỗi bài toán cụ thể.
 - Hiểu và làm việc tốt với đa luồng: các khái niệm trong đa luồng(Race Conditions, Synchronized, Deadlocks,...), các keyword trong Java cho xử lý đa luồng, các class, collection tối ưu cho đa luồng
@@ -44,7 +45,7 @@ Hiểu được nguồn gốc ra đời, sự phát triển qua các thời kỳ
 # Kết luận
 Một Java Team Leader phải có:
 - Cái nhìn rộng: 
-    Mình đi phỏng vấn khá nhiều, junior có, senior có, mình đều hỏi ứng viên có hiểu biết Java core như thế nào, câu trả lời luôn là: "*nắm rất vững!*". Tuy nhiên khi hỏi về *generic*, *varargs*, *try-with-resources* thì các bạn cứ ngạc nhiên kiểu: "*Mình tưởng ta đang phỏng vấn Java!*". Hoặc nhiều bạn hay đổi lỗi cho việc "*Lâu quá rồi chưa dùng nên quên*", "*Cái này anh chưa làm bao giờ nên không biết*", "*Cái này nếu có làm thì tìm hiểu là ra thôi!*",... Những câu nói như vậy, không bao giờ là điều mà những team member của các bạn muốn nghe đâu. Bạn phải có kiến thức sâu rộng về lĩnh vực mà bạn làm việc. Bạn phải luôn là chỗ dựa vững chắc cho các developer khác dựa vào. Bạn càng biết ít, bạn càng mất dần niềm tin từ các developer khác, mà một khi niềm tin đã mất thì liệu bạn có thể lãnh đạo họ được không? 
+    Mình đi phỏng vấn khá nhiều, junior có, senior có, mình đều hỏi ứng viên có hiểu biết Java core như thế nào, câu trả lời luôn là: "*nắm rất vững!*". Tuy nhiên khi hỏi về *generic*, *varargs*, *try-with-resources* thì các bạn cứ ngạc nhiên kiểu: "*Mình tưởng ta đang phỏng vấn Java!*". Hoặc nhiều bạn hay đổi lỗi cho việc "*Lâu quá rồi chưa dùng nên quên*", "*Cái này anh chưa làm bao giờ nên không biết*", "*Cái này nếu có làm thì tìm hiểu là ra thôi!*",... Những câu nói như vậy, không bao giờ là điều mà những team member của các bạn muốn nghe đâu. Bạn phải có kiến thức sâu rộng về lĩnh vực mà bạn làm việc. Bạn phải luôn là chỗ dựa vững chắc cho các developer khác dựa vào. Bạn càng biết ít, bạn càng mất dần niềm tin từ các developer khác, mà một khi niềm tin đã mất thì liệu bạn có thể lãnh đạo họ được không?
 - Tinh thần học hỏi không ngừng
     Mình thấy khá nhiều team lead dần dần bị "*lạm quyền*", họ dần dần chuyển hướng sang làm công việc của project manager. Họ ngừng code, họ ngừng tìm hiểu công nghệ, thay vào đó, họ kiểm tra schedule, họ trả lời khách hàng,...
     Một team lead cần phải không ngừng học hỏi, cập nhật những công nghệ mới, bổ sung những công nghệ còn thiếu.
