@@ -52,23 +52,19 @@ Output maybe, I'm not sure.
 ```
 
 ```
-mkdir build && cp -r $(lektor project-info --output-path)/* build/
-```
-
-```
-cp -r build build-minify && css-html-js-minify build-minify --overwrite
+mkdir build-minify && cp -r $(lektor project-info --output-path)/* build-minify/
 ```
 Use Linux command to gzip. I donot know an alternative for Window OS
 ```
-find build-minify -type f -exec gzip -9 "{}" \; -exec mv "{}.gz" "{}" \;
+cd build-minify && find . -type f -exec gzip -9 "{}" \; -exec mv "{}.gz" "{}" \;
 ```
 Upload to Google Cloud Storage
 ```
-cd build-minify && gsutil -m cp -R . gs://[DESTINATION_BUCKET_NAME]/
+gsutil -m cp -R . gs://[DESTINATION_BUCKET_NAME]/
 ```
 or you want to set cache-control and compress
 ```
-cd build-minify && gsutil -h "Cache-Control:public,max-age=86400" -h "Content-Encoding:gzip" -m cp -a public-read -r . gs://[DESTINATION_BUCKET_NAME]/
+gsutil -h "Cache-Control:public,max-age=86400" -h "Content-Encoding:gzip" -m cp -a public-read -r . gs://[DESTINATION_BUCKET_NAME]/
 ```
 ## Usage
 Lektor provides an admin site(at link [http://localhost:5000/admin](http://localhost:5000/admin)), so you can create, edit and preview any blog/page here
