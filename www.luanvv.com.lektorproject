@@ -2,9 +2,7 @@
 name = www.luanvv.com
 
 [packages]
-lektor-tags
-lektor-markdown-highlighter
-lektor-minify
+lektor-minify = 1.2
 
 [alternatives.en]
 name = English

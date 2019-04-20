@@ -13,7 +13,9 @@ tags:
 dev
 talk
 ---
-body: Mình đi phỏng vấn khá nhiều. Từ Junior, Senior đến Technical Leader, mình nhận ra một điểm chung mà khá nhiều người gặp phải: Đổ lỗi cho công việc!
+body:
+
+Mình đi phỏng vấn khá nhiều. Từ Junior, Senior đến Technical Leader, mình nhận ra một điểm chung mà khá nhiều người gặp phải: Đổ lỗi cho công việc!
 ###Tôi chưa bao giờ làm nên không biết!
 *Công việc của tôi chỉ là JSP/Servelet nên tôi không biết Spring/Hibernate!*  
 *Tôi chưa bao giờ làm đa luồng nên không biết!*
@@ -29,3 +31,5 @@ Mỗi công nghệ(framework, software, OS,...) đều có những thứ như *c
 ....
 Nhưng rõ ràng, *phòng bệnh hơn chữa bệnh*, đừng bao giờ có suy nghĩ *mất bò mới lo làm chuồng*
 ###Tôi vẫn làm rất tốt công việc hiện tại
+---
+_hidden: yes

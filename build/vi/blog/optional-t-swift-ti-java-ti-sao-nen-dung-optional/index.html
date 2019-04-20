@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en" class="theme-color-07cb79 theme-skin-light">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<META NAME="geo.position" CONTENT="21.028511, 105.804817">
+<META NAME="geo.placename" CONTENT="Hanoi, Vietnam">
+<META NAME="geo.region" CONTENT="vi">
+<meta name="theme-color" content="#536878" />
+
+<meta name="description" content="Optional, một feature mới trong Java 8" />
+
+<!-- <link rel="stylesheet" href="../../../static/style.css"> -->
+<title>Optional, từ Swift tới Java. Tại sao nên dùng Optional? — luanvv.com</title>
+<link rel="manifest" href="../../../static/manifest.json">
+<!-- Favicon -->
+<link rel="shortcut icon" type="image/ico" href="../../../static/img/favicon.ico" />
+<!-- Google Fonts -->
+<!-- <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Fredoka+One">
+<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic,700,700italic,800,800italic"> -->
+<!-- Icon Fonts -->
+<!-- <link rel="stylesheet" type="text/css" href="../../../static/fonts/map-icons/css/map-icons.min.css"> -->
+<link rel="stylesheet" type="text/css" href="../../../static/fonts/icomoon/style.css">
+<!-- Styles -->
+<link rel="stylesheet" type="text/css" href="../../../static/js/plugins/jquery.bxslider/jquery.bxslider.css">
+<!-- <link rel="stylesheet" type="text/css" href="../../../static/js/plugins/jquery.customscroll/jquery.mCustomScrollbar.min.css"> -->
+<!-- <link rel="stylesheet" type="text/css" href="../../../static/js/plugins/jquery.mediaelement/mediaelementplayer.min.css"> -->
+<!-- <link rel="stylesheet" type="text/css" href="../../../static/js/plugins/jquery.fancybox/jquery.fancybox.css"> -->
+<link rel="stylesheet" type="text/css" href="../../../static/js/plugins/jquery.owlcarousel/owl.carousel.css">
+<link rel="stylesheet" type="text/css" href="../../../static/js/plugins/jquery.owlcarousel/owl.theme.css">
+
+<link rel="stylesheet" type="text/css" href="../../../static/style.css">
+<link rel="stylesheet" type="text/css" href="../../../static/colors/green.css">
+
+
+<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+<![endif]-->
+<!-- Modernizer for detect what features the user’s browser has to offer -->
+<script type="text/javascript" src="../../../static/js/libs/modernizr.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lozad/dist/lozad.min.js"></script>
+<!-- <script type="text/javascript" src="../../../static/js/service-worker.js"></script> -->
+</head>
+<body class="home "> <!-- add loading for progress bar -->
+  <div class="mobile-nav">
+    <button class="btn-mobile mobile-nav-close" aria-label="Close menu"><i class="rsicon rsicon-close"></i></button>
+
+    <div class="mobile-nav-inner">
+      <nav id="mobile-nav" class="nav">
+        <ul class="clearfix">
+          <li><a href="../../../vi/#about">About</a></li>
+          <li><a href="../../../vi/#skills">Skills</a></li>
+          <!-- <li><a href="../../../vi/#portfolio">Portfolio</a> </li> -->
+          <li><a href="../../../vi/#experience">Experience</a></li>
+          <li><a href="../../../vi/#education">Education</a></li>
+          <!-- <li><a href="../../../vi/#references">References</a></li> -->
+          <li>
+            <!-- <a href="../../../vi/blog/">Blog</a> -->
+            <a href="../../../vi/blog/">Blog</a>
+          </li>
+          <!-- <li><a href="../../../vi/#text-section">Future <span></span></a></li> -->
+          <!-- <li><a href="../../../vi/#calendar">Calendar <span></span></a></li> -->
+          <!-- <li><a href="../../../vi/#contact">Contact <span></span></a></li> -->
+        </ul>
+      </nav>
+    </div>
+x`
+  </div><!-- .mobile-nav -->
+  <div class="wrapper">
+    <header class="header">
+      
+      <div class="head-bar">
+        <div class="head-bar-inner">
+          <div class="row">
+            <div class="col-xs-9 col-sm-6 col-md-3">
+              <a class="logo" href="../../../vi/"><span>Luan</span>'s blog</a>
+              <!-- <a class="head-logo" href=""><img src="img/rs-logo.png" alt="RScard"/></a> -->
+            </div>
+            <div class="col-xs-3 col-sm-6 col-md-9">
+              <div class="nav-wrap">
+                <nav id="nav" class="nav">
+                  <ul class="clearfix">
+                    <li><a href="../../../vi/#about">About</a></li>
+                    <li><a href="../../../vi/#skills">Skills</a></li>
+                    <!-- <li><a href="../../../vi/#portfolio">Portfolio</a> </li> -->
+                    <li><a href="../../../vi/#experience">Experience</a></li>
+                    <li><a href="../../../vi/#education">Education</a></li>
+                    <!-- <li><a href="../../../vi/#references">References</a></li> -->
+                    <li>
+                      <!-- <a href="../../../vi/blog/">Blog</a> -->
+                      <a href="../../../vi/blog/">Blog</a>
+                    </li>
+                    <!-- <li><a href="../../../vi/#text-section">Future <span></span></a></li> -->
+                    <!-- <li><a href="../../../vi/#calendar">Calendar <span></span></a></li> -->
+                    <!-- <li><a href="../../../vi/#contact">Contact <span></span></a></li> -->
+                  </ul>
+                </nav>
+                <button class="btn-mobile btn-mobile-nav">Menu</button>
+                <!-- <button class="btn-sidebar btn-sidebar-open"><i class="rsicon rsicon-menu"></i></button> -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header><!-- .header -->
+    <div class="content">
+        <div class="container">
+      
+<div class="row animate-up animated">
+  <div class="col-sm-12">
+    <main class="post-single">
+      <article class="post-content section-box">
+          <header class="post-header">
+            <div class="post-data">
+              <div class="post-title-wrap">
+                <h1 class="post-title">Optional, từ Swift tới Java. Tại sao nên dùng Optional?</h1>
+              </div>
+              <div class="post-tag">
+                <a href="../../../tags/dev">
+                      #dev
+                    </a>
+                <a href="../../../tags/java">
+                      #java
+                    </a>
+                <a href="../../../tags/java8">
+                      #java8
+                    </a>
+                
+              </div>
+              <div class="post-info">
+                <a href="javascript: void(0)"><i class="rsicon rsicon-user"></i>by luanvv</a>
+                <a href="javascript: void(0)"><i class="rsicon"></i>Oct 09 2018</a>
+              </div>
+            </div>
+          </header>
+          <div class="post-media">
+              <img class="lozad"
+                src="../../../static/img/uploads/458x300.png" 
+                data-src="../../../static/img/covers/0_sOLaII80edhn7K9y.jpg" 
+                alt="Optional, từ Swift tới Java. Tại sao nên dùng Optional?" />
+            </div>
+        <div class="post-inner">
+          <div class="post-editor clearfix">
+            <p>Optional không hề mới, thư viên guava đã cung cấp Optional, ít nhất là cách đây 7 năm(trước 3 năm so với Java 8). Đến năm 2014, Swift ra đời và cung cấp Optional. Đến năm 2016, Kotlin cung cấp Null Safety(cùng khái niệm với Optional) và rất nhiều ngôn ngữ khác cũng có những khái niệm tương tự như Optional.</p>
+<p>Theo như document của <em>Oracle</em>, <em>Optional </em>là:</p>
+<blockquote><p><em>A container object which may or may not contain a non-null value.</em></p>
+</blockquote>
+<p>Còn Apple thì nói <em>Optional</em> là:</p>
+<blockquote><p><em>A type that represents either a wrapped value or nil, the absence of a value</em>.</p>
+</blockquote>
+<p><em>Optional </em>trong Java được định nghĩa như một <strong>container object</strong>, chứa bên trong là một non-nullable reference. Nếu bạn nhìn vào source code của Optional sẽ thấy đúng là nó “<em>chỉ có vậy”, </em>không hề có sự khác biệt giữa Optional của Java 8 và của guava(đã có từ 2011)</p>
+<p><img src="../../../static/img/uploads/0sOLaII80edhn7K9y.jpg" alt=""></p>
+<p>Giải pháp này tương tự như <strong><a href="https://en.wikipedia.org/wiki/Null_object_pattern">Null Object</a></strong> trong <strong><em>Design Pattern</em></strong>. Tư tưởng của <em>Null Object</em> là thay vì sử dụng một reference có thể null, ta sử dụng một đối tượng thay thế cho reference đó, nhưng ở “trạng thái” null, và thực tế khi sử dụng, thay vì sử dụng những behavior thông thường của reference thì ta cài đè những behavior riêng cho nullable reference. Từ đó, người sử dụng không cần quan tâm đến việc reference đó có null hay không? Vì code implement bên trong đã điều hướng giúp họ rồi.</p>
+<h3><strong>Lý do tại sao nhiều người chưa dùng Optional?</strong></h3>
+<p>Mình đã từng hỏi một số người đã biết qua Java 8, liệu họ có dùng Optional không. Câu trả lời luôn là <strong>không</strong>!</p>
+<p>Mình thậm chí còn bắt gặp một bình luận như dưới đây:</p>
+<p><img src="../../../static/img/uploads/0_uUKt5bbcbOApdOde.png" alt=""></p>
+<p>Lý do mọi người đưa ra cũng thường là vậy. Suy nghĩ đó là hoàn toàn đúng! Dùng Optional <strong>không giúp ích nhiều</strong> cho bạn trong việc <strong>check null</strong>. Nhưng bạn hãy khoan. <em>Optional </em>là … optional, hay như <strong>Kotlin </strong>họ gọi là <strong><em>Null Safety</em></strong>. Nếu chỉ là check null, thì hãy gọi nó là <strong><em>Null Checker</em></strong> mới phải chứ?</p>
+<p><img src="../../../static/img/uploads/0PLW6PKWLx9KcRTOw.png" alt=""></p>
+<p>Đứng dưới góc độ là một Java developer, nhiều người nhìn Optional qua cú pháp, từ đó sẽ luôn chỉ thấy <strong>check null</strong>. Nhưng câu chuyện đằng sau Optional lại là một câu chuyện khác.</p>
+<h3>Optional không phải Null Checker!</h3>
+<p>Năm 2014, thay vì Java 8, mình thử Swift , ngôn ngữ vừa được <em>Apple</em> giới thiệu. Và voila! <em>Optional</em> lần đầu tiên xuất hiện trong đời mình. Chúng ta thử tìm hiểu một chút <a href="https://docs.swift.org/swift-book/LanguageGuide/OptionalChaining.html#">Optional trong Swift</a> nào!</p>
+<p>Theo ý hiểu của mình thì, trong Swift, kiểu dữ liệu chia ra 2 loại, để dễ hiểu, mình sẽ gọi là: <strong>Non-Optional </strong>và <strong>Optional</strong>.</p>
+<ul>
+<li><p>Optional ở đây chỉ ra rằng reference <strong>có thể gán null</strong>(nil),</p>
+</li>
+<li><p>Non-Optional là kiểu mặc định và <strong>không thể gán null</strong>.</p>
+</li>
+</ul>
+<p>Ví dụ khi ta chỉ khai báo kiểu dữ liệu cho biến là <em>String </em>và không chỉ định gì thêm, có nghĩa biến này là kiểu Non-Optional String. Nếu ta cố gắng gán <em>nil </em>cho nó, compile error sẽ xảy ra ngay.</p>
+<p><img src="../../../static/img/uploads/1X41_2mO4yLzn0CImi1VI4g.png" alt="không được phép gán nil cho Non-Optional"><em>không được phép gán nil cho Non-Optional</em></p>
+<p>Thay vào đó, ta phải gán giá trị non-nil vào cho biến:</p>
+<p><img src="../../../static/img/uploads/1YEu-87GiNGHNUqFZHhrOBg.png" alt=""></p>
+<p>Bây giờ ta khai báo kiểu là Optional bằng cách thêm dấu “?” vào sau kiểu dữ liệu</p>
+<p><img src="https://cdn-images-1.medium.com/max/2032/1*dslZj0SU_19nTFb0NMjZMw.png" alt="có thể gán nil cho biến kiểu Optional"><em>có thể gán nil cho biến kiểu Optional</em></p>
+<p>Điều tuyệt vời của Optional trong <em>Swift </em>không phải <strong>check null </strong>mà là bạn sẽ luôn biết(hoặc compiler bắt bạn biết) khi nào cần <strong>check null </strong>và kiểu của một biến(biết nó có thể null hay không).</p>
+<p>Cùng so sánh một số đoạn code khi sử dụng <em>Swift</em> và <em>Java</em>(chưa dùng <em>Optional</em>)</p>
+<p><img src="../../../static/img/uploads/1QAri_FnrmmP8PiT_oKuGKA.png" alt="Swift"></p>
+<p><img src="../../../static/img/uploads/1T5HFztJokajBCZ0zGGTK-g.png" alt="Java"></p>
+<p>Mỗi người đều có gia đình nên <em>family </em>là non-nullable, nhưng có thể không có bạn gái nên <em>girlfriend </em>sẽ là nullable. Điều này rất dễ thấy với <em>Swift</em>, nhưng <em>Java </em>thì không, bạn không thể phân biệt được.</p>
+<p>Tương tự với method:</p>
+<p><img src="https://cdn-images-1.medium.com/max/2424/1*br3er0LQ8eKNTWYnhYnnHg.png" alt="Java"></p>
+<p>Nhìn vào method của <em>Java</em>, liệu bạn có biết được parameter nào có thể null, parameter nào không thể null không? Có thể nhiều người sẽ nghĩ đến <em>Document, </em>nhưng sự thật là Document không phải là thứ nhiều dev hứng thú nên rất dễ bị bỏ qua!</p>
+<p>Còn với <em>Swift</em></p>
+<p><img src="https://cdn-images-1.medium.com/max/2354/1*oQS9c2IkkkD1An0o9P0gGg.png" alt="Swift"></p>
+<p><em>firstName </em>không được null, <em>lastName </em>và <em>age đều </em>có thể null. Method trên có thể trả về <em>null</em> nếu không tìm thấy <em>Person </em>nào, quá dễ hiểu mà chẳng cần bất kỳ dòng <em>Document</em> nào cả.</p>
+<h3>Optional trong Java 8?</h3>
+<p>Cùng năm 2014 đó, Java ra mắt phiên bản 8 và cũng có Optional. Nhưng thật không may, Optional quá dỏm! Dỏm thật sự. Sự thật là Optional trong Java chỉ là một <strong>class thông thường </strong>mà bất kỳ ai cũng có thể tạo ra và như đã nói ở trên thì <em>guava</em> đã làm từ rất lâu trước đó rồi! Vì nó chỉ là một class thông thường, Java compiler cũng không ủng hộ nên:</p>
+<ul>
+<li><p>Cú pháp siêu phức tạp</p>
+<p>Optional<Integer> number = Optional.of(100);
+  Integer realNumber = number.get();
+  Optional<Person> girlfriend = Optional.ofNullable(findGirlfriend());
+  Person yourFriend = findFriend().orElse(new Person())
+  find("Lan", Optional.ofNullable(getLastName()), Optional.ofNullable(getAge());</p>
+</li>
+</ul>
+<p>Really? Mình không muốn viết cú pháp như vậy đâu(nhưng…<em>cuộc sống mà!</em>)</p>
+<ul>
+<li>không thể tự động “<em>cast</em>” giá trị được.</li>
+</ul>
+<p>Trong <em>Swift</em>, bạn có thể viết</p>
+<pre><code>number : Int?
+number = 100
+</code></pre>
+<p>còn với <em>Java</em>, hãy nhìn đoạn code ở trên và tưởng tượng</p>
+<p><img src="../../../static/img/uploads/1UiusvJn4r-hT_ly8D-evvQ.png" alt="Nghĩ đến mà chán"></p>
+<ul>
+<li><p>không thể check khi compile,</p>
+<p>Optional.of(null) // -&gt; Compile bình thường !!</p>
+</li>
+</ul>
+<p><img src="../../../static/img/uploads/17YqeBK5U-Pb3dGdSq3xYNA.png" alt="Thật hả trời"></p>
+<h3>Optional của Java thật tệ, nhưng hãy thử dùng nó!</h3>
+<p>Sau khi dạo một vòng <em>Swift</em>, nhìn lại <em>Java</em>, chắc nhiều người sẽ nản và hét lên: <strong>Tại sao?</strong></p>
+<p>Câu trả lời, thật ra đã được nói ở trên. Giống như <em>Swift</em>, <em>Optional </em>trong <em>Java</em>(hay những thứ tương tự trong Groovy, C#, Kotlin hay Haskell) không phải để thay thế những dòng check null của bạn, mục đích hàng đầu của nó là nói cho bạn biết: <strong>một value liệu có thể null hay không</strong></p>
+<p>Hãy thử với một số method khá quen thuộc trong JPA/Spring Data JPA/Hibernate(bản mới nhất hiện nay):</p>
+<p>Dưới đây là hàm tìm kiếm theo ID của <strong><a href="https://docs.oracle.com/javaee/7/api/javax/persistence/EntityManager.html#find-java.lang.Class-java.lang.Object-">javax.persistence.EntityManager</a></strong></p>
+<pre><code>public &lt;T&gt; T getReference(Class&lt;T&gt; entityClass, Object primaryKey)
+</code></pre>
+<p>vẫn là chức năng đó, nhưng được viết trong <strong><a href="https://docs.spring.io/spring-data/data-jpa/docs/current/api/org/springframework/data/jpa/repository/JpaRepository.html#getOne-ID-">JpaRepository</a></strong></p>
+<pre><code>T getOne(ID id)
+</code></pre>
+<p>còn đây là trong <strong><a href="https://docs.spring.io/spring-data/commons/docs/current/api/org/springframework/data/repository/CrudRepository.html#findById-ID-">CrudRepository</a></strong></p>
+<pre><code>Optional&lt;T&gt; findById(ID id)
+</code></pre>
+<p>Nếu không đọc <em>Document</em>, liệu bạn có biết chuyện gì xảy ra nếu không tìm thấy entity ?</p>
+<ul>
+<li><p>Method thứ nhất sẽ trả về <em>null</em></p>
+</li>
+<li><p>Method thứ hai sẽ throw <em>javax.persistence.EntityNotFoundException</em></p>
+</li>
+</ul>
+<p>Method thứ ba, quá dễ để đoán, sẽ luôn luôn trả về Optional dù có thấy entity hay không, chỉ khác là nó có giá trị(present) hay rỗng(empty/absent).</p>
+<p>Hay bạn muốn viết API và muốn nói với đồng nghiệp rằng:</p>
+<p><em>Này, tham số thứ nhất không được null, còn 2 tham số còn lại thì thoải mái nhé. À và nó có thể trả về null đấy nhé</em></p>
+<p>Có thể bạn nghĩ là nên viết như vầy</p>
+<p><img src="https://cdn-images-1.medium.com/max/2750/1*_8S-x_StRGvlDmAu_FE_mg.png" alt="Nhiều comment dữ dội luôn"><em>Nhiều comment dữ dội luôn</em></p>
+<p>Tại sao không viết là</p>
+<p><img src="https://cdn-images-1.medium.com/max/2800/1*KT_yeIRoW_7WQEQwsp6a1g.png" alt=""></p>
+<p>Không may, đồng nghiệp bạn sẽ quạo:</p>
+<p><em>Cái gì thế này?</em></p>
+<p>Hãy nở nụ cười thật tươi và nói: Welcome to Java 8!</p>
+<h3>Tóm lại</h3>
+<p><strong>Optional</strong> trong <em>Swift</em> có thể tốt hơn Java, <strong>Null Safety</strong> trong <em>Kotlin</em> có vẻ có ích hơn, nhưng lỗi <em>null reference</em> vẫn sẽ không bao giờ buông tha các dev dùng ngôn ngữ đó. Công cụ có thể quan trọng, nhưng con người mới là yếu tốt quan trọng hơn cả. Bạn vẫn có thể code <strong>Java 8</strong> mà không cần dùng <em>Optional</em>, cũng giống như bạn có thể code mà không cần có bất kỳ kiến thức nào về <strong>Coding convention</strong>, <strong>Refactoring</strong> <em>hay <strong>Design Pattern</strong>. Còn nếu bạn nói: “</em>tôi cần Coding convention, Refactoring hay Design Pattern<em>”, hãy thử </em>Optional<em> của Java nhưng tưởng tượng như đang dùng </em>Swift.</p>
+<h3><strong>Tham khảo</strong></h3>
+<p><strong>Hãy đọc những tài liệu dưới đây, đừng lười nếu bạn thực sự quan tâm!</strong></p>
+<p><a href="https://www.oracle.com/technetwork/articles/java/java8-optional-2175753.html"><strong>Tired of Null Pointer Exceptions? Consider Using Java SE 8's Optional!</strong></a><br>
+<a href="https://dzone.com/articles/java-8-optional-avoid-null-and"><strong>Java 8 Optional - Avoid Null and NullPointerException Altogether - and Keep It Pretty - DZone…</strong></a><br>
+<a href="https://docs.swift.org/swift-book/LanguageGuide/OptionalChaining.html#"><strong>Optional Chaining - The Swift Programming Language (Swift 4.2)</strong></a><br>
+<a href="https://kotlinlang.org/docs/reference/null-safety.html"><strong>Null Safety - Kotlin Programming Language</strong></a></p>
+
+          </div>
+        </div><!-- .post-inner -->
+      </article><!-- .post-content -->
+      
+  
+  <nav class="post-pagination section-box">
+    
+
+    
+    
+      
+    
+
+    
+    
+      
+    
+
+    
+
+    
+        <div class="post-next">
+          <h3 class="post-title"><a href="../../../vi/blog/spring-data-jpahibernate-nhng-sai-lm-ng-ngn-khong-phi-ai-cng-bit/">Spring data JPA/Hibernate: Những sai lầm rất dễ gặp phải</a></h3>
+
+          <div class="post-info">
+            <a href="javascript: void(0)"><i class="rsicon rsicon-user"></i>by luanvv</a>
+            <a href="javascript: void(0)"><i class="rsicon"></i>Nov 11 2018</a>
+          </div>
+        </div>
+    
+    
+        <div class="post-next">
+          <h3 class="post-title"><a href="../../../vi/blog/string-concatenate-stringbuilder-hay-stringbuffer/">String concatenate, StringBuilder hay StringBuffer</a></h3>
+
+          <div class="post-info">
+            <a href="javascript: void(0)"><i class="rsicon rsicon-user"></i>by luanvv</a>
+            <a href="javascript: void(0)"><i class="rsicon"></i>Sep 22 2018</a>
+          </div>
+        </div>
+    
+  </nav><!-- .post-pagination -->
+
+    </main>
+    <!-- .post-single -->
+  </div>
+</div>
+
+      </div>
+    </div><!-- .content -->
+    <footer class="footer">
+      <div class="footer-social">
+        <ul class="social">
+          <li>
+              <a class="ripple-centered" aria-label="Github" rel="noopener" target="_blank" href="https://github.com/luanvuhlu">
+                  <i class="rsicon rsicon-github"></i>
+              </a>
+          </li>
+          <li>
+              <a class="ripple-centered" aria-label="Facebook" rel="noopener" target="_blank" href="https://www.facebook.com/luanvuhlu" target="_blank">
+                  <i class="rsicon rsicon-facebook"></i>
+              </a>
+          </li>
+          <li>
+              <a class="ripple-centered" aria-label="LinkedIn" rel="noopener" target="_blank" href="https://www.linkedin.com/in/luanvv/" target="_blank">
+                  <i class="rsicon rsicon-linkedin"></i>
+              </a>
+          </li>
+          <li>
+              <a class="ripple-centered" aria-label="Skype" rel="noopener" target="_blank" href="skype:luanvuhlu"><i
+                  class="rsicon rsicon-skype"></i>
+              </a>
+          </li>
+          <li>
+              <a class="ripple-centered" aria-label="Email" rel="noopener" target="_blank" href="mailto:luanvuhlu@gmail.com">
+                  <i class="rsicon rsicon-email"></i>
+              </a>
+          </li>
+      </div>
+    </footer><!-- .footer -->
+  </div><!-- .wrapper -->
+
+  <a class="btn-scroll-top" href="#"><i class="rsicon rsicon-arrow-up"></i></a>
+  <div id="overlay"></div>
+  <div id="preloader">
+    <div class="preload-icon"><span></span><span></span></div>
+    <div class="preload-text">Loading ...</div>
+  </div>
+  <!-- Scripts -->
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<!--   <script type="text/javascript" src="../../../static/fonts/map-icons/js/map-icons.min.js"></script> -->
+  <script type="text/javascript" src="../../../static/js/plugins/jquery.mousewheel-3.0.6.pack.js"></script>
+  <script type="text/javascript" src="../../../static/js/plugins/imagesloaded.pkgd.min.js"></script>
+  <script type="text/javascript" src="../../../static/js/plugins/isotope.pkgd.min.js"></script>
+  <script type="text/javascript" src="../../../static/js/plugins/jquery.appear.min.js"></script>
+  <script type="text/javascript" src="../../../static/js/plugins/jquery.onepagenav.min.js"></script>
+  <script type="text/javascript" src="../../../static/js/plugins/jquery.bxslider/jquery.bxslider.min.js"></script>
+ <!--  <script type="text/javascript" src="../../../static/js/plugins/jquery.customscroll/jquery.mCustomScrollbar.concat.min.js"></script> -->
+  <!-- <script type="text/javascript" src="../../../static/js/plugins/jquery.mediaelement/mediaelement-and-player.min.js"></script> -->
+  <!-- <script type="text/javascript" src="../../../static/js/plugins/jquery.fancybox/jquery.fancybox.pack.js"></script> -->
+ <!--  <script type="text/javascript" src="../../../static/js/plugins/jquery.fancybox/helpers/jquery.fancybox-media.js"></script> -->
+  <script type="text/javascript" src="../../../static/js/plugins/jquery.owlcarousel/owl.carousel.min.js"></script>
+  <script type="text/javascript" src="../../../static/js/options.js"></script>
+  <script type="text/javascript" src="../../../static/js/site.js"></script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-128976168-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-128976168-1');
+
+    const observer = lozad(); // lazy loads elements with default selector as '.lozad'
+    observer.observe();
+
+    (function ($) {
+        "use strict";
+        $('.post-editor>p>img').parent().addClass('img-block');
+    })(jQuery);
+  </script>
+  
+
+</body>
+</html>

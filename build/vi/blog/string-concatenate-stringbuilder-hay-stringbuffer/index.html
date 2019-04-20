@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en" class="theme-color-07cb79 theme-skin-light">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<META NAME="geo.position" CONTENT="21.028511, 105.804817">
+<META NAME="geo.placename" CONTENT="Hanoi, Vietnam">
+<META NAME="geo.region" CONTENT="vi">
+<meta name="theme-color" content="#536878" />
+
+<meta name="description" content="String là một trong những kiểu dữ liệu quen thuộc trong Java, nhưng vẫn còn đó, những bí mật bên trong không phải ai cũng biết" />
+
+<!-- <link rel="stylesheet" href="../../../static/style.css"> -->
+<title>String concatenate, StringBuilder hay StringBuffer — luanvv.com</title>
+<link rel="manifest" href="../../../static/manifest.json">
+<!-- Favicon -->
+<link rel="shortcut icon" type="image/ico" href="../../../static/img/favicon.ico" />
+<!-- Google Fonts -->
+<!-- <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Fredoka+One">
+<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic,700,700italic,800,800italic"> -->
+<!-- Icon Fonts -->
+<!-- <link rel="stylesheet" type="text/css" href="../../../static/fonts/map-icons/css/map-icons.min.css"> -->
+<link rel="stylesheet" type="text/css" href="../../../static/fonts/icomoon/style.css">
+<!-- Styles -->
+<link rel="stylesheet" type="text/css" href="../../../static/js/plugins/jquery.bxslider/jquery.bxslider.css">
+<!-- <link rel="stylesheet" type="text/css" href="../../../static/js/plugins/jquery.customscroll/jquery.mCustomScrollbar.min.css"> -->
+<!-- <link rel="stylesheet" type="text/css" href="../../../static/js/plugins/jquery.mediaelement/mediaelementplayer.min.css"> -->
+<!-- <link rel="stylesheet" type="text/css" href="../../../static/js/plugins/jquery.fancybox/jquery.fancybox.css"> -->
+<link rel="stylesheet" type="text/css" href="../../../static/js/plugins/jquery.owlcarousel/owl.carousel.css">
+<link rel="stylesheet" type="text/css" href="../../../static/js/plugins/jquery.owlcarousel/owl.theme.css">
+
+<link rel="stylesheet" type="text/css" href="../../../static/style.css">
+<link rel="stylesheet" type="text/css" href="../../../static/colors/green.css">
+
+
+<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+<![endif]-->
+<!-- Modernizer for detect what features the user’s browser has to offer -->
+<script type="text/javascript" src="../../../static/js/libs/modernizr.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lozad/dist/lozad.min.js"></script>
+<!-- <script type="text/javascript" src="../../../static/js/service-worker.js"></script> -->
+</head>
+<body class="home "> <!-- add loading for progress bar -->
+  <div class="mobile-nav">
+    <button class="btn-mobile mobile-nav-close" aria-label="Close menu"><i class="rsicon rsicon-close"></i></button>
+
+    <div class="mobile-nav-inner">
+      <nav id="mobile-nav" class="nav">
+        <ul class="clearfix">
+          <li><a href="../../../vi/#about">About</a></li>
+          <li><a href="../../../vi/#skills">Skills</a></li>
+          <!-- <li><a href="../../../vi/#portfolio">Portfolio</a> </li> -->
+          <li><a href="../../../vi/#experience">Experience</a></li>
+          <li><a href="../../../vi/#education">Education</a></li>
+          <!-- <li><a href="../../../vi/#references">References</a></li> -->
+          <li>
+            <!-- <a href="../../../vi/blog/">Blog</a> -->
+            <a href="../../../vi/blog/">Blog</a>
+          </li>
+          <!-- <li><a href="../../../vi/#text-section">Future <span></span></a></li> -->
+          <!-- <li><a href="../../../vi/#calendar">Calendar <span></span></a></li> -->
+          <!-- <li><a href="../../../vi/#contact">Contact <span></span></a></li> -->
+        </ul>
+      </nav>
+    </div>
+x`
+  </div><!-- .mobile-nav -->
+  <div class="wrapper">
+    <header class="header">
+      
+      <div class="head-bar">
+        <div class="head-bar-inner">
+          <div class="row">
+            <div class="col-xs-9 col-sm-6 col-md-3">
+              <a class="logo" href="../../../vi/"><span>Luan</span>'s blog</a>
+              <!-- <a class="head-logo" href=""><img src="img/rs-logo.png" alt="RScard"/></a> -->
+            </div>
+            <div class="col-xs-3 col-sm-6 col-md-9">
+              <div class="nav-wrap">
+                <nav id="nav" class="nav">
+                  <ul class="clearfix">
+                    <li><a href="../../../vi/#about">About</a></li>
+                    <li><a href="../../../vi/#skills">Skills</a></li>
+                    <!-- <li><a href="../../../vi/#portfolio">Portfolio</a> </li> -->
+                    <li><a href="../../../vi/#experience">Experience</a></li>
+                    <li><a href="../../../vi/#education">Education</a></li>
+                    <!-- <li><a href="../../../vi/#references">References</a></li> -->
+                    <li>
+                      <!-- <a href="../../../vi/blog/">Blog</a> -->
+                      <a href="../../../vi/blog/">Blog</a>
+                    </li>
+                    <!-- <li><a href="../../../vi/#text-section">Future <span></span></a></li> -->
+                    <!-- <li><a href="../../../vi/#calendar">Calendar <span></span></a></li> -->
+                    <!-- <li><a href="../../../vi/#contact">Contact <span></span></a></li> -->
+                  </ul>
+                </nav>
+                <button class="btn-mobile btn-mobile-nav">Menu</button>
+                <!-- <button class="btn-sidebar btn-sidebar-open"><i class="rsicon rsicon-menu"></i></button> -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header><!-- .header -->
+    <div class="content">
+        <div class="container">
+      
+<div class="row animate-up animated">
+  <div class="col-sm-12">
+    <main class="post-single">
+      <article class="post-content section-box">
+          <header class="post-header">
+            <div class="post-data">
+              <div class="post-title-wrap">
+                <h1 class="post-title">String concatenate, StringBuilder hay StringBuffer</h1>
+              </div>
+              <div class="post-tag">
+                <a href="../../../tags/dev">
+                      #dev
+                    </a>
+                <a href="../../../tags/java">
+                      #java
+                    </a>
+                
+              </div>
+              <div class="post-info">
+                <a href="javascript: void(0)"><i class="rsicon rsicon-user"></i>by luanvv</a>
+                <a href="javascript: void(0)"><i class="rsicon"></i>Sep 22 2018</a>
+              </div>
+            </div>
+          </header>
+          <div class="post-media">
+              <img class="lozad"
+                src="../../../static/img/uploads/458x300.png" 
+                data-src="../../../static/img/covers/1_-LxrwFGbck2QwGBBlVE48w.png" 
+                alt="String concatenate, StringBuilder hay StringBuffer" />
+            </div>
+        <div class="post-inner">
+          <div class="post-editor clearfix">
+            <p>Đây có thể coi là một trong những vấn đề kinh điển khi phỏng vấn Java core. Và theo kinh nghiệm trải qua nhiều cuộc phỏng vấn của mình, những lập trình viên Java có từ 3 năm kinh nghiệm trở lên thì chỉ có khoảng 70% phân biệt được và tỉ lệ sử dụng chính xác(lý giải được lý do và cách sử dụng đúng) chỉ dưới 5%.
+<em>Tại sao khi cộng String(chuỗi) lại được khuyên sử dụng StringBuilder và StringBuffer? Nên sử dụng StringBuilder hay StringBuffer? Việc sử dụng StringBuilder hay StringBuffer có thực sự cần thiết?</em>
+Hmmm, theo mình việc sử dụng StringBuilder hay StringBuffer không thật sự <em>“thần thánh”</em> như nhiều người nghĩ và cái cách nhiều người đang dùng rất có vấn đề.</p>
+<h3>String là bất khả biến (immutable)</h3>
+<p>Đây là lý do mà đại đa số mọi người nghĩ rằng là nguyên nhân của các vấn đề trên.</p>
+<pre><code>*Không phải lúc nào đa số cũng đúng
+--- Không rõ ai nói ---*
+</code></pre>
+<p>Tuy nhiên, trong trường hợp này, đa số đã đúng!!!
+Vậy String bất khả biến như thế nào? Ai cũng nghĩ nó có magic nào đó, nhưng thật ra nó đơn giản hơn mọi người nghĩ rất nhiều.</p>
+<pre><code>Một đối tượng được gọi là bất khả biến(immutable) khi và chỉ khi bạn không thể thay đổi được bất kỳ thuộc tính nào của nó
+</code></pre>
+<p>Với String, thì thuộc tính của nó đại loại là một mảng char. Để không cho phép thay đổi mảng này, có 3kỹ thuật được áp dụng:</p>
+<ul>
+<li><p>final class</p>
+</li>
+<li><p>Để mảng char là private, đảm bảo bên ngoài không thể truy xuất được biến.</p>
+</li>
+<li><p>Luôn trả về copy của thuộc tính nếu thuộc tính là một đối tượng khả biến(mutable). Ví dụ thuộc tính của bạn là một mảng, nếu bạn return ra cái mảng này thì bên ngoài vẫn có thể thay đổi phần tử ở bên trong mảng nếu bạn trả về trực tiếp mảng đó</p>
+</li>
+</ul>
+<p>Bạn có thể xem qua cấu trúc của class String của java dưới đây để biết rõ hơn(source code từ Oracle Java SE Development Kit 8u181)</p>
+<script src="https://gist.github.com/luanvuhlu/dcf1c3bffae5ab86f31cb32db72662ac.js"></script><h3>Tại sao String phải bất khả biến?</h3>
+<p>Để biết câu trả lời, bạn có thể tham khảo <a href="https://dzone.com/articles/why-string-immutable-java">tại đây</a>. Mình xin bổ sung thêm một điều về lợi ích của một class bất khả biến đó là <em>thread-safe</em>. Một đối tượng mà bất khả biến thì bạn sẽ chẳng cần nghĩ ngợi gì khi sử dụng nó trong đa luồng. Đây cũng chính là lý do tại sao đến Java 8, Oracle đã tạo ra Date time API là các đối tượng bất khả biến, thay cho các class về date/time như trước.</p>
+<h3>Vậy tại sao khi cộng chuỗi cần sử dụng StringBuilder hay StringBuffer? Chuyện gì xảy ra khi ta chỉ đơn giản là (+) thôi</h3>
+<p>Để hiểu rõ hơn, mình có ví dụ dưới đây:</p>
+<script src="https://gist.github.com/luanvuhlu/4759474442d7e93a2e1368178146736d.js"></script><p>Một câu dùng để khởi tạo SQL rất hay thường dùng và thực tế là nhiều dev vẫn code theo cách này. Rất rất nhiều dev(ngạc nhiên là các bạn code có thâm niên từ 2 năm trở lên lại sai nhiều hơn các bạn mới ra trường) đều nhầm tưởng trong trường hợp này Java sẽ dùng method <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html#concat-java.lang.String-"><em>concat </em>của *String</a>. *Nhưng điều đó là sai.</p>
+<pre><code>Tại sao người nhiều kinh nghiệm lại sai nhiều hơn là các bạn trẻ? Vì kiến thức các bạn bị sai từ đầu và các bạn quá lười học tập thêm, không như nhiều bạn trẻ thời nay.
+</code></pre>
+<p>Chúng ta hãy xem Java(từ Java 6 đến Java 8) xử lý nó như thế nào khi compile:</p>
+<script src="https://gist.github.com/luanvuhlu/5386acdeecea5b8137eb0667e6a5def5.js"></script><p>Rất nhiều đối tượng StringBuilder được tạo ra. Đây là giải pháp của Java để xử lý vấn đề khi ta cộng chuỗi vì rõ ràng cái mảng char[] value của String không phải <em>concat </em>như mọi người nghĩ. Java sẽ liên tục tạo ra các instance của <em>StringBuilder</em> sau đó <em>append</em> vào <em>StringBuilder</em> này, bạn cộng chuỗi trên bao nhiêu câu lệnh sẽ có bấy nhiêu đối tượng <em>StringBuilder</em> được tạo ra, với những đoạn cộng chuỗi tiếp theo, hàm <em>append</em> sẽ được sử dụng tiếp. Việc liên tục tạo ra các instance của <em>StringBuilder</em> sẽ khiến JVM tốn nhiều thời gian và bộ nhớ để tạo object đồng thời bắt Garbage Collection(GC) “<em>hốt rác giùm”</em>. Điều này vừa gây chậm chương trình, vừa tạo áp lực hoạt động cho CPU khi GC phải hoạt động liên tục.</p>
+<p><em>(Đến Java 9, Java đã sử dụng <a href="https://docs.oracle.com/javase/9/docs/api/java/lang/invoke/StringConcatFactory.html#makeConcatWithConstants-java.lang.invoke.MethodHandles.Lookup-java.lang.String-java.lang.invoke.MethodType-java.lang.String-java.lang.Object...-">StringConcatFactory.makeConcatWithConstants</a>, mình cũng chưa có thời gian nghiên cứu, xin hẹn ở những bài viết sau)</em></p>
+<p>Ngoài ra, class <em>String </em>còn một method là <em>concat </em>cũng có thể thực hiện được việc cộng chuỗi. Cách thức hoạt động rất đơn giản. Ví dụ đoạn code:</p>
+<pre><code>String a = “V.N.E.X.T”;
+
+String b = “JSC”;
+
+String c = a.concat(b);
+</code></pre>
+<p>Với hàm <em>concat</em>, Java sẽ xử lý bằng cách</p>
+<ol>
+<li><p>Tạo ra một mảng char có số ký tự bằng đúng số ký tự của chuỗi a và chuỗi b cộng lại.</p>
+</li>
+<li><p>Copy toàn bộ các phần tử của mảng char của a vào mảng char mới ở bước 1</p>
+</li>
+<li><p>Copy tiếp toàn bộ các phần tử của mảng char của b vào mảng mới của bước 1.</p>
+</li>
+<li><p>Tạo ra một chuỗi mới từ mảng mới của bước 1</p>
+</li>
+</ol>
+<p>Dưới đây là source code(từ Oracle Java SE Development Kit 8u181)</p>
+<script src="https://gist.github.com/luanvuhlu/f14d6f9512691445a6d94d43eca30901.js"></script><p>Các này cũng không phải là tối ưu vì nó cũng phải tạo ra một <em>String </em>mới, gây tiêu tốn bộ nhớ và việc tạo mảng mới tiêu tốn nhiều thời gian không kém gì giải pháp trên.</p>
+<h3>Giải pháp: StringBuilder/StringBuffer dùng một cách chủ động!</h3>
+<p>Thay vì dùng cách <em>khờ dại </em>như dưới đây</p>
+<script src="https://gist.github.com/luanvuhlu/287ee515d7e1096b1fe7d5db7cdf6a8d.js"></script><p>thì hãy dùng StringBuilder</p>
+<script src="https://gist.github.com/luanvuhlu/ea43c0eac77217fd8d4557399ce07e2a.js"></script><p>Thay vì dùng mảng char và là bất khả biến như <em>String</em>, <em>StringBuilder/StringBuffer </em>dùng mảng byte(<em>String </em>trong Java 9 đã thay mảng char bằng mảng byte, nhưng tính bất khả biến vẫn còn). Khi có sự thay đổi về chuỗi, <em>StringBuilder/StringBuffer </em>chỉ đơn giản là thay đổi mảng byte(thay đổi giá trị phần tử) hoặc tạo mảng mới(như cái cách hàm <em>String.concat hoạt động</em>), không liên tục tạo ra các đối tượng mới, giúp giảm thiểu tài nguyên sử dụng và giảm thời gian xử lý.</p>
+<p><em>StringBuffer</em> “<em>cùng cha cùng ông nội” </em>với <em>StringBuilder, </em>khi nó giống hệt <em>StringBuilder</em>, chỉ khác rằng <em>StringBuffer </em>là<em> thread-safe</em>(an toàn khi dùng với đa luồng). Nếu không dùng đa luồng và share object giữa các luồng, đừng dại mà dùng <em>StringBuffer </em>thay cho <em>StringBuilder, </em>sẽ làm giảm perfomance rất nhiều.</p>
+<h3>Không phải lúc nào cũng cần dùng StringBuilder và StringBuffer!!!</h3>
+<p>Nhiều bạn hiện nay vẫn giữ quan niệm dùng <em>StringBuilder/StringBuffer</em> append mọi lúc mọi nơi, mặc cho mọi hoàn cảnh. Theo mình quan niệm như vậy là sai. Cần hiểu đúng, hiểu đủ để vận dụng linh hoạt, hài hòa giữa perfomance và clean code.</p>
+<p>Thông thường, có 2 trường hợp mà mình sẽ tránh dùng 2 class trên:</p>
+<ol>
+<li><em>Khi có những giải pháp tối ưu hơn hẳn</em></li>
+</ol>
+<p>Ta có đoạn code sau:</p>
+<script src="https://gist.github.com/luanvuhlu/9533d48647a18b77465bdbb8cdc90c67.js"></script><p>Nhiều người sẽ cải tiến đoạn code trên thành như dưới đây:</p>
+<script src="https://gist.github.com/luanvuhlu/b9f6c0b87dcd42367d182394aaf49803.js"></script><p>Mọi người đều nghĩ nếu để cộng chuỗi như ban đầu, Java sẽ lại liên tục tạo ra <em>StringBuilder </em>và gọi method <em>append. </em>Nhưng sự thật là Java Compiler không <em>“đơn thuần” </em>như mọi người nghĩ. Với đoạn code ban đầu, Java compiler sẽ xử lý thành</p>
+<script src="https://gist.github.com/luanvuhlu/dc3e4bd0b6ec39bf4026d31665bf600d.js"></script><p>Chỉ một String duy nhất được tạo ra, không StringBuilder, không concat!</p>
+<p>Vẫn là đoạn code trên, nhưng ta có thể thêm một số tùy chỉnh:</p>
+<p>Cộng thêm một số nguyên:</p>
+<pre><code>String query = "SELECT first_name, last_name, "
+               + " age, gender "
+               + ", "
+               + 1000
+               + " FROM User WHERE id = ?";
+</code></pre>
+<p>Cộng thêm với một biết kiểu bất kỳ:</p>
+<pre><code>long number = 1000;
+String query = "SELECT first_name, last_name, "
+               + " age, gender "
+               + ", "
+               + number
+               + " FROM User WHERE id = ?";
+</code></pre>
+<p>Và cuối cùng, vẫn là biến đó, nhưng ta khai báo là final:</p>
+<pre><code>final long number = 1000;
+String query = "SELECT first_name, last_name, "
+               + " age, gender "
+               + ", "
+               + number
+               + " FROM User WHERE id = ?";
+</code></pre>
+<p>Ba trường hợp trên thì có 2 trường hợp được compile ra giống nhau(trường hợp 1 và trường hợp 3).</p>
+<p>Java Compiler có rất nhiều điều thú vị.</p>
+<ol>
+</ol>
+<p>Cân bằng giữa perfomance và clean code, ưu tiên cái nào, hy sinh cái nào luôn là điều trăn trở của nhiều lập trình viên. Nó gần như một trường phái code vậy và mình là người nghiêng về trường phái clean code.</p>
+<p>Tại sao clean code lại quan trọng hơn(quan điểm của mình, một Java web developer)? Vì để tăng perfomance, có rất rất nhiều cách, đặc biệt khi code Java web(khác Android), nhưng nếu bạn quá chú tâm vào code sao cho best của best perfomance, khiến code của bạn rối lên đôi khi lại gây cản trở việc tối ưu perfomance bằng các nguồn bên ngoài, đồng thời khó bảo trì(code quá rối), khó sửa lỗi.</p>
+<p>Để tăng perfomance, có thể tính đến load balancer, các giải pháp cache(file, Java object, database, html, js, css,….). Cao hơn thì là tùy chỉnh JVM options. “<em>Like a boss” </em>hơn nữa là…nâng cấp phần cứng. OK là chi phí phần cứng sẽ tăng(RAM, CPU, server, cache,…), nhưng đổi lại bạn có một hệ thống ổn định, dễ maintance, dễ nâng cấp, đó mới là những điều mà một ứng dụng Enterprise cần, chứ không phải một chút operation per second(OPS) chênh lệch.</p>
+<p>Hơi lạc đề một chút, ta quay lại String với ví dụ dưới đây</p>
+<iframe src="https://medium.com/media/a4519323a2c9f2b20453ef861d98b28f" frameborder=0></iframe><p>Với 3 cách trên thì mình lại khuyến khích cách số 3 hơn(dùng <em>MessageFormat</em>) mặc dù trên thực tế dùng <em>MessageFormat </em>chậm hơn 2 cách trên vài trăm lần. Vì sao? Vì nếu chỉ đoạn code trên thì nó quá nhỏ và dùng <em>MessageFormat </em>thì quá đẹp! Chênh lệch xử lý chỉ vài nano giây với chỉ đoạn code trên, ngoài ra Just-in-time(JIT) compiler của Java có nhiều cách xử lý rất độc đáo khi những đoạn code trên chạy trong cả một hệ thống thực tế. Lúc đó thì chưa biết “<em>mèo nào cắn mỉu nào” </em>đâu.</p>
+<p><em>Chú ý</em>: nếu bạn dùng đoạn trên với log4j, họ đã xây dựng một cách format text riêng để tăng perfomance thay vì chỉ dùng <em>MessageFormat</em> đơn thuần. Đoạn code trên khi dùng log, nên được viết như sau:</p>
+<pre><code>log.info("Processing {} files on {}", size, name);
+</code></pre>
+<p>Ngoài <em>MessageFormat</em>, nếu bạn dùng với stream trong java 8 thì có thể thử giải pháp sử dụng <em>String.join/StringJoiner</em> hoặc dùng stream kết hợp <em>StringBuilder, h</em>iệu năng vẫn ổn mà code vẫn gọn gàng.</p>
+<h3><strong>Tuy nhiên, sử dụng vòng lặp với số lần lặp rất lớn thì dùng StringBuilder/StringBuffer gần như là bắt buộc.</strong></h3>
+<p>Với vòng lặp lớn, chắc chắn việc dùng <em>MessageFormat </em>hay khiến Java phải liên tục tạo đối tượng <em>StringBuilder </em>sẽ rất rất tệ cho perfomance của chương trình. Lúc này thì rõ ràng perfomance là cái rất đáng quan tâm rồi. Bạn vẫn có thể hài hòa bằng cách vẫn dùng 2 class trên, đồng thời sử dụng các biện pháp clean code như <em>Move Method</em>, <em>Move Class </em>để làm gọn code.</p>
+<h3>Kết luận</h3>
+<p><em>String/StringBuilder/StringBuffer </em>tưởng đơn giản mà thật ra lại có rất nhiều vấn đề cần tìm hiểu, các bạn nên nghiên cứu kỹ về cấu trúc và cách thức hoạt động của chúng, từ đó biết được cách code tối ưu nhất. Thật tiếc là hiện nay mình chưa có điều kiện làm việc với Java 9, vì Java 9 có cách xử lý String cực kỳ khác so với từ Java 8 trở về trước, đành nợ các bạn ở những bài viết sau.</p>
+
+          </div>
+        </div><!-- .post-inner -->
+      </article><!-- .post-content -->
+      
+  
+  <nav class="post-pagination section-box">
+    
+
+    
+    
+      
+    
+
+    
+    
+      
+    
+
+    
+
+    
+        <div class="post-next">
+          <h3 class="post-title"><a href="../../../vi/blog/optional-t-swift-ti-java-ti-sao-nen-dung-optional/">Optional, từ Swift tới Java. Tại sao nên dùng Optional?</a></h3>
+
+          <div class="post-info">
+            <a href="javascript: void(0)"><i class="rsicon rsicon-user"></i>by luanvv</a>
+            <a href="javascript: void(0)"><i class="rsicon"></i>Oct 09 2018</a>
+          </div>
+        </div>
+    
+    
+        <div class="post-next">
+          <h3 class="post-title"><a href="../../../vi/blog/luong-hoc-java-web/">Luồng học cho Java web developer</a></h3>
+
+          <div class="post-info">
+            <a href="javascript: void(0)"><i class="rsicon rsicon-user"></i>by luanvv</a>
+            <a href="javascript: void(0)"><i class="rsicon"></i>Mar 17 2017</a>
+          </div>
+        </div>
+    
+  </nav><!-- .post-pagination -->
+
+    </main>
+    <!-- .post-single -->
+  </div>
+</div>
+
+      </div>
+    </div><!-- .content -->
+    <footer class="footer">
+      <div class="footer-social">
+        <ul class="social">
+          <li>
+              <a class="ripple-centered" aria-label="Github" rel="noopener" target="_blank" href="https://github.com/luanvuhlu">
+                  <i class="rsicon rsicon-github"></i>
+              </a>
+          </li>
+          <li>
+              <a class="ripple-centered" aria-label="Facebook" rel="noopener" target="_blank" href="https://www.facebook.com/luanvuhlu" target="_blank">
+                  <i class="rsicon rsicon-facebook"></i>
+              </a>
+          </li>
+          <li>
+              <a class="ripple-centered" aria-label="LinkedIn" rel="noopener" target="_blank" href="https://www.linkedin.com/in/luanvv/" target="_blank">
+                  <i class="rsicon rsicon-linkedin"></i>
+              </a>
+          </li>
+          <li>
+              <a class="ripple-centered" aria-label="Skype" rel="noopener" target="_blank" href="skype:luanvuhlu"><i
+                  class="rsicon rsicon-skype"></i>
+              </a>
+          </li>
+          <li>
+              <a class="ripple-centered" aria-label="Email" rel="noopener" target="_blank" href="mailto:luanvuhlu@gmail.com">
+                  <i class="rsicon rsicon-email"></i>
+              </a>
+          </li>
+      </div>
+    </footer><!-- .footer -->
+  </div><!-- .wrapper -->
+
+  <a class="btn-scroll-top" href="#"><i class="rsicon rsicon-arrow-up"></i></a>
+  <div id="overlay"></div>
+  <div id="preloader">
+    <div class="preload-icon"><span></span><span></span></div>
+    <div class="preload-text">Loading ...</div>
+  </div>
+  <!-- Scripts -->
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<!--   <script type="text/javascript" src="../../../static/fonts/map-icons/js/map-icons.min.js"></script> -->
+  <script type="text/javascript" src="../../../static/js/plugins/jquery.mousewheel-3.0.6.pack.js"></script>
+  <script type="text/javascript" src="../../../static/js/plugins/imagesloaded.pkgd.min.js"></script>
+  <script type="text/javascript" src="../../../static/js/plugins/isotope.pkgd.min.js"></script>
+  <script type="text/javascript" src="../../../static/js/plugins/jquery.appear.min.js"></script>
+  <script type="text/javascript" src="../../../static/js/plugins/jquery.onepagenav.min.js"></script>
+  <script type="text/javascript" src="../../../static/js/plugins/jquery.bxslider/jquery.bxslider.min.js"></script>
+ <!--  <script type="text/javascript" src="../../../static/js/plugins/jquery.customscroll/jquery.mCustomScrollbar.concat.min.js"></script> -->
+  <!-- <script type="text/javascript" src="../../../static/js/plugins/jquery.mediaelement/mediaelement-and-player.min.js"></script> -->
+  <!-- <script type="text/javascript" src="../../../static/js/plugins/jquery.fancybox/jquery.fancybox.pack.js"></script> -->
+ <!--  <script type="text/javascript" src="../../../static/js/plugins/jquery.fancybox/helpers/jquery.fancybox-media.js"></script> -->
+  <script type="text/javascript" src="../../../static/js/plugins/jquery.owlcarousel/owl.carousel.min.js"></script>
+  <script type="text/javascript" src="../../../static/js/options.js"></script>
+  <script type="text/javascript" src="../../../static/js/site.js"></script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-128976168-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-128976168-1');
+
+    const observer = lozad(); // lazy loads elements with default selector as '.lozad'
+    observer.observe();
+
+    (function ($) {
+        "use strict";
+        $('.post-editor>p>img').parent().addClass('img-block');
+    })(jQuery);
+  </script>
+  
+
+</body>
+</html>
