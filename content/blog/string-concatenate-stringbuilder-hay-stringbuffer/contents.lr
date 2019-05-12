@@ -158,7 +158,7 @@ Tại sao clean code lại quan trọng hơn(quan điểm của mình, một Jav
 
 Hơi lạc đề một chút, ta quay lại String với ví dụ dưới đây
 
-<iframe src="https://medium.com/media/a4519323a2c9f2b20453ef861d98b28f" frameborder=0></iframe>
+<script src="https://gist.github.com/luanvuhlu/1570c1671a283e63b652c64eedfcd36c.js"></script>
 
 Với 3 cách trên thì mình lại khuyến khích cách số 3 hơn(dùng *MessageFormat*) mặc dù trên thực tế dùng *MessageFormat *chậm hơn 2 cách trên vài trăm lần. Vì sao? Vì nếu chỉ đoạn code trên thì nó quá nhỏ và dùng *MessageFormat *thì quá đẹp! Chênh lệch xử lý chỉ vài nano giây với chỉ đoạn code trên, ngoài ra Just-in-time(JIT) compiler của Java có nhiều cách xử lý rất độc đáo khi những đoạn code trên chạy trong cả một hệ thống thực tế. Lúc đó thì chưa biết “*mèo nào cắn mỉu nào” *đâu.
 

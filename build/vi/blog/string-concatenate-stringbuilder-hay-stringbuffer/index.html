@@ -16,17 +16,9 @@
 <link rel="manifest" href="../../../static/manifest.json">
 <!-- Favicon -->
 <link rel="shortcut icon" type="image/ico" href="../../../static/img/favicon.ico" />
-<!-- Google Fonts -->
-<!-- <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Fredoka+One">
-<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic,700,700italic,800,800italic"> -->
-<!-- Icon Fonts -->
-<!-- <link rel="stylesheet" type="text/css" href="../../../static/fonts/map-icons/css/map-icons.min.css"> -->
 <link rel="stylesheet" type="text/css" href="../../../static/fonts/icomoon/style.css">
 <!-- Styles -->
 <link rel="stylesheet" type="text/css" href="../../../static/js/plugins/jquery.bxslider/jquery.bxslider.css">
-<!-- <link rel="stylesheet" type="text/css" href="../../../static/js/plugins/jquery.customscroll/jquery.mCustomScrollbar.min.css"> -->
-<!-- <link rel="stylesheet" type="text/css" href="../../../static/js/plugins/jquery.mediaelement/mediaelementplayer.min.css"> -->
-<!-- <link rel="stylesheet" type="text/css" href="../../../static/js/plugins/jquery.fancybox/jquery.fancybox.css"> -->
 <link rel="stylesheet" type="text/css" href="../../../static/js/plugins/jquery.owlcarousel/owl.carousel.css">
 <link rel="stylesheet" type="text/css" href="../../../static/js/plugins/jquery.owlcarousel/owl.theme.css">
 
@@ -34,15 +26,8 @@
 <link rel="stylesheet" type="text/css" href="../../../static/colors/green.css">
 
 
-<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-<!--[if lt IE 9]>
-<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-<![endif]-->
-<!-- Modernizer for detect what features the user’s browser has to offer -->
 <script type="text/javascript" src="../../../static/js/libs/modernizr.js"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lozad/dist/lozad.min.js"></script>
-<!-- <script type="text/javascript" src="../../../static/js/service-worker.js"></script> -->
 </head>
 <body class="home "> <!-- add loading for progress bar -->
   <div class="mobile-nav">
@@ -240,7 +225,7 @@ String query = "SELECT first_name, last_name, "
 <p>Tại sao clean code lại quan trọng hơn(quan điểm của mình, một Java web developer)? Vì để tăng perfomance, có rất rất nhiều cách, đặc biệt khi code Java web(khác Android), nhưng nếu bạn quá chú tâm vào code sao cho best của best perfomance, khiến code của bạn rối lên đôi khi lại gây cản trở việc tối ưu perfomance bằng các nguồn bên ngoài, đồng thời khó bảo trì(code quá rối), khó sửa lỗi.</p>
 <p>Để tăng perfomance, có thể tính đến load balancer, các giải pháp cache(file, Java object, database, html, js, css,….). Cao hơn thì là tùy chỉnh JVM options. “<em>Like a boss” </em>hơn nữa là…nâng cấp phần cứng. OK là chi phí phần cứng sẽ tăng(RAM, CPU, server, cache,…), nhưng đổi lại bạn có một hệ thống ổn định, dễ maintance, dễ nâng cấp, đó mới là những điều mà một ứng dụng Enterprise cần, chứ không phải một chút operation per second(OPS) chênh lệch.</p>
 <p>Hơi lạc đề một chút, ta quay lại String với ví dụ dưới đây</p>
-<iframe src="https://medium.com/media/a4519323a2c9f2b20453ef861d98b28f" frameborder=0></iframe><p>Với 3 cách trên thì mình lại khuyến khích cách số 3 hơn(dùng <em>MessageFormat</em>) mặc dù trên thực tế dùng <em>MessageFormat </em>chậm hơn 2 cách trên vài trăm lần. Vì sao? Vì nếu chỉ đoạn code trên thì nó quá nhỏ và dùng <em>MessageFormat </em>thì quá đẹp! Chênh lệch xử lý chỉ vài nano giây với chỉ đoạn code trên, ngoài ra Just-in-time(JIT) compiler của Java có nhiều cách xử lý rất độc đáo khi những đoạn code trên chạy trong cả một hệ thống thực tế. Lúc đó thì chưa biết “<em>mèo nào cắn mỉu nào” </em>đâu.</p>
+<script src="https://gist.github.com/luanvuhlu/1570c1671a283e63b652c64eedfcd36c.js"></script><p>Với 3 cách trên thì mình lại khuyến khích cách số 3 hơn(dùng <em>MessageFormat</em>) mặc dù trên thực tế dùng <em>MessageFormat </em>chậm hơn 2 cách trên vài trăm lần. Vì sao? Vì nếu chỉ đoạn code trên thì nó quá nhỏ và dùng <em>MessageFormat </em>thì quá đẹp! Chênh lệch xử lý chỉ vài nano giây với chỉ đoạn code trên, ngoài ra Just-in-time(JIT) compiler của Java có nhiều cách xử lý rất độc đáo khi những đoạn code trên chạy trong cả một hệ thống thực tế. Lúc đó thì chưa biết “<em>mèo nào cắn mỉu nào” </em>đâu.</p>
 <p><em>Chú ý</em>: nếu bạn dùng đoạn trên với log4j, họ đã xây dựng một cách format text riêng để tăng perfomance thay vì chỉ dùng <em>MessageFormat</em> đơn thuần. Đoạn code trên khi dùng log, nên được viết như sau:</p>
 <pre><code>log.info("Processing {} files on {}", size, name);
 </code></pre>
@@ -360,16 +345,18 @@ String query = "SELECT first_name, last_name, "
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'UA-128976168-1');
-
     const observer = lozad(); // lazy loads elements with default selector as '.lozad'
     observer.observe();
-
     (function ($) {
         "use strict";
         $('.post-editor>p>img').parent().addClass('img-block');
     })(jQuery);
   </script>
-  
+<!-- <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/6.0.2/firebase-firestore.js"></script>-->
+<!-- Firebase config here -->
+<!--<script type="text/javascript" src="../../../static/js/service-worker.js"></script> -->
+
 
 </body>
 </html>
