@@ -49,7 +49,7 @@ Vậy phần xử lý phía sau(behind the scenes) giữa **Pass-by-value** và
 C/C++ làm việc để diễn tả.
 
 Dưới đây là mô hình hóa việc lưu trữ dữ liệu của các biến trên bộ nhớ. Ở đây ta
-có biến **myAge **có giá trị **14 **được lưu ở bộ nhớ có địa chỉ **106**
+có biến **myAge ** có giá trị **14 ** được lưu ở bộ nhớ có địa chỉ **106**
 
 ![](/static/img/uploads/0_qCyny98PQOQRdKiw.jpg)
 

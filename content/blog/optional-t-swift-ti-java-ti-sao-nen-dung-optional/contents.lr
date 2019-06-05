@@ -6,7 +6,7 @@ body:
 
 Optional không hề mới, thư viên guava đã cung cấp Optional, ít nhất là cách đây 7 năm(trước 3 năm so với Java 8). Đến năm 2014, Swift ra đời và cung cấp Optional. Đến năm 2016, Kotlin cung cấp Null Safety(cùng khái niệm với Optional) và rất nhiều ngôn ngữ khác cũng có những khái niệm tương tự như Optional.
 
-Theo như document của *Oracle*, *Optional *là:
+Theo như document của *Oracle*, *Optional* là:
 > *A container object which may or may not contain a non-null value.*
 
 Còn Apple thì nói *Optional* là:
@@ -52,7 +52,7 @@ Thay vào đó, ta phải gán giá trị non-nil vào cho biến:
 
 Bây giờ ta khai báo kiểu là Optional bằng cách thêm dấu “?” vào sau kiểu dữ liệu
 
-![có thể gán nil cho biến kiểu Optional](https://cdn-images-1.medium.com/max/2032/1*dslZj0SU_19nTFb0NMjZMw.png)*có thể gán nil cho biến kiểu Optional*
+![có thể gán nil cho biến kiểu Optional](/static/img/uploads/1_dslZj0SU_19nTFb0NMjZMw.png)*có thể gán nil cho biến kiểu Optional*
 
 Điều tuyệt vời của Optional trong *Swift *không phải **check null **mà là bạn sẽ luôn biết(hoặc compiler bắt bạn biết) khi nào cần **check null **và kiểu của một biến(biết nó có thể null hay không).
 
@@ -66,15 +66,15 @@ Mỗi người đều có gia đình nên *family *là non-nullable, nhưng có 
 
 Tương tự với method:
 
-![Java](https://cdn-images-1.medium.com/max/2424/1*br3er0LQ8eKNTWYnhYnnHg.png)
+![Java](/static/img/uploads/1_br3er0LQ8eKNTWYnhYnnHg.png)
 
 Nhìn vào method của *Java*, liệu bạn có biết được parameter nào có thể null, parameter nào không thể null không? Có thể nhiều người sẽ nghĩ đến *Document, *nhưng sự thật là Document không phải là thứ nhiều dev hứng thú nên rất dễ bị bỏ qua!
 
 Còn với *Swift*
 
-![Swift](https://cdn-images-1.medium.com/max/2354/1*oQS9c2IkkkD1An0o9P0gGg.png)
+![Swift](/static/img/uploads/1_oQS9c2IkkkD1An0o9P0gGg.png)
 
-*firstName *không được null, *lastName *và *age đều *có thể null. Method trên có thể trả về *null* nếu không tìm thấy *Person *nào, quá dễ hiểu mà chẳng cần bất kỳ dòng *Document* nào cả.
+*firstName *không được null, *lastName *và *age đều* có thể null. Method trên có thể trả về *null* nếu không tìm thấy *Person *nào, quá dễ hiểu mà chẳng cần bất kỳ dòng *Document* nào cả.
 
 ### Optional trong Java 8?
 
@@ -90,7 +90,7 @@ Cùng năm 2014 đó, Java ra mắt phiên bản 8 và cũng có Optional. Nhưn
 
 Really? Mình không muốn viết cú pháp như vậy đâu(nhưng…*cuộc sống mà!*)
 
-* không thể tự động “*cast*” giá trị được.
+* không thể tự động *“cast”* giá trị được.
 
 Trong *Swift*, bạn có thể viết
 
@@ -141,11 +141,11 @@ Hay bạn muốn viết API và muốn nói với đồng nghiệp rằng:
 
 Có thể bạn nghĩ là nên viết như vầy
 
-![Nhiều comment dữ dội luôn](https://cdn-images-1.medium.com/max/2750/1*_8S-x_StRGvlDmAu_FE_mg.png)*Nhiều comment dữ dội luôn*
+![Nhiều comment dữ dội luôn](/static/img/uploads/1__8S-x_StRGvlDmAu_FE_mg.png)*Nhiều comment dữ dội luôn*
 
 Tại sao không viết là
 
-![](https://cdn-images-1.medium.com/max/2800/1*KT_yeIRoW_7WQEQwsp6a1g.png)
+![](/static/img/uploads/1_KT_yeIRoW_7WQEQwsp6a1g.png)
 
 Không may, đồng nghiệp bạn sẽ quạo:
 
@@ -155,7 +155,7 @@ Hãy nở nụ cười thật tươi và nói: Welcome to Java 8!
 
 ### Tóm lại
 
-**Optional** trong *Swift* có thể tốt hơn Java, **Null Safety** trong *Kotlin* có vẻ có ích hơn, nhưng lỗi *null reference* vẫn sẽ không bao giờ buông tha các dev dùng ngôn ngữ đó. Công cụ có thể quan trọng, nhưng con người mới là yếu tốt quan trọng hơn cả. Bạn vẫn có thể code **Java 8** mà không cần dùng *Optional*, cũng giống như bạn có thể code mà không cần có bất kỳ kiến thức nào về **Coding convention**, **Refactoring** *hay **Design Pattern**. Còn nếu bạn nói: “*tôi cần Coding convention, Refactoring hay Design Pattern*”, hãy thử *Optional* của Java nhưng tưởng tượng như đang dùng *Swift.
+**Optional** trong *Swift* có thể tốt hơn Java, **Null Safety** trong *Kotlin* có vẻ có ích hơn, nhưng lỗi *null reference* vẫn sẽ không bao giờ buông tha các dev dùng ngôn ngữ đó. Công cụ có thể quan trọng, nhưng con người mới là yếu tốt quan trọng hơn cả. Bạn vẫn có thể code **Java 8** mà không cần dùng *Optional*, cũng giống như bạn có thể code mà không cần có bất kỳ kiến thức nào về **Coding convention**, **Refactoring** *hay **Design Pattern**. Còn nếu bạn nói: *“tôi cần Coding convention, Refactoring hay Design Pattern”*, hãy thử *Optional* của Java nhưng tưởng tượng như đang dùng *Swift.
 
 ### **Tham khảo**
 

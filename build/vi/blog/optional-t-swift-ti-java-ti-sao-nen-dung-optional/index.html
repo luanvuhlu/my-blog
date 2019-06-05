@@ -8,6 +8,10 @@
 <META NAME="geo.placename" CONTENT="Hanoi, Vietnam">
 <META NAME="geo.region" CONTENT="vi">
 <meta name="theme-color" content="#536878" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="apple-mobile-web-app-title" content="Weather PWA">
+<link rel="apple-touch-icon" href="../../../static/img/covers/icon192x192.png">
 
 <meta name="description" content="Optional, một feature mới trong Java 8" />
 
@@ -52,7 +56,6 @@
         </ul>
       </nav>
     </div>
-x`
   </div><!-- .mobile-nav -->
   <div class="wrapper">
     <header class="header">
@@ -130,7 +133,7 @@ x`
         <div class="post-inner">
           <div class="post-editor clearfix">
             <p>Optional không hề mới, thư viên guava đã cung cấp Optional, ít nhất là cách đây 7 năm(trước 3 năm so với Java 8). Đến năm 2014, Swift ra đời và cung cấp Optional. Đến năm 2016, Kotlin cung cấp Null Safety(cùng khái niệm với Optional) và rất nhiều ngôn ngữ khác cũng có những khái niệm tương tự như Optional.</p>
-<p>Theo như document của <em>Oracle</em>, <em>Optional </em>là:</p>
+<p>Theo như document của <em>Oracle</em>, <em>Optional</em> là:</p>
 <blockquote><p><em>A container object which may or may not contain a non-null value.</em></p>
 </blockquote>
 <p>Còn Apple thì nói <em>Optional</em> là:</p>
@@ -160,18 +163,18 @@ x`
 <p>Thay vào đó, ta phải gán giá trị non-nil vào cho biến:</p>
 <p><img src="../../../static/img/uploads/1YEu-87GiNGHNUqFZHhrOBg.png" alt=""></p>
 <p>Bây giờ ta khai báo kiểu là Optional bằng cách thêm dấu “?” vào sau kiểu dữ liệu</p>
-<p><img src="https://cdn-images-1.medium.com/max/2032/1*dslZj0SU_19nTFb0NMjZMw.png" alt="có thể gán nil cho biến kiểu Optional"><em>có thể gán nil cho biến kiểu Optional</em></p>
+<p><img src="../../../static/img/uploads/1_dslZj0SU_19nTFb0NMjZMw.png" alt="có thể gán nil cho biến kiểu Optional"><em>có thể gán nil cho biến kiểu Optional</em></p>
 <p>Điều tuyệt vời của Optional trong <em>Swift </em>không phải <strong>check null </strong>mà là bạn sẽ luôn biết(hoặc compiler bắt bạn biết) khi nào cần <strong>check null </strong>và kiểu của một biến(biết nó có thể null hay không).</p>
 <p>Cùng so sánh một số đoạn code khi sử dụng <em>Swift</em> và <em>Java</em>(chưa dùng <em>Optional</em>)</p>
 <p><img src="../../../static/img/uploads/1QAri_FnrmmP8PiT_oKuGKA.png" alt="Swift"></p>
 <p><img src="../../../static/img/uploads/1T5HFztJokajBCZ0zGGTK-g.png" alt="Java"></p>
 <p>Mỗi người đều có gia đình nên <em>family </em>là non-nullable, nhưng có thể không có bạn gái nên <em>girlfriend </em>sẽ là nullable. Điều này rất dễ thấy với <em>Swift</em>, nhưng <em>Java </em>thì không, bạn không thể phân biệt được.</p>
 <p>Tương tự với method:</p>
-<p><img src="https://cdn-images-1.medium.com/max/2424/1*br3er0LQ8eKNTWYnhYnnHg.png" alt="Java"></p>
+<p><img src="../../../static/img/uploads/1_br3er0LQ8eKNTWYnhYnnHg.png" alt="Java"></p>
 <p>Nhìn vào method của <em>Java</em>, liệu bạn có biết được parameter nào có thể null, parameter nào không thể null không? Có thể nhiều người sẽ nghĩ đến <em>Document, </em>nhưng sự thật là Document không phải là thứ nhiều dev hứng thú nên rất dễ bị bỏ qua!</p>
 <p>Còn với <em>Swift</em></p>
-<p><img src="https://cdn-images-1.medium.com/max/2354/1*oQS9c2IkkkD1An0o9P0gGg.png" alt="Swift"></p>
-<p><em>firstName </em>không được null, <em>lastName </em>và <em>age đều </em>có thể null. Method trên có thể trả về <em>null</em> nếu không tìm thấy <em>Person </em>nào, quá dễ hiểu mà chẳng cần bất kỳ dòng <em>Document</em> nào cả.</p>
+<p><img src="../../../static/img/uploads/1_oQS9c2IkkkD1An0o9P0gGg.png" alt="Swift"></p>
+<p><em>firstName </em>không được null, <em>lastName </em>và <em>age đều</em> có thể null. Method trên có thể trả về <em>null</em> nếu không tìm thấy <em>Person </em>nào, quá dễ hiểu mà chẳng cần bất kỳ dòng <em>Document</em> nào cả.</p>
 <h3>Optional trong Java 8?</h3>
 <p>Cùng năm 2014 đó, Java ra mắt phiên bản 8 và cũng có Optional. Nhưng thật không may, Optional quá dỏm! Dỏm thật sự. Sự thật là Optional trong Java chỉ là một <strong>class thông thường </strong>mà bất kỳ ai cũng có thể tạo ra và như đã nói ở trên thì <em>guava</em> đã làm từ rất lâu trước đó rồi! Vì nó chỉ là một class thông thường, Java compiler cũng không ủng hộ nên:</p>
 <ul>
@@ -185,7 +188,7 @@ x`
 </ul>
 <p>Really? Mình không muốn viết cú pháp như vậy đâu(nhưng…<em>cuộc sống mà!</em>)</p>
 <ul>
-<li>không thể tự động “<em>cast</em>” giá trị được.</li>
+<li>không thể tự động <em>“cast”</em> giá trị được.</li>
 </ul>
 <p>Trong <em>Swift</em>, bạn có thể viết</p>
 <pre><code>number : Int?
@@ -223,14 +226,14 @@ number = 100
 <p>Hay bạn muốn viết API và muốn nói với đồng nghiệp rằng:</p>
 <p><em>Này, tham số thứ nhất không được null, còn 2 tham số còn lại thì thoải mái nhé. À và nó có thể trả về null đấy nhé</em></p>
 <p>Có thể bạn nghĩ là nên viết như vầy</p>
-<p><img src="https://cdn-images-1.medium.com/max/2750/1*_8S-x_StRGvlDmAu_FE_mg.png" alt="Nhiều comment dữ dội luôn"><em>Nhiều comment dữ dội luôn</em></p>
+<p><img src="../../../static/img/uploads/1__8S-x_StRGvlDmAu_FE_mg.png" alt="Nhiều comment dữ dội luôn"><em>Nhiều comment dữ dội luôn</em></p>
 <p>Tại sao không viết là</p>
-<p><img src="https://cdn-images-1.medium.com/max/2800/1*KT_yeIRoW_7WQEQwsp6a1g.png" alt=""></p>
+<p><img src="../../../static/img/uploads/1_KT_yeIRoW_7WQEQwsp6a1g.png" alt=""></p>
 <p>Không may, đồng nghiệp bạn sẽ quạo:</p>
 <p><em>Cái gì thế này?</em></p>
 <p>Hãy nở nụ cười thật tươi và nói: Welcome to Java 8!</p>
 <h3>Tóm lại</h3>
-<p><strong>Optional</strong> trong <em>Swift</em> có thể tốt hơn Java, <strong>Null Safety</strong> trong <em>Kotlin</em> có vẻ có ích hơn, nhưng lỗi <em>null reference</em> vẫn sẽ không bao giờ buông tha các dev dùng ngôn ngữ đó. Công cụ có thể quan trọng, nhưng con người mới là yếu tốt quan trọng hơn cả. Bạn vẫn có thể code <strong>Java 8</strong> mà không cần dùng <em>Optional</em>, cũng giống như bạn có thể code mà không cần có bất kỳ kiến thức nào về <strong>Coding convention</strong>, <strong>Refactoring</strong> <em>hay <strong>Design Pattern</strong>. Còn nếu bạn nói: “</em>tôi cần Coding convention, Refactoring hay Design Pattern<em>”, hãy thử </em>Optional<em> của Java nhưng tưởng tượng như đang dùng </em>Swift.</p>
+<p><strong>Optional</strong> trong <em>Swift</em> có thể tốt hơn Java, <strong>Null Safety</strong> trong <em>Kotlin</em> có vẻ có ích hơn, nhưng lỗi <em>null reference</em> vẫn sẽ không bao giờ buông tha các dev dùng ngôn ngữ đó. Công cụ có thể quan trọng, nhưng con người mới là yếu tốt quan trọng hơn cả. Bạn vẫn có thể code <strong>Java 8</strong> mà không cần dùng <em>Optional</em>, cũng giống như bạn có thể code mà không cần có bất kỳ kiến thức nào về <strong>Coding convention</strong>, <strong>Refactoring</strong> <em>hay <strong>Design Pattern</strong>. Còn nếu bạn nói: </em>“tôi cần Coding convention, Refactoring hay Design Pattern”<em>, hãy thử </em>Optional<em> của Java nhưng tưởng tượng như đang dùng </em>Swift.</p>
 <h3><strong>Tham khảo</strong></h3>
 <p><strong>Hãy đọc những tài liệu dưới đây, đừng lười nếu bạn thực sự quan tâm!</strong></p>
 <p><a href="https://www.oracle.com/technetwork/articles/java/java8-optional-2175753.html"><strong>Tired of Null Pointer Exceptions? Consider Using Java SE 8's Optional!</strong></a><br>
@@ -358,7 +361,7 @@ number = 100
 <!-- <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase-firestore.js"></script>-->
 <!-- Firebase config here -->
-<!--<script type="text/javascript" src="../../../static/js/service-worker.js"></script> -->
+<script type="text/javascript" src="../../../static/js/service-worker.js"></script>
 
 
 </body>

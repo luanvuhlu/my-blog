@@ -8,6 +8,10 @@
 <META NAME="geo.placename" CONTENT="Hanoi, Vietnam">
 <META NAME="geo.region" CONTENT="vi">
 <meta name="theme-color" content="#536878" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="apple-mobile-web-app-title" content="Weather PWA">
+<link rel="apple-touch-icon" href="../../../static/img/covers/icon192x192.png">
 
 <meta name="description" content="Dùng một framework là điều không khó, nhưng để dùng tốt thì không. Chúng ta thường bắt đầu với JPA/Hibernate quá dễ dàng, nhưng lại rất dễ bị mắc lỗi mà không hề hay biết." />
 
@@ -52,7 +56,6 @@
         </ul>
       </nav>
     </div>
-x`
   </div><!-- .mobile-nav -->
   <div class="wrapper">
     <header class="header">
@@ -148,7 +151,7 @@ x`
 <p><img src="../../../static/img/uploads/133ogQTVapTq5sx0bCjYhHQ.png" alt=""></p>
 <p>rất nhiều column được select và câu lệnh này join với hết các bảng. Đây mới là trường hợp đơn giản, còn trên thực tế, các bảng có thể có liên hệ với nhau nhiều hơn. Bảng User có quan hệ n-1 đến nhiều bảng hơn nữa, trong đó có Office, Office có thể có quan hệ n-1 với bảng khác, và cứ thế, câu lệnh của bạn sẽ có hàng dài <em>join. </em>Đúng là dùng thì dễ, nhưng để dùng tốt lại là chuyện khác.</p>
 <p>Như đã nói ở trên là mình đã gặp trường hợp Hibernate sinh ra câu lệnh join với hơn <strong>30 bảng</strong>(80% số bảng trong database) với chỉ một câu query ra từ entity, và trong hầu hết tình huống thì đó không phải là điều mình(chúng ta) cần, query như vậy sẽ làm giảm performance rất rõ rệt. Đây là điều mà khi start code dự án được 6 tháng, cả đội Dev mới phát hiện ra.</p>
-<p>Và trừ khi bạn dùng native SQL hoặc chọn từng property của <strong>User </strong>entity để lấy ra, còn nếu không, bạn hoàn toàn <strong>không thể tránh được</strong> các câu lệnh join ở trên, đây cũng chính là một “<em>điểm chết</em>” của Eager Fetching Type này. Bạn rất khó để thay đổi nó!</p>
+<p>Và trừ khi bạn dùng native SQL hoặc chọn từng property của <strong>User </strong> entity để lấy ra, còn nếu không, bạn hoàn toàn <strong>không thể tránh được</strong> các câu lệnh join ở trên, đây cũng chính là một <em>“điểm chết”</em> của Eager Fetching Type này. Bạn rất khó để thay đổi nó!</p>
 <p>Hãy đọc thêm về Fetching type của Hibernate trong phần reference để hiểu rõ hơn(mình hơi lười viết), tránh lỗi trên và lỗi <strong>N+1 Query, </strong>một lỗi vô cùng phổ biến trong Hibernate sẽ được nói ở dưới.</p>
 <h3><strong>Cách khắc phục</strong></h3>
 <p>Khuyến khích dùng Lazy Fetching cho hầu hết các trường hợp(trừ khi bạn có lý do thật đặc biệt). Với trường hợp <em>ManyToOne</em> hay <em>OneToOne</em>, hãy cài đặt <strong>Lazy Fetching</strong>. Còn trường hợp <em>OneToMany </em>và <em>ManyToMany </em>thì đừng làm gì cả, mặc định nó đã là <strong>Lazy Fetching</strong> rồi.</p>
@@ -469,7 +472,7 @@ User Id:   2
 <!-- <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase-firestore.js"></script>-->
 <!-- Firebase config here -->
-<!--<script type="text/javascript" src="../../../static/js/service-worker.js"></script> -->
+<script type="text/javascript" src="../../../static/js/service-worker.js"></script>
 
 
 </body>

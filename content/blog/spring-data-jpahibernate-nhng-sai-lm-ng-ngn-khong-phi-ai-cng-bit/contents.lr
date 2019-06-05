@@ -49,7 +49,7 @@ rất nhiều column được select và câu lệnh này join với hết các 
 
 Như đã nói ở trên là mình đã gặp trường hợp Hibernate sinh ra câu lệnh join với hơn **30 bảng**(80% số bảng trong database) với chỉ một câu query ra từ entity, và trong hầu hết tình huống thì đó không phải là điều mình(chúng ta) cần, query như vậy sẽ làm giảm performance rất rõ rệt. Đây là điều mà khi start code dự án được 6 tháng, cả đội Dev mới phát hiện ra.
 
-Và trừ khi bạn dùng native SQL hoặc chọn từng property của **User **entity để lấy ra, còn nếu không, bạn hoàn toàn **không thể tránh được** các câu lệnh join ở trên, đây cũng chính là một “*điểm chết*” của Eager Fetching Type này. Bạn rất khó để thay đổi nó!
+Và trừ khi bạn dùng native SQL hoặc chọn từng property của **User ** entity để lấy ra, còn nếu không, bạn hoàn toàn **không thể tránh được** các câu lệnh join ở trên, đây cũng chính là một *“điểm chết”* của Eager Fetching Type này. Bạn rất khó để thay đổi nó!
 
 Hãy đọc thêm về Fetching type của Hibernate trong phần reference để hiểu rõ hơn(mình hơi lười viết), tránh lỗi trên và lỗi **N+1 Query, **một lỗi vô cùng phổ biến trong Hibernate sẽ được nói ở dưới.
 

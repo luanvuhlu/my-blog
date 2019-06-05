@@ -8,6 +8,10 @@
 <META NAME="geo.placename" CONTENT="Hanoi, Vietnam">
 <META NAME="geo.region" CONTENT="vi">
 <meta name="theme-color" content="#536878" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="apple-mobile-web-app-title" content="Weather PWA">
+<link rel="apple-touch-icon" href="../../../static/img/covers/icon192x192.png">
 
 <meta name="description" content="String là một trong những kiểu dữ liệu quen thuộc trong Java, nhưng vẫn còn đó, những bí mật bên trong không phải ai cũng biết" />
 
@@ -52,7 +56,6 @@
         </ul>
       </nav>
     </div>
-x`
   </div><!-- .mobile-nav -->
   <div class="wrapper">
     <header class="header">
@@ -152,7 +155,7 @@ Vậy String bất khả biến như thế nào? Ai cũng nghĩ nó có magic n�
 <p>Để biết câu trả lời, bạn có thể tham khảo <a href="https://dzone.com/articles/why-string-immutable-java">tại đây</a>. Mình xin bổ sung thêm một điều về lợi ích của một class bất khả biến đó là <em>thread-safe</em>. Một đối tượng mà bất khả biến thì bạn sẽ chẳng cần nghĩ ngợi gì khi sử dụng nó trong đa luồng. Đây cũng chính là lý do tại sao đến Java 8, Oracle đã tạo ra Date time API là các đối tượng bất khả biến, thay cho các class về date/time như trước.</p>
 <h3>Vậy tại sao khi cộng chuỗi cần sử dụng StringBuilder hay StringBuffer? Chuyện gì xảy ra khi ta chỉ đơn giản là (+) thôi</h3>
 <p>Để hiểu rõ hơn, mình có ví dụ dưới đây:</p>
-<script src="https://gist.github.com/luanvuhlu/4759474442d7e93a2e1368178146736d.js"></script><p>Một câu dùng để khởi tạo SQL rất hay thường dùng và thực tế là nhiều dev vẫn code theo cách này. Rất rất nhiều dev(ngạc nhiên là các bạn code có thâm niên từ 2 năm trở lên lại sai nhiều hơn các bạn mới ra trường) đều nhầm tưởng trong trường hợp này Java sẽ dùng method <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html#concat-java.lang.String-"><em>concat </em>của *String</a>. *Nhưng điều đó là sai.</p>
+<script src="https://gist.github.com/luanvuhlu/4759474442d7e93a2e1368178146736d.js"></script><p>Một câu dùng để khởi tạo SQL rất hay thường dùng và thực tế là nhiều dev vẫn code theo cách này. Rất rất nhiều dev(ngạc nhiên là các bạn code có thâm niên từ 2 năm trở lên lại sai nhiều hơn các bạn mới ra trường) đều nhầm tưởng trong trường hợp này Java sẽ dùng method <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html#concat-java.lang.String-"><em>concat</em> của String</a>. Nhưng điều đó là sai.</p>
 <pre><code>Tại sao người nhiều kinh nghiệm lại sai nhiều hơn là các bạn trẻ? Vì kiến thức các bạn bị sai từ đầu và các bạn quá lười học tập thêm, không như nhiều bạn trẻ thời nay.
 </code></pre>
 <p>Chúng ta hãy xem Java(từ Java 6 đến Java 8) xử lý nó như thế nào khi compile:</p>
@@ -182,7 +185,7 @@ String c = a.concat(b);
 <p>Thay vì dùng cách <em>khờ dại </em>như dưới đây</p>
 <script src="https://gist.github.com/luanvuhlu/287ee515d7e1096b1fe7d5db7cdf6a8d.js"></script><p>thì hãy dùng StringBuilder</p>
 <script src="https://gist.github.com/luanvuhlu/ea43c0eac77217fd8d4557399ce07e2a.js"></script><p>Thay vì dùng mảng char và là bất khả biến như <em>String</em>, <em>StringBuilder/StringBuffer </em>dùng mảng byte(<em>String </em>trong Java 9 đã thay mảng char bằng mảng byte, nhưng tính bất khả biến vẫn còn). Khi có sự thay đổi về chuỗi, <em>StringBuilder/StringBuffer </em>chỉ đơn giản là thay đổi mảng byte(thay đổi giá trị phần tử) hoặc tạo mảng mới(như cái cách hàm <em>String.concat hoạt động</em>), không liên tục tạo ra các đối tượng mới, giúp giảm thiểu tài nguyên sử dụng và giảm thời gian xử lý.</p>
-<p><em>StringBuffer</em> “<em>cùng cha cùng ông nội” </em>với <em>StringBuilder, </em>khi nó giống hệt <em>StringBuilder</em>, chỉ khác rằng <em>StringBuffer </em>là<em> thread-safe</em>(an toàn khi dùng với đa luồng). Nếu không dùng đa luồng và share object giữa các luồng, đừng dại mà dùng <em>StringBuffer </em>thay cho <em>StringBuilder, </em>sẽ làm giảm perfomance rất nhiều.</p>
+<p><em>StringBuffer</em> “<em>cùng cha cùng ông nội” </em>với <em>StringBuilder, </em>khi nó giống hệt <em>StringBuilder</em>, chỉ khác rằng <em>StringBuffer </em>là<em> thread-safe</em>(an toàn khi dùng với đa luồng) và <em>"buffer"</em> lại giá trị của toString. Nếu không dùng đa luồng và share object giữa các luồng, đừng dại mà dùng <em>StringBuffer </em>thay cho <em>StringBuilder, </em>sẽ làm giảm perfomance rất nhiều.</p>
 <h3>Không phải lúc nào cũng cần dùng StringBuilder và StringBuffer!!!</h3>
 <p>Nhiều bạn hiện nay vẫn giữ quan niệm dùng <em>StringBuilder/StringBuffer</em> append mọi lúc mọi nơi, mặc cho mọi hoàn cảnh. Theo mình quan niệm như vậy là sai. Cần hiểu đúng, hiểu đủ để vận dụng linh hoạt, hài hòa giữa perfomance và clean code.</p>
 <p>Thông thường, có 2 trường hợp mà mình sẽ tránh dùng 2 class trên:</p>
@@ -355,7 +358,7 @@ String query = "SELECT first_name, last_name, "
 <!-- <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase-firestore.js"></script>-->
 <!-- Firebase config here -->
-<!--<script type="text/javascript" src="../../../static/js/service-worker.js"></script> -->
+<script type="text/javascript" src="../../../static/js/service-worker.js"></script>
 
 
 </body>

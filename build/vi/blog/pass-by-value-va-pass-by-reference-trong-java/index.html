@@ -8,6 +8,10 @@
 <META NAME="geo.placename" CONTENT="Hanoi, Vietnam">
 <META NAME="geo.region" CONTENT="vi">
 <meta name="theme-color" content="#536878" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="apple-mobile-web-app-title" content="Weather PWA">
+<link rel="apple-touch-icon" href="../../../static/img/covers/icon192x192.png">
 
 <meta name="description" content="Java có Pass-by-reference hay không? Điều đó không quan trọng!" />
 
@@ -52,7 +56,6 @@
         </ul>
       </nav>
     </div>
-x`
   </div><!-- .mobile-nav -->
   <div class="wrapper">
     <header class="header">
@@ -162,7 +165,7 @@ của function là một.</p>
 <strong>Pass-by-reference</strong> thì ra sao. Để giải thích cho phần này, tôi tạm dùng cách
 C/C++ làm việc để diễn tả.</p>
 <p>Dưới đây là mô hình hóa việc lưu trữ dữ liệu của các biến trên bộ nhớ. Ở đây ta
-có biến <strong>myAge </strong>có giá trị <strong>14 </strong>được lưu ở bộ nhớ có địa chỉ <strong>106</strong></p>
+có biến <strong>myAge </strong> có giá trị <strong>14 </strong> được lưu ở bộ nhớ có địa chỉ <strong>106</strong></p>
 <p><img src="../../../static/img/uploads/0_qCyny98PQOQRdKiw.jpg" alt=""></p>
 <p>Khi <strong>Pass-by-value</strong>, chương trình không pass thẳng biến myAge ở ô 106, mà nó
 sẽ sao chép giá trị(<strong>14</strong>) của ô <strong>106</strong> sang ô <strong>152, </strong>và function<strong>
@@ -376,7 +379,7 @@ là tranh cãi mấy điều vô bổ.</p>
 <!-- <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase-firestore.js"></script>-->
 <!-- Firebase config here -->
-<!--<script type="text/javascript" src="../../../static/js/service-worker.js"></script> -->
+<script type="text/javascript" src="../../../static/js/service-worker.js"></script>
 
 
 </body>

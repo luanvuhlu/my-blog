@@ -44,7 +44,7 @@ Bạn có thể xem qua cấu trúc của class String của java dưới đây 
 
 <script src="https://gist.github.com/luanvuhlu/4759474442d7e93a2e1368178146736d.js"></script>
 
-Một câu dùng để khởi tạo SQL rất hay thường dùng và thực tế là nhiều dev vẫn code theo cách này. Rất rất nhiều dev(ngạc nhiên là các bạn code có thâm niên từ 2 năm trở lên lại sai nhiều hơn các bạn mới ra trường) đều nhầm tưởng trong trường hợp này Java sẽ dùng method [*concat *của *String](https://docs.oracle.com/javase/8/docs/api/java/lang/String.html#concat-java.lang.String-). *Nhưng điều đó là sai.
+Một câu dùng để khởi tạo SQL rất hay thường dùng và thực tế là nhiều dev vẫn code theo cách này. Rất rất nhiều dev(ngạc nhiên là các bạn code có thâm niên từ 2 năm trở lên lại sai nhiều hơn các bạn mới ra trường) đều nhầm tưởng trong trường hợp này Java sẽ dùng method [*concat* của String](https://docs.oracle.com/javase/8/docs/api/java/lang/String.html#concat-java.lang.String-). Nhưng điều đó là sai.
 
     Tại sao người nhiều kinh nghiệm lại sai nhiều hơn là các bạn trẻ? Vì kiến thức các bạn bị sai từ đầu và các bạn quá lười học tập thêm, không như nhiều bạn trẻ thời nay.
 
@@ -92,7 +92,7 @@ thì hãy dùng StringBuilder
 
 Thay vì dùng mảng char và là bất khả biến như *String*, *StringBuilder/StringBuffer *dùng mảng byte(*String *trong Java 9 đã thay mảng char bằng mảng byte, nhưng tính bất khả biến vẫn còn). Khi có sự thay đổi về chuỗi, *StringBuilder/StringBuffer *chỉ đơn giản là thay đổi mảng byte(thay đổi giá trị phần tử) hoặc tạo mảng mới(như cái cách hàm *String.concat hoạt động*), không liên tục tạo ra các đối tượng mới, giúp giảm thiểu tài nguyên sử dụng và giảm thời gian xử lý.
 
-*StringBuffer* “*cùng cha cùng ông nội” *với *StringBuilder, *khi nó giống hệt *StringBuilder*, chỉ khác rằng *StringBuffer *là* thread-safe*(an toàn khi dùng với đa luồng). Nếu không dùng đa luồng và share object giữa các luồng, đừng dại mà dùng *StringBuffer *thay cho *StringBuilder, *sẽ làm giảm perfomance rất nhiều.
+*StringBuffer* “*cùng cha cùng ông nội” *với *StringBuilder, *khi nó giống hệt *StringBuilder*, chỉ khác rằng *StringBuffer *là* thread-safe*(an toàn khi dùng với đa luồng) và *"buffer"* lại giá trị của toString. Nếu không dùng đa luồng và share object giữa các luồng, đừng dại mà dùng *StringBuffer *thay cho *StringBuilder, *sẽ làm giảm perfomance rất nhiều.
 
 ### Không phải lúc nào cũng cần dùng StringBuilder và StringBuffer!!!
 
