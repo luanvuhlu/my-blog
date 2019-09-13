@@ -58,11 +58,11 @@ Rất nhiều đối tượng StringBuilder được tạo ra. Đây là giải 
 
 Ngoài ra, class *String *còn một method là *concat *cũng có thể thực hiện được việc cộng chuỗi. Cách thức hoạt động rất đơn giản. Ví dụ đoạn code:
 
-    String a = “V.N.E.X.T”;
-
-    String b = “JSC”;
-
+```java
+    String a = "V.N.E.X.T";
+    String b = "JSC";
     String c = a.concat(b);
+```
 
 Với hàm *concat*, Java sẽ xử lý bằng cách
 
@@ -120,29 +120,35 @@ Vẫn là đoạn code trên, nhưng ta có thể thêm một số tùy chỉnh:
 
 Cộng thêm một số nguyên:
 
+```java
     String query = "SELECT first_name, last_name, "
                    + " age, gender "
                    + ", "
                    + 1000
                    + " FROM User WHERE id = ?";
+```
 
 Cộng thêm với một biết kiểu bất kỳ:
 
+```java
     long number = 1000;
     String query = "SELECT first_name, last_name, "
                    + " age, gender "
                    + ", "
                    + number
                    + " FROM User WHERE id = ?";
+```
 
 Và cuối cùng, vẫn là biến đó, nhưng ta khai báo là final:
 
+```java
     final long number = 1000;
     String query = "SELECT first_name, last_name, "
                    + " age, gender "
                    + ", "
                    + number
                    + " FROM User WHERE id = ?";
+```
 
 Ba trường hợp trên thì có 2 trường hợp được compile ra giống nhau(trường hợp 1 và trường hợp 3).
 
@@ -164,7 +170,9 @@ Với 3 cách trên thì mình lại khuyến khích cách số 3 hơn(dùng *Me
 
 *Chú ý*: nếu bạn dùng đoạn trên với log4j, họ đã xây dựng một cách format text riêng để tăng perfomance thay vì chỉ dùng *MessageFormat* đơn thuần. Đoạn code trên khi dùng log, nên được viết như sau:
 
+```java
     log.info("Processing {} files on {}", size, name);
+```
 
 Ngoài *MessageFormat*, nếu bạn dùng với stream trong java 8 thì có thể thử giải pháp sử dụng *String.join/StringJoiner* hoặc dùng stream kết hợp *StringBuilder, h*iệu năng vẫn ổn mà code vẫn gọn gàng.
 
@@ -182,5 +190,6 @@ tags:
 
 dev
 java
+string
 ---
 summary: String là một trong những kiểu dữ liệu quen thuộc trong Java, nhưng vẫn còn đó, những bí mật bên trong không phải ai cũng biết
