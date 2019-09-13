@@ -29,6 +29,7 @@
 <link rel="stylesheet" type="text/css" href="../../static/style.css">
 <link rel="stylesheet" type="text/css" href="../../static/colors/green.css">
 
+<link rel="stylesheet" href="../../static/pygments.css">
 
 <script type="text/javascript" src="../../static/js/libs/modernizr.js"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lozad/dist/lozad.min.js"></script>
@@ -146,75 +147,75 @@
 <p>Mình đã từng hỏi một số người đã biết qua Java 8, liệu họ có dùng Optional không. Câu trả lời luôn là <strong>không</strong>!</p>
 <p>Mình thậm chí còn bắt gặp một bình luận như dưới đây:</p>
 <p><img src="../../static/img/uploads/0_uUKt5bbcbOApdOde.png" alt=""></p>
-<p>Lý do mọi người đưa ra cũng thường là vậy. Suy nghĩ đó là hoàn toàn đúng! Dùng Optional <strong>không giúp ích nhiều</strong> cho bạn trong việc <strong>check null</strong>. Nhưng bạn hãy khoan. <em>Optional </em>là … optional, hay như <strong>Kotlin </strong>họ gọi là <strong><em>Null Safety</em></strong>. Nếu chỉ là check null, thì hãy gọi nó là <strong><em>Null Checker</em></strong> mới phải chứ?</p>
+<p>Lý do mọi người đưa ra cũng thường là vậy. Suy nghĩ đó là hoàn toàn đúng! Dùng Optional <strong>không giúp ích nhiều</strong> cho bạn trong việc <strong>check null</strong>. Nhưng bạn hãy khoan. <em>Optional </em>là … optional, hay như <strong>Kotlin </strong> họ gọi là <strong><em>Null Safety</em></strong>. Nếu chỉ là check null, thì hãy gọi nó là <strong><em>Null Checker</em></strong> mới phải chứ?</p>
 <p><img src="../../static/img/uploads/0PLW6PKWLx9KcRTOw.png" alt=""></p>
 <p>Đứng dưới góc độ là một Java developer, nhiều người nhìn Optional qua cú pháp, từ đó sẽ luôn chỉ thấy <strong>check null</strong>. Nhưng câu chuyện đằng sau Optional lại là một câu chuyện khác.</p>
 <h3>Optional không phải Null Checker!</h3>
 <p>Năm 2014, thay vì Java 8, mình thử Swift , ngôn ngữ vừa được <em>Apple</em> giới thiệu. Và voila! <em>Optional</em> lần đầu tiên xuất hiện trong đời mình. Chúng ta thử tìm hiểu một chút <a href="https://docs.swift.org/swift-book/LanguageGuide/OptionalChaining.html#">Optional trong Swift</a> nào!</p>
-<p>Theo ý hiểu của mình thì, trong Swift, kiểu dữ liệu chia ra 2 loại, để dễ hiểu, mình sẽ gọi là: <strong>Non-Optional </strong>và <strong>Optional</strong>.</p>
+<p>Theo ý hiểu của mình thì, trong Swift, kiểu dữ liệu chia ra 2 loại, để dễ hiểu, mình sẽ gọi là: <strong>Non-Optional </strong> và <strong>Optional</strong>.</p>
 <ul>
 <li><p>Optional ở đây chỉ ra rằng reference <strong>có thể gán null</strong>(nil),</p>
 </li>
 <li><p>Non-Optional là kiểu mặc định và <strong>không thể gán null</strong>.</p>
 </li>
 </ul>
-<p>Ví dụ khi ta chỉ khai báo kiểu dữ liệu cho biến là <em>String </em>và không chỉ định gì thêm, có nghĩa biến này là kiểu Non-Optional String. Nếu ta cố gắng gán <em>nil </em>cho nó, compile error sẽ xảy ra ngay.</p>
+<p>Ví dụ khi ta chỉ khai báo kiểu dữ liệu cho biến là <em>String </em> và không chỉ định gì thêm, có nghĩa biến này là kiểu Non-Optional String. Nếu ta cố gắng gán <em>nil </em>cho nó, compile error sẽ xảy ra ngay.</p>
 <p><img src="../../static/img/uploads/1X41_2mO4yLzn0CImi1VI4g.png" alt="không được phép gán nil cho Non-Optional"><em>không được phép gán nil cho Non-Optional</em></p>
 <p>Thay vào đó, ta phải gán giá trị non-nil vào cho biến:</p>
 <p><img src="../../static/img/uploads/1YEu-87GiNGHNUqFZHhrOBg.png" alt=""></p>
 <p>Bây giờ ta khai báo kiểu là Optional bằng cách thêm dấu “?” vào sau kiểu dữ liệu</p>
 <p><img src="../../static/img/uploads/1_dslZj0SU_19nTFb0NMjZMw.png" alt="có thể gán nil cho biến kiểu Optional"><em>có thể gán nil cho biến kiểu Optional</em></p>
-<p>Điều tuyệt vời của Optional trong <em>Swift </em>không phải <strong>check null </strong>mà là bạn sẽ luôn biết(hoặc compiler bắt bạn biết) khi nào cần <strong>check null </strong>và kiểu của một biến(biết nó có thể null hay không).</p>
+<p>Điều tuyệt vời của Optional trong <em>Swift </em> không phải <strong>check null </strong> mà là bạn sẽ luôn biết(hoặc compiler bắt bạn biết) khi nào cần <strong>check null </strong> và kiểu của một biến(biết nó có thể null hay không).</p>
 <p>Cùng so sánh một số đoạn code khi sử dụng <em>Swift</em> và <em>Java</em>(chưa dùng <em>Optional</em>)</p>
 <p><img src="../../static/img/uploads/1QAri_FnrmmP8PiT_oKuGKA.png" alt="Swift"></p>
 <p><img src="../../static/img/uploads/1T5HFztJokajBCZ0zGGTK-g.png" alt="Java"></p>
-<p>Mỗi người đều có gia đình nên <em>family </em>là non-nullable, nhưng có thể không có bạn gái nên <em>girlfriend </em>sẽ là nullable. Điều này rất dễ thấy với <em>Swift</em>, nhưng <em>Java </em>thì không, bạn không thể phân biệt được.</p>
+<p>Mỗi người đều có gia đình nên <em>family </em> là non-nullable, nhưng có thể không có bạn gái nên <em>girlfriend </em> sẽ là nullable. Điều này rất dễ thấy với <em>Swift</em>, nhưng <em>Java </em> thì không, bạn không thể phân biệt được.</p>
 <p>Tương tự với method:</p>
 <p><img src="../../static/img/uploads/1_br3er0LQ8eKNTWYnhYnnHg.png" alt="Java"></p>
-<p>Nhìn vào method của <em>Java</em>, liệu bạn có biết được parameter nào có thể null, parameter nào không thể null không? Có thể nhiều người sẽ nghĩ đến <em>Document, </em>nhưng sự thật là Document không phải là thứ nhiều dev hứng thú nên rất dễ bị bỏ qua!</p>
+<p>Nhìn vào method của <em>Java</em>, liệu bạn có biết được parameter nào có thể null, parameter nào không thể null không? Có thể nhiều người sẽ nghĩ đến <em>Document</em>, nhưng sự thật là Document không phải là thứ nhiều dev hứng thú nên rất dễ bị bỏ qua!</p>
 <p>Còn với <em>Swift</em></p>
 <p><img src="../../static/img/uploads/1_oQS9c2IkkkD1An0o9P0gGg.png" alt="Swift"></p>
-<p><em>firstName </em>không được null, <em>lastName </em>và <em>age đều</em> có thể null. Method trên có thể trả về <em>null</em> nếu không tìm thấy <em>Person </em>nào, quá dễ hiểu mà chẳng cần bất kỳ dòng <em>Document</em> nào cả.</p>
+<p><em>firstName </em> không được null, <em>lastName </em> và <em>age</em> đều có thể null. Method trên có thể trả về <em>null</em> nếu không tìm thấy <em>Person </em> nào, quá dễ hiểu mà chẳng cần bất kỳ dòng <em>Document</em> nào cả.</p>
 <h3>Optional trong Java 8?</h3>
-<p>Cùng năm 2014 đó, Java ra mắt phiên bản 8 và cũng có Optional. Nhưng thật không may, Optional quá dỏm! Dỏm thật sự. Sự thật là Optional trong Java chỉ là một <strong>class thông thường </strong>mà bất kỳ ai cũng có thể tạo ra và như đã nói ở trên thì <em>guava</em> đã làm từ rất lâu trước đó rồi! Vì nó chỉ là một class thông thường, Java compiler cũng không ủng hộ nên:</p>
+<p>Cùng năm 2014 đó, Java ra mắt phiên bản 8 và cũng có Optional. Nhưng thật không may, Optional quá dỏm! Dỏm thật sự. Sự thật là Optional trong Java chỉ là một <strong>class thông thường </strong> mà bất kỳ ai cũng có thể tạo ra và như đã nói ở trên thì <em>guava</em> đã làm từ rất lâu trước đó rồi! Vì nó chỉ là một class thông thường, Java compiler cũng không ủng hộ nên:</p>
 <ul>
-<li><p>Cú pháp siêu phức tạp</p>
-<p>Optional<Integer> number = Optional.of(100);
-  Integer realNumber = number.get();
-  Optional<Person> girlfriend = Optional.ofNullable(findGirlfriend());
-  Person yourFriend = findFriend().orElse(new Person())
-  find("Lan", Optional.ofNullable(getLastName()), Optional.ofNullable(getAge());</p>
-</li>
+<li>Cú pháp siêu phức tạp</li>
 </ul>
+<div class="hll"><pre><span></span>    <span class="n">Optional</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">number</span> <span class="o">=</span> <span class="n">Optional</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="mi">100</span><span class="o">);</span>
+    <span class="n">Integer</span> <span class="n">realNumber</span> <span class="o">=</span> <span class="n">number</span><span class="o">.</span><span class="na">get</span><span class="o">();</span>
+    <span class="n">Optional</span><span class="o">&lt;</span><span class="n">Person</span><span class="o">&gt;</span> <span class="n">girlfriend</span> <span class="o">=</span> <span class="n">Optional</span><span class="o">.</span><span class="na">ofNullable</span><span class="o">(</span><span class="n">findGirlfriend</span><span class="o">());</span>
+    <span class="n">Person</span> <span class="n">yourFriend</span> <span class="o">=</span> <span class="n">findFriend</span><span class="o">().</span><span class="na">orElse</span><span class="o">(</span><span class="k">new</span> <span class="n">Person</span><span class="o">())</span>
+    <span class="n">find</span><span class="o">(</span><span class="s">&quot;Lan&quot;</span><span class="o">,</span> <span class="n">Optional</span><span class="o">.</span><span class="na">ofNullable</span><span class="o">(</span><span class="n">getLastName</span><span class="o">()),</span> <span class="n">Optional</span><span class="o">.</span><span class="na">ofNullable</span><span class="o">(</span><span class="n">getAge</span><span class="o">());</span>
+</pre></div>
 <p>Really? Mình không muốn viết cú pháp như vậy đâu(nhưng…<em>cuộc sống mà!</em>)</p>
 <ul>
 <li>không thể tự động <em>“cast”</em> giá trị được.</li>
 </ul>
 <p>Trong <em>Swift</em>, bạn có thể viết</p>
-<pre><code>number : Int?
-number = 100
-</code></pre>
+<div class="hll"><pre><span></span>    <span class="n">number</span> <span class="p">:</span> <span class="nb">Int</span><span class="p">?</span>
+    <span class="n">number</span> <span class="p">=</span> <span class="mi">100</span>
+</pre></div>
 <p>còn với <em>Java</em>, hãy nhìn đoạn code ở trên và tưởng tượng</p>
 <p><img src="../../static/img/uploads/1UiusvJn4r-hT_ly8D-evvQ.png" alt="Nghĩ đến mà chán"></p>
 <ul>
-<li><p>không thể check khi compile,</p>
-<p>Optional.of(null) // -&gt; Compile bình thường !!</p>
-</li>
+<li>không thể check khi compile,</li>
 </ul>
+<div class="hll"><pre><span></span>    <span class="n">Optional</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="kc">null</span><span class="o">)</span> <span class="c1">// -&gt; Compile bình thường !!</span>
+</pre></div>
 <p><img src="../../static/img/uploads/17YqeBK5U-Pb3dGdSq3xYNA.png" alt="Thật hả trời"></p>
 <h3>Optional của Java thật tệ, nhưng hãy thử dùng nó!</h3>
 <p>Sau khi dạo một vòng <em>Swift</em>, nhìn lại <em>Java</em>, chắc nhiều người sẽ nản và hét lên: <strong>Tại sao?</strong></p>
-<p>Câu trả lời, thật ra đã được nói ở trên. Giống như <em>Swift</em>, <em>Optional </em>trong <em>Java</em>(hay những thứ tương tự trong Groovy, C#, Kotlin hay Haskell) không phải để thay thế những dòng check null của bạn, mục đích hàng đầu của nó là nói cho bạn biết: <strong>một value liệu có thể null hay không</strong></p>
+<p>Câu trả lời, thật ra đã được nói ở trên. Giống như <em>Swift</em>, <em>Optional </em> trong <em>Java</em>(hay những thứ tương tự trong Groovy, C#, Kotlin hay Haskell) không phải để thay thế những dòng check null của bạn, mục đích hàng đầu của nó là nói cho bạn biết: <strong>một value liệu có thể null hay không?</strong></p>
 <p>Hãy thử với một số method khá quen thuộc trong JPA/Spring Data JPA/Hibernate(bản mới nhất hiện nay):</p>
 <p>Dưới đây là hàm tìm kiếm theo ID của <strong><a href="https://docs.oracle.com/javaee/7/api/javax/persistence/EntityManager.html#find-java.lang.Class-java.lang.Object-">javax.persistence.EntityManager</a></strong></p>
-<pre><code>public &lt;T&gt; T getReference(Class&lt;T&gt; entityClass, Object primaryKey)
-</code></pre>
+<div class="hll"><pre><span></span>    <span class="kd">public</span> <span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">T</span> <span class="nf">getReference</span><span class="o">(</span><span class="n">Class</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">entityClass</span><span class="o">,</span> <span class="n">Object</span> <span class="n">primaryKey</span><span class="o">)</span>
+</pre></div>
 <p>vẫn là chức năng đó, nhưng được viết trong <strong><a href="https://docs.spring.io/spring-data/data-jpa/docs/current/api/org/springframework/data/jpa/repository/JpaRepository.html#getOne-ID-">JpaRepository</a></strong></p>
-<pre><code>T getOne(ID id)
-</code></pre>
+<div class="hll"><pre><span></span>    <span class="n">T</span> <span class="nf">getOne</span><span class="o">(</span><span class="n">ID</span> <span class="n">id</span><span class="o">)</span>
+</pre></div>
 <p>còn đây là trong <strong><a href="https://docs.spring.io/spring-data/commons/docs/current/api/org/springframework/data/repository/CrudRepository.html#findById-ID-">CrudRepository</a></strong></p>
-<pre><code>Optional&lt;T&gt; findById(ID id)
-</code></pre>
+<div class="hll"><pre><span></span>    <span class="n">Optional</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="nf">findById</span><span class="o">(</span><span class="n">ID</span> <span class="n">id</span><span class="o">)</span>
+</pre></div>
 <p>Nếu không đọc <em>Document</em>, liệu bạn có biết chuyện gì xảy ra nếu không tìm thấy entity ?</p>
 <ul>
 <li><p>Method thứ nhất sẽ trả về <em>null</em></p>
@@ -233,7 +234,7 @@ number = 100
 <p><em>Cái gì thế này?</em></p>
 <p>Hãy nở nụ cười thật tươi và nói: Welcome to Java 8!</p>
 <h3>Tóm lại</h3>
-<p><strong>Optional</strong> trong <em>Swift</em> có thể tốt hơn Java, <strong>Null Safety</strong> trong <em>Kotlin</em> có vẻ có ích hơn, nhưng lỗi <em>null reference</em> vẫn sẽ không bao giờ buông tha các dev dùng ngôn ngữ đó. Công cụ có thể quan trọng, nhưng con người mới là yếu tốt quan trọng hơn cả. Bạn vẫn có thể code <strong>Java 8</strong> mà không cần dùng <em>Optional</em>, cũng giống như bạn có thể code mà không cần có bất kỳ kiến thức nào về <strong>Coding convention</strong>, <strong>Refactoring</strong> <em>hay <strong>Design Pattern</strong>. Còn nếu bạn nói: </em>“tôi cần Coding convention, Refactoring hay Design Pattern”<em>, hãy thử </em>Optional<em> của Java nhưng tưởng tượng như đang dùng </em>Swift.</p>
+<p><strong>Optional</strong> trong <em>Swift</em> có thể tốt hơn Java, <strong>Null Safety</strong> trong <em>Kotlin</em> có vẻ có ích hơn, nhưng lỗi <em>null reference</em> vẫn sẽ không bao giờ buông tha các dev dùng ngôn ngữ đó. Công cụ có thể quan trọng, nhưng con người mới là yếu tốt quan trọng hơn cả. Bạn vẫn có thể code <strong>Java 8</strong> mà không cần dùng <em>Optional</em>, cũng giống như bạn có thể code mà không cần có bất kỳ kiến thức nào về <strong>Coding convention</strong>, <strong>Refactoring</strong> *hay <strong>Design Pattern</strong>. Còn nếu bạn cần Coding convention, Refactoring hay Design Pattern”, hãy thử Optional của Java nhưng tưởng tượng như đang dùng Swift.</p>
 <h3><strong>Tham khảo</strong></h3>
 <p><strong>Hãy đọc những tài liệu dưới đây, đừng lười nếu bạn thực sự quan tâm!</strong></p>
 <p><a href="https://www.oracle.com/technetwork/articles/java/java8-optional-2175753.html"><strong>Tired of Null Pointer Exceptions? Consider Using Java SE 8's Optional!</strong></a><br>

@@ -29,6 +29,7 @@
 <link rel="stylesheet" type="text/css" href="../../../static/style.css">
 <link rel="stylesheet" type="text/css" href="../../../static/colors/green.css">
 
+<link rel="stylesheet" href="../../../static/pygments.css">
 
 <script type="text/javascript" src="../../../static/js/libs/modernizr.js"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lozad/dist/lozad.min.js"></script>
@@ -162,14 +163,14 @@
 <p>Khi bạn viết câu select, bạn có thể tùy ý chọn lựa việc join lấy ra những property nào(hoặc entity nào), join với bảng nào, tất cả đều nằm trong tay bạn.</p>
 <h3>Thứ hai, không lấy ra những thông tin cần thiết từ các bảng quan hệ</h3>
 <p>Cuộc sống luôn có những điều trái ngang!</p>
-<p>Nếu bạn sử dụng <strong>Lazy Fetching </strong>như ở trên thì lại gặp trường hợp <em><a href="https://docs.jboss.org/hibernate/orm/3.5/api/org/hibernate/LazyInitializationException.html">org.hibernate.LazyInitializationException</a></em>, hoặc đau đớn hơn là vấn đề N+1 query âm thầm tiêu diệt chương trình của bạn một cách chậm rãi.</p>
+<p>Nếu bạn sử dụng <strong>Lazy Fetching </strong> như ở trên thì lại gặp trường hợp <em><a href="https://docs.jboss.org/hibernate/orm/3.5/api/org/hibernate/LazyInitializationException.html">org.hibernate.LazyInitializationException</a></em>, hoặc đau đớn hơn là vấn đề N+1 query âm thầm tiêu diệt chương trình của bạn một cách chậm rãi.</p>
 <h3>LazyInitializationException và N+1 query</h3>
 <p>Các vấn đề này xảy ra do đâu? Cùng xem ví dụ bên dưới.</p>
 <p>Giả sử ta có bài toán cần lấy ra thông tin của user, bao gồm cả company của user đó. Cùng nhìn lại đoạn mapping của <strong>User</strong> entity:</p>
 <p><img src="../../../static/img/uploads/1MuOtYlF6HAZJ8dTXrDP3YQ.png" alt=""></p>
 <p>và code lấy ra thông tin</p>
 <p><img src="../../../static/img/uploads/1R2JOfiA4C-FuE9cMExupgw.png" alt=""></p>
-<p>Nên nhớ fetching type của association <strong>Company </strong>đã là Lazy, sẽ không còn câu lệnh join với bảng Company nữa, giờ SQL sẽ như sau:</p>
+<p>Nên nhớ fetching type của association <strong>Company </strong> đã là Lazy, sẽ không còn câu lệnh join với bảng Company nữa, giờ SQL sẽ như sau:</p>
 <p><img src="../../../static/img/uploads/1elYctH1cqEN8jnXUSfJV8A.png" alt=""></p>
 <p>Hãy để ý trong trường hợp trên, Hibernate sẽ lấy tất cả các column của bảng User, bao gồm cả các FK(car_id, office_id và company_id). Dữ liệu trong bảng User là</p>
 <pre><code>car_id = *null;*
@@ -203,9 +204,9 @@ company_id = *1;*
 <p>và lỗi đã biến mất.</p>
 <p>Cách lý giải đơn giản là khi sự kiện lấy company code được viết trong service, khi session(connection) chưa được đóng thì Hibernate có thể lấy từ database một cách bình thường. Và cái giá phải trả, chính là thêm một câu lệnh SQL nữa.</p>
 <p>Đây không phải là giải pháp tốt nhất trong trường hợp này! Tại sao? Vì đây chính là nguyên nhân của <strong>N+1 query.</strong></p>
-<p>Nếu bạn cho rằng thêm 1–2 câu query có là gì, thì…bạn nói đúng rồi đấy. Nhưng thử tưởng tượng, bạn lấy ra không phải 1, mà là 100 user, khi đó ta chỉ cần 1 câu query để lấy ra cả danh sách 100 user, nhưng xui xẻo thay là ta lại mất 100 query tới <strong>Company </strong>table như trên nữa để lấy ra company của <strong>từng user một</strong>(bỏ qua cache).</p>
-<p>Vậy là, bạn chỉ cần <strong>1</strong> câu query để lấy ra <strong>N</strong> entity chính, nhưng lại mất <strong>N </strong>câu query nữa để lấy ra đối tượng quan hệ của nó, tên <strong>N+1 query</strong> từ đó mà ra.</p>
-<p>Cái nguy hiểm của <strong>N+1 query </strong>chính là bạn sẽ không nhìn thấy bất kỳ exception nào hoặc thậm chí trong suốt thời gian phát triển thì chương trình vẫn chạy “<em>ầm ầm”</em> theo như các dev nói. Nhưng đến lúc hàng đống data test hoặc thậm chí đưa lên môi trường production, khách hàng đợi 5' chưa thấy mặt website thì cả đội rất dễ đi bán muối.</p>
+<p>Nếu bạn cho rằng thêm 1–2 câu query có là gì, thì…bạn nói đúng rồi đấy. Nhưng thử tưởng tượng, bạn lấy ra không phải 1, mà là 100 user, khi đó ta chỉ cần 1 câu query để lấy ra cả danh sách 100 user, nhưng xui xẻo thay là ta lại mất 100 query tới <strong>Company </strong> table như trên nữa để lấy ra company của <strong>từng user một</strong>(bỏ qua cache).</p>
+<p>Vậy là, bạn chỉ cần <strong>1</strong> câu query để lấy ra <strong>N</strong> entity chính, nhưng lại mất <strong>N </strong> câu query nữa để lấy ra đối tượng quan hệ của nó, tên <strong>N+1 query</strong> từ đó mà ra.</p>
+<p>Cái nguy hiểm của <strong>N+1 query </strong> chính là bạn sẽ không nhìn thấy bất kỳ exception nào hoặc thậm chí trong suốt thời gian phát triển thì chương trình vẫn chạy “<em>ầm ầm”</em> theo như các dev nói. Nhưng đến lúc hàng đống data test hoặc thậm chí đưa lên môi trường production, khách hàng đợi 5' chưa thấy mặt website thì cả đội rất dễ đi bán muối.</p>
 <h3>Cách khắc phục</h3>
 <ol>
 <li><strong>Dùng câu lệnh FETCH trong JPQL/HQL.</strong></li>
@@ -221,7 +222,7 @@ company_id = *1;*
 <p>Mỗi company có nhiều office, mỗi office lại có nhiều user. Giờ mình cần lấy ra đối tượng company, đồng thời lấy ra tất cả office của company đó, và tiếp nữa là lấy ra tất cả các user của mỗi office.</p>
 <p>Ví dụ có thể thấy như dưới đây, mong muốn chương trình in ra đầy đủ office và user.</p>
 <p><img src="../../../static/img/uploads/1A6rCrfloSt3SB_g2HgzbbQ.png" alt=""></p>
-<p>Nhiều bạn chưa nắm rõ về Hibernate, rất dễ mắc lỗi <strong>N+1 query </strong>hoặc <strong>LazyLoad</strong> do không chú ý. Cũng có bạn chọn giải pháp dùng nhiều câu SQL để lấy ra. Nhưng như vậy thì thường quá, dưới đây mình chỉ dùng <strong>duy nhất một câu SQL</strong> để lấy ra tất cả!</p>
+<p>Nhiều bạn chưa nắm rõ về Hibernate, rất dễ mắc lỗi <strong>N+1 query </strong> hoặc <strong>LazyLoad</strong> do không chú ý. Cũng có bạn chọn giải pháp dùng nhiều câu SQL để lấy ra. Nhưng như vậy thì thường quá, dưới đây mình chỉ dùng <strong>duy nhất một câu SQL</strong> để lấy ra tất cả!</p>
 <p>Với yêu cầu bài toán này thì bạn hoàn toàn có thể dùng chỉ 1 câu HQL(cũng chỉ là một câu SQL) để lấy ra tất cả, sau đó dùng code Java để nhóm lại. Đây là cách trước đây mình hay dùng. Nhưng cách này không hay khi bạn phải suy nghĩ câu HQL quá đau đầu, lại còn phải viết Java để nhóm lại cũng choáng váng không kém. Nói chung là cũng tầm thường không kém cách trên(thế mà trước mình dùng suốt đấy). Ơn giời, hãy để JPA/Hibernate làm cả 2 việc đó giúp bạn bằng <strong>EntityGraph.</strong></p>
 <p>EntityGraph sẽ giúp bạn lấy ra những đối tượng association một cách tự động rất dễ dàng. Nghe có vẻ giống Eager fetching? Không hề, với EntityGraph, đầu tiên là bạn có thể tùy chọn mối liên hệ giữa nhiều entity, như một graph vậy, từ entity này link sang entity khác, rồi từ entity đó lại link sang entity khác nữa. Và điều khác biệt nhất so với Earger fetching, là bạn có thể lựa chọn có sử dụng hay không(và mình thích được lựa chọn.).</p>
 <p>Cùng xem cách làm</p>
@@ -254,9 +255,9 @@ User Id:   2
 <p>Khi bạn sử dụng một công cụ quá phức tạp cho những điều đơn giản, hoặc nó không phù hợp với bài toán mà bạn cần, đừng ép nó! Các vấn đề về thời gian boot (nhiều thư viện hơn đồng nghĩa với việc JVM phải load nhiều class hơn), cách xử lý qua nhiều tầng gây chậm chương trình không cần thiết, nhiều vấn đề phải học hơn (nhiều chức năng quá cũng nguy hiểm).</p>
 <p>Kinh nghiệm của mình là: đừng áp đặt thói quen sử dụng của bạn lên những dự án không phù hợp. Nếu bạn cần một dự án siêu nhỏ và siêu đơn giản, hãy dùng JDBC đơn thuần. Nếu dự án phải viết một lượng lớn native SQL hoặc dùng store procedure nhiều hơn là thao tác với model, hãy nghĩ đến Mybatis, jdbcTemplate, chúng cung cấp những công cụ rất tốt cho việc viết native SQL. Một số trường hợp bạn cũng có thể dùng kết hợp giữa nhiều framework(ví dụ dùng cả Hibernate và JDBC Template), không vấn đề gì cả.</p>
 <h3>Thứ tư, sử dụng compose primary key một cách bất cẩn</h3>
-<p>ORM cung cấp những tiện lợi cho việc thao tác với RMDB. Không cần viết native SQL, ta vẫn có thể thao tác với database thông qua các <strong>model object </strong>và dùng method của JPA, JPQL, HQL, Criteria, Example, Specifications,… Nghe có vẻ lý tưởng, nhưng chính việc bỏ quên native SQL và sử dụng model object lại chính là nguyên nhân gây ra nhiều lỗi ngớ ngẩn. Dưới đây là một trong những lỗi đó.</p>
+<p>ORM cung cấp những tiện lợi cho việc thao tác với RMDB. Không cần viết native SQL, ta vẫn có thể thao tác với database thông qua các <strong>model object </strong> và dùng method của JPA, JPQL, HQL, Criteria, Example, Specifications,… Nghe có vẻ lý tưởng, nhưng chính việc bỏ quên native SQL và sử dụng model object lại chính là nguyên nhân gây ra nhiều lỗi ngớ ngẩn. Dưới đây là một trong những lỗi đó.</p>
 <p><a href="https://www.w3schools.com/sql/sql_in.asp">IN Operator</a> là một operator khá phổ biến trong SQL, trong nhiều trường hợp nó còn cho performance tốt hơn <strong>Equal Operator</strong>(=). JPA/Hibernate cũng hỗ trợ bạn sử dụng IN Operator. Ta cùng xem ví dụ.</p>
-<p><em>Ta có hai bảng <strong>Account </strong>và <strong>User</strong></em>(một số trường có thể hơi khác do mình quá lười để viết thêm)<strong>. </strong>Bảng User đặc biệt hơn, với 1 compose primary key gồm 2 trường: key1 và key2</p>
+<p><em>Ta có hai bảng <strong>Account </strong> và <strong>User</strong></em>(một số trường có thể hơi khác do mình quá lười để viết thêm)<strong>. </strong>Bảng User đặc biệt hơn, với 1 compose primary key gồm 2 trường: key1 và key2</p>
 <p><img src="../../../static/img/uploads/1xNP1qd6LYAwAdtt9CwXaEQ.png" alt=""></p>
 <p>Thử viết câu HQL dùng IN Operator với bảng <strong>Account</strong></p>
 <p><img src="../../../static/img/uploads/1ptKnBQYQW9sbOoLRO33akA.png" alt=""></p>
@@ -347,7 +348,8 @@ User Id:   2
 </li>
 </ul>
 <h3>Reference</h3>
-<p>Về Hibernate, khuyến khích mọi người nên follow website <a href="https://www.thoughts-on-java.org/">https://www.thoughts-on-java.org/</a> và đọc cuốn: <a href="https://www.amazon.com/Hibernate-Tips-solutions-common-problems-ebook/dp/B06XXGYZHS/ref=sr_1_1?tag=toj04-20">Hibernate Tips: More than 70 solutions to common Hibernate problems</a></p>
+<p>Về Hibernate, khuyến khích mọi người nên follow website <a href="https://www.thoughts-on-java.org/">https://www.thoughts-on-java.org/</a> và đọc cuốn:<br>
+<a href="https://www.amazon.com/Hibernate-Tips-solutions-common-problems-ebook/dp/B06XXGYZHS/ref=sr_1_1?tag=toj04-20">Hibernate Tips: More than 70 solutions to common Hibernate problems</a></p>
 <p><a href="https://www.thoughts-on-java.org/common-hibernate-mistakes-cripple-performance/">10 Common Hibernate Mistakes That Cripple Your Performance</a></p>
 <p><a href="https://vladmihalcea.com/eager-fetching-is-a-code-smell/">EAGER fetching is a code smell when using JPA and Hibernate</a></p>
 <p><a href="https://www.thoughts-on-java.org/jpa-21-entity-graph-part-1-named-entity/">JPA 2.1 Entity Graph : Part 1- Named entity graphs</a></p>
