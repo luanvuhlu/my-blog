@@ -52,7 +52,7 @@ Nhưng khi **Pass-by-reference**, chương trình sẽ truyền thẳng địa c
 
 Kiến thức về **Pass-by-value** và **Pass-by-reference** là kiến thức chung, không riêng ngôn ngữ nào, nhưng ở đây tôi chọn C/C++ vì các thuật ngữ của nó dễ hiểu nhất, không gây nhầm lẫn cho người đọc. Với các ngôn ngữ bậc cao như Python, Java, C#,… thì khái niệm Pointer không còn, nhưng **Pass-y-reference** vẫn được một số ngôn ngữ thể hiện ở mức đơn giản và đỡ hack não hơn Pointer.
 
-Dưới đây là ví dụ trong C# với từ khóa **ref **để** Pass-by-reference**
+Dưới đây là ví dụ trong C# với từ khóa **ref ** để ** Pass-by-reference**
 
 ![](/static/img/uploads/1_-BOPimXU_UopYjl50-vRow.png)
 
