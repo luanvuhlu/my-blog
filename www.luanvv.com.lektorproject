@@ -3,6 +3,7 @@ name = www.luanvv.com
 
 [packages]
 lektor-minify = 1.2
+lektor-markdown-highlighter = 0.3.1
 
 [alternatives.en]
 name = English
