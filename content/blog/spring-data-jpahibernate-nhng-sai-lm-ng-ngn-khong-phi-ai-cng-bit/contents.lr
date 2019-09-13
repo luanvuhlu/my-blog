@@ -71,7 +71,7 @@ Khi bạn viết câu select, bạn có thể tùy ý chọn lựa việc join l
 
 Cuộc sống luôn có những điều trái ngang!
 
-Nếu bạn sử dụng **Lazy Fetching **như ở trên thì lại gặp trường hợp *[org.hibernate.LazyInitializationException](https://docs.jboss.org/hibernate/orm/3.5/api/org/hibernate/LazyInitializationException.html)*, hoặc đau đớn hơn là vấn đề N+1 query âm thầm tiêu diệt chương trình của bạn một cách chậm rãi.
+Nếu bạn sử dụng **Lazy Fetching ** như ở trên thì lại gặp trường hợp *[org.hibernate.LazyInitializationException](https://docs.jboss.org/hibernate/orm/3.5/api/org/hibernate/LazyInitializationException.html)*, hoặc đau đớn hơn là vấn đề N+1 query âm thầm tiêu diệt chương trình của bạn một cách chậm rãi.
 
 ### LazyInitializationException và N+1 query
 
@@ -85,7 +85,7 @@ và code lấy ra thông tin
 
 ![](/static/img/uploads/1R2JOfiA4C-FuE9cMExupgw.png)
 
-Nên nhớ fetching type của association **Company **đã là Lazy, sẽ không còn câu lệnh join với bảng Company nữa, giờ SQL sẽ như sau:
+Nên nhớ fetching type của association **Company ** đã là Lazy, sẽ không còn câu lệnh join với bảng Company nữa, giờ SQL sẽ như sau:
 
 ![](/static/img/uploads/1elYctH1cqEN8jnXUSfJV8A.png)
 
@@ -135,11 +135,11 @@ Cách lý giải đơn giản là khi sự kiện lấy company code được vi
 
 Đây không phải là giải pháp tốt nhất trong trường hợp này! Tại sao? Vì đây chính là nguyên nhân của **N+1 query.**
 
-Nếu bạn cho rằng thêm 1–2 câu query có là gì, thì…bạn nói đúng rồi đấy. Nhưng thử tưởng tượng, bạn lấy ra không phải 1, mà là 100 user, khi đó ta chỉ cần 1 câu query để lấy ra cả danh sách 100 user, nhưng xui xẻo thay là ta lại mất 100 query tới **Company **table như trên nữa để lấy ra company của **từng user một**(bỏ qua cache).
+Nếu bạn cho rằng thêm 1–2 câu query có là gì, thì…bạn nói đúng rồi đấy. Nhưng thử tưởng tượng, bạn lấy ra không phải 1, mà là 100 user, khi đó ta chỉ cần 1 câu query để lấy ra cả danh sách 100 user, nhưng xui xẻo thay là ta lại mất 100 query tới **Company ** table như trên nữa để lấy ra company của **từng user một**(bỏ qua cache).
 
-Vậy là, bạn chỉ cần **1** câu query để lấy ra **N** entity chính, nhưng lại mất **N **câu query nữa để lấy ra đối tượng quan hệ của nó, tên **N+1 query** từ đó mà ra.
+Vậy là, bạn chỉ cần **1** câu query để lấy ra **N** entity chính, nhưng lại mất **N ** câu query nữa để lấy ra đối tượng quan hệ của nó, tên **N+1 query** từ đó mà ra.
 
-Cái nguy hiểm của **N+1 query **chính là bạn sẽ không nhìn thấy bất kỳ exception nào hoặc thậm chí trong suốt thời gian phát triển thì chương trình vẫn chạy “*ầm ầm”* theo như các dev nói. Nhưng đến lúc hàng đống data test hoặc thậm chí đưa lên môi trường production, khách hàng đợi 5' chưa thấy mặt website thì cả đội rất dễ đi bán muối.
+Cái nguy hiểm của **N+1 query ** chính là bạn sẽ không nhìn thấy bất kỳ exception nào hoặc thậm chí trong suốt thời gian phát triển thì chương trình vẫn chạy “*ầm ầm”* theo như các dev nói. Nhưng đến lúc hàng đống data test hoặc thậm chí đưa lên môi trường production, khách hàng đợi 5' chưa thấy mặt website thì cả đội rất dễ đi bán muối.
 
 ### Cách khắc phục
 
@@ -167,7 +167,7 @@ Ví dụ có thể thấy như dưới đây, mong muốn chương trình in ra 
 
 ![](/static/img/uploads/1A6rCrfloSt3SB_g2HgzbbQ.png)
 
-Nhiều bạn chưa nắm rõ về Hibernate, rất dễ mắc lỗi **N+1 query **hoặc **LazyLoad** do không chú ý. Cũng có bạn chọn giải pháp dùng nhiều câu SQL để lấy ra. Nhưng như vậy thì thường quá, dưới đây mình chỉ dùng **duy nhất một câu SQL** để lấy ra tất cả!
+Nhiều bạn chưa nắm rõ về Hibernate, rất dễ mắc lỗi **N+1 query ** hoặc **LazyLoad** do không chú ý. Cũng có bạn chọn giải pháp dùng nhiều câu SQL để lấy ra. Nhưng như vậy thì thường quá, dưới đây mình chỉ dùng **duy nhất một câu SQL** để lấy ra tất cả!
 
 Với yêu cầu bài toán này thì bạn hoàn toàn có thể dùng chỉ 1 câu HQL(cũng chỉ là một câu SQL) để lấy ra tất cả, sau đó dùng code Java để nhóm lại. Đây là cách trước đây mình hay dùng. Nhưng cách này không hay khi bạn phải suy nghĩ câu HQL quá đau đầu, lại còn phải viết Java để nhóm lại cũng choáng váng không kém. Nói chung là cũng tầm thường không kém cách trên(thế mà trước mình dùng suốt đấy). Ơn giời, hãy để JPA/Hibernate làm cả 2 việc đó giúp bạn bằng **EntityGraph.**
 
@@ -225,11 +225,11 @@ Kinh nghiệm của mình là: đừng áp đặt thói quen sử dụng của b
 
 ### Thứ tư, sử dụng compose primary key một cách bất cẩn
 
-ORM cung cấp những tiện lợi cho việc thao tác với RMDB. Không cần viết native SQL, ta vẫn có thể thao tác với database thông qua các **model object **và dùng method của JPA, JPQL, HQL, Criteria, Example, Specifications,… Nghe có vẻ lý tưởng, nhưng chính việc bỏ quên native SQL và sử dụng model object lại chính là nguyên nhân gây ra nhiều lỗi ngớ ngẩn. Dưới đây là một trong những lỗi đó.
+ORM cung cấp những tiện lợi cho việc thao tác với RMDB. Không cần viết native SQL, ta vẫn có thể thao tác với database thông qua các **model object ** và dùng method của JPA, JPQL, HQL, Criteria, Example, Specifications,… Nghe có vẻ lý tưởng, nhưng chính việc bỏ quên native SQL và sử dụng model object lại chính là nguyên nhân gây ra nhiều lỗi ngớ ngẩn. Dưới đây là một trong những lỗi đó.
 
 [IN Operator](https://www.w3schools.com/sql/sql_in.asp) là một operator khá phổ biến trong SQL, trong nhiều trường hợp nó còn cho performance tốt hơn **Equal Operator**(=). JPA/Hibernate cũng hỗ trợ bạn sử dụng IN Operator. Ta cùng xem ví dụ.
 
-*Ta có hai bảng **Account **và **User***(một số trường có thể hơi khác do mình quá lười để viết thêm)**. **Bảng User đặc biệt hơn, với 1 compose primary key gồm 2 trường: key1 và key2
+*Ta có hai bảng **Account ** và **User***(một số trường có thể hơi khác do mình quá lười để viết thêm)**. **Bảng User đặc biệt hơn, với 1 compose primary key gồm 2 trường: key1 và key2
 
 ![](/static/img/uploads/1xNP1qd6LYAwAdtt9CwXaEQ.png)
 
@@ -395,7 +395,8 @@ Chú ý là tất cả các cách mình kể ở trên, đó chỉ là những c
 
 ### Reference
 
-Về Hibernate, khuyến khích mọi người nên follow website [https://www.thoughts-on-java.org/](https://www.thoughts-on-java.org/) và đọc cuốn: [Hibernate Tips: More than 70 solutions to common Hibernate problems](https://www.amazon.com/Hibernate-Tips-solutions-common-problems-ebook/dp/B06XXGYZHS/ref=sr_1_1?tag=toj04-20)
+Về Hibernate, khuyến khích mọi người nên follow website [https://www.thoughts-on-java.org/](https://www.thoughts-on-java.org/) và đọc cuốn:  
+[Hibernate Tips: More than 70 solutions to common Hibernate problems](https://www.amazon.com/Hibernate-Tips-solutions-common-problems-ebook/dp/B06XXGYZHS/ref=sr_1_1?tag=toj04-20)
 
 [10 Common Hibernate Mistakes That Cripple Your Performance](https://www.thoughts-on-java.org/common-hibernate-mistakes-cripple-performance/)
 

@@ -26,7 +26,7 @@ Mình thậm chí còn bắt gặp một bình luận như dưới đây:
 
 ![](/static/img/uploads/0_uUKt5bbcbOApdOde.png)
 
-Lý do mọi người đưa ra cũng thường là vậy. Suy nghĩ đó là hoàn toàn đúng! Dùng Optional **không giúp ích nhiều** cho bạn trong việc **check null**. Nhưng bạn hãy khoan. *Optional *là … optional, hay như **Kotlin **họ gọi là ***Null Safety***. Nếu chỉ là check null, thì hãy gọi nó là ***Null Checker*** mới phải chứ?
+Lý do mọi người đưa ra cũng thường là vậy. Suy nghĩ đó là hoàn toàn đúng! Dùng Optional **không giúp ích nhiều** cho bạn trong việc **check null**. Nhưng bạn hãy khoan. *Optional *là … optional, hay như **Kotlin ** họ gọi là ***Null Safety***. Nếu chỉ là check null, thì hãy gọi nó là ***Null Checker*** mới phải chứ?
 
 ![](/static/img/uploads/0PLW6PKWLx9KcRTOw.png)
 
@@ -36,13 +36,13 @@ Lý do mọi người đưa ra cũng thường là vậy. Suy nghĩ đó là ho�
 
 Năm 2014, thay vì Java 8, mình thử Swift , ngôn ngữ vừa được *Apple* giới thiệu. Và voila! *Optional* lần đầu tiên xuất hiện trong đời mình. Chúng ta thử tìm hiểu một chút [Optional trong Swift](https://docs.swift.org/swift-book/LanguageGuide/OptionalChaining.html#) nào!
 
-Theo ý hiểu của mình thì, trong Swift, kiểu dữ liệu chia ra 2 loại, để dễ hiểu, mình sẽ gọi là: **Non-Optional **và **Optional**.
+Theo ý hiểu của mình thì, trong Swift, kiểu dữ liệu chia ra 2 loại, để dễ hiểu, mình sẽ gọi là: **Non-Optional ** và **Optional**.
 
 * Optional ở đây chỉ ra rằng reference **có thể gán null**(nil),
 
 * Non-Optional là kiểu mặc định và **không thể gán null**.
 
-Ví dụ khi ta chỉ khai báo kiểu dữ liệu cho biến là *String *và không chỉ định gì thêm, có nghĩa biến này là kiểu Non-Optional String. Nếu ta cố gắng gán *nil *cho nó, compile error sẽ xảy ra ngay.
+Ví dụ khi ta chỉ khai báo kiểu dữ liệu cho biến là *String * và không chỉ định gì thêm, có nghĩa biến này là kiểu Non-Optional String. Nếu ta cố gắng gán *nil *cho nó, compile error sẽ xảy ra ngay.
 
 ![không được phép gán nil cho Non-Optional](/static/img/uploads/1X41_2mO4yLzn0CImi1VI4g.png)*không được phép gán nil cho Non-Optional*
 
@@ -54,7 +54,7 @@ Bây giờ ta khai báo kiểu là Optional bằng cách thêm dấu “?” và
 
 ![có thể gán nil cho biến kiểu Optional](/static/img/uploads/1_dslZj0SU_19nTFb0NMjZMw.png)*có thể gán nil cho biến kiểu Optional*
 
-Điều tuyệt vời của Optional trong *Swift *không phải **check null **mà là bạn sẽ luôn biết(hoặc compiler bắt bạn biết) khi nào cần **check null **và kiểu của một biến(biết nó có thể null hay không).
+Điều tuyệt vời của Optional trong *Swift * không phải **check null ** mà là bạn sẽ luôn biết(hoặc compiler bắt bạn biết) khi nào cần **check null ** và kiểu của một biến(biết nó có thể null hay không).
 
 Cùng so sánh một số đoạn code khi sử dụng *Swift* và *Java*(chưa dùng *Optional*)
 
@@ -62,31 +62,33 @@ Cùng so sánh một số đoạn code khi sử dụng *Swift* và *Java*(chưa 
 
 ![Java](/static/img/uploads/1T5HFztJokajBCZ0zGGTK-g.png)
 
-Mỗi người đều có gia đình nên *family *là non-nullable, nhưng có thể không có bạn gái nên *girlfriend *sẽ là nullable. Điều này rất dễ thấy với *Swift*, nhưng *Java *thì không, bạn không thể phân biệt được.
+Mỗi người đều có gia đình nên *family * là non-nullable, nhưng có thể không có bạn gái nên *girlfriend * sẽ là nullable. Điều này rất dễ thấy với *Swift*, nhưng *Java * thì không, bạn không thể phân biệt được.
 
 Tương tự với method:
 
 ![Java](/static/img/uploads/1_br3er0LQ8eKNTWYnhYnnHg.png)
 
-Nhìn vào method của *Java*, liệu bạn có biết được parameter nào có thể null, parameter nào không thể null không? Có thể nhiều người sẽ nghĩ đến *Document, *nhưng sự thật là Document không phải là thứ nhiều dev hứng thú nên rất dễ bị bỏ qua!
+Nhìn vào method của *Java*, liệu bạn có biết được parameter nào có thể null, parameter nào không thể null không? Có thể nhiều người sẽ nghĩ đến *Document*, nhưng sự thật là Document không phải là thứ nhiều dev hứng thú nên rất dễ bị bỏ qua!
 
 Còn với *Swift*
 
 ![Swift](/static/img/uploads/1_oQS9c2IkkkD1An0o9P0gGg.png)
 
-*firstName *không được null, *lastName *và *age đều* có thể null. Method trên có thể trả về *null* nếu không tìm thấy *Person *nào, quá dễ hiểu mà chẳng cần bất kỳ dòng *Document* nào cả.
+*firstName * không được null, *lastName * và *age* đều có thể null. Method trên có thể trả về *null* nếu không tìm thấy *Person * nào, quá dễ hiểu mà chẳng cần bất kỳ dòng *Document* nào cả.
 
 ### Optional trong Java 8?
 
-Cùng năm 2014 đó, Java ra mắt phiên bản 8 và cũng có Optional. Nhưng thật không may, Optional quá dỏm! Dỏm thật sự. Sự thật là Optional trong Java chỉ là một **class thông thường **mà bất kỳ ai cũng có thể tạo ra và như đã nói ở trên thì *guava* đã làm từ rất lâu trước đó rồi! Vì nó chỉ là một class thông thường, Java compiler cũng không ủng hộ nên:
+Cùng năm 2014 đó, Java ra mắt phiên bản 8 và cũng có Optional. Nhưng thật không may, Optional quá dỏm! Dỏm thật sự. Sự thật là Optional trong Java chỉ là một **class thông thường ** mà bất kỳ ai cũng có thể tạo ra và như đã nói ở trên thì *guava* đã làm từ rất lâu trước đó rồi! Vì nó chỉ là một class thông thường, Java compiler cũng không ủng hộ nên:
 
 * Cú pháp siêu phức tạp
 
+```java
     Optional<Integer> number = Optional.of(100);
     Integer realNumber = number.get();
     Optional<Person> girlfriend = Optional.ofNullable(findGirlfriend());
     Person yourFriend = findFriend().orElse(new Person())
     find("Lan", Optional.ofNullable(getLastName()), Optional.ofNullable(getAge());
+```
 
 Really? Mình không muốn viết cú pháp như vậy đâu(nhưng…*cuộc sống mà!*)
 
@@ -94,8 +96,10 @@ Really? Mình không muốn viết cú pháp như vậy đâu(nhưng…*cuộc s
 
 Trong *Swift*, bạn có thể viết
 
+```swift
     number : Int?
     number = 100
+```
 
 còn với *Java*, hãy nhìn đoạn code ở trên và tưởng tượng
 
@@ -103,7 +107,9 @@ còn với *Java*, hãy nhìn đoạn code ở trên và tưởng tượng
 
 * không thể check khi compile,
 
+```java
     Optional.of(null) // -> Compile bình thường !!
+```
 
 ![Thật hả trời](/static/img/uploads/17YqeBK5U-Pb3dGdSq3xYNA.png)
 
@@ -111,21 +117,27 @@ còn với *Java*, hãy nhìn đoạn code ở trên và tưởng tượng
 
 Sau khi dạo một vòng *Swift*, nhìn lại *Java*, chắc nhiều người sẽ nản và hét lên: **Tại sao?**
 
-Câu trả lời, thật ra đã được nói ở trên. Giống như *Swift*, *Optional *trong *Java*(hay những thứ tương tự trong Groovy, C#, Kotlin hay Haskell) không phải để thay thế những dòng check null của bạn, mục đích hàng đầu của nó là nói cho bạn biết: **một value liệu có thể null hay không**
+Câu trả lời, thật ra đã được nói ở trên. Giống như *Swift*, *Optional * trong *Java*(hay những thứ tương tự trong Groovy, C#, Kotlin hay Haskell) không phải để thay thế những dòng check null của bạn, mục đích hàng đầu của nó là nói cho bạn biết: **một value liệu có thể null hay không?**
 
 Hãy thử với một số method khá quen thuộc trong JPA/Spring Data JPA/Hibernate(bản mới nhất hiện nay):
 
 Dưới đây là hàm tìm kiếm theo ID của **[javax.persistence.EntityManager](https://docs.oracle.com/javaee/7/api/javax/persistence/EntityManager.html#find-java.lang.Class-java.lang.Object-)**
 
+```java
     public <T> T getReference(Class<T> entityClass, Object primaryKey)
+```
 
 vẫn là chức năng đó, nhưng được viết trong **[JpaRepository](https://docs.spring.io/spring-data/data-jpa/docs/current/api/org/springframework/data/jpa/repository/JpaRepository.html#getOne-ID-)**
 
+```java
     T getOne(ID id)
+```
 
 còn đây là trong **[CrudRepository](https://docs.spring.io/spring-data/commons/docs/current/api/org/springframework/data/repository/CrudRepository.html#findById-ID-)**
 
+```java
     Optional<T> findById(ID id)
+```
 
 Nếu không đọc *Document*, liệu bạn có biết chuyện gì xảy ra nếu không tìm thấy entity ?
 
@@ -155,7 +167,7 @@ Hãy nở nụ cười thật tươi và nói: Welcome to Java 8!
 
 ### Tóm lại
 
-**Optional** trong *Swift* có thể tốt hơn Java, **Null Safety** trong *Kotlin* có vẻ có ích hơn, nhưng lỗi *null reference* vẫn sẽ không bao giờ buông tha các dev dùng ngôn ngữ đó. Công cụ có thể quan trọng, nhưng con người mới là yếu tốt quan trọng hơn cả. Bạn vẫn có thể code **Java 8** mà không cần dùng *Optional*, cũng giống như bạn có thể code mà không cần có bất kỳ kiến thức nào về **Coding convention**, **Refactoring** *hay **Design Pattern**. Còn nếu bạn nói: *“tôi cần Coding convention, Refactoring hay Design Pattern”*, hãy thử *Optional* của Java nhưng tưởng tượng như đang dùng *Swift.
+**Optional** trong *Swift* có thể tốt hơn Java, **Null Safety** trong *Kotlin* có vẻ có ích hơn, nhưng lỗi *null reference* vẫn sẽ không bao giờ buông tha các dev dùng ngôn ngữ đó. Công cụ có thể quan trọng, nhưng con người mới là yếu tốt quan trọng hơn cả. Bạn vẫn có thể code **Java 8** mà không cần dùng *Optional*, cũng giống như bạn có thể code mà không cần có bất kỳ kiến thức nào về **Coding convention**, **Refactoring** *hay **Design Pattern**. Còn nếu bạn cần Coding convention, Refactoring hay Design Pattern”, hãy thử Optional của Java nhưng tưởng tượng như đang dùng Swift.
 
 ### **Tham khảo**
 
