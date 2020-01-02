@@ -166,9 +166,9 @@ Vậy String bất khả biến như thế nào? Ai cũng nghĩ nó có magic n�
 <script src="https://gist.github.com/luanvuhlu/5386acdeecea5b8137eb0667e6a5def5.js"></script><p>Rất nhiều đối tượng StringBuilder được tạo ra. Đây là giải pháp của Java để xử lý vấn đề khi ta cộng chuỗi vì rõ ràng cái mảng char[] value của String không phải <em>concat </em>như mọi người nghĩ. Java sẽ liên tục tạo ra các instance của <em>StringBuilder</em> sau đó <em>append</em> vào <em>StringBuilder</em> này, bạn cộng chuỗi trên bao nhiêu câu lệnh sẽ có bấy nhiêu đối tượng <em>StringBuilder</em> được tạo ra, với những đoạn cộng chuỗi tiếp theo, hàm <em>append</em> sẽ được sử dụng tiếp. Việc liên tục tạo ra các instance của <em>StringBuilder</em> sẽ khiến JVM tốn nhiều thời gian và bộ nhớ để tạo object đồng thời bắt Garbage Collection(GC) “<em>hốt rác giùm”</em>. Điều này vừa gây chậm chương trình, vừa tạo áp lực hoạt động cho CPU khi GC phải hoạt động liên tục.</p>
 <p><em>(Đến Java 9, Java đã sử dụng <a href="https://docs.oracle.com/javase/9/docs/api/java/lang/invoke/StringConcatFactory.html#makeConcatWithConstants-java.lang.invoke.MethodHandles.Lookup-java.lang.String-java.lang.invoke.MethodType-java.lang.String-java.lang.Object...-">StringConcatFactory.makeConcatWithConstants</a>, mình cũng chưa có thời gian nghiên cứu, xin hẹn ở những bài viết sau)</em></p>
 <p>Ngoài ra, class <em>String </em>còn một method là <em>concat </em>cũng có thể thực hiện được việc cộng chuỗi. Cách thức hoạt động rất đơn giản. Ví dụ đoạn code:</p>
-<div class="hll"><pre><span></span>    <span class="n">String</span> <span class="n">a</span> <span class="o">=</span> <span class="s">&quot;V.N.E.X.T&quot;</span><span class="o">;</span>
-    <span class="n">String</span> <span class="n">b</span> <span class="o">=</span> <span class="s">&quot;JSC&quot;</span><span class="o">;</span>
-    <span class="n">String</span> <span class="n">c</span> <span class="o">=</span> <span class="n">a</span><span class="o">.</span><span class="na">concat</span><span class="o">(</span><span class="n">b</span><span class="o">);</span>
+<div class="hll"><pre><span></span>    <span class="n">String</span> <span class="n">a</span> <span class="o">=</span> <span class="s">&quot;V.N.E.X.T&quot;</span><span class="p">;</span>
+    <span class="n">String</span> <span class="n">b</span> <span class="o">=</span> <span class="s">&quot;JSC&quot;</span><span class="p">;</span>
+    <span class="n">String</span> <span class="n">c</span> <span class="o">=</span> <span class="n">a</span><span class="p">.</span><span class="na">concat</span><span class="p">(</span><span class="n">b</span><span class="p">);</span>
 </pre></div>
 <p>Với hàm <em>concat</em>, Java sẽ xử lý bằng cách</p>
 <ol>
@@ -204,23 +204,23 @@ Vậy String bất khả biến như thế nào? Ai cũng nghĩ nó có magic n�
                    <span class="o">+</span> <span class="s">&quot; age, gender &quot;</span>
                    <span class="o">+</span> <span class="s">&quot;, &quot;</span>
                    <span class="o">+</span> <span class="mi">1000</span>
-                   <span class="o">+</span> <span class="s">&quot; FROM User WHERE id = ?&quot;</span><span class="o">;</span>
+                   <span class="o">+</span> <span class="s">&quot; FROM User WHERE id = ?&quot;</span><span class="p">;</span>
 </pre></div>
 <p>Cộng thêm với một biết kiểu bất kỳ:</p>
-<div class="hll"><pre><span></span>    <span class="kt">long</span> <span class="n">number</span> <span class="o">=</span> <span class="mi">1000</span><span class="o">;</span>
+<div class="hll"><pre><span></span>    <span class="kt">long</span> <span class="n">number</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">;</span>
     <span class="n">String</span> <span class="n">query</span> <span class="o">=</span> <span class="s">&quot;SELECT first_name, last_name, &quot;</span>
                    <span class="o">+</span> <span class="s">&quot; age, gender &quot;</span>
                    <span class="o">+</span> <span class="s">&quot;, &quot;</span>
                    <span class="o">+</span> <span class="n">number</span>
-                   <span class="o">+</span> <span class="s">&quot; FROM User WHERE id = ?&quot;</span><span class="o">;</span>
+                   <span class="o">+</span> <span class="s">&quot; FROM User WHERE id = ?&quot;</span><span class="p">;</span>
 </pre></div>
 <p>Và cuối cùng, vẫn là biến đó, nhưng ta khai báo là final:</p>
-<div class="hll"><pre><span></span>    <span class="kd">final</span> <span class="kt">long</span> <span class="n">number</span> <span class="o">=</span> <span class="mi">1000</span><span class="o">;</span>
+<div class="hll"><pre><span></span>    <span class="kd">final</span> <span class="kt">long</span> <span class="n">number</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">;</span>
     <span class="n">String</span> <span class="n">query</span> <span class="o">=</span> <span class="s">&quot;SELECT first_name, last_name, &quot;</span>
                    <span class="o">+</span> <span class="s">&quot; age, gender &quot;</span>
                    <span class="o">+</span> <span class="s">&quot;, &quot;</span>
                    <span class="o">+</span> <span class="n">number</span>
-                   <span class="o">+</span> <span class="s">&quot; FROM User WHERE id = ?&quot;</span><span class="o">;</span>
+                   <span class="o">+</span> <span class="s">&quot; FROM User WHERE id = ?&quot;</span><span class="p">;</span>
 </pre></div>
 <p>Ba trường hợp trên thì có 2 trường hợp được compile ra giống nhau(trường hợp 1 và trường hợp 3).</p>
 <p>Java Compiler có rất nhiều điều thú vị.</p>
@@ -232,7 +232,7 @@ Vậy String bất khả biến như thế nào? Ai cũng nghĩ nó có magic n�
 <p>Hơi lạc đề một chút, ta quay lại String với ví dụ dưới đây</p>
 <script src="https://gist.github.com/luanvuhlu/1570c1671a283e63b652c64eedfcd36c.js"></script><p>Với 3 cách trên thì mình lại khuyến khích cách số 3 hơn(dùng <em>MessageFormat</em>) mặc dù trên thực tế dùng <em>MessageFormat </em>chậm hơn 2 cách trên vài trăm lần. Vì sao? Vì nếu chỉ đoạn code trên thì nó quá nhỏ và dùng <em>MessageFormat </em>thì quá đẹp! Chênh lệch xử lý chỉ vài nano giây với chỉ đoạn code trên, ngoài ra Just-in-time(JIT) compiler của Java có nhiều cách xử lý rất độc đáo khi những đoạn code trên chạy trong cả một hệ thống thực tế. Lúc đó thì chưa biết “<em>mèo nào cắn mỉu nào” </em>đâu.</p>
 <p><em>Chú ý</em>: nếu bạn dùng đoạn trên với log4j, họ đã xây dựng một cách format text riêng để tăng perfomance thay vì chỉ dùng <em>MessageFormat</em> đơn thuần. Đoạn code trên khi dùng log, nên được viết như sau:</p>
-<div class="hll"><pre><span></span>    <span class="n">log</span><span class="o">.</span><span class="na">info</span><span class="o">(</span><span class="s">&quot;Processing {} files on {}&quot;</span><span class="o">,</span> <span class="n">size</span><span class="o">,</span> <span class="n">name</span><span class="o">);</span>
+<div class="hll"><pre><span></span>    <span class="n">log</span><span class="p">.</span><span class="na">info</span><span class="p">(</span><span class="s">&quot;Processing {} files on {}&quot;</span><span class="p">,</span> <span class="n">size</span><span class="p">,</span> <span class="n">name</span><span class="p">);</span>
 </pre></div>
 <p>Ngoài <em>MessageFormat</em>, nếu bạn dùng với stream trong java 8 thì có thể thử giải pháp sử dụng <em>String.join/StringJoiner</em> hoặc dùng stream kết hợp <em>StringBuilder, h</em>iệu năng vẫn ổn mà code vẫn gọn gàng.</p>
 <h3><strong>Tuy nhiên, sử dụng vòng lặp với số lần lặp rất lớn thì dùng StringBuilder/StringBuffer gần như là bắt buộc.</strong></h3>

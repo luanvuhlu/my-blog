@@ -181,11 +181,11 @@
 <ul>
 <li>Cú pháp siêu phức tạp</li>
 </ul>
-<div class="hll"><pre><span></span>    <span class="n">Optional</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">number</span> <span class="o">=</span> <span class="n">Optional</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="mi">100</span><span class="o">);</span>
-    <span class="n">Integer</span> <span class="n">realNumber</span> <span class="o">=</span> <span class="n">number</span><span class="o">.</span><span class="na">get</span><span class="o">();</span>
-    <span class="n">Optional</span><span class="o">&lt;</span><span class="n">Person</span><span class="o">&gt;</span> <span class="n">girlfriend</span> <span class="o">=</span> <span class="n">Optional</span><span class="o">.</span><span class="na">ofNullable</span><span class="o">(</span><span class="n">findGirlfriend</span><span class="o">());</span>
-    <span class="n">Person</span> <span class="n">yourFriend</span> <span class="o">=</span> <span class="n">findFriend</span><span class="o">().</span><span class="na">orElse</span><span class="o">(</span><span class="k">new</span> <span class="n">Person</span><span class="o">())</span>
-    <span class="n">find</span><span class="o">(</span><span class="s">&quot;Lan&quot;</span><span class="o">,</span> <span class="n">Optional</span><span class="o">.</span><span class="na">ofNullable</span><span class="o">(</span><span class="n">getLastName</span><span class="o">()),</span> <span class="n">Optional</span><span class="o">.</span><span class="na">ofNullable</span><span class="o">(</span><span class="n">getAge</span><span class="o">());</span>
+<div class="hll"><pre><span></span>    <span class="n">Optional</span><span class="o">&lt;</span><span class="n">Integer</span><span class="o">&gt;</span> <span class="n">number</span> <span class="o">=</span> <span class="n">Optional</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span>
+    <span class="n">Integer</span> <span class="n">realNumber</span> <span class="o">=</span> <span class="n">number</span><span class="p">.</span><span class="na">get</span><span class="p">();</span>
+    <span class="n">Optional</span><span class="o">&lt;</span><span class="n">Person</span><span class="o">&gt;</span> <span class="n">girlfriend</span> <span class="o">=</span> <span class="n">Optional</span><span class="p">.</span><span class="na">ofNullable</span><span class="p">(</span><span class="n">findGirlfriend</span><span class="p">());</span>
+    <span class="n">Person</span> <span class="n">yourFriend</span> <span class="o">=</span> <span class="n">findFriend</span><span class="p">().</span><span class="na">orElse</span><span class="p">(</span><span class="k">new</span> <span class="n">Person</span><span class="p">())</span>
+    <span class="n">find</span><span class="p">(</span><span class="s">&quot;Lan&quot;</span><span class="p">,</span> <span class="n">Optional</span><span class="p">.</span><span class="na">ofNullable</span><span class="p">(</span><span class="n">getLastName</span><span class="p">()),</span> <span class="n">Optional</span><span class="p">.</span><span class="na">ofNullable</span><span class="p">(</span><span class="n">getAge</span><span class="p">());</span>
 </pre></div>
 <p>Really? Mình không muốn viết cú pháp như vậy đâu(nhưng…<em>cuộc sống mà!</em>)</p>
 <ul>
@@ -200,7 +200,7 @@
 <ul>
 <li>không thể check khi compile,</li>
 </ul>
-<div class="hll"><pre><span></span>    <span class="n">Optional</span><span class="o">.</span><span class="na">of</span><span class="o">(</span><span class="kc">null</span><span class="o">)</span> <span class="c1">// -&gt; Compile bình thường !!</span>
+<div class="hll"><pre><span></span>    <span class="n">Optional</span><span class="p">.</span><span class="na">of</span><span class="p">(</span><span class="kc">null</span><span class="p">)</span> <span class="c1">// -&gt; Compile bình thường !!</span>
 </pre></div>
 <p><img src="../../static/img/uploads/17YqeBK5U-Pb3dGdSq3xYNA.png" alt="Thật hả trời"></p>
 <h3>Optional của Java thật tệ, nhưng hãy thử dùng nó!</h3>
@@ -208,13 +208,13 @@
 <p>Câu trả lời, thật ra đã được nói ở trên. Giống như <em>Swift</em>, <em>Optional </em> trong <em>Java</em>(hay những thứ tương tự trong Groovy, C#, Kotlin hay Haskell) không phải để thay thế những dòng check null của bạn, mục đích hàng đầu của nó là nói cho bạn biết: <strong>một value liệu có thể null hay không?</strong></p>
 <p>Hãy thử với một số method khá quen thuộc trong JPA/Spring Data JPA/Hibernate(bản mới nhất hiện nay):</p>
 <p>Dưới đây là hàm tìm kiếm theo ID của <strong><a href="https://docs.oracle.com/javaee/7/api/javax/persistence/EntityManager.html#find-java.lang.Class-java.lang.Object-">javax.persistence.EntityManager</a></strong></p>
-<div class="hll"><pre><span></span>    <span class="kd">public</span> <span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">T</span> <span class="nf">getReference</span><span class="o">(</span><span class="n">Class</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">entityClass</span><span class="o">,</span> <span class="n">Object</span> <span class="n">primaryKey</span><span class="o">)</span>
+<div class="hll"><pre><span></span>    <span class="kd">public</span> <span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">T</span> <span class="nf">getReference</span><span class="p">(</span><span class="n">Class</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="n">entityClass</span><span class="p">,</span> <span class="n">Object</span> <span class="n">primaryKey</span><span class="p">)</span>
 </pre></div>
 <p>vẫn là chức năng đó, nhưng được viết trong <strong><a href="https://docs.spring.io/spring-data/data-jpa/docs/current/api/org/springframework/data/jpa/repository/JpaRepository.html#getOne-ID-">JpaRepository</a></strong></p>
-<div class="hll"><pre><span></span>    <span class="n">T</span> <span class="nf">getOne</span><span class="o">(</span><span class="n">ID</span> <span class="n">id</span><span class="o">)</span>
+<div class="hll"><pre><span></span>    <span class="n">T</span> <span class="nf">getOne</span><span class="p">(</span><span class="n">ID</span> <span class="n">id</span><span class="p">)</span>
 </pre></div>
 <p>còn đây là trong <strong><a href="https://docs.spring.io/spring-data/commons/docs/current/api/org/springframework/data/repository/CrudRepository.html#findById-ID-">CrudRepository</a></strong></p>
-<div class="hll"><pre><span></span>    <span class="n">Optional</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="nf">findById</span><span class="o">(</span><span class="n">ID</span> <span class="n">id</span><span class="o">)</span>
+<div class="hll"><pre><span></span>    <span class="n">Optional</span><span class="o">&lt;</span><span class="n">T</span><span class="o">&gt;</span> <span class="nf">findById</span><span class="p">(</span><span class="n">ID</span> <span class="n">id</span><span class="p">)</span>
 </pre></div>
 <p>Nếu không đọc <em>Document</em>, liệu bạn có biết chuyện gì xảy ra nếu không tìm thấy entity ?</p>
 <ul>
