@@ -11,7 +11,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="apple-mobile-web-app-title" content="Weather PWA">
-<link rel="apple-touch-icon" href="../../../static/img/covers/icon192x192.png">
+<link rel="apple-touch-icon" href="../../../static/img/covers/icon192x192.webp">
 
 <meta name="description" content="Dùng một framework là điều không khó, nhưng để dùng tốt thì không. Chúng ta thường bắt đầu với JPA/Hibernate quá dễ dàng, nhưng lại rất dễ bị mắc lỗi mà không hề hay biết." />
 
@@ -66,7 +66,7 @@
           <div class="row">
             <div class="col-xs-9 col-sm-6 col-md-3">
               <a class="logo" href="../../../vi/"><span>Luan</span>'s blog</a>
-              <!-- <a class="head-logo" href=""><img src="img/rs-logo.png" alt="RScard"/></a> -->
+              <!-- <a class="head-logo" href=""><img src="img/rs-logo.webp" alt="RScard"/></a> -->
             </div>
             <div class="col-xs-3 col-sm-6 col-md-9">
               <div class="nav-wrap">
@@ -130,8 +130,8 @@
           </header>
           <div class="post-media">
               <img class="lozad"
-                src="../../../static/img/uploads/458x300.png" 
-                data-src="../../../static/img/covers/jpa-hibernate.jpg" 
+                src="../../../static/img/uploads/458x300.webp" 
+                data-src="../../../static/img/covers/jpa-hibernate.webp" 
                 alt="Spring data JPA/Hibernate: Những sai lầm rất dễ gặp phải" />
             </div>
         <div class="post-inner">
@@ -143,13 +143,13 @@
 <p>Thời điểm đầu tiên khi sử dụng Hibernate, mình không hề biết: Fetching Type mặc định của <em>ManyToOne </em>là <strong>EAGER Fetching</strong>. Một ngày đẹp trời, sếp quay ra hỏi: <em>“Sao đoạn này select có một record mà câu SQL nó dài 2 trang A4 với 30 câu JOIN thế này?”</em>. Lúc này mới té ngửa ra đi tìm hiểu, cảm giác mình rất chi là “<em>gà</em>”.</p>
 <p>EAGER Fetching là một tính năng rất hay của Hibernate, nó giúp bạn sử dụng ORM một cách tự nhiên hơn.</p>
 <p>Ta thử với các bảng dưới đây</p>
-<p><img src="../../../static/img/uploads/1RGPjO76yL01nt41sO3cmoA.png" alt=""></p>
+<p><img src="../../../static/img/uploads/1RGPjO76yL01nt41sO3cmoA.webp" alt=""></p>
 <p>Hibernate là ORM, bạn query để lấy ra <em>User, </em>thì một cách tự nhiên nhất, bạn sẽ lấy ra được <em>Office</em>.</p>
-<p><img src="../../../static/img/uploads/1YHjgn57s_uXep399spVFYQ.png" alt=""></p>
-<p><img src="../../../static/img/uploads/17E_S3MKs0UGOFJUrKyfodA.png" alt=""></p>
+<p><img src="../../../static/img/uploads/1YHjgn57s_uXep399spVFYQ.webp" alt=""></p>
+<p><img src="../../../static/img/uploads/17E_S3MKs0UGOFJUrKyfodA.webp" alt=""></p>
 <p>Điều này có lợi khi bạn là người chưa hiểu nhiều về Hibernate hoặc cần phát triển chương trình một cách nhanh chóng.</p>
 <p>Nhưng, cái giá phải trả là không hề nhỏ. Đây là câu SQL được sinh ra:</p>
-<p><img src="../../../static/img/uploads/133ogQTVapTq5sx0bCjYhHQ.png" alt=""></p>
+<p><img src="../../../static/img/uploads/133ogQTVapTq5sx0bCjYhHQ.webp" alt=""></p>
 <p>rất nhiều column được select và câu lệnh này join với hết các bảng. Đây mới là trường hợp đơn giản, còn trên thực tế, các bảng có thể có liên hệ với nhau nhiều hơn. Bảng User có quan hệ n-1 đến nhiều bảng hơn nữa, trong đó có Office, Office có thể có quan hệ n-1 với bảng khác, và cứ thế, câu lệnh của bạn sẽ có hàng dài <em>join. </em>Đúng là dùng thì dễ, nhưng để dùng tốt lại là chuyện khác.</p>
 <p>Như đã nói ở trên là mình đã gặp trường hợp Hibernate sinh ra câu lệnh join với hơn <strong>30 bảng</strong>(80% số bảng trong database) với chỉ một câu query ra từ entity, và trong hầu hết tình huống thì đó không phải là điều mình(chúng ta) cần, query như vậy sẽ làm giảm performance rất rõ rệt. Đây là điều mà khi start code dự án được 6 tháng, cả đội Dev mới phát hiện ra.</p>
 <p>Và trừ khi bạn dùng native SQL hoặc chọn từng property của <strong>User </strong> entity để lấy ra, còn nếu không, bạn hoàn toàn <strong>không thể tránh được</strong> các câu lệnh join ở trên, đây cũng chính là một <em>“điểm chết”</em> của Eager Fetching Type này. Bạn rất khó để thay đổi nó!</p>
@@ -157,9 +157,9 @@
 <h3><strong>Cách khắc phục</strong></h3>
 <p>Khuyến khích dùng Lazy Fetching cho hầu hết các trường hợp(trừ khi bạn có lý do thật đặc biệt). Với trường hợp <em>ManyToOne</em> hay <em>OneToOne</em>, hãy cài đặt <strong>Lazy Fetching</strong>. Còn trường hợp <em>OneToMany </em>và <em>ManyToMany </em>thì đừng làm gì cả, mặc định nó đã là <strong>Lazy Fetching</strong> rồi.</p>
 <p><strong>Không nên</strong></p>
-<p><img src="../../../static/img/uploads/11XD8acsiEpolzhk8hfG4xw.png" alt=""></p>
+<p><img src="../../../static/img/uploads/11XD8acsiEpolzhk8hfG4xw.webp" alt=""></p>
 <p><strong>Nên</strong></p>
-<p><img src="../../../static/img/uploads/1i2JnN47DSwIZpFs1-8Ycag.png" alt=""></p>
+<p><img src="../../../static/img/uploads/1i2JnN47DSwIZpFs1-8Ycag.webp" alt=""></p>
 <p>Khi bạn viết câu select, bạn có thể tùy ý chọn lựa việc join lấy ra những property nào(hoặc entity nào), join với bảng nào, tất cả đều nằm trong tay bạn.</p>
 <h3>Thứ hai, không lấy ra những thông tin cần thiết từ các bảng quan hệ</h3>
 <p>Cuộc sống luôn có những điều trái ngang!</p>
@@ -167,18 +167,18 @@
 <h3>LazyInitializationException và N+1 query</h3>
 <p>Các vấn đề này xảy ra do đâu? Cùng xem ví dụ bên dưới.</p>
 <p>Giả sử ta có bài toán cần lấy ra thông tin của user, bao gồm cả company của user đó. Cùng nhìn lại đoạn mapping của <strong>User</strong> entity:</p>
-<p><img src="../../../static/img/uploads/1MuOtYlF6HAZJ8dTXrDP3YQ.png" alt=""></p>
+<p><img src="../../../static/img/uploads/1MuOtYlF6HAZJ8dTXrDP3YQ.webp" alt=""></p>
 <p>và code lấy ra thông tin</p>
-<p><img src="../../../static/img/uploads/1R2JOfiA4C-FuE9cMExupgw.png" alt=""></p>
+<p><img src="../../../static/img/uploads/1R2JOfiA4C-FuE9cMExupgw.webp" alt=""></p>
 <p>Nên nhớ fetching type của association <strong>Company </strong> đã là Lazy, sẽ không còn câu lệnh join với bảng Company nữa, giờ SQL sẽ như sau:</p>
-<p><img src="../../../static/img/uploads/1elYctH1cqEN8jnXUSfJV8A.png" alt=""></p>
+<p><img src="../../../static/img/uploads/1elYctH1cqEN8jnXUSfJV8A.webp" alt=""></p>
 <p>Hãy để ý trong trường hợp trên, Hibernate sẽ lấy tất cả các column của bảng User, bao gồm cả các FK(car_id, office_id và company_id). Dữ liệu trong bảng User là</p>
 <pre><code>car_id = *null;*
 office_id = *null;*
 company_id = *1;*
 </code></pre>
 <p>khi nhận thấy FK company có giá trị, Hibernate lập tức khởi tạo một object Company(dù ta chưa hề join) và gán id cho nó bằng 1. Điều đó có nghĩa là ta có thể lấy ra id của company object từ user một cách bình thường, nhưng <em>code</em> của company đó thì không.</p>
-<p><img src="https://cdn-images-1.medium.com/max/2666/1*HDm49JG67jyJllx-9WSc8Q.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/2666/1*HDm49JG67jyJllx-9WSc8Q.webp" alt=""></p>
 <p>Hãy hiểu lỗi này đơn giản rằng: nếu bạn phải viết những câu SQL lấy ra cả user và company mà không phải join(không chơi cross join luôn), bạn phải lấy ra <em>company_id</em> từ bảng <strong>User</strong>, sau đó lại lấy giá trị đó để select tiếp trong bảng <strong>Company</strong>.</p>
 <p>Hibernate cũng làm tương tự như vậy.</p>
 <ul>
@@ -190,17 +190,17 @@ company_id = *1;*
   company = ???</p>
 </li>
 </ul>
-<p><img src="../../../static/img/uploads/1EX0s-u2gglu27LmSlkfpeQ.png" alt=""></p>
-<p><img src="../../../static/img/uploads/1ZJ8mz_VgUWx-rHpO4JL-bw.png" alt=""></p>
+<p><img src="../../../static/img/uploads/1EX0s-u2gglu27LmSlkfpeQ.webp" alt=""></p>
+<p><img src="../../../static/img/uploads/1ZJ8mz_VgUWx-rHpO4JL-bw.webp" alt=""></p>
 <p>Vậy là Hibernate đã khởi tạo company bằng một instance của một class hơi khang khác(proxy object) so với của ta khai báo, từ đó mà nó có thể làm thêm điều bên dưới</p>
 <ul>
 <li>Chưa vội select bảng Company ngay. Đến khi bạn lấy ra <strong>bất kỳ trường nào ngoài PK</strong>(ở đây mình thử lấy ra <em>code</em>) thì Hibernate sẽ cố gắng gọi truy vấn đến bảng company và lấy đầy đủ thông tin hơn.</li>
 </ul>
 <p>Tai nạn xảy ra ở đây là để truy vấn database, Hibernate phải có <em>session</em>(hay với database thì nó là connection), mà <em>session </em>thì phải mở thì mới có, chứ không mở hoặc đóng mất tiêu rồi thì nó bó tay, đấy là lý do tại sao message trong exception lại là <strong>no Session</strong>.</p>
 <p>Thử thêm một đoạn code hơi kì cục vào <em>Service </em>method</p>
-<p><img src="../../../static/img/uploads/1sr_31iubzkPwLT9b7Muhew.png" alt=""></p>
+<p><img src="../../../static/img/uploads/1sr_31iubzkPwLT9b7Muhew.webp" alt=""></p>
 <p>và chạy lại đoạn test, ngoài câu lệnh select user, thêm một câu SQL nữa sẽ được sinh ra</p>
-<p><img src="../../../static/img/uploads/1M9U4IMJbsM_YNm8RdCGtcw.png" alt=""></p>
+<p><img src="../../../static/img/uploads/1M9U4IMJbsM_YNm8RdCGtcw.webp" alt=""></p>
 <p>và lỗi đã biến mất.</p>
 <p>Cách lý giải đơn giản là khi sự kiện lấy company code được viết trong service, khi session(connection) chưa được đóng thì Hibernate có thể lấy từ database một cách bình thường. Và cái giá phải trả, chính là thêm một câu lệnh SQL nữa.</p>
 <p>Đây không phải là giải pháp tốt nhất trong trường hợp này! Tại sao? Vì đây chính là nguyên nhân của <strong>N+1 query.</strong></p>
@@ -212,31 +212,31 @@ company_id = *1;*
 <li><strong>Dùng câu lệnh FETCH trong JPQL/HQL.</strong></li>
 </ol>
 <p>Đây là cách mình hay dùng nhất, vừa gọn, vừa tường minh, lại vừa đơn giản.</p>
-<p><img src="../../../static/img/uploads/1G_TUZx9b7hVExD6PpLhX_g.png" alt=""></p>
+<p><img src="../../../static/img/uploads/1G_TUZx9b7hVExD6PpLhX_g.webp" alt=""></p>
 <p>Câu lệnh SQL được sinh ra khá giống với tùy chọn Eager Fetching</p>
-<p><img src="../../../static/img/uploads/1_VhkkGTlR1GgnyjBoWjR4g.png" alt=""></p>
+<p><img src="../../../static/img/uploads/1_VhkkGTlR1GgnyjBoWjR4g.webp" alt=""></p>
 <p>Có rất nhiều cách mà không biết vì vô tình hay cố ý mà Spring tự động lấy ra dữ liệu cho bạn tương tự khi viết thêm FETCH. Nhưng do nó quá “<em>tùm lum</em>” nên thôi, mình cứ viết FETCH vào cho chắc.</p>
 <p><strong>2. Dùng EntityGraph</strong></p>
 <p>Giả sử ta có database như sau:</p>
-<p><img src="../../../static/img/uploads/1JUl98uSj2zv9zIGX6SiEqA.png" alt=""></p>
+<p><img src="../../../static/img/uploads/1JUl98uSj2zv9zIGX6SiEqA.webp" alt=""></p>
 <p>Mỗi company có nhiều office, mỗi office lại có nhiều user. Giờ mình cần lấy ra đối tượng company, đồng thời lấy ra tất cả office của company đó, và tiếp nữa là lấy ra tất cả các user của mỗi office.</p>
 <p>Ví dụ có thể thấy như dưới đây, mong muốn chương trình in ra đầy đủ office và user.</p>
-<p><img src="../../../static/img/uploads/1A6rCrfloSt3SB_g2HgzbbQ.png" alt=""></p>
+<p><img src="../../../static/img/uploads/1A6rCrfloSt3SB_g2HgzbbQ.webp" alt=""></p>
 <p>Nhiều bạn chưa nắm rõ về Hibernate, rất dễ mắc lỗi <strong>N+1 query </strong> hoặc <strong>LazyLoad</strong> do không chú ý. Cũng có bạn chọn giải pháp dùng nhiều câu SQL để lấy ra. Nhưng như vậy thì thường quá, dưới đây mình chỉ dùng <strong>duy nhất một câu SQL</strong> để lấy ra tất cả!</p>
 <p>Với yêu cầu bài toán này thì bạn hoàn toàn có thể dùng chỉ 1 câu HQL(cũng chỉ là một câu SQL) để lấy ra tất cả, sau đó dùng code Java để nhóm lại. Đây là cách trước đây mình hay dùng. Nhưng cách này không hay khi bạn phải suy nghĩ câu HQL quá đau đầu, lại còn phải viết Java để nhóm lại cũng choáng váng không kém. Nói chung là cũng tầm thường không kém cách trên(thế mà trước mình dùng suốt đấy). Ơn giời, hãy để JPA/Hibernate làm cả 2 việc đó giúp bạn bằng <strong>EntityGraph.</strong></p>
 <p>EntityGraph sẽ giúp bạn lấy ra những đối tượng association một cách tự động rất dễ dàng. Nghe có vẻ giống Eager fetching? Không hề, với EntityGraph, đầu tiên là bạn có thể tùy chọn mối liên hệ giữa nhiều entity, như một graph vậy, từ entity này link sang entity khác, rồi từ entity đó lại link sang entity khác nữa. Và điều khác biệt nhất so với Earger fetching, là bạn có thể lựa chọn có sử dụng hay không(và mình thích được lựa chọn.).</p>
 <p>Cùng xem cách làm</p>
 <p><strong>Bước 1:</strong> Ở Company entity, ta thêm anonnation NamedEntityGraph</p>
-<p><img src="https://cdn-images-1.medium.com/max/2548/1*C__VwolB3eLjkxUevn8EaA.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/2548/1*C__VwolB3eLjkxUevn8EaA.webp" alt=""></p>
 <p>Đặt tên là “<strong>graph.Company.offices</strong>”</p>
 <p>Đặt node(có thể có nhiều node) offices và lấy ra tất cả đối tượng office của company. Và node này lại có thể có nhiều subgraph, tức là từ mỗi office ta có thể lấy ra nhiều thứ khác nữa, ở đây ta lấy ra tất cả các user của mỗi office.</p>
 <p><strong>Bước 2: </strong>Khai báo sử dụng trong repository</p>
-<p><img src="https://cdn-images-1.medium.com/max/2002/1*e9fPnK19ndEgFP_uL1rEGg.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/2002/1*e9fPnK19ndEgFP_uL1rEGg.webp" alt=""></p>
 <p>Với Query method, bạn có thể trực tiếp sử dụng EntityGraph anonnation. Còn nếu bạn dùng JPQL/HQL thì bạn phải lấy EntityGraph thông qua EntityManager và dùng method <em>setHint</em></p>
 <p>Đoạn code lấy ra kết quả</p>
-<p><img src="../../../static/img/uploads/1EEOkaTJ0Vd_ohMbvqJYS4Q.png" alt=""></p>
+<p><img src="../../../static/img/uploads/1EEOkaTJ0Vd_ohMbvqJYS4Q.webp" alt=""></p>
 <p>Đã xong, bây giờ chạy nó, 1 câu lệnh SQL duy nhất được tạo ra:</p>
-<p><img src="../../../static/img/uploads/1XfUFewc5ZlRXR1xOT7aqFQ.png" alt=""></p>
+<p><img src="../../../static/img/uploads/1XfUFewc5ZlRXR1xOT7aqFQ.webp" alt=""></p>
 <p>Và đây là output:</p>
 <pre><code>Office Id: 1
 
@@ -258,33 +258,33 @@ User Id:   2
 <p>ORM cung cấp những tiện lợi cho việc thao tác với RMDB. Không cần viết native SQL, ta vẫn có thể thao tác với database thông qua các <strong>model object </strong> và dùng method của JPA, JPQL, HQL, Criteria, Example, Specifications,… Nghe có vẻ lý tưởng, nhưng chính việc bỏ quên native SQL và sử dụng model object lại chính là nguyên nhân gây ra nhiều lỗi ngớ ngẩn. Dưới đây là một trong những lỗi đó.</p>
 <p><a href="https://www.w3schools.com/sql/sql_in.asp">IN Operator</a> là một operator khá phổ biến trong SQL, trong nhiều trường hợp nó còn cho performance tốt hơn <strong>Equal Operator</strong>(=). JPA/Hibernate cũng hỗ trợ bạn sử dụng IN Operator. Ta cùng xem ví dụ.</p>
 <p><em>Ta có hai bảng <strong>Account </strong> và <strong>User</strong></em>(một số trường có thể hơi khác do mình quá lười để viết thêm)<strong>. </strong>Bảng User đặc biệt hơn, với 1 compose primary key gồm 2 trường: key1 và key2</p>
-<p><img src="../../../static/img/uploads/1xNP1qd6LYAwAdtt9CwXaEQ.png" alt=""></p>
+<p><img src="../../../static/img/uploads/1xNP1qd6LYAwAdtt9CwXaEQ.webp" alt=""></p>
 <p>Thử viết câu HQL dùng IN Operator với bảng <strong>Account</strong></p>
-<p><img src="../../../static/img/uploads/1ptKnBQYQW9sbOoLRO33akA.png" alt=""></p>
+<p><img src="../../../static/img/uploads/1ptKnBQYQW9sbOoLRO33akA.webp" alt=""></p>
 <p>Và dưới đây là câu lệnh ta nhận được khi Hibernate compile ra native SQL</p>
-<p><img src="../../../static/img/uploads/1T5ST3Qq5pPba5EfKRaRMEA.png" alt=""></p>
+<p><img src="../../../static/img/uploads/1T5ST3Qq5pPba5EfKRaRMEA.webp" alt=""></p>
 <p>Câu lệnh SQL trên sẽ chạy bình thường và cho ra kết quả chính xác mà bạn mong muốn.</p>
 <p>Bây giờ ta thử với bảng <strong>User</strong>, bảng có 1 compose primary key(<em>key1</em> và <em>key2</em>). Vì ta thao tác với model object nên chỉ cần biết identity key của <strong>User</strong> là id, thực tế trong RDBMS là gì, không quan trọng, lý thuyết là vậy.</p>
 <p>Dưới đây là một đoạn code mapping của bảng <strong>User</strong></p>
-<p><img src="../../../static/img/uploads/1AB0G47Qe8C6ZS4N3nKQJfA.png" alt=""></p>
-<p><img src="../../../static/img/uploads/1qkxzmoavWfT86v4DFR4NLA.png" alt=""></p>
+<p><img src="../../../static/img/uploads/1AB0G47Qe8C6ZS4N3nKQJfA.webp" alt=""></p>
+<p><img src="../../../static/img/uploads/1qkxzmoavWfT86v4DFR4NLA.webp" alt=""></p>
 <p>Và đây là câu HQL dùng để select</p>
-<p><img src="../../../static/img/uploads/16TXfgd1fVyMYGmNyHiA6yw.png" alt=""></p>
+<p><img src="../../../static/img/uploads/16TXfgd1fVyMYGmNyHiA6yw.webp" alt=""></p>
 <p>Trông có vẻ ổn!</p>
 <p>Câu lệnh HQL trên sẽ được Hibernate compile ra SQL một cách bình thường. Đây là kết quả:</p>
-<p><img src="../../../static/img/uploads/14QVuhbfCNWFdEfd5KOHwVw.png" alt=""></p>
+<p><img src="../../../static/img/uploads/14QVuhbfCNWFdEfd5KOHwVw.webp" alt=""></p>
 <p>Câu lệnh trên rõ ràng là sai. Cú pháp hợp lệ nhưng kết quả thì không.</p>
 <p>Câu lệnh SQL nên là:</p>
-<p><img src="../../../static/img/uploads/1bXpbe-oxGlWp3acRZdn0fw.png" alt=""></p>
+<p><img src="../../../static/img/uploads/1bXpbe-oxGlWp3acRZdn0fw.webp" alt=""></p>
 <p>Trường hợp tương tự khi bạn sử dụng điều kiện hỗn hợp, trong đó có một điều kiện sử dụng với composite primary key</p>
 <p>Ta thử dùng một method trong repository của User entity</p>
-<p><img src="../../../static/img/uploads/1pwzoBlSy5vPn8VPveg26PA.png" alt=""></p>
+<p><img src="../../../static/img/uploads/1pwzoBlSy5vPn8VPveg26PA.webp" alt=""></p>
 <p>Câu lệnh SQL được compile ra, sai hoàn toàn:</p>
-<p><img src="https://cdn-images-1.medium.com/max/2684/1*QqyyzQ2P_yxz7e4hq8VINg.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/2684/1*QqyyzQ2P_yxz7e4hq8VINg.webp" alt=""></p>
 <p>Thử dùng HQL và <em>trick</em> thêm dấu ngoặc</p>
-<p><img src="../../../static/img/uploads/1WD3Jd5VAyKK1fXdPo2LBcQ.png" alt=""></p>
+<p><img src="../../../static/img/uploads/1WD3Jd5VAyKK1fXdPo2LBcQ.webp" alt=""></p>
 <p>nhưng kết quả không khác</p>
-<p><img src="https://cdn-images-1.medium.com/max/2684/1*QqyyzQ2P_yxz7e4hq8VINg.png" alt=""></p>
+<p><img src="https://cdn-images-1.medium.com/max/2684/1*QqyyzQ2P_yxz7e4hq8VINg.webp" alt=""></p>
 <p>Tương tự thì Criteria, Specifications cũng chung một kết cục.</p>
 <h3>Cách khắc phục</h3>
 <p>Cho đến hiện nay thì mình vẫn chưa tìm ra cách khắc phục ngoài việc dùng cách <em>stupid </em>nhất là native SQL thay thế.</p>
@@ -295,45 +295,45 @@ User Id:   2
 <li><strong>Nếu bạn chỉ định kiểu trả về là Collection hoặc Array thì chắc chắn nó không bao giờ null</strong></li>
 </ol>
 <p>Mình thấy nhiều bạn hay code như sau</p>
-<p><img src="../../../static/img/uploads/12q_X9x45Sb8_ryqVQcae4A.png" alt=""></p>
+<p><img src="../../../static/img/uploads/12q_X9x45Sb8_ryqVQcae4A.webp" alt=""></p>
 <p>Bạn nên bỏ điều kiện kiểm tra null, vì dù thế nào đi chăng nữa, data cũng sẽ không bao giờ null.</p>
 <p><strong>2. Thấy trả về null, cứ tưởng là record không tồn tại</strong></p>
 <p>Tình huống là ta chỉ cẩn lấy ra một field của entity, code như sau:</p>
-<p><img src="../../../static/img/uploads/1YuC5DUodZoodrL3zLW7ESQ.png" alt=""></p>
+<p><img src="../../../static/img/uploads/1YuC5DUodZoodrL3zLW7ESQ.webp" alt=""></p>
 <p>Có bạn code như thế này:</p>
-<p><img src="../../../static/img/uploads/1x815klDfW2_LXD2Gpx_WBQ.png" alt=""></p>
+<p><img src="../../../static/img/uploads/1x815klDfW2_LXD2Gpx_WBQ.webp" alt=""></p>
 <p>Nếu bạn code bằng JDBC đơn thuần, sử dụng <em>ResultSet </em>hoặc sử dụng query thông qua <em>EntityManager </em>thì rõ ràng trường hợp không có record nào và record chứa một field mang giá trị <strong>null</strong> nó là khác nhau hoàn toàn, nhưng Spring Data JPA trong cách viết này thì không, nó không phân biệt.</p>
 <p>Thử đoạn test</p>
-<p><img src="../../../static/img/uploads/1wD6kBUP_5-MiN5qFD6wPoQ.png" alt=""></p>
+<p><img src="../../../static/img/uploads/1wD6kBUP_5-MiN5qFD6wPoQ.webp" alt=""></p>
 <p>Mình thêm một company(với code là null) vào database, sau đó lấy ra bằng method <em>getCodeById</em> ở trên, mong muốn là code này sẽ là null, nhưng kết quả lại là exception javax.persistence.EntityNotFoundException(nhưng rõ ràng Company có tồn tại mà?), khá cay đắng nhưng sự thật là vậy.</p>
 <p>Giờ thay vì dùng một id có tồn tại, mình chọn một id không tồn tại</p>
-<p><img src="../../../static/img/uploads/1xCH9DuMfHxYX7H0_nMw2JA.png" alt=""></p>
+<p><img src="../../../static/img/uploads/1xCH9DuMfHxYX7H0_nMw2JA.webp" alt=""></p>
 <p>Kết quả vẫn là exception javax.persistence.EntityNotFoundException.</p>
 <p>Làm sao phân biệt? Câu trả lời là không thể nếu bạn select như vậy. Hãy select thêm trường để tạo sự khác biệt</p>
-<p><img src="../../../static/img/uploads/10SUpSkSAG3Z5dR6EZomdXQ.png" alt=""></p>
+<p><img src="../../../static/img/uploads/10SUpSkSAG3Z5dR6EZomdXQ.webp" alt=""></p>
 <p>Nhiều bạn sẽ thắc mắc ở đây là tại sao không lấy ra mảng Object thôi, tại sao lại phải list mảng object. Thì câu trả lời là dù bạn khai báo kiểu trả về là <strong><em>Object[]</em></strong> thì trên thực tế trả về vẫn là <strong><em>Object[][]</em></strong>, và bạn phải cast rất nhiều mới lấy ra cái cần, vậy nên hãy luôn trả về <strong><em>List&lt;Object[]&gt;</em></strong> dù bạn chỉ lấy 1 record(tuyệt đối đừng bao giờ là <strong><em>Object[]</em></strong> với nhiều field)</p>
 <p>Sửa service như sau:</p>
-<p><img src="../../../static/img/uploads/1jnQRFWycutEsNPi3N059sQ.png" alt=""></p>
+<p><img src="../../../static/img/uploads/1jnQRFWycutEsNPi3N059sQ.webp" alt=""></p>
 <p>Giờ thì kết quả đúng ý rồi.</p>
 <p><strong>3. Khai báo một đằng nhưng trả về một nẻo</strong></p>
 <p>Đây thực sự là một bug “<em>sấm sét</em>” của Spring Data JPA(hay có lẽ là cả Java thì đúng hơn) mà mình đã gặp phải.</p>
 <p>Chẳng là mình có một list id được lưu kiểu String từ thư viện bên thứ ba trả về, mình cần phải so sánh nó với các id(kiểu số nguyên) có trong database.</p>
 <p>Cách mình làm:</p>
 <p>Lấy ra các id trong database với kiểu <strong>String</strong>(có lẽ là nó sẽ cast từ int sang String được vì id của company khai báo là <strong>int</strong>)</p>
-<p><img src="../../../static/img/uploads/1AtoRolEr49JwrY0bwxQjfA.png" alt=""></p>
+<p><img src="../../../static/img/uploads/1AtoRolEr49JwrY0bwxQjfA.webp" alt=""></p>
 <p>Giả sử trong database hiện đang có 10 company với id từ 1 đến 10.</p>
 <p>Thử với test dưới đây</p>
-<p><img src="../../../static/img/uploads/1bqdicNvJPuHsTgr0SyiYhw.png" alt=""></p>
+<p><img src="../../../static/img/uploads/1bqdicNvJPuHsTgr0SyiYhw.webp" alt=""></p>
 <p>Đáng lẽ test trên phải pass, nhưng kết quả lại fail! Tại sao? Rõ ràng trong database có id từ 1 đến 10, <em>ids “nên” </em>có dạng</p>
 <pre><code>["1", "2", "3", "3", "4", "5", "6", "7", "8", "9", "10"]
 </code></pre>
 <p>thì chắc chắn nó phải chứa <em>“1”</em>.</p>
 <p>Nhưng, mình đã bị <em>chúng </em>lừa. Biến ids vẻ ngoài là <strong><em>List&lt;String&gt;</em></strong>, nhưng “<em>tâm hồn</em>” lại là <strong><em>List&lt;Integer&gt;</em></strong></p>
 <p>Thử đổi lại</p>
-<p><img src="../../../static/img/uploads/1GrOaJvcfZBx9lpO5qEdDHQ.png" alt=""></p>
+<p><img src="../../../static/img/uploads/1GrOaJvcfZBx9lpO5qEdDHQ.webp" alt=""></p>
 <p>đoạn code có warning, không vấn đề, nó vẫn pass.</p>
 <p>Giờ ta không trả về String hay Integer nữa, trả hẳn về Double</p>
-<p><img src="../../../static/img/uploads/1lL924TN1IQ8GZQNsxyVopA.png" alt=""></p>
+<p><img src="../../../static/img/uploads/1lL924TN1IQ8GZQNsxyVopA.webp" alt=""></p>
 <p>thì trên thực tế cái được trả về vẫn là <strong><em>List&lt;Integer&gt;</em></strong></p>
 <p>Mình chưa có dịp tìm hiểu sâu nguyên nhân, nhưng đoán là nguyên nhân đến từ cả hai, cách convert dữ liệu từ database sang Java type của Spring và cách dùng “<em>tùm lum</em>” Generic của Java(do yêu cầu phải tương thích ngược với các version cũ). Nhưng điều quan trọng không phải nguyên nhân, tốt nhất trong trường hợp này, hãy trả về đúng kiểu của field được khai báo trong entity.</p>
 <p>Hiện đại quá cũng nhưng cũng thật nguy hiểm. Mình cảm nhận thấy là Spring Data JPA đang có rất nhiều vấn đề với kiểu trả về này(Hibernate đỡ hơn), bạn nào mà yếu là rất dễ xẩy chân, cứ tưởng là ngon lành nhưng test “<em>rờ</em>” đến đây “<em>chết</em>” đến đó.</p>

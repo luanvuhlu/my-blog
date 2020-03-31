@@ -109,27 +109,27 @@
         "brands": [
             {
                 "url": "https://swift.com/",
-                "img": "brands/swift-200x200.png",
+                "img": "brands/swift-200x200.webp",
                 "title": "swift"
             },
             {
                 "url": "#",
-                "img": "brands/ai-200x200.png",
+                "img": "brands/ai-200x200.webp",
                 "title": "artificial intelligence"
             },
             {
                 "url": "https://www.docker.com/",
-                "img": "brands/docker-200x200.png",
+                "img": "brands/docker-200x200.webp",
                 "title": "docker"
             },
             {
                 "url": "https://www.java.com/",
-                "img": "brands/java-200x200.png",
+                "img": "brands/java-200x200.webp",
                 "title": "java"
             },
             {
                 "url": "https://www.python.org/",
-                "img": "brands/python-200x200.png",
+                "img": "brands/python-200x200.webp",
                 "title": "python"
             }
         ],

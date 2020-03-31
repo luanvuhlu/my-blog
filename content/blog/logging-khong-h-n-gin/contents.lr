@@ -1,0 +1,138 @@
+title: Logging không hề đơn giản
+---
+author: luanvv
+---
+body:
+
+#### 
+
+# Logging không hề đơn giản
+
+Mình thấy hiện nay, rất nhiều dev khi code bỏ quên một thứ quan trọng, **logging**! Log để làm gì? Log như thế nào, đó là cả một câu chuyện dài
+
+### Log để làm gì?
+
+Với comment, naming method, variable, field và class, ta giúp code dễ hiểu hơn, tránh những nhầm lẫn trong quá trình code, nhưng với logging, ta hiểu được chương trình trong quá trình chạy. Đoạn mã này trả về giá trị gì, đối số này thay đổi ra sao xuyên suốt một loạt các tiến trình, hay config của mình đã đúng chưa. Việc **logging** là rất quan trọng.
+
+Đáng tiếc thay, rất nhiều bạn cho rằng **Debugging** đã là quá đầy đủ và chi tiết. Tuy nhiên, **debugging** chỉ giải quyết cho chính bạn và chính thời điểm đó mà thôi. Sẽ ra sao nếu người khác cần kiểm tra lại, do miss specs hoặc có lỗi phát sinh, họ sẽ phải debug lại hoàn toàn. Trên thực tế, đã có không dưới chục lần mình đã phải sửa code, thêm đoạn code trên server chỉ để hiểu tại sao trên server lại lỗi, còn dưới máy mình thì không. Cái tội không ghi log.
+
+Giật mình hơn rất nhiều, nhiều bạn biết log, nhưng lại log bằng _System.out.println._ Trời đất, đây là Java chứ có phải Javascript đâu, quên _console.log_ đi!
+
+Log level
+=========
+
+Ở trạng thái _production_, logging đáng lý phải không được làm ảnh hưởng(nhiều) đến performance của hệ thống. Đó là lý do họ phát mình ra **Log Level** (_System.out.println_ thì không có level). Mình cũng không hay dùng nhiều level, nhưng thường dùng nhất:
+
+*   Error: log mọi thứ nguy hiểm nhất, thường là trong lệnh try-catch
+*   Info: log mọi thứ mà mình nghĩ là tất cả mọi người đều nên biết
+*   Debug: log những thứ chi tiết nhất, như record lấy ra từ database như thế nào, list này có những phần tử ra sao. Nói chung, sẽ log ra những thông tin mà nhìn vào là thấy mà không cần phải dùng debugging.
+
+Lỗi mà nhiều bạn hay gặp là:
+
+*   _Không log error_. Lệnh catch để không, đôi khi nhìn thấy Exception cũng không dễ để hiểu cái gì gây ra lỗi. **NullPointerException**? Quá nhiều thứ có thể gây ra lỗi này, nếu có thể log một dòng cỏn con nêu ra cái gì _null_ thì sẽ dễ thở hơn cho người khác rất nhiều.
+*   _Không log debug_. ok, đã nói ở trên
+*   _Cái gì cũng log info_. Bạn đã bao giờ thử đổi log level của Hibernate hay bất kỳ framework nào sang level DEBUG hay TRACE chưa? Nếu rồi, bạn sẽ thấy chương trình của bạn chậm một cách vô cùng khủng khiếp. Trên thực tế, logging có ảnh hưởng performance, và việc lựa chọn level là rất quan trọng.
+
+Log sao cho hợp lý
+==================
+
+Cùng đến với dòng log đầu tiên:
+
+![](/static/img/uploads/1_uTZ5VjS6KR8ugURHtLUypg.webp)
+
+Hmm. Cũng có gì đâu. Phức tạp hơn chút:
+
+![](/static/img/uploads/1_SOa7MUcv5s6X5iLSMzspQw.webp)
+
+Ok. Mọi chuyện bắt đầu phức tạp rồi. Nhìn code có vẻ xấu. Có thể nhiều bạn biết, hoặc IDE gợi ý, Java có _java.text.MessageFormat_
+
+![](/static/img/uploads/1_OjmF0ewQM-d0hQ9vbkl00A.webp)
+
+Trông cũng không đến nỗi tệ! Nhưng thật ra là có đấy. Nếu bạn có theo dõi bài [này](https://luandev.com/2019/10/string-concatenate-stringbuilder-hay-stringbuffer/) của mình, bạn sẽ biết là string composition là rất đắt giá, thậm chí _MessageFormat_ còn tệ hơn rất nhiều. Sẽ ra sao nếu code của bạn có rất nhiều dòng log, và mỗi dòng log đều thực hiện cả tá string composition này.
+
+Có bạn sẽ nói là ta có thể giới hạn log level, không để debug nữa, mà nếu để debug thì cũng chỉ là đang debug thôi, không đáng ngại.
+
+Vấn đề là, dòng debug bạn vừa viết, có thể không được ghi ra console hay log file, nhưng, nó luôn luôn chạy, dù bạn để level là gì!
+
+![](/static/img/uploads/1_fWMkrk6RrmxcPcAoNdtF5w.webp)
+
+Đúng là nó _logIfEnabled_, chỉ log khi bạn enable, nhưng phần message, vẫn sẽ được execute.
+
+May mắn là, họ có tận 2 cách để giải quyết.
+
+Cách thứ nhất, dùng hàm log đi kèm parameter sẵn có trong API
+
+![](/static/img/uploads/1_y6jkkbRQLkBzlG3dd8G6Sw.webp)
+
+Bạn có số lượng parameter từ 1 đến 9, nếu bạn có 10 cái lận, bỏ bớt đi!
+
+![](/static/img/uploads/1_BxFlP3crXVicwbhUrjTVRg.webp)
+
+Trên thực tế thì họ cũng dùng MessageFormat ở bên trong thôi, vậy tại sao cái này lại hiệu quả hơn? Vì bạn nhìn xem, ở bên ngoài, mình chỉ thấy một constant string và một đống parameter, làm gì có cái string composition hay MessageFormat nào. Vấn đề được giải quyết.
+
+Cách một khá hay, nhưng sẽ ra sao nếu parameter của mình là dynamic, hay là một block code rất nhiều dòng code
+
+![](/static/img/uploads/1_4wEXAcbv3pQ6Gd8vkcwOdw.webp)
+
+Nhìn xem, vẫn không có string composition nào cả, nhưng sẽ có một loạt method được gọi: _getPhoneCount()_, _getLaptopCount()_, _getTabletCount()_. Hoặc giả bạn muốn cả đoạn code này chỉ được thực hiện khi log ở mức debug
+
+![](/static/img/uploads/1_hAHnSXlyi6YNVUfDYLD-oQ.webp)
+
+Đó là lý do bạn nên dùng cách thứ hai, dùng _log.isDebugEnabled()_
+
+![](/static/img/uploads/1_uB3Le8r_BtgH2kU1UTH-6Q.webp)
+
+Rất đơn giản, kiểm tra xem log debug có đang được bật không, chỉ chạy code khi log debug được bật. Ngoài _isDebugEnabled_, bạn còn có _isInfoEnabled_, _isTraceEnabled_,… quá đủ cho bạn dùng.
+
+Bạn sẽ thấy có rất nhiều thư viện, framework dùng đoạn code như trên, nhưng nay, nó đã không còn đúng và trở nên quá cồng kềnh và rối code.
+
+Code của bạn sẽ rất dài, lằng nhằng và rối rắm (thừa nhận đi) và chỉ trong một method, sẽ có hàng tá đoạn bạn cần phải log debug, không phải chỉ một chỗ, mà chỗ này chỗ kia rất nhiều. Thử tưởng tượng, cứ mỗi lần cần log debug, bạn lại
+
+![](/static/img/uploads/1_hZ5G0moswVXrR07euT9iXg.webp)
+
+![](/static/img/uploads/1_D2XAk7X9-5OMgbL6u6cWJQ.webp)
+
+Bắt đầu không hợp lý rồi.
+
+Ơn giời, lần đầu tiên trong đời mình thấy Java 8 đặc biệt hữu ích. Vận dụng Lambda expression và Function Interface trong Java 8, log4j đã thêm vào tính năng vô cùng hữu ích: **Supplier**. Tạm gọi đây là cách thứ 3
+
+![](/static/img/uploads/1_BxFlP3crXVicwbhUrjTVRg.webp)
+
+Ahh. Đừng làm gì nữa, nó ok rồi
+
+Nhưng với đoạn code này
+
+![](/static/img/uploads/1_4wEXAcbv3pQ6Gd8vkcwOdw.webp)
+
+Thay vì dùng _isDebugEnabled_, bạn có thể viết
+
+![](/static/img/uploads/1_oP0ouzW40SWtKB9CBZ_fdQ.webp)
+
+Chỉ một dấu nhỏ nhưng hiệu quả hơn rất nhiều. Bạn biết rằng Lambda expression có tác dụng gì không, chính là lazy đấy. Đoạn code bên trong, đoạn này nè
+
+![](/static/img/uploads/1_EwicboAGriOrj38fLb5kxA.webp)
+
+Sẽ không được thực thi nếu log debug không được enable.
+
+Bạn thích như thế này
+
+![](/static/img/uploads/1_0UroNO20xtXaW0aKz2JN7w.webp)
+
+hay thế này hơn
+
+![](/static/img/uploads/1_M2_RL8t6xqcxx2hEoVOpJw.webp)
+
+Nhiều khi, performance thay đổi có vẻ sẽ không có gì lớn lắm, nhưng performance chỉ nên đánh đổi với những thứ xứng đáng. Chỉ một thay đổi nhỏ nhưng vẫn đảng bảo performance, tại sao không nhỉ?
+---
+cover: uploads/1_hAHnSXlyi6YNVUfDYLD-oQ.webp
+---
+pub_date: 2020-03-31
+---
+summary: Mình thấy hiện nay, rất nhiều dev khi code bỏ quên một thứ quan trọng, **logging**! Log để làm gì? Log như thế nào, đó là cả một câu chuyện dài
+---
+tags:
+
+java
+refactoring
+logging
+log4j

@@ -52,11 +52,11 @@ Một Java Team Leader phải có:
 - Cái nhìn sâu: thay vì chỉ hiểu cú pháp hay copy/paste từ stackoverflow, cần phải hiểu rõ flow hoạt động, bản chất của vấn đề, tổng hợp các giải pháp và đưa ra giải pháp phù hợp nhất. Khi tìm hiểu vấn đề, cần nắm những pattern, style trong đó chứ không phải vẻ bề ngoài, từ đó áp dụng và tìm ra những cái chưa biết khác.
 Trước mình có làm việc với một bạn. Cách làm việc, cách fix bug của bạn đó đều rất nhanh, nhanh hơn mình rất nhiều. Cách làm của bạn đó luôn là:
 
-![Flow fix bug](/static/img/uploads/flow-fix-bug.png)
+![Flow fix bug](/static/img/uploads/flow-fix-bug.webp)
 
 Một hôm cu cậu báo với mình đã fix được cái lazy load(dùng Hibernate), "*Em thêm cái config eager vào entity rồi!*", "*Em thêm cái cascade vào nữa*", "*Em thấy nó chạy ok rồi*",.... Mình kiểu
 
-![WTH](/static/img/uploads/wth.jpg)  
+![WTH](/static/img/uploads/wth.webp)  
 
 Cách làm như vậy quá nhiều rủi ro. Bạn sẽ không lường được cái hậu quả của solution, liệu nó có "*tác dụng phụ*" nào hay không? Nó có đọng lại được kiến thức gì cho bạn hay không?
 Hãy luôn hiểu rõ bản chất của vấn đề.

@@ -79,7 +79,7 @@ Use Linux command to gzip. I donot know an alternative for Window OS
 cd build-minify && find . -type f -exec gzip -9 "{}" \; -exec mv "{}.gz" "{}" \;
 ```
 
-Upload to Google Cloud Storage
+### Upload to Google Cloud Storage
 
 ```bash
 gsutil -m cp -R . gs://[DESTINATION_BUCKET_NAME]/
@@ -91,14 +91,45 @@ or you want to set cache-control and compress
 gsutil -h "Cache-Control:public,max-age=86400" -h "Content-Encoding:gzip" -m cp -a public-read -r . gs://[DESTINATION_BUCKET_NAME]/
 ```
 
+### Firebase hosting
+
+```bash
+firebase deploy
+```
+
 ## Usage
 
 Lektor provides an admin site(at link [http://localhost:5000/admin](http://localhost:5000/admin)), so you can create, edit and preview any blog/page here
+
+## Lektor with Docker
+
+If you want to use lektor with docker this [amazing project](https://github.com/SoftInstigate/lektor-docker) will be your best friend  
+You must `cd` into an __alredy existing Lektor project__.
+
+To build the site:
+
+```bash
+docker run --rm  -v $(pwd):/opt/lektor softinstigate/lektor build
+```
+
+To serve the site:
+
+```bash
+docker run --rm  -v $(pwd):/opt/lektor -p 5000:5000 softinstigate/lektor server --host 0.0.0.0
+```
+When you ready for deployment
+
+```bash
+rm -rf build build-* 
+docker run --rm  -v $(pwd):/opt/lektor softinstigate/lektor build -O build
+firebase deploy
+```
 
 ## Built With
 
 * [Lektor](https://www.getlektor.com/) - The static content management system used
 * [Jinja2](http://jinja.pocoo.org/) - Template engine
+* [SoftInstigate/lektor-docker](https://github.com/SoftInstigate/lektor-docker)
 
 ## Authors
 

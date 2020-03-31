@@ -11,7 +11,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="apple-mobile-web-app-title" content="Weather PWA">
-<link rel="apple-touch-icon" href="../../../static/img/covers/icon192x192.png">
+<link rel="apple-touch-icon" href="../../../static/img/covers/icon192x192.webp">
 
 <meta name="description" content="Java có Pass-by-reference hay không? Điều đó không quan trọng!" />
 
@@ -66,7 +66,7 @@
           <div class="row">
             <div class="col-xs-9 col-sm-6 col-md-3">
               <a class="logo" href="../../../vi/"><span>Luan</span>'s blog</a>
-              <!-- <a class="head-logo" href=""><img src="img/rs-logo.png" alt="RScard"/></a> -->
+              <!-- <a class="head-logo" href=""><img src="img/rs-logo.webp" alt="RScard"/></a> -->
             </div>
             <div class="col-xs-3 col-sm-6 col-md-9">
               <div class="nav-wrap">
@@ -130,7 +130,7 @@
           </header>
           <div class="post-media">
               <img class="lozad"
-                src="../../../static/img/uploads/458x300.png" 
+                src="../../../static/img/uploads/458x300.webp" 
                 data-src="../../../static/img/uploads/0_q5Tkq9ctyYd0gd1F.gif" 
                 alt="Pass by Value và Pass by Reference trong Java" />
             </div>
@@ -142,27 +142,27 @@
 <p>Trước khi trả lời câu hỏi này, chúng ta cần hiểu sự khác biệt giữa <strong>pass-by-value</strong>(tham trị) và <strong>pass-by-reference</strong>(tham chiếu)</p>
 <h4><strong>Pass-by-value</strong></h4>
 <p><strong>Pass-by-value</strong> được hiểu là khi bạn pass biến vào làm argument cho một function, chương trình sẽ không dùng thẳng biến đó mà sao chép giá trị và đưa cho function, và hệ quả là dù bên trong function xảy ra chuyện gì thì biến thực tế vẫn được bảo toàn</p>
-<p><img src="../../../static/img/uploads/1_gZpx1_-g6SNPmtjET0eHSQ.png" alt=""></p>
+<p><img src="../../../static/img/uploads/1_gZpx1_-g6SNPmtjET0eHSQ.webp" alt=""></p>
 <p>Kết quả</p>
-<p><img src="../../../static/img/uploads/1_e0gq4JkM8xtF3vtKWm07EQ.png" alt=""></p>
+<p><img src="../../../static/img/uploads/1_e0gq4JkM8xtF3vtKWm07EQ.webp" alt=""></p>
 <h4>Pass-by-reference</h4>
 <p>Ngược lại với <strong>Pass-by-value</strong>, khi bạn pass biến vào làm argument cho một function, chương trình sẽ đưa thẳng biến đó cho function tùy ý xử lý, và hệ quả là nếu bên trong function mà thay đổi giá trị của argument thì biến thực tế bên ngoài cũng bị thay đổi, vì trong trường hợp này biến bên ngoài và biến(argument) của function là một.</p>
-<p><img src="../../../static/img/uploads/1_xw5E42tHZ_wzhsZ8m_2Owg.png" alt=""></p>
+<p><img src="../../../static/img/uploads/1_xw5E42tHZ_wzhsZ8m_2Owg.webp" alt=""></p>
 <p>Kết quả</p>
-<p><img src="../../../static/img/uploads/1_KMbGr6fotJljgvozD0tEQw.png" alt=""></p>
+<p><img src="../../../static/img/uploads/1_KMbGr6fotJljgvozD0tEQw.webp" alt=""></p>
 <p>Có thể xem hình minh họa bên dưới để hiểu rõ hơn</p>
 <p><img src="../../../static/img/uploads/0_q5Tkq9ctyYd0gd1F.gif" alt=""></p>
 <p>Vậy phần xử lý phía sau(behind the scenes) giữa <strong>Pass-by-value</strong> và <strong>Pass-by-reference</strong> thì ra sao. Để giải thích cho phần này, tôi tạm dùng cách C/C++ làm việc để diễn tả.</p>
 <p>Dưới đây là mô hình hóa việc lưu trữ dữ liệu của các biến trên bộ nhớ. Ở đây ta có biến <strong>myAge </strong> có giá trị <strong>14 </strong> được lưu ở bộ nhớ có địa chỉ <strong>106</strong></p>
-<p><img src="../../../static/img/uploads/0_qCyny98PQOQRdKiw.jpg" alt=""></p>
+<p><img src="../../../static/img/uploads/0_qCyny98PQOQRdKiw.webp" alt=""></p>
 <p>Khi <strong>Pass-by-value</strong>, chương trình không pass thẳng biến myAge ở ô 106, mà nó sẽ sao chép giá trị(<strong>14</strong>) của ô <strong>106</strong> sang ô <strong>152, </strong>và function <strong> calculateBirthYear </strong> sẽ chỉnh sửa ô nhớ <strong> 152</strong>, và ô <strong>106 </strong> sẽ luôn được an toàn khỏi bàn tay của function <strong>calculateBirthYear.</strong></p>
-<p><img src="../../../static/img/uploads/1_CzGFzVyvkG7aqtHG_EOjOg.png" alt=""></p>
-<p><img src="../../../static/img/uploads/1_yjz-HH8BeMBdqMCwHOP2XA.png" alt=""></p>
+<p><img src="../../../static/img/uploads/1_CzGFzVyvkG7aqtHG_EOjOg.webp" alt=""></p>
+<p><img src="../../../static/img/uploads/1_yjz-HH8BeMBdqMCwHOP2XA.webp" alt=""></p>
 <p>Nhưng khi <strong>Pass-by-reference</strong>, chương trình sẽ truyền thẳng địa chỉ ô nhớ vào function, bạn sẽ phải có kiến thức về Pointer trong C/C++ để hiểu cú pháp</p>
-<p><img src="../../../static/img/uploads/1_3qB64nCUhml-zw53Smntgw.png" alt=""></p>
+<p><img src="../../../static/img/uploads/1_3qB64nCUhml-zw53Smntgw.webp" alt=""></p>
 <p>Kiến thức về <strong>Pass-by-value</strong> và <strong>Pass-by-reference</strong> là kiến thức chung, không riêng ngôn ngữ nào, nhưng ở đây tôi chọn C/C++ vì các thuật ngữ của nó dễ hiểu nhất, không gây nhầm lẫn cho người đọc. Với các ngôn ngữ bậc cao như Python, Java, C#,… thì khái niệm Pointer không còn, nhưng <strong>Pass-y-reference</strong> vẫn được một số ngôn ngữ thể hiện ở mức đơn giản và đỡ hack não hơn Pointer.</p>
 <p>Dưới đây là ví dụ trong C# với từ khóa <strong>ref </strong> để <strong> Pass-by-reference</strong></p>
-<p><img src="../../../static/img/uploads/1_-BOPimXU_UopYjl50-vRow.png" alt=""></p>
+<p><img src="../../../static/img/uploads/1_-BOPimXU_UopYjl50-vRow.webp" alt=""></p>
 <h4>Vậy với Java thì sao?</h4>
 <p>Theo một cách hiểu nhất định và là cách hiểu mà đa phần đồng ý, thì Java không có <strong>Pass-by-reference</strong> <strong>!</strong></p>
 <p>Đâu đó các bạn sẽ đọc được những bài như <a href="https://viettuts.vn/java/truyen-gia-tri-va-tham-chieu-pass-value-va-pass-reference-trong-java">https://viettuts.vn/java/truyen-gia-tri-va-tham-chieu-pass-value-va-pass-reference-trong-java</a>,  họ cho rằng khi bạn truyền giá trị kiểu Primitive vào function thì nó sẽ là Pass-by-value và khi truyền giá trị kiểu Reference thì nó sẽ là Pass-by-reference.</p>
@@ -174,39 +174,39 @@
 <h4>Chuyện gì xảy ra khi bạn pass một Reference Type vào một function?</h4>
 <p>Trước tiên, bạn cần hiểu reference(không phải Reference Type) trong Java.</p>
 <p>Ví dụ ta khai báo biến <strong>f</strong>, có type là Foo như sau</p>
-<p><img src="../../../static/img/uploads/1_KpbpKPXBYZLHSPHXS_qcFQ.png" alt=""></p>
+<p><img src="../../../static/img/uploads/1_KpbpKPXBYZLHSPHXS_qcFQ.webp" alt=""></p>
 <p>Đoạn trên có thể giải thích như sau:</p>
-<p><img src="../../../static/img/uploads/1_FGK0ujspvCiX4kDs8F9flQ.png" alt=""></p>
+<p><img src="../../../static/img/uploads/1_FGK0ujspvCiX4kDs8F9flQ.webp" alt=""></p>
 <p>Biến <strong>f </strong>mà chúng ta luôn nghĩ là đối tượng thực trong bộ nhớ thực ra không phải, nó chỉ là tham chiếu đến đối tượng ở bên trong ô nhớ.</p>
 <p>Và trên thực tế là khi bạn pass một Reference Type vào một function, ta ví dụ là ta truyền <strong>f</strong> vào thì chương trình sẽ tạo ra một reference khác (tạm gọi là <strong>a</strong>)và link nó đến cùng đối tượng mà <strong>f </strong>trỏ vào, hay nói cách khác, nó copy reference <strong>f</strong></p>
 <p>Ví dụ ta có hàm</p>
-<p><img src="../../../static/img/uploads/1_pfblaAFQQzQ-xdZ0BVlzuA.png" alt=""></p>
+<p><img src="../../../static/img/uploads/1_pfblaAFQQzQ-xdZ0BVlzuA.webp" alt=""></p>
 <p>thì có thể được hiểu là</p>
-<p><img src="../../../static/img/uploads/1_yk_S4f2BzZhjEZ5yyQgMHw.png" alt=""></p>
+<p><img src="../../../static/img/uploads/1_yk_S4f2BzZhjEZ5yyQgMHw.webp" alt=""></p>
 <p>lúc này sẽ có 2 reference <strong>a</strong> và <strong>f </strong>cùng trỏ đến một object, khi ta thay đổi bất kỳ reference nào thì object cũng được thay đổi theo</p>
-<p><img src="../../../static/img/uploads/0_Gxe_biEDnue3p8V0.png" alt=""></p>
+<p><img src="../../../static/img/uploads/0_Gxe_biEDnue3p8V0.webp" alt=""></p>
 <p>và khi function <strong>modifyReference </strong>chạy xong</p>
-<p><img src="../../../static/img/uploads/1_GiGaLyDTz3_MnwByNfkKpw.png" alt=""></p>
+<p><img src="../../../static/img/uploads/1_GiGaLyDTz3_MnwByNfkKpw.webp" alt=""></p>
 <p>reference <strong>a</strong>(clone từ <strong>f</strong>) tạm coi là biến mất do đã ra ngoài function, lúc này chỉ còn <strong>f</strong> và đối tượng Foo đã được thay đổi</p>
-<p><img src="../../../static/img/uploads/1_3GZz2MqGquGf4Lp1zPKJxA.png" alt=""></p>
+<p><img src="../../../static/img/uploads/1_3GZz2MqGquGf4Lp1zPKJxA.webp" alt=""></p>
 <p>Nghe có vẻ giống <strong>Pass-by-reference</strong>, nhưng sự thật là không. Phương pháp này của Java không phải <strong>Pass-by-reference</strong>, nó nên được hiểu là <strong>Pass-by-value</strong> reference, chương trình không thực sự pass chính xác reference <strong>f </strong>vào function<strong> modifyReference</strong>, mà chương trình chỉ pass cái clone của nó(reference <strong>a</strong>) vào mà thôi. Giờ thì nghe giống <strong>Pass-by-value</strong> chưa!</p>
 <p>Để dễ hình dung, ta có ví dụ sau:</p>
-<p><img src="../../../static/img/uploads/1_WQfe7G4OpO19AgMofjf2XA.png" alt=""></p>
+<p><img src="../../../static/img/uploads/1_WQfe7G4OpO19AgMofjf2XA.webp" alt=""></p>
 <p>Trước tiên, khi pass <strong>f</strong> vào <strong>changeReference, </strong>ta vẫn được kết quả như trên đã mô tả, chương trình sẽ clone reference <strong>f</strong> ra một reference khác và tất nhiên là cùng trỏ đến đối tượng Foo của <strong>f</strong></p>
-<p><img src="../../../static/img/uploads/0_T1iY94_4EdMtzSLb.png" alt=""></p>
+<p><img src="../../../static/img/uploads/0_T1iY94_4EdMtzSLb.webp" alt=""></p>
 <p>và tiếp phần hay là ta gán <strong>a</strong> sang một đối tượng Foo <strong>khác, </strong>theo như <strong>Pass-by-reference</strong> của C/C++/C# mà ta đã bàn ở trên thì việc này sẽ khiến đối tượng gốc cũng bị thay đổi, cùng xem lại với C#</p>
-<p><img src="../../../static/img/uploads/1__s873yVnTlttWGEQ1xNDaQ.png" alt=""></p>
+<p><img src="../../../static/img/uploads/1__s873yVnTlttWGEQ1xNDaQ.webp" alt=""></p>
 <p>Nhưng, Java không làm việc như vậy, khi bạn sẩy chân gán lại reference <strong>a</strong> sang một đối tượng Foo khác, bạn sẽ không thể nào quay đầu được.</p>
-<p><img src="../../../static/img/uploads/1_mokO7hm-OBN6LBg7i8b_IA.png" alt=""></p>
+<p><img src="../../../static/img/uploads/1_mokO7hm-OBN6LBg7i8b_IA.webp" alt=""></p>
 <p>khi thay đổi <strong>a</strong>, đổi attribute từ “b” sang “c”</p>
-<p><img src="../../../static/img/uploads/1_G3StemGqY2y41sCwMU7f8w.png" alt=""></p>
+<p><img src="../../../static/img/uploads/1_G3StemGqY2y41sCwMU7f8w.webp" alt=""></p>
 <p>Vấn đề trên tưởng như đơn giản nhưng rất nhiều người không biết và vẫn “ngã ngựa”</p>
-<p><img src="../../../static/img/uploads/1_18FR4EFkumI_DQKuK8LxCA.png" alt=""></p>
+<p><img src="../../../static/img/uploads/1_18FR4EFkumI_DQKuK8LxCA.webp" alt=""></p>
 <p>Đó cũng là lý do vì sao các linter trong các ngôn ngữ như Java, Python, Javascript,… đều warning mỗi khi bạn gán lại argument của function và việc thay đổi attribute của đối tượng bên trong function cũng là cực kỳ nên tránh</p>
 <p>Nên tránh</p>
-<p><img src="../../../static/img/uploads/1_zdheUcSsqR8ASerhdp6B5A.png" alt=""></p>
+<p><img src="../../../static/img/uploads/1_zdheUcSsqR8ASerhdp6B5A.webp" alt=""></p>
 <p>Thay vào đó nên tạo ra một list mới và tránh thay đổi list cũ</p>
-<p><img src="../../../static/img/uploads/1_7Lrhfw4Hlz5cEZLmC6JW6g.png" alt=""></p>
+<p><img src="../../../static/img/uploads/1_7Lrhfw4Hlz5cEZLmC6JW6g.webp" alt=""></p>
 <h3>Kết luận</h3>
 <p>Có thể bạn nghĩ rằng khi đổi attribute của reference thì đối tượng thực tế cũng đổi, nó chính là <strong>Pass-by-reference</strong>, vậy Java có nó. Thật ra điều đó không quan trọng. Java có <strong>Pass-by-reference</strong> hay không? Câu này đối với dev, nó cũng vô nghĩa như câu Java có phải ngôn ngữ thuần hướng đối tượng(purely Object-Oriented Language) hay không! Vì khái niệm vẫn chỉ là khái niệm, học thuộc khái niệm không giúp bạn code tốt hơn, hãy hiểu bản chất, hiểu cú pháp hơn là tranh cãi mấy điều vô bổ.</p>
 <h3>Reference</h3>
@@ -228,9 +228,20 @@
 
     
     
+      
+    
 
     
 
+    
+        <div class="post-next">
+          <h3 class="post-title"><a href="../../../vi/blog/logging-khong-h-n-gin/">Logging không hề đơn giản</a></h3>
+
+          <div class="post-info">
+            <a href="javascript: void(0)"><i class="rsicon rsicon-user"></i>by luanvv</a>
+            <a href="javascript: void(0)"><i class="rsicon"></i>Mar 31 2020</a>
+          </div>
+        </div>
     
     
         <div class="post-next">

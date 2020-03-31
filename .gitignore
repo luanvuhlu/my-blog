@@ -1,3 +1,4 @@
 build-minify/
 .firebaserc
 .firebase/
+build/.lektor/
