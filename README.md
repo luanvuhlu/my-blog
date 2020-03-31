@@ -103,7 +103,7 @@ Lektor provides an admin site(at link [http://localhost:5000/admin](http://local
 
 ## Lektor with Docker
 
-If you want to use lektor with docker this [amazing project](https://github.com/SoftInstigate/lektor-docker) will be help you  
+If you want to use lektor with docker this [amazing project](https://github.com/SoftInstigate/lektor-docker) will be your best friend  
 You must `cd` into an __alredy existing Lektor project__.
 
 To build the site:
@@ -129,6 +129,7 @@ firebase deploy
 
 * [Lektor](https://www.getlektor.com/) - The static content management system used
 * [Jinja2](http://jinja.pocoo.org/) - Template engine
+* [SoftInstigate/lektor-docker](https://github.com/SoftInstigate/lektor-docker)
 
 ## Authors
 
