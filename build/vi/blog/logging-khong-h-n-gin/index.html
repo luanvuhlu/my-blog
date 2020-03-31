@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en" class="theme-color-07cb79 theme-skin-light">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<META NAME="geo.position" CONTENT="21.028511, 105.804817">
+<META NAME="geo.placename" CONTENT="Hanoi, Vietnam">
+<META NAME="geo.region" CONTENT="vi">
+<meta name="theme-color" content="#536878" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="apple-mobile-web-app-title" content="Weather PWA">
+<link rel="apple-touch-icon" href="../../../static/img/covers/icon192x192.png">
+
+<meta name="description" content="Mình thấy hiện nay, rất nhiều dev khi code bỏ quên một thứ quan trọng, **logging**! Log để làm gì? Log như thế nào, đó là cả một câu chuyện dài" />
+
+<!-- <link rel="stylesheet" href="../../../static/style.css"> -->
+<title>Logging không hề đơn giản — luanvv.com</title>
+<link rel="manifest" href="../../../static/manifest.json">
+<!-- Favicon -->
+<link rel="shortcut icon" type="image/ico" href="../../../static/img/favicon.ico" />
+<link rel="stylesheet" type="text/css" href="../../../static/fonts/icomoon/style.css">
+<!-- Styles -->
+<link rel="stylesheet" type="text/css" href="../../../static/js/plugins/jquery.bxslider/jquery.bxslider.css">
+<link rel="stylesheet" type="text/css" href="../../../static/js/plugins/jquery.owlcarousel/owl.carousel.css">
+<link rel="stylesheet" type="text/css" href="../../../static/js/plugins/jquery.owlcarousel/owl.theme.css">
+
+<link rel="stylesheet" type="text/css" href="../../../static/style.css">
+<link rel="stylesheet" type="text/css" href="../../../static/colors/green.css">
+
+<link rel="stylesheet" href="../../../static/pygments.css">
+
+<script type="text/javascript" src="../../../static/js/libs/modernizr.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lozad/dist/lozad.min.js"></script>
+</head>
+<body class="home "> <!-- add loading for progress bar -->
+  <div class="mobile-nav">
+    <button class="btn-mobile mobile-nav-close" aria-label="Close menu"><i class="rsicon rsicon-close"></i></button>
+
+    <div class="mobile-nav-inner">
+      <nav id="mobile-nav" class="nav">
+        <ul class="clearfix">
+          <li><a href="../../../vi/#about">About</a></li>
+          <li><a href="../../../vi/#skills">Skills</a></li>
+          <!-- <li><a href="../../../vi/#portfolio">Portfolio</a> </li> -->
+          <li><a href="../../../vi/#experience">Experience</a></li>
+          <li><a href="../../../vi/#education">Education</a></li>
+          <!-- <li><a href="../../../vi/#references">References</a></li> -->
+          <li>
+            <!-- <a href="../../../vi/blog/">Blog</a> -->
+            <a href="../../../vi/blog/">Blog</a>
+          </li>
+          <!-- <li><a href="../../../vi/#text-section">Future <span></span></a></li> -->
+          <!-- <li><a href="../../../vi/#calendar">Calendar <span></span></a></li> -->
+          <!-- <li><a href="../../../vi/#contact">Contact <span></span></a></li> -->
+        </ul>
+      </nav>
+    </div>
+  </div><!-- .mobile-nav -->
+  <div class="wrapper">
+    <header class="header">
+      
+      <div class="head-bar">
+        <div class="head-bar-inner">
+          <div class="row">
+            <div class="col-xs-9 col-sm-6 col-md-3">
+              <a class="logo" href="../../../vi/"><span>Luan</span>'s blog</a>
+              <!-- <a class="head-logo" href=""><img src="img/rs-logo.png" alt="RScard"/></a> -->
+            </div>
+            <div class="col-xs-3 col-sm-6 col-md-9">
+              <div class="nav-wrap">
+                <nav id="nav" class="nav">
+                  <ul class="clearfix">
+                    <li><a href="../../../vi/#about">About</a></li>
+                    <li><a href="../../../vi/#skills">Skills</a></li>
+                    <!-- <li><a href="../../../vi/#portfolio">Portfolio</a> </li> -->
+                    <li><a href="../../../vi/#experience">Experience</a></li>
+                    <li><a href="../../../vi/#education">Education</a></li>
+                    <!-- <li><a href="../../../vi/#references">References</a></li> -->
+                    <li>
+                      <!-- <a href="../../../vi/blog/">Blog</a> -->
+                      <a href="../../../vi/blog/">Blog</a>
+                    </li>
+                    <!-- <li><a href="../../../vi/#text-section">Future <span></span></a></li> -->
+                    <!-- <li><a href="../../../vi/#calendar">Calendar <span></span></a></li> -->
+                    <!-- <li><a href="../../../vi/#contact">Contact <span></span></a></li> -->
+                  </ul>
+                </nav>
+                <button class="btn-mobile btn-mobile-nav">Menu</button>
+                <!-- <button class="btn-sidebar btn-sidebar-open"><i class="rsicon rsicon-menu"></i></button> -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header><!-- .header -->
+    <div class="content">
+        <div class="container">
+      
+<div class="row animate-up animated">
+  <div class="col-sm-12">
+    <main class="post-single">
+      <article class="post-content section-box">
+          <header class="post-header">
+            <div class="post-data">
+              <div class="post-title-wrap">
+                <h1 class="post-title">Logging không hề đơn giản</h1>
+              </div>
+              <div class="post-tag">
+                <a href="../../../tags/java">
+                      #java
+                    </a>
+                <a href="../../../tags/refactoring">
+                      #refactoring
+                    </a>
+                <a href="../../../tags/logging">
+                      #logging
+                    </a>
+                <a href="../../../tags/log4j">
+                      #log4j
+                    </a>
+                
+              </div>
+              <div class="post-info">
+                <a href="javascript: void(0)"><i class="rsicon rsicon-user"></i>by luanvv</a>
+                <a href="javascript: void(0)"><i class="rsicon"></i>Mar 31 2020</a>
+              </div>
+            </div>
+          </header>
+          <div class="post-media">
+              <img class="lozad"
+                src="../../../static/img/uploads/458x300.png" 
+                data-src="../../../static/img/uploads/1_hAHnSXlyi6YNVUfDYLD-oQ.png" 
+                alt="Logging không hề đơn giản" />
+            </div>
+        <div class="post-inner">
+          <div class="post-editor clearfix">
+            <h4> </h4>
+<h1>Logging không hề đơn giản</h1>
+<p>Mình thấy hiện nay, rất nhiều dev khi code bỏ quên một thứ quan trọng, <strong>logging</strong>! Log để làm gì? Log như thế nào, đó là cả một câu chuyện dài</p>
+<h3>Log để làm gì?</h3>
+<p>Với comment, naming method, variable, field và class, ta giúp code dễ hiểu hơn, tránh những nhầm lẫn trong quá trình code, nhưng với logging, ta hiểu được chương trình trong quá trình chạy. Đoạn mã này trả về giá trị gì, đối số này thay đổi ra sao xuyên suốt một loạt các tiến trình, hay config của mình đã đúng chưa. Việc <strong>logging</strong> là rất quan trọng.</p>
+<p>Đáng tiếc thay, rất nhiều bạn cho rằng <strong>Debugging</strong> đã là quá đầy đủ và chi tiết. Tuy nhiên, <strong>debugging</strong> chỉ giải quyết cho chính bạn và chính thời điểm đó mà thôi. Sẽ ra sao nếu người khác cần kiểm tra lại, do miss specs hoặc có lỗi phát sinh, họ sẽ phải debug lại hoàn toàn. Trên thực tế, đã có không dưới chục lần mình đã phải sửa code, thêm đoạn code trên server chỉ để hiểu tại sao trên server lại lỗi, còn dưới máy mình thì không. Cái tội không ghi log.</p>
+<p>Giật mình hơn rất nhiều, nhiều bạn biết log, nhưng lại log bằng <em>System.out.println.</em> Trời đất, đây là Java chứ có phải Javascript đâu, quên <em>console.log</em> đi!</p>
+<h1>Log level</h1>
+<p>Ở trạng thái <em>production</em>, logging đáng lý phải không được làm ảnh hưởng(nhiều) đến performance của hệ thống. Đó là lý do họ phát mình ra <strong>Log Level</strong> (<em>System.out.println</em> thì không có level). Mình cũng không hay dùng nhiều level, nhưng thường dùng nhất:</p>
+<ul>
+<li>Error: log mọi thứ nguy hiểm nhất, thường là trong lệnh try-catch</li>
+<li>Info: log mọi thứ mà mình nghĩ là tất cả mọi người đều nên biết</li>
+<li>Debug: log những thứ chi tiết nhất, như record lấy ra từ database như thế nào, list này có những phần tử ra sao. Nói chung, sẽ log ra những thông tin mà nhìn vào là thấy mà không cần phải dùng debugging.</li>
+</ul>
+<p>Lỗi mà nhiều bạn hay gặp là:</p>
+<ul>
+<li><em>Không log error</em>. Lệnh catch để không, đôi khi nhìn thấy Exception cũng không dễ để hiểu cái gì gây ra lỗi. <strong>NullPointerException</strong>? Quá nhiều thứ có thể gây ra lỗi này, nếu có thể log một dòng cỏn con nêu ra cái gì <em>null</em> thì sẽ dễ thở hơn cho người khác rất nhiều.</li>
+<li><em>Không log debug</em>. ok, đã nói ở trên</li>
+<li><em>Cái gì cũng log info</em>. Bạn đã bao giờ thử đổi log level của Hibernate hay bất kỳ framework nào sang level DEBUG hay TRACE chưa? Nếu rồi, bạn sẽ thấy chương trình của bạn chậm một cách vô cùng khủng khiếp. Trên thực tế, logging có ảnh hưởng performance, và việc lựa chọn level là rất quan trọng.</li>
+</ul>
+<h1>Log sao cho hợp lý</h1>
+<p>Cùng đến với dòng log đầu tiên:</p>
+<p><img src="../../../static/img/uploads/1_uTZ5VjS6KR8ugURHtLUypg.png" alt=""></p>
+<p>Hmm. Cũng có gì đâu. Phức tạp hơn chút:</p>
+<p><img src="../../../static/img/uploads/1_SOa7MUcv5s6X5iLSMzspQw.png" alt=""></p>
+<p>Ok. Mọi chuyện bắt đầu phức tạp rồi. Nhìn code có vẻ xấu. Có thể nhiều bạn biết, hoặc IDE gợi ý, Java có <em>java.text.MessageFormat</em></p>
+<p><img src="../../../static/img/uploads/1_OjmF0ewQM-d0hQ9vbkl00A.png" alt=""></p>
+<p>Trông cũng không đến nỗi tệ! Nhưng thật ra là có đấy. Nếu bạn có theo dõi bài <a href="https://luandev.com/2019/10/string-concatenate-stringbuilder-hay-stringbuffer/">này</a> của mình, bạn sẽ biết là string composition là rất đắt giá, thậm chí <em>MessageFormat</em> còn tệ hơn rất nhiều. Sẽ ra sao nếu code của bạn có rất nhiều dòng log, và mỗi dòng log đều thực hiện cả tá string composition này.</p>
+<p>Có bạn sẽ nói là ta có thể giới hạn log level, không để debug nữa, mà nếu để debug thì cũng chỉ là đang debug thôi, không đáng ngại.</p>
+<p>Vấn đề là, dòng debug bạn vừa viết, có thể không được ghi ra console hay log file, nhưng, nó luôn luôn chạy, dù bạn để level là gì!</p>
+<p><img src="../../../static/img/uploads/1_fWMkrk6RrmxcPcAoNdtF5w.png" alt=""></p>
+<p>Đúng là nó <em>logIfEnabled</em>, chỉ log khi bạn enable, nhưng phần message, vẫn sẽ được execute.</p>
+<p>May mắn là, họ có tận 2 cách để giải quyết.</p>
+<p>Cách thứ nhất, dùng hàm log đi kèm parameter sẵn có trong API</p>
+<p><img src="../../../static/img/uploads/1_y6jkkbRQLkBzlG3dd8G6Sw.png" alt=""></p>
+<p>Bạn có số lượng parameter từ 1 đến 9, nếu bạn có 10 cái lận, bỏ bớt đi!</p>
+<p><img src="../../../static/img/uploads/1_BxFlP3crXVicwbhUrjTVRg.png" alt=""></p>
+<p>Trên thực tế thì họ cũng dùng MessageFormat ở bên trong thôi, vậy tại sao cái này lại hiệu quả hơn? Vì bạn nhìn xem, ở bên ngoài, mình chỉ thấy một constant string và một đống parameter, làm gì có cái string composition hay MessageFormat nào. Vấn đề được giải quyết.</p>
+<p>Cách một khá hay, nhưng sẽ ra sao nếu parameter của mình là dynamic, hay là một block code rất nhiều dòng code</p>
+<p><img src="../../../static/img/uploads/1_4wEXAcbv3pQ6Gd8vkcwOdw.png" alt=""></p>
+<p>Nhìn xem, vẫn không có string composition nào cả, nhưng sẽ có một loạt method được gọi: <em>getPhoneCount()</em>, <em>getLaptopCount()</em>, <em>getTabletCount()</em>. Hoặc giả bạn muốn cả đoạn code này chỉ được thực hiện khi log ở mức debug</p>
+<p><img src="../../../static/img/uploads/1_hAHnSXlyi6YNVUfDYLD-oQ.png" alt=""></p>
+<p>Đó là lý do bạn nên dùng cách thứ hai, dùng <em>log.isDebugEnabled()</em></p>
+<p><img src="../../../static/img/uploads/1_uB3Le8r_BtgH2kU1UTH-6Q.png" alt=""></p>
+<p>Rất đơn giản, kiểm tra xem log debug có đang được bật không, chỉ chạy code khi log debug được bật. Ngoài <em>isDebugEnabled</em>, bạn còn có <em>isInfoEnabled</em>, <em>isTraceEnabled</em>,… quá đủ cho bạn dùng.</p>
+<p>Bạn sẽ thấy có rất nhiều thư viện, framework dùng đoạn code như trên, nhưng nay, nó đã không còn đúng và trở nên quá cồng kềnh và rối code.</p>
+<p>Code của bạn sẽ rất dài, lằng nhằng và rối rắm (thừa nhận đi) và chỉ trong một method, sẽ có hàng tá đoạn bạn cần phải log debug, không phải chỉ một chỗ, mà chỗ này chỗ kia rất nhiều. Thử tưởng tượng, cứ mỗi lần cần log debug, bạn lại</p>
+<p><img src="../../../static/img/uploads/1_hZ5G0moswVXrR07euT9iXg.png" alt=""></p>
+<p><img src="../../../static/img/uploads/1_D2XAk7X9-5OMgbL6u6cWJQ.png" alt=""></p>
+<p>Bắt đầu không hợp lý rồi.</p>
+<p>Ơn giời, lần đầu tiên trong đời mình thấy Java 8 đặc biệt hữu ích. Vận dụng Lambda expression và Function Interface trong Java 8, log4j đã thêm vào tính năng vô cùng hữu ích: <strong>Supplier</strong>. Tạm gọi đây là cách thứ 3</p>
+<p><img src="../../../static/img/uploads/1_BxFlP3crXVicwbhUrjTVRg.png" alt=""></p>
+<p>Ahh. Đừng làm gì nữa, nó ok rồi</p>
+<p>Nhưng với đoạn code này</p>
+<p><img src="../../../static/img/uploads/1_4wEXAcbv3pQ6Gd8vkcwOdw.png" alt=""></p>
+<p>Thay vì dùng <em>isDebugEnabled</em>, bạn có thể viết</p>
+<p><img src="../../../static/img/uploads/1_oP0ouzW40SWtKB9CBZ_fdQ.png" alt=""></p>
+<p>Chỉ một dấu nhỏ nhưng hiệu quả hơn rất nhiều. Bạn biết rằng Lambda expression có tác dụng gì không, chính là lazy đấy. Đoạn code bên trong, đoạn này nè</p>
+<p><img src="../../../static/img/uploads/1_EwicboAGriOrj38fLb5kxA.png" alt=""></p>
+<p>Sẽ không được thực thi nếu log debug không được enable.</p>
+<p>Bạn thích như thế này</p>
+<p><img src="../../../static/img/uploads/1_0UroNO20xtXaW0aKz2JN7w.png" alt=""></p>
+<p>hay thế này hơn</p>
+<p><img src="../../../static/img/uploads/1_M2_RL8t6xqcxx2hEoVOpJw.png" alt=""></p>
+<p>Nhiều khi, performance thay đổi có vẻ sẽ không có gì lớn lắm, nhưng performance chỉ nên đánh đổi với những thứ xứng đáng. Chỉ một thay đổi nhỏ nhưng vẫn đảng bảo performance, tại sao không nhỉ?</p>
+
+          </div>
+        </div><!-- .post-inner -->
+      </article><!-- .post-content -->
+      
+  
+  <nav class="post-pagination section-box">
+    
+
+    
+    
+      
+    
+
+    
+    
+
+    
+
+    
+    
+        <div class="post-next">
+          <h3 class="post-title"><a href="../../../vi/blog/pass-by-value-va-pass-by-reference-trong-java/">Pass by Value và Pass by Reference trong Java</a></h3>
+
+          <div class="post-info">
+            <a href="javascript: void(0)"><i class="rsicon rsicon-user"></i>by luanvv</a>
+            <a href="javascript: void(0)"><i class="rsicon"></i>Apr 20 2019</a>
+          </div>
+        </div>
+    
+  </nav><!-- .post-pagination -->
+
+    </main>
+    <!-- .post-single -->
+  </div>
+</div>
+
+      </div>
+    </div><!-- .content -->
+    <footer class="footer">
+      <div class="footer-social">
+        <ul class="social">
+          <li>
+              <a class="ripple-centered" aria-label="Github" rel="noopener" target="_blank" href="https://github.com/luanvuhlu">
+                  <i class="rsicon rsicon-github"></i>
+              </a>
+          </li>
+          <li>
+              <a class="ripple-centered" aria-label="Facebook" rel="noopener" target="_blank" href="https://www.facebook.com/luanvuhlu" target="_blank">
+                  <i class="rsicon rsicon-facebook"></i>
+              </a>
+          </li>
+          <li>
+              <a class="ripple-centered" aria-label="LinkedIn" rel="noopener" target="_blank" href="https://www.linkedin.com/in/luanvv/" target="_blank">
+                  <i class="rsicon rsicon-linkedin"></i>
+              </a>
+          </li>
+          <li>
+              <a class="ripple-centered" aria-label="Skype" rel="noopener" target="_blank" href="skype:luanvuhlu"><i
+                  class="rsicon rsicon-skype"></i>
+              </a>
+          </li>
+          <li>
+              <a class="ripple-centered" aria-label="Email" rel="noopener" target="_blank" href="mailto:luanvuhlu@gmail.com">
+                  <i class="rsicon rsicon-email"></i>
+              </a>
+          </li>
+      </div>
+    </footer><!-- .footer -->
+  </div><!-- .wrapper -->
+
+  <a class="btn-scroll-top" href="#"><i class="rsicon rsicon-arrow-up"></i></a>
+  <div id="overlay"></div>
+  <div id="preloader">
+    <div class="preload-icon"><span></span><span></span></div>
+    <div class="preload-text">Loading ...</div>
+  </div>
+  <!-- Scripts -->
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<!--   <script type="text/javascript" src="../../../static/fonts/map-icons/js/map-icons.min.js"></script> -->
+  <script type="text/javascript" src="../../../static/js/plugins/jquery.mousewheel-3.0.6.pack.js"></script>
+  <script type="text/javascript" src="../../../static/js/plugins/imagesloaded.pkgd.min.js"></script>
+  <script type="text/javascript" src="../../../static/js/plugins/isotope.pkgd.min.js"></script>
+  <script type="text/javascript" src="../../../static/js/plugins/jquery.appear.min.js"></script>
+  <script type="text/javascript" src="../../../static/js/plugins/jquery.onepagenav.min.js"></script>
+  <script type="text/javascript" src="../../../static/js/plugins/jquery.bxslider/jquery.bxslider.min.js"></script>
+ <!--  <script type="text/javascript" src="../../../static/js/plugins/jquery.customscroll/jquery.mCustomScrollbar.concat.min.js"></script> -->
+  <!-- <script type="text/javascript" src="../../../static/js/plugins/jquery.mediaelement/mediaelement-and-player.min.js"></script> -->
+  <!-- <script type="text/javascript" src="../../../static/js/plugins/jquery.fancybox/jquery.fancybox.pack.js"></script> -->
+ <!--  <script type="text/javascript" src="../../../static/js/plugins/jquery.fancybox/helpers/jquery.fancybox-media.js"></script> -->
+  <script type="text/javascript" src="../../../static/js/plugins/jquery.owlcarousel/owl.carousel.min.js"></script>
+  <script type="text/javascript" src="../../../static/js/options.js"></script>
+  <script type="text/javascript" src="../../../static/js/site.js"></script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-128976168-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-128976168-1');
+    const observer = lozad(); // lazy loads elements with default selector as '.lozad'
+    observer.observe();
+    (function ($) {
+        "use strict";
+        $('.post-editor>p>img').parent().addClass('img-block');
+    })(jQuery);
+  </script>
+<!-- <script src="https://www.gstatic.com/firebasejs/6.0.2/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/6.0.2/firebase-firestore.js"></script>-->
+<!-- Firebase config here -->
+<script type="text/javascript" src="../../../static/js/service-worker.js"></script>
+
+
+</body>
+</html>
