@@ -3729,7 +3729,7 @@ body {
     height: 41px;
     display: block;
     position: absolute;
-    background-image: url(img/arrows.png);
+    background-image: url(img/arrows.webp);
     background-repeat: no-repeat;
 }
 
@@ -4681,11 +4681,11 @@ body {
 
 .no-rgba .head-bg:before,
 .no-rgba .portfolio-figure .portfolio-caption {
-    background-image: url("img/overlay.png");
+    background-image: url("img/overlay.webp");
 }
 
 .no-opacity .overlay {
-    background: url("img/overlay.png");
+    background: url("img/overlay.webp");
 }
 
 .no-opacity .bar-line:after {

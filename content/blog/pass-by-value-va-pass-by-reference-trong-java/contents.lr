@@ -14,21 +14,21 @@ Trước khi trả lời câu hỏi này, chúng ta cần hiểu sự khác bi�
 
 **Pass-by-value** được hiểu là khi bạn pass biến vào làm argument cho một function, chương trình sẽ không dùng thẳng biến đó mà sao chép giá trị và đưa cho function, và hệ quả là dù bên trong function xảy ra chuyện gì thì biến thực tế vẫn được bảo toàn
 
-![](/static/img/uploads/1_gZpx1_-g6SNPmtjET0eHSQ.png)
+![](/static/img/uploads/1_gZpx1_-g6SNPmtjET0eHSQ.webp)
 
 Kết quả
 
-![](/static/img/uploads/1_e0gq4JkM8xtF3vtKWm07EQ.png)
+![](/static/img/uploads/1_e0gq4JkM8xtF3vtKWm07EQ.webp)
 
 #### Pass-by-reference
 
 Ngược lại với **Pass-by-value**, khi bạn pass biến vào làm argument cho một function, chương trình sẽ đưa thẳng biến đó cho function tùy ý xử lý, và hệ quả là nếu bên trong function mà thay đổi giá trị của argument thì biến thực tế bên ngoài cũng bị thay đổi, vì trong trường hợp này biến bên ngoài và biến(argument) của function là một.
 
-![](/static/img/uploads/1_xw5E42tHZ_wzhsZ8m_2Owg.png)
+![](/static/img/uploads/1_xw5E42tHZ_wzhsZ8m_2Owg.webp)
 
 Kết quả
 
-![](/static/img/uploads/1_KMbGr6fotJljgvozD0tEQw.png)
+![](/static/img/uploads/1_KMbGr6fotJljgvozD0tEQw.webp)
 
 Có thể xem hình minh họa bên dưới để hiểu rõ hơn
 
@@ -38,23 +38,23 @@ Vậy phần xử lý phía sau(behind the scenes) giữa **Pass-by-value** và 
 
 Dưới đây là mô hình hóa việc lưu trữ dữ liệu của các biến trên bộ nhớ. Ở đây ta có biến **myAge ** có giá trị **14 ** được lưu ở bộ nhớ có địa chỉ **106**
 
-![](/static/img/uploads/0_qCyny98PQOQRdKiw.jpg)
+![](/static/img/uploads/0_qCyny98PQOQRdKiw.webp)
 
 Khi **Pass-by-value**, chương trình không pass thẳng biến myAge ở ô 106, mà nó sẽ sao chép giá trị(**14**) của ô **106** sang ô **152, **và function ** calculateBirthYear ** sẽ chỉnh sửa ô nhớ ** 152**, và ô **106 ** sẽ luôn được an toàn khỏi bàn tay của function **calculateBirthYear.**
 
-![](/static/img/uploads/1_CzGFzVyvkG7aqtHG_EOjOg.png)
+![](/static/img/uploads/1_CzGFzVyvkG7aqtHG_EOjOg.webp)
 
-![](/static/img/uploads/1_yjz-HH8BeMBdqMCwHOP2XA.png)
+![](/static/img/uploads/1_yjz-HH8BeMBdqMCwHOP2XA.webp)
 
 Nhưng khi **Pass-by-reference**, chương trình sẽ truyền thẳng địa chỉ ô nhớ vào function, bạn sẽ phải có kiến thức về Pointer trong C/C++ để hiểu cú pháp
 
-![](/static/img/uploads/1_3qB64nCUhml-zw53Smntgw.png)
+![](/static/img/uploads/1_3qB64nCUhml-zw53Smntgw.webp)
 
 Kiến thức về **Pass-by-value** và **Pass-by-reference** là kiến thức chung, không riêng ngôn ngữ nào, nhưng ở đây tôi chọn C/C++ vì các thuật ngữ của nó dễ hiểu nhất, không gây nhầm lẫn cho người đọc. Với các ngôn ngữ bậc cao như Python, Java, C#,… thì khái niệm Pointer không còn, nhưng **Pass-y-reference** vẫn được một số ngôn ngữ thể hiện ở mức đơn giản và đỡ hack não hơn Pointer.
 
 Dưới đây là ví dụ trong C# với từ khóa **ref ** để ** Pass-by-reference**
 
-![](/static/img/uploads/1_-BOPimXU_UopYjl50-vRow.png)
+![](/static/img/uploads/1_-BOPimXU_UopYjl50-vRow.webp)
 
 #### Vậy với Java thì sao?
 
@@ -77,11 +77,11 @@ Trước tiên, bạn cần hiểu reference(không phải Reference Type) trong
 
 Ví dụ ta khai báo biến **f**, có type là Foo như sau
 
-![](/static/img/uploads/1_KpbpKPXBYZLHSPHXS_qcFQ.png)
+![](/static/img/uploads/1_KpbpKPXBYZLHSPHXS_qcFQ.webp)
 
 Đoạn trên có thể giải thích như sau:
 
-![](/static/img/uploads/1_FGK0ujspvCiX4kDs8F9flQ.png)
+![](/static/img/uploads/1_FGK0ujspvCiX4kDs8F9flQ.webp)
 
 Biến **f **mà chúng ta luôn nghĩ là đối tượng thực trong bộ nhớ thực ra không phải, nó chỉ là tham chiếu đến đối tượng ở bên trong ô nhớ.
 
@@ -89,59 +89,59 @@ Và trên thực tế là khi bạn pass một Reference Type vào một functio
 
 Ví dụ ta có hàm
 
-![](/static/img/uploads/1_pfblaAFQQzQ-xdZ0BVlzuA.png)
+![](/static/img/uploads/1_pfblaAFQQzQ-xdZ0BVlzuA.webp)
 
 thì có thể được hiểu là
 
-![](/static/img/uploads/1_yk_S4f2BzZhjEZ5yyQgMHw.png)
+![](/static/img/uploads/1_yk_S4f2BzZhjEZ5yyQgMHw.webp)
 
 lúc này sẽ có 2 reference **a** và **f **cùng trỏ đến một object, khi ta thay đổi bất kỳ reference nào thì object cũng được thay đổi theo
 
-![](/static/img/uploads/0_Gxe_biEDnue3p8V0.png)
+![](/static/img/uploads/0_Gxe_biEDnue3p8V0.webp)
 
 và khi function **modifyReference **chạy xong
 
-![](/static/img/uploads/1_GiGaLyDTz3_MnwByNfkKpw.png)
+![](/static/img/uploads/1_GiGaLyDTz3_MnwByNfkKpw.webp)
 
 reference **a**(clone từ **f**) tạm coi là biến mất do đã ra ngoài function, lúc này chỉ còn **f** và đối tượng Foo đã được thay đổi
 
-![](/static/img/uploads/1_3GZz2MqGquGf4Lp1zPKJxA.png)
+![](/static/img/uploads/1_3GZz2MqGquGf4Lp1zPKJxA.webp)
 
 Nghe có vẻ giống **Pass-by-reference**, nhưng sự thật là không. Phương pháp này của Java không phải **Pass-by-reference**, nó nên được hiểu là **Pass-by-value** reference, chương trình không thực sự pass chính xác reference **f **vào function** modifyReference**, mà chương trình chỉ pass cái clone của nó(reference **a**) vào mà thôi. Giờ thì nghe giống **Pass-by-value** chưa!
 
 Để dễ hình dung, ta có ví dụ sau:
 
-![](/static/img/uploads/1_WQfe7G4OpO19AgMofjf2XA.png)
+![](/static/img/uploads/1_WQfe7G4OpO19AgMofjf2XA.webp)
 
 Trước tiên, khi pass **f** vào **changeReference, **ta vẫn được kết quả như trên đã mô tả, chương trình sẽ clone reference **f** ra một reference khác và tất nhiên là cùng trỏ đến đối tượng Foo của **f**
 
-![](/static/img/uploads/0_T1iY94_4EdMtzSLb.png)
+![](/static/img/uploads/0_T1iY94_4EdMtzSLb.webp)
 
 và tiếp phần hay là ta gán **a** sang một đối tượng Foo **khác, **theo như **Pass-by-reference** của C/C++/C# mà ta đã bàn ở trên thì việc này sẽ khiến đối tượng gốc cũng bị thay đổi, cùng xem lại với C#
 
-![](/static/img/uploads/1__s873yVnTlttWGEQ1xNDaQ.png)
+![](/static/img/uploads/1__s873yVnTlttWGEQ1xNDaQ.webp)
 
 Nhưng, Java không làm việc như vậy, khi bạn sẩy chân gán lại reference **a** sang một đối tượng Foo khác, bạn sẽ không thể nào quay đầu được.
 
-![](/static/img/uploads/1_mokO7hm-OBN6LBg7i8b_IA.png)
+![](/static/img/uploads/1_mokO7hm-OBN6LBg7i8b_IA.webp)
 
 khi thay đổi **a**, đổi attribute từ “b” sang “c”
 
-![](/static/img/uploads/1_G3StemGqY2y41sCwMU7f8w.png)
+![](/static/img/uploads/1_G3StemGqY2y41sCwMU7f8w.webp)
 
 Vấn đề trên tưởng như đơn giản nhưng rất nhiều người không biết và vẫn “ngã ngựa”
 
-![](/static/img/uploads/1_18FR4EFkumI_DQKuK8LxCA.png)
+![](/static/img/uploads/1_18FR4EFkumI_DQKuK8LxCA.webp)
 
 Đó cũng là lý do vì sao các linter trong các ngôn ngữ như Java, Python, Javascript,… đều warning mỗi khi bạn gán lại argument của function và việc thay đổi attribute của đối tượng bên trong function cũng là cực kỳ nên tránh
 
 Nên tránh
 
-![](/static/img/uploads/1_zdheUcSsqR8ASerhdp6B5A.png)
+![](/static/img/uploads/1_zdheUcSsqR8ASerhdp6B5A.webp)
 
 Thay vào đó nên tạo ra một list mới và tránh thay đổi list cũ
 
-![](/static/img/uploads/1_7Lrhfw4Hlz5cEZLmC6JW6g.png)
+![](/static/img/uploads/1_7Lrhfw4Hlz5cEZLmC6JW6g.webp)
 
 ### Kết luận
 

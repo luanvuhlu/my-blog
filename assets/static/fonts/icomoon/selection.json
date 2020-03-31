@@ -1496,7 +1496,7 @@
 		},
 		"imagePref": {
 			"prefix": "icon-",
-			"png": true,
+			.webp": true,
 			"useClassSelector": true,
 			"color": 4473924,
 			"bgColor": 16777215

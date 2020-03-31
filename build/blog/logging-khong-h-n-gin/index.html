@@ -11,7 +11,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black">
 <meta name="apple-mobile-web-app-title" content="Weather PWA">
-<link rel="apple-touch-icon" href="../../static/img/covers/icon192x192.png">
+<link rel="apple-touch-icon" href="../../static/img/covers/icon192x192.webp">
 
 <meta name="description" content="Mình thấy hiện nay, rất nhiều dev khi code bỏ quên một thứ quan trọng, **logging**! Log để làm gì? Log như thế nào, đó là cả một câu chuyện dài" />
 
@@ -66,7 +66,7 @@
           <div class="row">
             <div class="col-xs-9 col-sm-6 col-md-3">
               <a class="logo" href="../../"><span>Luan</span>'s blog</a>
-              <!-- <a class="head-logo" href=""><img src="img/rs-logo.png" alt="RScard"/></a> -->
+              <!-- <a class="head-logo" href=""><img src="img/rs-logo.webp" alt="RScard"/></a> -->
             </div>
             <div class="col-xs-3 col-sm-6 col-md-9">
               <div class="nav-wrap">
@@ -130,8 +130,8 @@
           </header>
           <div class="post-media">
               <img class="lozad"
-                src="../../static/img/uploads/458x300.png" 
-                data-src="../../static/img/uploads/1_hAHnSXlyi6YNVUfDYLD-oQ.png" 
+                src="../../static/img/uploads/458x300.webp" 
+                data-src="../../static/img/uploads/1_hAHnSXlyi6YNVUfDYLD-oQ.webp" 
                 alt="Logging không hề đơn giản" />
             </div>
         <div class="post-inner">
@@ -158,48 +158,48 @@
 </ul>
 <h1>Log sao cho hợp lý</h1>
 <p>Cùng đến với dòng log đầu tiên:</p>
-<p><img src="../../static/img/uploads/1_uTZ5VjS6KR8ugURHtLUypg.png" alt=""></p>
+<p><img src="../../static/img/uploads/1_uTZ5VjS6KR8ugURHtLUypg.webp" alt=""></p>
 <p>Hmm. Cũng có gì đâu. Phức tạp hơn chút:</p>
-<p><img src="../../static/img/uploads/1_SOa7MUcv5s6X5iLSMzspQw.png" alt=""></p>
+<p><img src="../../static/img/uploads/1_SOa7MUcv5s6X5iLSMzspQw.webp" alt=""></p>
 <p>Ok. Mọi chuyện bắt đầu phức tạp rồi. Nhìn code có vẻ xấu. Có thể nhiều bạn biết, hoặc IDE gợi ý, Java có <em>java.text.MessageFormat</em></p>
-<p><img src="../../static/img/uploads/1_OjmF0ewQM-d0hQ9vbkl00A.png" alt=""></p>
+<p><img src="../../static/img/uploads/1_OjmF0ewQM-d0hQ9vbkl00A.webp" alt=""></p>
 <p>Trông cũng không đến nỗi tệ! Nhưng thật ra là có đấy. Nếu bạn có theo dõi bài <a href="https://luandev.com/2019/10/string-concatenate-stringbuilder-hay-stringbuffer/">này</a> của mình, bạn sẽ biết là string composition là rất đắt giá, thậm chí <em>MessageFormat</em> còn tệ hơn rất nhiều. Sẽ ra sao nếu code của bạn có rất nhiều dòng log, và mỗi dòng log đều thực hiện cả tá string composition này.</p>
 <p>Có bạn sẽ nói là ta có thể giới hạn log level, không để debug nữa, mà nếu để debug thì cũng chỉ là đang debug thôi, không đáng ngại.</p>
 <p>Vấn đề là, dòng debug bạn vừa viết, có thể không được ghi ra console hay log file, nhưng, nó luôn luôn chạy, dù bạn để level là gì!</p>
-<p><img src="../../static/img/uploads/1_fWMkrk6RrmxcPcAoNdtF5w.png" alt=""></p>
+<p><img src="../../static/img/uploads/1_fWMkrk6RrmxcPcAoNdtF5w.webp" alt=""></p>
 <p>Đúng là nó <em>logIfEnabled</em>, chỉ log khi bạn enable, nhưng phần message, vẫn sẽ được execute.</p>
 <p>May mắn là, họ có tận 2 cách để giải quyết.</p>
 <p>Cách thứ nhất, dùng hàm log đi kèm parameter sẵn có trong API</p>
-<p><img src="../../static/img/uploads/1_y6jkkbRQLkBzlG3dd8G6Sw.png" alt=""></p>
+<p><img src="../../static/img/uploads/1_y6jkkbRQLkBzlG3dd8G6Sw.webp" alt=""></p>
 <p>Bạn có số lượng parameter từ 1 đến 9, nếu bạn có 10 cái lận, bỏ bớt đi!</p>
-<p><img src="../../static/img/uploads/1_BxFlP3crXVicwbhUrjTVRg.png" alt=""></p>
+<p><img src="../../static/img/uploads/1_BxFlP3crXVicwbhUrjTVRg.webp" alt=""></p>
 <p>Trên thực tế thì họ cũng dùng MessageFormat ở bên trong thôi, vậy tại sao cái này lại hiệu quả hơn? Vì bạn nhìn xem, ở bên ngoài, mình chỉ thấy một constant string và một đống parameter, làm gì có cái string composition hay MessageFormat nào. Vấn đề được giải quyết.</p>
 <p>Cách một khá hay, nhưng sẽ ra sao nếu parameter của mình là dynamic, hay là một block code rất nhiều dòng code</p>
-<p><img src="../../static/img/uploads/1_4wEXAcbv3pQ6Gd8vkcwOdw.png" alt=""></p>
+<p><img src="../../static/img/uploads/1_4wEXAcbv3pQ6Gd8vkcwOdw.webp" alt=""></p>
 <p>Nhìn xem, vẫn không có string composition nào cả, nhưng sẽ có một loạt method được gọi: <em>getPhoneCount()</em>, <em>getLaptopCount()</em>, <em>getTabletCount()</em>. Hoặc giả bạn muốn cả đoạn code này chỉ được thực hiện khi log ở mức debug</p>
-<p><img src="../../static/img/uploads/1_hAHnSXlyi6YNVUfDYLD-oQ.png" alt=""></p>
+<p><img src="../../static/img/uploads/1_hAHnSXlyi6YNVUfDYLD-oQ.webp" alt=""></p>
 <p>Đó là lý do bạn nên dùng cách thứ hai, dùng <em>log.isDebugEnabled()</em></p>
-<p><img src="../../static/img/uploads/1_uB3Le8r_BtgH2kU1UTH-6Q.png" alt=""></p>
+<p><img src="../../static/img/uploads/1_uB3Le8r_BtgH2kU1UTH-6Q.webp" alt=""></p>
 <p>Rất đơn giản, kiểm tra xem log debug có đang được bật không, chỉ chạy code khi log debug được bật. Ngoài <em>isDebugEnabled</em>, bạn còn có <em>isInfoEnabled</em>, <em>isTraceEnabled</em>,… quá đủ cho bạn dùng.</p>
 <p>Bạn sẽ thấy có rất nhiều thư viện, framework dùng đoạn code như trên, nhưng nay, nó đã không còn đúng và trở nên quá cồng kềnh và rối code.</p>
 <p>Code của bạn sẽ rất dài, lằng nhằng và rối rắm (thừa nhận đi) và chỉ trong một method, sẽ có hàng tá đoạn bạn cần phải log debug, không phải chỉ một chỗ, mà chỗ này chỗ kia rất nhiều. Thử tưởng tượng, cứ mỗi lần cần log debug, bạn lại</p>
-<p><img src="../../static/img/uploads/1_hZ5G0moswVXrR07euT9iXg.png" alt=""></p>
-<p><img src="../../static/img/uploads/1_D2XAk7X9-5OMgbL6u6cWJQ.png" alt=""></p>
+<p><img src="../../static/img/uploads/1_hZ5G0moswVXrR07euT9iXg.webp" alt=""></p>
+<p><img src="../../static/img/uploads/1_D2XAk7X9-5OMgbL6u6cWJQ.webp" alt=""></p>
 <p>Bắt đầu không hợp lý rồi.</p>
 <p>Ơn giời, lần đầu tiên trong đời mình thấy Java 8 đặc biệt hữu ích. Vận dụng Lambda expression và Function Interface trong Java 8, log4j đã thêm vào tính năng vô cùng hữu ích: <strong>Supplier</strong>. Tạm gọi đây là cách thứ 3</p>
-<p><img src="../../static/img/uploads/1_BxFlP3crXVicwbhUrjTVRg.png" alt=""></p>
+<p><img src="../../static/img/uploads/1_BxFlP3crXVicwbhUrjTVRg.webp" alt=""></p>
 <p>Ahh. Đừng làm gì nữa, nó ok rồi</p>
 <p>Nhưng với đoạn code này</p>
-<p><img src="../../static/img/uploads/1_4wEXAcbv3pQ6Gd8vkcwOdw.png" alt=""></p>
+<p><img src="../../static/img/uploads/1_4wEXAcbv3pQ6Gd8vkcwOdw.webp" alt=""></p>
 <p>Thay vì dùng <em>isDebugEnabled</em>, bạn có thể viết</p>
-<p><img src="../../static/img/uploads/1_oP0ouzW40SWtKB9CBZ_fdQ.png" alt=""></p>
+<p><img src="../../static/img/uploads/1_oP0ouzW40SWtKB9CBZ_fdQ.webp" alt=""></p>
 <p>Chỉ một dấu nhỏ nhưng hiệu quả hơn rất nhiều. Bạn biết rằng Lambda expression có tác dụng gì không, chính là lazy đấy. Đoạn code bên trong, đoạn này nè</p>
-<p><img src="../../static/img/uploads/1_EwicboAGriOrj38fLb5kxA.png" alt=""></p>
+<p><img src="../../static/img/uploads/1_EwicboAGriOrj38fLb5kxA.webp" alt=""></p>
 <p>Sẽ không được thực thi nếu log debug không được enable.</p>
 <p>Bạn thích như thế này</p>
-<p><img src="../../static/img/uploads/1_0UroNO20xtXaW0aKz2JN7w.png" alt=""></p>
+<p><img src="../../static/img/uploads/1_0UroNO20xtXaW0aKz2JN7w.webp" alt=""></p>
 <p>hay thế này hơn</p>
-<p><img src="../../static/img/uploads/1_M2_RL8t6xqcxx2hEoVOpJw.png" alt=""></p>
+<p><img src="../../static/img/uploads/1_M2_RL8t6xqcxx2hEoVOpJw.webp" alt=""></p>
 <p>Nhiều khi, performance thay đổi có vẻ sẽ không có gì lớn lắm, nhưng performance chỉ nên đánh đổi với những thứ xứng đáng. Chỉ một thay đổi nhỏ nhưng vẫn đảng bảo performance, tại sao không nhỉ?</p>
 
           </div>

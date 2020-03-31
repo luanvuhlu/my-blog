@@ -38,15 +38,15 @@ Log sao cho hợp lý
 
 Cùng đến với dòng log đầu tiên:
 
-![](/static/img/uploads/1_uTZ5VjS6KR8ugURHtLUypg.png)
+![](/static/img/uploads/1_uTZ5VjS6KR8ugURHtLUypg.webp)
 
 Hmm. Cũng có gì đâu. Phức tạp hơn chút:
 
-![](/static/img/uploads/1_SOa7MUcv5s6X5iLSMzspQw.png)
+![](/static/img/uploads/1_SOa7MUcv5s6X5iLSMzspQw.webp)
 
 Ok. Mọi chuyện bắt đầu phức tạp rồi. Nhìn code có vẻ xấu. Có thể nhiều bạn biết, hoặc IDE gợi ý, Java có _java.text.MessageFormat_
 
-![](/static/img/uploads/1_OjmF0ewQM-d0hQ9vbkl00A.png)
+![](/static/img/uploads/1_OjmF0ewQM-d0hQ9vbkl00A.webp)
 
 Trông cũng không đến nỗi tệ! Nhưng thật ra là có đấy. Nếu bạn có theo dõi bài [này](https://luandev.com/2019/10/string-concatenate-stringbuilder-hay-stringbuffer/) của mình, bạn sẽ biết là string composition là rất đắt giá, thậm chí _MessageFormat_ còn tệ hơn rất nhiều. Sẽ ra sao nếu code của bạn có rất nhiều dòng log, và mỗi dòng log đều thực hiện cả tá string composition này.
 
@@ -54,7 +54,7 @@ Có bạn sẽ nói là ta có thể giới hạn log level, không để debug 
 
 Vấn đề là, dòng debug bạn vừa viết, có thể không được ghi ra console hay log file, nhưng, nó luôn luôn chạy, dù bạn để level là gì!
 
-![](/static/img/uploads/1_fWMkrk6RrmxcPcAoNdtF5w.png)
+![](/static/img/uploads/1_fWMkrk6RrmxcPcAoNdtF5w.webp)
 
 Đúng là nó _logIfEnabled_, chỉ log khi bạn enable, nhưng phần message, vẫn sẽ được execute.
 
@@ -62,25 +62,25 @@ May mắn là, họ có tận 2 cách để giải quyết.
 
 Cách thứ nhất, dùng hàm log đi kèm parameter sẵn có trong API
 
-![](/static/img/uploads/1_y6jkkbRQLkBzlG3dd8G6Sw.png)
+![](/static/img/uploads/1_y6jkkbRQLkBzlG3dd8G6Sw.webp)
 
 Bạn có số lượng parameter từ 1 đến 9, nếu bạn có 10 cái lận, bỏ bớt đi!
 
-![](/static/img/uploads/1_BxFlP3crXVicwbhUrjTVRg.png)
+![](/static/img/uploads/1_BxFlP3crXVicwbhUrjTVRg.webp)
 
 Trên thực tế thì họ cũng dùng MessageFormat ở bên trong thôi, vậy tại sao cái này lại hiệu quả hơn? Vì bạn nhìn xem, ở bên ngoài, mình chỉ thấy một constant string và một đống parameter, làm gì có cái string composition hay MessageFormat nào. Vấn đề được giải quyết.
 
 Cách một khá hay, nhưng sẽ ra sao nếu parameter của mình là dynamic, hay là một block code rất nhiều dòng code
 
-![](/static/img/uploads/1_4wEXAcbv3pQ6Gd8vkcwOdw.png)
+![](/static/img/uploads/1_4wEXAcbv3pQ6Gd8vkcwOdw.webp)
 
 Nhìn xem, vẫn không có string composition nào cả, nhưng sẽ có một loạt method được gọi: _getPhoneCount()_, _getLaptopCount()_, _getTabletCount()_. Hoặc giả bạn muốn cả đoạn code này chỉ được thực hiện khi log ở mức debug
 
-![](/static/img/uploads/1_hAHnSXlyi6YNVUfDYLD-oQ.png)
+![](/static/img/uploads/1_hAHnSXlyi6YNVUfDYLD-oQ.webp)
 
 Đó là lý do bạn nên dùng cách thứ hai, dùng _log.isDebugEnabled()_
 
-![](/static/img/uploads/1_uB3Le8r_BtgH2kU1UTH-6Q.png)
+![](/static/img/uploads/1_uB3Le8r_BtgH2kU1UTH-6Q.webp)
 
 Rất đơn giản, kiểm tra xem log debug có đang được bật không, chỉ chạy code khi log debug được bật. Ngoài _isDebugEnabled_, bạn còn có _isInfoEnabled_, _isTraceEnabled_,… quá đủ cho bạn dùng.
 
@@ -88,43 +88,43 @@ Bạn sẽ thấy có rất nhiều thư viện, framework dùng đoạn code nh
 
 Code của bạn sẽ rất dài, lằng nhằng và rối rắm (thừa nhận đi) và chỉ trong một method, sẽ có hàng tá đoạn bạn cần phải log debug, không phải chỉ một chỗ, mà chỗ này chỗ kia rất nhiều. Thử tưởng tượng, cứ mỗi lần cần log debug, bạn lại
 
-![](/static/img/uploads/1_hZ5G0moswVXrR07euT9iXg.png)
+![](/static/img/uploads/1_hZ5G0moswVXrR07euT9iXg.webp)
 
-![](/static/img/uploads/1_D2XAk7X9-5OMgbL6u6cWJQ.png)
+![](/static/img/uploads/1_D2XAk7X9-5OMgbL6u6cWJQ.webp)
 
 Bắt đầu không hợp lý rồi.
 
 Ơn giời, lần đầu tiên trong đời mình thấy Java 8 đặc biệt hữu ích. Vận dụng Lambda expression và Function Interface trong Java 8, log4j đã thêm vào tính năng vô cùng hữu ích: **Supplier**. Tạm gọi đây là cách thứ 3
 
-![](/static/img/uploads/1_BxFlP3crXVicwbhUrjTVRg.png)
+![](/static/img/uploads/1_BxFlP3crXVicwbhUrjTVRg.webp)
 
 Ahh. Đừng làm gì nữa, nó ok rồi
 
 Nhưng với đoạn code này
 
-![](/static/img/uploads/1_4wEXAcbv3pQ6Gd8vkcwOdw.png)
+![](/static/img/uploads/1_4wEXAcbv3pQ6Gd8vkcwOdw.webp)
 
 Thay vì dùng _isDebugEnabled_, bạn có thể viết
 
-![](/static/img/uploads/1_oP0ouzW40SWtKB9CBZ_fdQ.png)
+![](/static/img/uploads/1_oP0ouzW40SWtKB9CBZ_fdQ.webp)
 
 Chỉ một dấu nhỏ nhưng hiệu quả hơn rất nhiều. Bạn biết rằng Lambda expression có tác dụng gì không, chính là lazy đấy. Đoạn code bên trong, đoạn này nè
 
-![](/static/img/uploads/1_EwicboAGriOrj38fLb5kxA.png)
+![](/static/img/uploads/1_EwicboAGriOrj38fLb5kxA.webp)
 
 Sẽ không được thực thi nếu log debug không được enable.
 
 Bạn thích như thế này
 
-![](/static/img/uploads/1_0UroNO20xtXaW0aKz2JN7w.png)
+![](/static/img/uploads/1_0UroNO20xtXaW0aKz2JN7w.webp)
 
 hay thế này hơn
 
-![](/static/img/uploads/1_M2_RL8t6xqcxx2hEoVOpJw.png)
+![](/static/img/uploads/1_M2_RL8t6xqcxx2hEoVOpJw.webp)
 
 Nhiều khi, performance thay đổi có vẻ sẽ không có gì lớn lắm, nhưng performance chỉ nên đánh đổi với những thứ xứng đáng. Chỉ một thay đổi nhỏ nhưng vẫn đảng bảo performance, tại sao không nhỉ?
 ---
-cover: uploads/1_hAHnSXlyi6YNVUfDYLD-oQ.png
+cover: uploads/1_hAHnSXlyi6YNVUfDYLD-oQ.webp
 ---
 pub_date: 2020-03-31
 ---

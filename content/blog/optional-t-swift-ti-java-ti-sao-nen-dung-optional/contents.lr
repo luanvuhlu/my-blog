@@ -14,7 +14,7 @@ Còn Apple thì nói *Optional* là:
 
 *Optional *trong Java được định nghĩa như một **container object**, chứa bên trong là một non-nullable reference. Nếu bạn nhìn vào source code của Optional sẽ thấy đúng là nó “*chỉ có vậy”, *không hề có sự khác biệt giữa Optional của Java 8 và của guava(đã có từ 2011)
 
-![](/static/img/uploads/0sOLaII80edhn7K9y.jpg)
+![](/static/img/uploads/0sOLaII80edhn7K9y.webp)
 
 Giải pháp này tương tự như **[Null Object](https://en.wikipedia.org/wiki/Null_object_pattern)** trong ***Design Pattern***. Tư tưởng của *Null Object* là thay vì sử dụng một reference có thể null, ta sử dụng một đối tượng thay thế cho reference đó, nhưng ở “trạng thái” null, và thực tế khi sử dụng, thay vì sử dụng những behavior thông thường của reference thì ta cài đè những behavior riêng cho nullable reference. Từ đó, người sử dụng không cần quan tâm đến việc reference đó có null hay không? Vì code implement bên trong đã điều hướng giúp họ rồi.
 
@@ -24,11 +24,11 @@ Mình đã từng hỏi một số người đã biết qua Java 8, liệu họ 
 
 Mình thậm chí còn bắt gặp một bình luận như dưới đây:
 
-![](/static/img/uploads/0_uUKt5bbcbOApdOde.png)
+![](/static/img/uploads/0_uUKt5bbcbOApdOde.webp)
 
 Lý do mọi người đưa ra cũng thường là vậy. Suy nghĩ đó là hoàn toàn đúng! Dùng Optional **không giúp ích nhiều** cho bạn trong việc **check null**. Nhưng bạn hãy khoan. *Optional *là … optional, hay như **Kotlin ** họ gọi là ***Null Safety***. Nếu chỉ là check null, thì hãy gọi nó là ***Null Checker*** mới phải chứ?
 
-![](/static/img/uploads/0PLW6PKWLx9KcRTOw.png)
+![](/static/img/uploads/0PLW6PKWLx9KcRTOw.webp)
 
 Đứng dưới góc độ là một Java developer, nhiều người nhìn Optional qua cú pháp, từ đó sẽ luôn chỉ thấy **check null**. Nhưng câu chuyện đằng sau Optional lại là một câu chuyện khác.
 
@@ -44,35 +44,35 @@ Theo ý hiểu của mình thì, trong Swift, kiểu dữ liệu chia ra 2 loạ
 
 Ví dụ khi ta chỉ khai báo kiểu dữ liệu cho biến là *String * và không chỉ định gì thêm, có nghĩa biến này là kiểu Non-Optional String. Nếu ta cố gắng gán *nil *cho nó, compile error sẽ xảy ra ngay.
 
-![không được phép gán nil cho Non-Optional](/static/img/uploads/1X41_2mO4yLzn0CImi1VI4g.png)*không được phép gán nil cho Non-Optional*
+![không được phép gán nil cho Non-Optional](/static/img/uploads/1X41_2mO4yLzn0CImi1VI4g.webp)*không được phép gán nil cho Non-Optional*
 
 Thay vào đó, ta phải gán giá trị non-nil vào cho biến:
 
-![](/static/img/uploads/1YEu-87GiNGHNUqFZHhrOBg.png)
+![](/static/img/uploads/1YEu-87GiNGHNUqFZHhrOBg.webp)
 
 Bây giờ ta khai báo kiểu là Optional bằng cách thêm dấu “?” vào sau kiểu dữ liệu
 
-![có thể gán nil cho biến kiểu Optional](/static/img/uploads/1_dslZj0SU_19nTFb0NMjZMw.png)*có thể gán nil cho biến kiểu Optional*
+![có thể gán nil cho biến kiểu Optional](/static/img/uploads/1_dslZj0SU_19nTFb0NMjZMw.webp)*có thể gán nil cho biến kiểu Optional*
 
 Điều tuyệt vời của Optional trong *Swift * không phải **check null ** mà là bạn sẽ luôn biết(hoặc compiler bắt bạn biết) khi nào cần **check null ** và kiểu của một biến(biết nó có thể null hay không).
 
 Cùng so sánh một số đoạn code khi sử dụng *Swift* và *Java*(chưa dùng *Optional*)
 
-![Swift](/static/img/uploads/1QAri_FnrmmP8PiT_oKuGKA.png)
+![Swift](/static/img/uploads/1QAri_FnrmmP8PiT_oKuGKA.webp)
 
-![Java](/static/img/uploads/1T5HFztJokajBCZ0zGGTK-g.png)
+![Java](/static/img/uploads/1T5HFztJokajBCZ0zGGTK-g.webp)
 
 Mỗi người đều có gia đình nên *family * là non-nullable, nhưng có thể không có bạn gái nên *girlfriend * sẽ là nullable. Điều này rất dễ thấy với *Swift*, nhưng *Java * thì không, bạn không thể phân biệt được.
 
 Tương tự với method:
 
-![Java](/static/img/uploads/1_br3er0LQ8eKNTWYnhYnnHg.png)
+![Java](/static/img/uploads/1_br3er0LQ8eKNTWYnhYnnHg.webp)
 
 Nhìn vào method của *Java*, liệu bạn có biết được parameter nào có thể null, parameter nào không thể null không? Có thể nhiều người sẽ nghĩ đến *Document*, nhưng sự thật là Document không phải là thứ nhiều dev hứng thú nên rất dễ bị bỏ qua!
 
 Còn với *Swift*
 
-![Swift](/static/img/uploads/1_oQS9c2IkkkD1An0o9P0gGg.png)
+![Swift](/static/img/uploads/1_oQS9c2IkkkD1An0o9P0gGg.webp)
 
 *firstName * không được null, *lastName * và *age* đều có thể null. Method trên có thể trả về *null* nếu không tìm thấy *Person * nào, quá dễ hiểu mà chẳng cần bất kỳ dòng *Document* nào cả.
 
@@ -103,7 +103,7 @@ Trong *Swift*, bạn có thể viết
 
 còn với *Java*, hãy nhìn đoạn code ở trên và tưởng tượng
 
-![Nghĩ đến mà chán](/static/img/uploads/1UiusvJn4r-hT_ly8D-evvQ.png)
+![Nghĩ đến mà chán](/static/img/uploads/1UiusvJn4r-hT_ly8D-evvQ.webp)
 
 * không thể check khi compile,
 
@@ -111,7 +111,7 @@ còn với *Java*, hãy nhìn đoạn code ở trên và tưởng tượng
     Optional.of(null) // -> Compile bình thường !!
 ```
 
-![Thật hả trời](/static/img/uploads/17YqeBK5U-Pb3dGdSq3xYNA.png)
+![Thật hả trời](/static/img/uploads/17YqeBK5U-Pb3dGdSq3xYNA.webp)
 
 ### Optional của Java thật tệ, nhưng hãy thử dùng nó!
 
@@ -153,11 +153,11 @@ Hay bạn muốn viết API và muốn nói với đồng nghiệp rằng:
 
 Có thể bạn nghĩ là nên viết như vầy
 
-![Nhiều comment dữ dội luôn](/static/img/uploads/1__8S-x_StRGvlDmAu_FE_mg.png)*Nhiều comment dữ dội luôn*
+![Nhiều comment dữ dội luôn](/static/img/uploads/1__8S-x_StRGvlDmAu_FE_mg.webp)*Nhiều comment dữ dội luôn*
 
 Tại sao không viết là
 
-![](/static/img/uploads/1_KT_yeIRoW_7WQEQwsp6a1g.png)
+![](/static/img/uploads/1_KT_yeIRoW_7WQEQwsp6a1g.webp)
 
 Không may, đồng nghiệp bạn sẽ quạo:
 
@@ -178,7 +178,7 @@ Hãy nở nụ cười thật tươi và nói: Welcome to Java 8!
 [**Optional Chaining - The Swift Programming Language (Swift 4.2)**](https://docs.swift.org/swift-book/LanguageGuide/OptionalChaining.html#)  
 [**Null Safety - Kotlin Programming Language**](https://kotlinlang.org/docs/reference/null-safety.html)
 ---
-cover: covers/0_sOLaII80edhn7K9y.jpg
+cover: covers/0_sOLaII80edhn7K9y.webp
 ---
 pub_date: 2018-10-09
 ---
