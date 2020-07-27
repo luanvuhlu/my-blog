@@ -70,6 +70,18 @@
         ],
         "educations": [
             {
+                "date": "05/2020",
+                "name": "Professional Certification - Professional Scrum Master I",
+                "supplier": "Scrum.org",
+                "desciption": ""
+            },
+            {
+                "date": "05/2020",
+                "name": "Oracle Certified Professional: Java SE 11 Developer",
+                "supplier": "ORACLE",
+                "desciption": ""
+            },
+            {
                 "date": "12/2019",
                 "name": "AWS Certified Solutions Architect - Professional",
                 "supplier": "Amazon Web Services",
