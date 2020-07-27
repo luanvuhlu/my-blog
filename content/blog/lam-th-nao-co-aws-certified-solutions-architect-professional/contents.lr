@@ -1,0 +1,380 @@
+title: Làm thế nào để có AWS Certified Solutions Architect — Professional
+---
+author: luanvv
+---
+body:
+
+
+## Làm thế nào để có AWS Certified Solutions Architect — Professional
+
+Bạn đang muốn thi chứng chỉ AWS Certified Solutions Architect — Professional. Hôm nay mình sẽ giúp gợi ý cho các bạn một số tip & trick mà mình rút ra trong quá trình ôn thi chứng chỉ Professional năm ngoái.
+
+### How I PASSED the New AWS Solutions Architect Professional?
+
+Lại một hướng dẫn thi chứng chỉ, chắc lại đọc White Paper, xem video trên Youtube, học khóa này khóa kia, bla bla các thứ. Không! Những bài như vậy, đã có rất rất nhiều trên internet, mà bạn có thể rất dễ dàng tìm được. Mình có thể kiếm cho bạn vài cái
+
+* [How I PASSED the New AWS Solutions Architect Professional (Feb 2019 version) exam last March 9!](https://acloud.guru/forums/aws-csa-pro-2019/discussion/-L_joCzK9FTbpP2P7H0Z/how_i_passed_the_new_aws_solut)
+
+* [AWS Certified Solutions Architect — Professional 2019 (feedback)](https://acloud.guru/forums/aws-csa-pro-2019/discussion/-Lc31u8nAIbpeo9q9mM7/aws_certified_solutions_archit)
+
+* [My AWS Solution Architect Professional Certification Experience](https://virtualbonzo.com/2020/02/03/my-aws-solution-architect-professional-certification-experience/)
+
+* [My path to AWS Certified Solutions Architect — Professional](https://medium.com/grey-frogs/my-path-to-aws-certified-solutions-architect-professional-bebd42eb5d5)
+
+* [Passed SA Pro today](https://acloud.guru/forums/aws-certified-solutions-architect-professional/discussion/-KEAY5AHdre2DzoI-H99/passed-sa-pro-today)
+
+Những bài viết đấy đã có quá nhiều rồi, thêm một bài của mình thì cũng chẳng có gì hơn. Những người kia viết có đúng không? Chắc chắn đúng. Nhưng để làm tới thì không hề đơn giản như nói.
+
+Việc học đúng lộ trình là tốt, nhưng để đỗ được còn phải tùy thuộc vào khả năng học hỏi và các kiến thức nền bạn có. Người ta nói học 4 tháng là đỗ, mình học cả năm, thậm chí học cả năm có khi vẫn không đỗ.
+
+### Lộ trình chuẩn là gì
+
+Lộ trình để thi đỗ chứng chỉ AWS, tựu chung lại bao gồm (đừng học thiếu cái nào):
+
+### Đọc White Paper
+
+Có đến gần trăm White Paper, có những quyển cả nghìn trang. Bạn liệu có thể đọc hết không? Dù bạn đọc hết được thì liệu bạn nhớ được bao nhiêu.
+
+Mình vừa kiểm tra, hiện có 314 White Paper & Guide, bạn có thể kiểm tra tại [AWS Whitepapers & Guides](https://aws.amazon.com/whitepapers/?whitepapers-main.sort-by=item.additionalFields.sortDate&whitepapers-main.sort-order=desc&awsm.page-whitepapers-main=1)
+
+Hãy đọc những White Paper quan trọng, được nhắc đến rất nhiều trong những link trên rồi.
+
+### Đọc FAQs
+
+[https://aws.amazon.com/faqs/](https://aws.amazon.com/faqs/)
+
+Chỉ là vài câu hỏi thường gặp, “*game là dễ*“?. Nghĩ lại đi, AWS có cả trăm service, vậy là cũng có cả trăm FAQs, mỗi FAQ có thể tận vài trang A4. Vẫn lại là, liệu bạn có đọc hết và nhớ hết được không? Nhưng bạn vẫn nên càng nhiều càng tốt, ít cũng phải tầm 100 service quan trọng.
+
+### Xem AWS Re:invent, This Is My Architecture
+
+Cũng không nhiều lắm, xem vài chục video **Re:invest** là đủ thôi, nhưng mỗi video kéo dài cả tiếng lận.
+
+Còn series **This Is My Architecture** thì sao, chà, cũng chỉ có khoảng vài trăm video thôi
+
+Những video này không chỉ giúp bạn trong lúc ôn thi, nó còn giúp bạn rất nhiều trong quá trình làm việc thực tế sau này.
+
+### Học một số khóa học
+
+Đây chính ra lại là cái dễ tiếp cận nhất. Hiện có rất nhiều khóa học AWS (nhiều nhất), có cả trả phí và mất phí. AWS cũng có một số Exam Readiness (Free) để hướng dẫn các bạn làm quen đề thi
+
+[Exam Readiness: AWS Certified Solutions Architect — Professional](https://aws.amazon.com/training/course-descriptions/exam-workshop-solutions-architect-professional/)
+
+Khóa học thì cũng nhiều loại, nhưng nhìn chung thì đều là không đủ. Đặc biệt một số khóa học mặc định yêu cầu bạn đã có kiến thức tốt về AWS, họ chỉ overview lại cho bạn. Nếu bạn chỉ bấu víu vào khóa học, trượt là cái chắc.
+
+*Fun Fact: lần đầu đi thi mình bị đập ngay vào mặt cái service gọi là Amazon Mechanical Turk, cái không hề xuất hiện trong bất kỳ White Paper, FAQs hay AWS Console. Rất may là các khóa học sẽ thường nhắc đến những service hay có trong bài thi*
+
+### Thực hành
+
+Trừ khi bạn là mấy sĩ tử thời xưa với khả năng thuộc làu làu Tứ Thư Ngũ Kinh, với khả năng đọc xuôi đọc ngược các kiểu mà không gặp vấn đề gì, thì các bạn không cần thực hành.
+
+Những tư liệu học kia chắc chắn là đủ kiến thức, nhưng bạn rất khó nhớ được hết nếu chỉ đọc và xem người ta làm. Việc thực hành giúp bạn hiểu hơn, nhớ hơn. Đừng bao giờ bỏ qua thực hành.
+
+### Học tiếng Anh
+
+Nghiêm túc đấy. Tùy vào cấp độ chứng chỉ mà bạn thi. Với Professional mình đã thi thì đề là rất rất dài, in ra cũng phải trên 50 trang. Vừa đọc vừa nghĩ câu trả lời, thực sự nó là một cuộc đua nước rút khủng khiếp.
+
+Với người thi mà tiếng Anh không phải ngôn ngữ mẹ đẻ (non-English speakers hay English as a Second Language), AWS cho phép bạn request accommodations, theo đó bạn được bonus 30 phút mỗi lần thi, nên tận dụng.
+
+Nói đến đây chắc nhiều bạn bị sốc, không dám học luôn mất, nhưng sự thật là vậy. Bài thi này là vô cùng khó , đòi hỏi hàng trăm giờ học và thực hành. Bạn phải có sự quyết tâm thực sự khủng khiếp mới có thể vượt qua được.
+
+Điều an ủi cho các bạn là Amazon sẽ chỉ kiểm tra các bạn tập trung ở vài chục service chủ chốt, nếu nắm được (đến mức nhuần nhuyễn) những service chủ chốt, bạn đã đạt được trên 80%. Còn nếu bạn không nắm được những service này và để vuột mất điểm, thì những service xa lạ bạn chả bao giờ đụng sẽ là cứu cánh, nhưng, nó lại là vô biên kiến thức. Đó chính là cái khó của AWS, khó để hiểu sâu một cái gì đó, còn nếu để hiểu rộng thì lại quá rộng để hiểu hết.
+
+### Tip & Trick gì đây?
+
+Nói thì nhiều mà chưa thấy bật mí gì cả. Sự thực thì mình không phải người có khả năng khi nhớ tốt. Mình đã thử học bằng cách từ service này đến service khác và cố gắng ghi nhớ. Tuy nhiên, càng cố nhớ thì lại càng quên, học được 10-20 service thì lại quên những cái đầu. Vậy nên, bí quyết của mình là
+
+### Phân loại service
+
+AWS đã phân loại sẵn cho bạn tại [https://aws.amazon.com/products/](https://aws.amazon.com/products/)
+
+*Chú ý: đây không phải tất cả các service của AWS, ví dụ đơn giản nhất chính là Amazon Mechanical Turk đấy.*
+
+Việc phân loại service là rất quan trọng. Nó giúp bạn biết bạn đang đối mặt với cái gì và bạn phải đối xử với nó như thế nào
+
+Nếu bạn đối mặt với một Storage, bạn cần biết secure nó như thế nào, dung lượng bao nhiêu, availability đến đâu, reliability thì sao.
+
+Nếu bạn dùng đến Database thì phải nhớ nó là RDBMS hay NoSQL, cache hay Big data
+
+Nó cũng giúp bạn ghi nhớ service tốt hơn. EC2 Auto Scaling hay Elastic Load Balancer nghe có vẻ đầy tính gợi nhớ, nhưng theo bạn thì Neptune là làm cái gì? Nấu ăn à? Hay Snowball là ném tuyết đi kèm với tảng băng Glacier?
+
+### Nghĩ theo Five Pillars của Well-Architected Framework
+
+**Well-Architected Framework **đưa ra những hướng dẫn để giúp khách hàng có thể triển khai hệ thống trên AWS. Framework đưa ra 5 trụ cột chính:
+
+* Operational Excellence
+
+* Security
+
+* Reliability
+
+* Performance Efficiency
+
+* Cost Optimization
+
+Khi gặp bất kỳ một service nào, các bạn cũng cần nghĩ theo những trụ cột này.
+
+**Security**
+
+AWS rất nhấn mạnh tính security trong toàn bộ các architect. Có 2 loại secure chính mà bạn cần biết là
+
+* Bảo mật hoạt động quản lý
+
+* Bảo mật dữ liệu được lưu trữ và truyền tải
+
+**Bảo mật hoạt động quản lý**
+
+Luôn luôn có những nhân viên làm những điều ngốc nghếch mà họ không được quyền làm. Đó chính là những lý do có những service như IAM, Organizations, Cognito, CloudTrail,…
+
+Khi học một service nào đó, bạn phải biết làm cách nào để cấp quyền truy cập hoặc giới hạn quyền truy cập đến nó.
+
+Amazon S3, làm sao để không cho phép người khác public nó ra? Làm sao để cho phép người có AWS account khác (và chỉ họ thôi) truy cập?
+
+Làm sao để ngăn ai đó Terminate EC2 instance?
+
+Biết service có thể làm gì là quan trọng, nhưng bảo mật nó cũng quan trọng không kém.
+
+**Bảo mật dữ liệu được lưu trữ và truyền tải**
+
+Bạn sẽ phải quen với khái niệm Encrypt at rest và Encryot in transit. Dữ liệu được lưu trữ trong Storage có được encrypt không? Khi transfer data ra internet hoặc on-premises qua VPN đã được encryot chưa?
+
+Hầu hết các service đều mặc định được Encrypt in transit, nhưng Encrypt at rest thì không (EBS mặc định không được encrypt).
+
+Ngoài kia vẫn còn rất nhiều khách hàng khó tính. Họ yêu cầu bảo mật hơn nữa. Phải dùng CloudHSM, dùng certificate của riêng hoặc phải dùng Two-way SSL nữa, và nó thực sự là rất khó.
+
+Bạn sẽ rất điên đầu với những service như KMS, CloudHSM, Direct Connect, Security Hub, Transit Gateway, VPN,… nhưng nó lại rất hay gặp trong bài thi.
+
+**Availability và Reliability**
+
+High Availability, Blue/Green Deployment, Zero DownTime, UpTime, service level agreement (SLA), recovery time objective (RTO), recovery point objective (RPO), Redundancy, Failback,… bạn cần nắm được.
+
+Có thể những dự án các bạn đã làm hoặc đang làm, đều ở mức rất căn bản: 1 server, 1 database, 1 data center,,… Stop thì lại start lại thôi mà. Nhưng khi đến với AWS, tiêu chuẩn của architecture đã lên một tầm cao mới. Hệ thống của bạn phải dự phòng được mọi thứ: lỗi phần cứng dẫn đến stop server hoặc mất mát dữ liệu. Những khả năng như bão tố, động đất núi lửa phá hủy cả một data center. Thậm chí, là bạn phải tính đến cả trường hợp lỗi chính từ AWS (đỡ đi)
+
+Bạn cần nắm rõ 4 cách để bảo toàn hệ thống
+
+* Backup and Restore
+
+* Pilot Light
+
+* Warm Standby
+
+* Multi-site
+
+Ví dụ với EC2. EC2 chỉ đảm bảo 95.0% availability, tức là cứ 1 tiếng thì EC2 có thể down 3 phút. Để tăng availability, cần kết hợp với Auto Scaling Group, Load Balancer. Nâng cao hơn nữa, có thể là Cross region Load Balancer, Multi-site giữa AWS infrastructure và on-premises. Cũng có thể tính đến phương án Serverless để thay thế.
+
+Còn dữ liệu thì sao? EC2 lưu dữ liệu trong EBS, làm sao đảm bảo không mất mát dữ liệu? Lúc này bạn có thể sẽ phải biết những thứ như RAID, Snapshot, Point-in-time (PIT).
+
+Tương tự thì với RDS, ta có RDS snapshot, backtrack, Replica, Multi AZ,…
+
+Với ElastiCache thì cũng có Multi A-Z, Failover, Append Only Files (AOF),… nhưng hãy ghi nhớ, đừng tin availability hay reliability của ElastiCache, dữ liệu luôn có thể bị mất.
+
+Bạn cũng cần phải biết, mất bao lâu để hệ thống được khôi phục (RTO) và bao nhiêu dữ liệu có thể mất đi (RPO). Nếu khách cần khôi phục hệ thống trong vòng 1 tiếng mà bạn lại phải lưu trong Glacier thì tiêu rồi.
+
+Tham khảo
+
+* [Rapidly recover mission-critical systems in a disaster](https://aws.amazon.com/blogs/publicsector/rapidly-recover-mission-critical-systems-in-a-disaster/)
+
+* [AWS High Availability: Compute, SQL and Storage](https://cloud.netapp.com/blog/understanding-aws-high-availability-compute-sql-and-storage)
+
+* [High Availability for Mere Mortals](https://aws.amazon.com/blogs/startups/high-availability-for-mere-mortals/)
+
+**Performance**
+
+Performance ở đây được hiểu là việc sử dụng các tài nguyên tính toán đáp ứng các yêu cầu của hệ thống, cũng như duy trì hiệu suất khi yêu cầu thay đổi hoặc công nghệ phát triển.
+
+Một số vấn đề được dặt ra có thể là:
+
+* Latency
+
+* IOPS
+
+* Throughput
+
+Khi lựa chọn service để sử dụng cho architecture, có 4 loại resource bạn cần quan tâm: compute, storage, database, và network
+
+**Compute**
+
+Có 3 loại compute chính
+
+* Instance: là máy chủ ảo, điển hình là EC2 và Lightsail. Thực ra có thể dùng EC2 để giải quyết mọi thứ nếu không còn lựa chọn nào khác.
+
+* Container: là một cách ảo hóa hệ điều hành, có thể nghĩ ngay đến Docker, Kubernetes. Với AWS thì cần nghĩ đến ECS, Fargate và EKS. Khi nào thì dùng Container thay cho Instance? Hầu hết câu trả lời (trong bài thi) sẽ là khách hàng vốn dĩ đã sử dụng container ở on-premises rồi và muốn tốn ít công sức nhất nếu migrate lên AWS.
+
+*Fun fact: Có vẻ AWS ghét Kubernetes của Google, lúc mình thi không thấy có câu nào về EKS.*
+
+* Function: tập trung vào code và chạy mà không phải quản lý instance. Function có 3 lợi ích quan trọng: tốn ít nhất công sức quản lý, khả năng mở rộng tuyệt vời và đặc biệt thích hợp với những chương trình event based.
+
+**Storage**
+
+Có 3 loại lưu trữ chính
+
+* Object Storage: chỉ là S3
+
+* Block Storage: chỉ là EBS
+
+* File Storage: EFS, FSx
+
+Theo mình thì Storage Gateway cũng nên được tính vào ở đây.
+
+Phân loại storage cũng không có nhiều ý nghĩa cho lắm. Với một file, bạn có thể lưu ở Object Storage, Block Storage hay File Storage đều được, tuy nhiên, có một chút khác biệt.
+
+Ví dụ:
+
+S3 giới hạn 3,500 PUT/COPY/POST/DELETE và 5,500 GET/HEAD requests per second per prefix (directory name), và đừng quên còn có limit của KMS nếu bạn chọn encrypt. Chưa hết, truy cập file từ S3 sẽ cho độ trễ cực kỳ cao. Hãy nghĩ về chúng khi sử dụng.
+
+Với EBS thì cần nhớ các volume types, cái nào tối ưu cho IOPS, cái nào tối ưu cho Throughput. Nếu cần performance cao hơn nữa, có thể nghĩ đến RAID, nhưng RAID thì có nhược điểm gì? Data loss, Downtime.
+
+EBS vẫn có những giới hạn nhất định: IOPS, Thoughput, Hybrid Storage, Limit storage size, Availability,… Lúc đó sẽ cần dùng đến EFS.
+
+**Database**
+
+Có thể chia database trên AWS thành 7 loại
+
+* Relational: RDS
+
+* Key-Value: DynamoDB, hay có thể cả Redis
+
+* Document: DocumentDB
+
+* In-Memory: ElastiCache
+
+* Graph: Neptune
+
+* Time-Series: Timestream
+
+* Ledger: QLDB
+
+Mỗi loại database sẽ dùng cho những mục đích khác nhau, nhưng đôi khi cũng không quá rõ ràng.
+
+Ví dụ:
+
+Khách hàng sử dụng MySQL ở on-premises không có nghĩa là lên AWS bắt buộc phải dùng RDS. Đó cũng chỉ là một tùy chọn. Tùy chọn khác có thể là MySQL trên EC2 instance, chuyển đổi MySQL sang dùng DynamoDB.
+
+Muốn một database có tần suất truy cập cao, độ trễ thấp, đó có thể là DynamoDB, nhưng nếu dữ liệu không quá quan trọng thì ElastiCache cũng là một phương án tốt.
+
+Nhìn chung, những vấn đề về lựa chọn database cũng không quá khó. Thông thường câu hỏi sẽ xoáy quanh vấn đề tối ưu một loại database xác định.
+
+Ví dụ:
+
+Khách hàng đang sử dụng MySQL trên RDS và nhận thấy phản hồi chậm khi lượng traffic tăng lên. Cần nghĩ ngay đến multi-writer, multi-reader và có thể là thêm cả ElastiCache để giảm tải cho RDS.
+
+Tham khảo
+
+* [AWS re:Invent 2019: Leadership session: AWS purpose-built databases (DAT209-L)](https://www.youtube.com/watch?v=q81TVuV5u28&ref=wellarchitected)
+
+**Network**
+
+Vấn đề của Network trong performance, chỉ có thể là làm thế nào để giảm độ trễ (latency).
+
+Tất cả các component của AWS đều được kết nối thông qua hệ thống network, có thể là private network của AWS hoặc internet.
+
+EC2 instance kết nối với EBS thông qua network; Route53, CloudFront, S3 in/out internet; kết nối giữa AWS và on-premises,…
+
+Về vấn đề này, có một số giải pháp thường gặp:
+
+* CloudFront có thể giảm độ trễ khi truy cập global
+
+* Triển khai (thêm một hệ thống) trên region gần người dùng cũng là một cách để giảm độ trễ
+
+* Upload/Download trên S3 bị chậm, hãy dùng **S3 transfer acceleration**
+
+* Kết nối tới On-premises bằng VPN bị chậm, thêm tiền dùng Direct Connect là xong
+
+* Latency-Based Routing in Amazon Route 53
+
+* Dùng VPC Endpoints để dùng internal network của AWS
+
+Tham khảo
+
+* [PERF 1: How do you select the best performing architecture?](https://wa.aws.amazon.com/wat.question.PERF_1.en.html)
+
+* [PERF 2: How do you select your compute solution?](https://wa.aws.amazon.com/wat.question.PERF_2.en.html)
+
+* [PERF 3: How do you select your storage solution?](https://wa.aws.amazon.com/wat.question.PERF_3.en.html)
+
+* [PERF 4: How do you select your database solution?](https://wa.aws.amazon.com/wat.question.PERF_4.en.html)
+
+* [PERF 5: How do you configure your networking solution?](https://wa.aws.amazon.com/wat.question.PERF_5.en.html)
+
+* [PERF 6: How do you evolve your workload to take advantage of new releases?](https://wa.aws.amazon.com/wat.question.PERF_6.en.html)
+
+* [PERF 7: How do you monitor your resources to ensure they are performing?](https://wa.aws.amazon.com/wat.question.PERF_7.en.html)
+
+* [PERF 8: How do you use tradeoffs to improve performance?](https://wa.aws.amazon.com/wat.question.PERF_8.en.html)
+
+* [Performance Efficiency](https://wa.aws.amazon.com/wat.pillar.performance.en.html)
+
+### Cost
+>  Tất cả vấn đề đều bắt nguồn từ tiền.
+
+Thông thường sẽ có 2 tình huống xảy ra:
+
+* Khách hàng đã có hệ thống và muốn giảm giá thành
+
+* Khách hàng muốn đưa lên AWS, với giá thấp nhất có thể.
+
+Vậy làm sao để tối ưu về giá:
+
+* Chọn những service có giá rẻ hơn. Khi nào thì dùng Kinesis thay vì SQS? Khi nào dùng VPN thay vì Direct Connect? Khi nào dùng Spot Instances?
+
+* Loại bỏ những resource không cần thiết.
+
+* Commitment: Savings Plans, Reserved Instances
+
+* Cost Management: Consolidated Billing, Cost Allocation Tags, Trust Advisor,…
+
+Và cuối cùng, hãy nhớ rằng, tối ưu về giá cũng đồng nghĩa với việc đánh đổi những thứ khác (performance, availability, reliability, security,…). Architecture bạn chọn có thể không hoàn hảo, nhưng nó khả thi và tối ưu về giá nhất theo yêu cầu của khách hàng thì nó vẫn là câu trả lời đúng.
+
+### Đừng tin vào từ khóa
+
+Nhiều bạn khi thi hay có trick là tin vào từ khóa, thấy từ khóa này thì chọn ngay service kia. Nhưng ở đây, mọi việc lại không hề rõ ràng như vậy. Nếu bạn cứ cố chấp chọn một service thích hợp nhất thì rất dễ dẫn đến trường hợp bạn lựa chọn một architecture sai, vì đây là tập hợp các service và method, không phải câu chuyện của chỉ một service.
+
+Ví dụ:
+
+Khi khách hàng cần Relational database, bạn nghĩ ngay đến RDS, nhưng đừng quên bạn vẫn có thể dùng EC2 và dùng database trên EC2 instance. Tại sao phải làm vậy, vì giá thành, vì có những feature của database mà RDS không hỗ trợ.
+
+Khi khách hàng nghĩ đến việc lưu trữ static data, bạn nghĩ đến S3. Nhưng thật ra, lưu ở EBS, EFS cũng là một cách.
+
+Với một vấn đề đưa ra, các câu trả lời sẽ tập hợp rất nhiều service và method để giải quyết vấn đề. Việc của bạn là chọn ra một cách thức phù hợp nhất, chỉ một service phù hợp nhất là chưa đủ.
+
+### Đừng làm những gì khách hàng không yêu cầu
+
+Đây là lỗi mình rất hay gặp phải. Mỗi câu hỏi sẽ đưa ra bài toán, và cái quan trọng mà bạn phải tập trung vào, đó chính là họ hỏi gì? Khách hàng thực sự muốn gì. Đó có thể là các yêu cầu:
+
+* Làm sao để tối ưu giá
+
+* Làm sao để giảm độ trễ
+
+* Làm sao để rút ngắn thời gian
+
+Tại sao nó lại là vấn đề? Vì nội dung câu hỏi sẽ rất lan man và khiến bạn lầm tưởng yêu cầu của nó.
+
+Ví dụ:
+
+Khách hàng đang có một website đang được triển khai tại region us-east-1, sử dụng EC2 instance và Application Load Balancer, Auto Scaling Group. Website đang có khoảng 1 triệu người dùng trên toàn cầu. Khách hàng nhận thấy những người dùng truy cập từ châu Á sẽ gặp phải độ trễ rất lớn. Hỏi làm sao để tối ưu về giá?
+
+Truy cập global, độ trễ cao, tối ưu về giá, bạn có thể nghĩ đến CloudFront. Tuy nhiên thì CloudFront cũng không hẳn là tối ưu về giá quá nhiều, đôi khi lại còn là tăng giá thành, trong khi yêu cầu của khách hàng lại là tối ưu về giá. Vậy nên, các bạn phải nghĩ về Spot Instances, Reserved Instances.
+
+Việc của bạn, chính là chọn ra đáp án cho câu hỏi, đừng để những thứ khác đánh lạc hướng.
+
+### Quản lý thời gian
+
+Các bạn có 170 phút, hoặc 200 phút để giải 75 câu hỏi. Tuy nhiên thì đề là rất dài. Thêm nữa là áp lực khi thi, bạn rất dễ bị đắm chìm vào một vài câu hỏi khó và lãng phí rất nhiều thời gian. Hãy cố tập giải quyết mỗi câu hỏi trong vòng 2 hoặc 2.5 phút. Thời gian còn lại sẽ là review lại những câu đã đánh dấu review.
+
+Cũng đừng đánh dấu review quá nhiều, chỉ nên đánh dấu review dưới 20 câu. Những câu bạn không biết gì cả hoặc nghĩ rằng không có khả năng trả lời, hãy trả lời bừa và đừng ngoảnh đầu nhìn lại, hãy dành thời gian quý báu của bạn cho những câu có có khả năng kiếm điểm hơn.
+
+### Kết luận
+
+Bài thi **AWS Certified Solutions Architect — Professional** là rất khó. Bạn cần có sự quyết tâm rất mạnh mẽ mới có thể vượt qua được. Nhưng dù bạn có vượt qua được hay không, điều đó không quan trọng, quan trọng là bạn sẽ học được rất nhiều điều trong quá trình ôn thi. Chúc may mắn.
+---
+cover: uploads/upload_02/1_Am2LIDIMw7Svy4nz59csnw.webp
+---
+pub_date: 2020-07-26
+---
+summary: Bạn đang muốn thi chứng chỉ AWS Certified Solutions Architect — Professional. Hôm nay mình sẽ giúp gợi ý cho các bạn một số tip & trick mà mình rút ra trong quá trình ôn thi chứng chỉ Professional năm ngoái.
+---
+tags:
+
+HowIPass
+AWS
+Certified
+SAP-C01
