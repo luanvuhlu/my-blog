@@ -1,0 +1,95 @@
+title: 5 cuốn sách Java Developer nên đọc
+---
+author: luanvv
+---
+body:
+
+Trong bài này mình sẽ đưa ra 5 cuốn sách mà mình nghĩ là mỗi người nếu muốn hiểu biết và làm việc tốt với Java nên đọc.
+
+Mình thấy hiện nay nhiều bạn đang học về Java (hay bất kỳ kiến thức công nghệ) đều đang sai hướng. Các bạn đi từ những hướng dẫn basic (Getting Started, [www.tutorialspoint.](http://www.tutorialspoint.com)com,…) sau đó là đi thẳng vào dự án. Các bạn cho rằng thực hành là cách tốt nhất để học hỏi, nhưng rồi sau nhiều năm, bạn sẽ nhận ra là bạn đang dậm chân tại chỗ. Kiến thức của bạn bị gò bó, bạn luôn nghĩ là những cái bạn biết là đúng hoặc quá đủ rồi. Nhưng kiến thức ngoài kia vô cùng rộng lớn và thay đổi liên tục. Một số bạn hay dạo quanh mạng xã hội, blog hay website như Facebook, Medium, Youtube,… và nghĩa rằng mình luôn cập nhật kiến thức nhưng sự thật là bạn đang dạo chơi chứ không thực sự học hỏi, chỉ là bạn tự lừa dối bản thân. Đó là lý do mình luôn luôn khuyến khích mọi người đọc sách. Chi một tháng đọc sách rõ ràng sẽ cho bạn kiến thức nhiều hơn cả một năm lướt Facebook (rõ ràng ai cũng biết là để chơi chứ không phải học). Mà tại sao lại có chuyện lướt Facebook để học? Thật đấy hả!
+
+_Rõ ràng 5 cuốn vẫn là quá ít, nhưng nhiều quá sợ mọi người nản nên để 5 thôi._
+
+
+[Core Java Volume I & II](https://www.amazon.com/dp/B083K3Q7QQ?ref_=dbs_s_ks_series_rwt) — Cay Horstmann
+---------------------------------------------------------------------------------------------------------
+
+![](/static/img/covers/java books.webp)
+
+Bộ sách sẽ cung cấp cho các bạn những kiến thức đầy đủ nhất về ngôn ngữ Java: các thành phần cốt lõi của Java, các API thông dụng và nhiều lời khuyên hữu ích trong việc sử dụng Java. Nội dung của bộ sách là vô cùng đồ sộ, với hơn 900 trang sách mỗi quyển, trải dài qua hầu hết những nội dung quan trọng của Java và các phiên bản Java (9, 10 và 11), mỗi vấn đề đều được giải thích rất cặn kẽ và chi tiết nhưng cũng không thiếu những phần code mẫu hữu ích để bạn tham khảo.
+
+Nếu bạn chưa biết gì về Java thì bộ sách này sẽ là cách tốt nhất để tiếp cận.
+
+Nếu bạn đang làm Java và nghĩ là mình đã hiểu Java, hãy nghĩ lại và đọc bộ sách này. Bạn sẽ thấy có nhiều vấn đề bạn hiểu chưa thấu đáo và cũng nhiều vấn đề bạn chưa hề biết tới.
+
+Bộ sách này gồm 2 quyển:
+
+[**Core Java, Volume I — Fundamentals (Core Series)**](https://www.amazon.com/Core-Java-I-Fundamentals-Cay-Horstmann-ebook-dp-B07G8DHTSZ/dp/B07G8DHTSZ/ref=mt_other?_encoding=UTF8&me=&qid=1603883127)
+
+[**Core Java, Volume II — Advanced Features (Core Series)**](https://www.amazon.com/Core-Java-II-Advanced-Features-Horstmann-ebook-dp-B07NCXJR1M/dp/B07NCXJR1M/ref=mt_other?_encoding=UTF8&me=&qid=1603883127)
+
+Nếu muốn làm việc tốt với Java, mình đánh giá đây là bộ sách bắt buộc phải đọc dù bạn đã biết hoặc chưa biết gì về Java.
+
+[Effective Java](https://www.amazon.com/Effective-Java-Joshua-Bloch-ebook/dp/B078H61SCH/ref=sr_1_1?dchild=1&keywords=Effective+Java&qid=1603883394&s=digital-text&sr=1-1) — Bloch Joshua
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+![](/static/img/uploads/0_rac0HQqQmslhb9m7.webp)
+
+Đúng như tên gọi thì quyển sách này sẽ đưa ra những lời khuyên hữu ích cho bạn khi sử dụng ngôn ngữ Java. Với một lượng kiến thức đồ sộ về Java, sẽ rất khó để bạn nhận ra được những tiểu tiết và đưa ra được những cách sử dụng hiệu quả trong quá trình làm việc với Java. Những việc đó đòi hỏi nhiều công sức tìm tòi, thử nghiệm và đúc rút kinh nghiệm trong thời gian dài. Thật may mắn là bạn không phải làm điều đó, tác giả đã làm hết và viết trong **Effective Java**. Cuốn sách cung cấp những cách làm hiệu quả nhất, chỉ ra những nhầm lẫn phổ biến và đưa ra những chứng minh xác đáng mà đến chính **Oracle** cũng không cho bạn biết.
+
+Ví dụ như bạn có biết làm thế nào để override một cách đúng nhất _equals_, _hashCode_, _toString_, _clone_ và tại sao ta lại cần làm điều đó. Hay khi nào không nên dùng parallel stream, và còn nhiều cái hay khác nữa.
+
+Cuốn sách sẽ chia thành một vài chương, mỗi chương sẽ bao gồm những đoạn nhỏ đề cập đến một gợi ý mà mình tin là bạn sẽ vô cùng ngạc nhiên với những gợi ý đó.
+
+[Refactoring: Improving the Design of Existing Code](https://www.amazon.com/Refactoring-Improving-Existing-Addison-Wesley-Signature-ebook-dp-B07LCM8RG2/dp/B07LCM8RG2/ref=mt_other?_encoding=UTF8&me=&qid=1573411753) — Fowler Martin
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+![](/static/img/uploads2/0_JNfeaDTaxEVLvZfk.webp)
+
+Nhiều người khi nói đến cách code (nghệ thuật code) sao cho đẹp, dễ hiểu, dễ sửa đổi sẽ nghĩ ngay đến những cuốn như [**Clean Code**](https://www.amazon.com/Clean-Code-Handbook-Software-Craftsmanship/dp/0132350882), [**The Art of Readable Code**](https://www.amazon.com/Refactoring-Improving-Existing-Addison-Wesley-Signature-ebook-dp-B07LCM8RG2/dp/B07LCM8RG2/ref=mt_other?_encoding=UTF8&me=&qid=1573411753),… Nhưng cuốn làm mình ấn tượng hơn cả lại chính là về Refactoring, và cuốn ở trên là một trong số đó. Refactoring mang hàm nghĩa hơi khác so với những thứ khác. **Design Patterns**, **SOLID**, **Clean Code** sẽ thường đi theo hướng tư duy thiết kế, tức là ngay khi bạn gõ phím thiết kế ra là bạn phải áp dụng ngay những triết lý đó, để sau thì quá muộn rồi.
+
+Tại sao mình lại đề cao Refactoring hơn? Vì nó dễ hiểu, dễ nhớ và mang tính thực tiễn hơn so với những tư duy mang tính trừu tượng của **Clean Code** hay xoắn não của **Design Patterns**. Đặt tên phải dễ hiểu, ngắn gọn, xúc tích, nhưng áp dụng thực tế thì không phải ai cũng làm được. Có khoảng bao nhiêu **Design Patterns**? Câu trả lời là **23**! Nhưng hầu hết mọi người chỉ biết duy nhất một pattern, chính là **Singleton**. Vì những cái khác quá khó hiểu và với kiểu chỉ làm cho kịp deadline thì rõ ràng **Design Patterns** là cái quá xa vời.
+
+Refactoring lại vô cùng thiết thực. Khi review lại code, sẽ đập vào mặt bạn là một đống code với những thứ mà người ta hay gọi là Code Smells ví như Long Method, Duplicate Code, Large Class,… và nhiều thứ khác mà bạn không biết tên. Từ việc hiểu code như thế nào thì sẽ bị coi là không tốt, bạn sẽ biết lần sau để tránh. Còn nếu đã lỡ gặp rồi, bạn sẽ được biết những Treatment. Method quá dài (Long Method) thì hãy tách method (Extract Method), class quá lớn thì tách class (Extract Class),… và vô số Treatment khác.
+
+Mình đánh giá cuốn này rất nên đọc và thực hành thường xuyên để cải thiện chất lượng code.
+
+Nếu bạn không muốn mua sách thì trên internet cũng có rất nhiều tài liệu về vấn đề này, đây là một ví dụ: [Refactoring (sourcemaking.com)Refactoring (sourcemaking.com)](https://sourcemaking.com/refactoring)
+
+[Design Patterns: Elements of Reusable Object-Oriented Software](https://www.amazon.com/gp/product/B000SEIBB8/ref=ppx_yo_dt_b_d_asin_title_o01?ie=UTF8&psc=1) — Gamma Erich, Helm Richard, Johnson Ralph, Vlissides John
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+![](/static/img/uploads2/0_SEHfRTcaCN7BNFQD.webp)
+
+Có lẽ cũng không cần nói nhiều về mức độ quan trọng của Design Patterns trong lập trình hướng đối tượng (OOP) ngày nay. Design Patterns là những mẫu thiết kế được đúc rút từ rất nhiều năm phát triển của OOP, nó giúp những đoạn code của bạn linh hoạt hơn, dễ dàng sửa đổi, mở rộng và tái sử dụng.
+
+Cuốn sách đưa ra 23 **Design Patterns**. Mỗi pattern sẽ bắt đầu với một bài toán cụ thể, các bước phân tích bài toán, đưa ra pattern thích hợp, giải nghĩa và cuối cùng là những ưu, nhược điểm của việc áp dụng pattern.
+
+Cuốn sách này sẽ rất hữu ích cho những bạn đảm nhiệm công việc thiết kế. Tuy nhiên với việc “_thích làm màu_” của hầu hết các đơn vị tuyển dụng thì việc biết **Design Patterns** là một lợi thế vô cùng lớn khi xin việc làm cho bất kỳ ai.
+
+[Clean Code: A Handbook of Agile Software Craftsmanship](https://www.amazon.com/Clean-Code-Handbook-Software-Craftsmanship/dp/0132350882) — Robert C. Martin
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+![](/static/img/uploads2/0_wwRLtzkGTXuFzOd0.webp)
+
+
+Thật khó có thể kiếm được một lập trình viên nào không biết cuốn Clean Code trong thời buổi “_thích làm màu_” hiện nay. Cuốn sách sẽ nói cho bạn biết code như thế nào là chân lý, như thế nào là đi ngược lại đạo lý và cách cải tạo chúng. Đến cuối chúng ta sẽ được hướng dẫn viết unit test.
+
+Những vấn đề đưa ra đều là những lời khuyên vô cùng bổ ích và mình nghĩ cần phải nghiền ngẫm và thực hành trong thời gian rất dài để thấm nhuần tư tưởng.
+
+Một điều đáng tiếc là ai cũng biết nhưng không phải cũng thực sự đọc và nghiền ngẫm nó. Nói chung là biết cũng như không!
+
+Cuốn sách này mình khuyến nghị bắt buộc phải đọc, dù là ai đi chăng nữa.
+
+========
+
+Trên đây là 5 cuốn sách mình thấy vô cùng hữu ích cho những bạn muốn theo con đường Java. Nếu các bạn biết những cuốn sách hay khác, hãy gợi ý cho mình. Dù mình đã ít làm về Java nhưng mình vẫn chưa bao giờ ngừng học hỏi thêm về nó.
+---
+cover: covers/java books.webp
+---
+pub_date: 2020-11-12
+---
+summary: Trong bài này mình sẽ đưa ra 5 cuốn sách mà mình nghĩ là mỗi người nếu muốn hiểu biết và làm việc tốt với Java nên đọc.
+---
+tags:
+
+Java
+Books
+Book Review

@@ -1,10 +1,1 @@
-#rcssmin
-#rjsmin
-#six
-#webencodings
-#html5lib
-#soupsieve
-#beautifulsoup4
-#django-htmlmin
 lektor
-#lektor-minify

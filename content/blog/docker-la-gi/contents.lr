@@ -1,0 +1,199 @@
+title: Docker là gì
+---
+author: luanvv
+---
+body:
+
+Xu hướng gần đây, Docker được sử dụng rất nhiều, cả ở môi trường phát triển và production. Có những bạn dùng Docker rất nhiều nhưng lại vẫn không hiểu Docker là gì và nó có thể làm gì. Bài viết dưới đây mong sẽ giúp giải đáp phần nào câu hỏi của các bạn.
+
+**_Cài đặt môi trường là một cơn ác mộng?_**
+---------------------------------------
+
+Tưởng tượng trong dự án của bạn sử dụng rất nhiều công nghệ khác nhau (và thường là như thế), CentOS, NodeJS. Java. Python, Redis, Oracle Database,…
+
+![](/static/img/uploads2/1_rF7sZBKy1kiKQGlIc3GnKw.webp)
+Bạn đã từng cài Oracle Database trên MacOS bao giờ chưa? Chắc chắn là chưa, vì thứ đó đâu có tồn tại. Hay thậm chí bạn cài nó trên một distro Linux nào đó, như Ubuntu hay Centos chẳng hạn, bạn nghĩ một vài câu lệnh là xong, không có chuyện đó đâu! Đó thực sự là ác mộng luôn. Oracle Database sử dụng các thư viện trên OS (các file .so, .dll hoặc tương tự) và nếu thiếu bất kỳ file nào, bạn thất bại. Vấn đề là nó sử dụng rất nhiều và các thông báo lỗi chỉ dẫn bạn đến ngõ cụt. Đó là lý do mình rất ghét các phần mềm bắt phải có thư viện hoặc trình biên dịch native như C, C++ hay C#.
+
+Điều tương tự với các phần mềm khác như Redis, không hề có official cho Window và một vài thư viện dùng C của Python ([**lxml**](https://lxml.de/) chẳng hạn), cực kỳ khó chịu.
+
+Tiếp theo, tưởng tượng các thành viên trong đội phát triển, người thì dùng Linux, người dùng Windows, có người thì lại dùng Linux. Vậy là bạn phải viết Installation Guide dài hàng trăm trang cho tất cả các công cụ và tất cả các hệ điều hành, nhưng cuối cùng khả năng cài đặt thất bại vẫn rất cao.
+
+Đấy mới là môi trường phát triển, với môi trường server hoặc production thì mọi chuyện càng nghiêm trọng hơn nữa. Hệ thống đang chạy rất ổn và bạn cài đặt một thư viện gì đó lên. Sau khi cài xong thì bùm, cả hệ thống sập do xung đột file thư viện với các chương trình hiện có và bạn không biết nó ở đâu và sửa như thế nào. Thế là lại phải đọc thần chú PITR (Point in Time Recovery) ra, đến nản.
+
+**_Dùng máy ảo?_**
+
+Trước đây mình hay dùng máy ảo chạy Linux bên cạnh Windows OS để dễ dài cài đặt các phần mềm cần thiết trên Linux. Vấn đề là máy ảo cũng chạy một hệ điều hành và vẫn còn đó rủi ro xung đột thư viện nếu mình thao tác nhiều trên đó. Hơn nữa, sử dụng máy ảo vô cùng bất tiện, hiệu năng, việc chia sẻ file, folder, IP, port,… rất nhiều thứ.
+
+Vậy giải quyết vấn đề như thế nào? Đơn giản thôi, cho mỗi phần mềm chạy trên một hệ điều hành riêng biệt !
+
+Vấn đề chỉ hỗ trợ một số hệ điều hành nhất định, vậy thì chạy trên chính xác hệ điều hành đó.
+
+Vấn đề xung đột khi cài đặt nhiều chương trình, vậy thì mỗi chương trình một máy độc lập
+
+Vấn đề cài đặt quá phức tạp và có thể sai sót, viết Installation Script để chạy tự động hoặc khi cài đặt thành công trên một máy, đóng băng lại (tạo image) và các máy khác chỉ việc lấy image đó về.  
+Nghe có vẻ giống chạy máy ảo? tưởng tượng cái Laptop bé nhỏ của bạn chạy 5 đến 10 cái máy ảo, chắc muốn ngất luôn quá.
+
+Đây sẽ là lúc Docker hữu dụng, mỗi chương trình sẽ là một container độc lập khi chạy. Khi cài đặt, việc duy nhất bạn phải làm là chạy lệnh và Docker sẽ lấy các image về, chạy hàng loạt container cho bạn.
+
+Sao Docker thần kỳ đến thế? Muốn biết, (tưởng như không liên quan nhưng) cần hiểu Linux là gì đã.
+
+Linux là gì?
+-------------
+
+[Linux](https://en.wikipedia.org/wiki/Linux) (/ˈlinʊks/) là một họ hệ điều hành Unix-like dựa trên [Linux kernel](https://en.wikipedia.org/wiki/Linux_kernel). Linux Kernel là thành phần chính để giao tiếp với phần cứng của host. Linux kernel đầu tiên được tạo ra bởi [Linus Torvalds](https://en.wikipedia.org/wiki/Linus_Torvalds) năm 1991. Túm lại Linux không phải là một OS (Operating System), nó là cả một họ.
+
+Linux OS (hay gọi tắt là Linux) mà chúng ta hay gọi, thật ra là [Linux distribution](https://en.wikipedia.org/wiki/Linux_distribution) (thường gọi là Linux distro). Mỗi Linux distribution thường gồm 2 phần, Linux kernel và rất nhiều software bình thường khác. Vậy là Linux kernel có thể chung, và mỗi công ty sẽ thay đổi một chút software để tạo ra những Linux distro khác, hoặc thậm chí một họ con khác. Có thể kể đến một số Linux distro (hoặc họ) như Ubuntu, Xubuntu, Kubuntu, Red Hat, Centos, Debian-based, Pacman-based,… và thậm chí cả Android.
+
+![](/static/img/uploads2/0_hcja7NzI_V9SmxRT.webp)
+Source [https://cumulusnetworks.com/blog/linux-architecture/](https://cumulusnetworks.com/blog/linux-architecture/)
+
+**Docker là gì?**
+------------------
+
+Docker là một tập hợp của [Platform as a service](https://en.wikipedia.org/wiki/Platform_as_a_service?wprov=sfla1) (PaaS), cung cấp phần mềm theo dạng đóng gói, gọi là container. Container sẽ độc lập với nhau và với chính nền tảng chạy nó. Container sẽ dùng chung kernel với hệ điều hành, do đó sử dụng ít tài nguyên hơn so với máy ảo thông thường.
+
+Docker sử dụng một công nghệ gọi là [OS-level virtualization](https://en.wikipedia.org/wiki/OS-level_virtualization) để chạy nhiều hệ điều hành riêng biệt thông qua các container. Ở trên cùng một máy, với một Linux Kernel, Docker sẽ thêm thắt cho mỗi container một vài software và hô biến nó thành Ubuntu, thành Centos hoặc thậm chí là [Windows](https://hub.docker.com/_/microsoft-windows-base-os-images).
+
+Một máy chạy nhiều container sẽ như thế này:
+
+![](/static/img/uploads2/0_ZmVliFu4cSm6bF_r.webp)
+
+Source [https://blog.risingstack.com/operating-system-containers-vs-application-containers/](https://blog.risingstack.com/operating-system-containers-vs-application-containers/)
+
+trong khi nếu dùng máy ảo, nó sẽ như sau
+
+![](/static/img/uploads2/0_Ve9nDM0LrGSzOI_F.webp)
+
+Source [https://blog.risingstack.com/operating-system-containers-vs-application-containers/](https://blog.risingstack.com/operating-system-containers-vs-application-containers/)
+
+Máy ảo (Virtual Machine, VM) thực hiện ảo hóa cả một cái hệ điều hành hoàn chỉnh, bao gồm kernel và các software, còn Docker chỉ ảo hóa phần software, phần kernel sẽ được dùng chung với Host OS. OS độc lập mà Docker tạo ra, chỉ là giả, nó không hề độc lập hoàn toàn như VM.
+
+Có thể bạn chưa đoán ra do phải đọc quá nhiều, nhưng Docker chỉ có thể chạy trên Linux, vì nó sử dụng Linux kernel mà. Thế tại sao trên MacOS hay Window vẫn có Docker? Vì nó là ảo, bạn không thực sự chạy Docker trên đó, mà bạn đang chạy nó trên một máy ảo Linux bên trong Host OS (MacOS, Window), chỉ là bạn không thấy thôi. Hậu quả là Docker trên MacOS hay Window (không phải server) thì đều khá tệ, không thể dùng cho production được.
+
+_Trên Window có một loại VM rất tốt mà hoàn toàn có thể chạy Docker trên đó mà vẫn cho hiệu năng tốt, đó chính là_ [_Windows Subsystem for Linux 2_](https://docs.microsoft.com/en-us/windows/wsl/wsl2-index)
+
+Docker overview
+----------------
+
+_“Docker is an open platform for developing, shipping, and running applications. Docker enables you to separate your applications from your infrastructure so you can deliver software quickly. With Docker, you can manage your infrastructure in the same ways you manage your applications. By taking advantage of Docker’s methodologies for shipping, testing, and deploying code quickly, you can significantly reduce the delay between writing code and running it in production.”_
+
+Docker sử dụng kiến trúc client-server. Server là một chương trình luôn chạy dưới background, hay còn gọi là docker daemon. Daemon sẽ là phần thực hiện nhiệm vụ quản lý các thành phần như container, image, volume và network. Client (thường là CLI) chính là chương trình giúp bạn tương tác với daemon, client sẽ nhận lệnh của người dùng và gửi lệnh đó đến server (thông qua REST API) để thực hiện.
+
+_Thông thường khi bạn sử dụng thì docker daemon và CLI client đều ở trên cùng một máy nhưng nó hoàn toàn có thể sử dụng một cách phân tán._
+
+![](/static/img/uploads2/0_DKS06eJnQMUjfoPv.webp)
+
+Docker Image
+-------------
+
+**Image** là một file mẫu chỉ đọc (read-only) hướng dẫn việc tạo ra container. Nghe có vẻ lú lẫn nhưng nó là vậy.
+
+Một image sẽ dựa (based) trên một image khác. Hầu hết các image của docker đều dựa trên [Alpine](https://hub.docker.com/_/alpine) (chỉ nặng 5MB) và [scratch](https://hub.docker.com/_/scratch/) (một image trống). Để tiết kiệm bộ nhớ, thời gian và công sức của người dùng, Image sử dụng cơ chế layer, mỗi image được cấu thành từ rất nhiều layer. Layer là những file được sinh ra từ câu lệnh.
+
+![](/static/img/uploads2/0_3-MF20YwVvFgmILM.webp)
+
+_Đừng lầm tưởng Image là snapshot của container. Image phải là cái có trước, bằng cách build từ một Dockerfile nào đó. Khi bạn chạy một container từ một image, sau đó tạo image từ container này. Việc bạn phải làm là commit những file thay đổi (như commit lên Git vậy), một image mới sẽ được tạo ra dựa trên image gốc của container (nhớ là image là read-only nên thực sự là bạn không hề ghi đè lên cái cũ) và những phần thay đổi này sẽ trở thành một layer mới cho image mới._
+
+Dockerfile
+-----------
+
+Dockerfile là một tài liệu dạng text chứa tất cả các câu lệnh (theo cú pháp nhất định) có thể được gọi và tạo lên một image.
+
+![](/static/img/uploads/docker_file.webp)
+
+Từ Dockerfile này, bạn chạy lệnh _docker build_ và image của bạn sẽ được tạo ra.
+
+Docker registry
+----------------
+
+Sẽ có rất nhiều Image được tạo ra và bạn có thể dễ dàng lấy về và tạo ra những container các image đó, vậy là sẽ cần **Docker registry** để lưu trữ các image này. Bạn có thể lấy image về, đẩy image lên các registry này.
+
+Docker registry có thể là public, nổi tiếng nhất chính là [Docker Hub](https://hub.docker.com/); private như Amazon Elastic Container Registry (ECR), Container Registry của Google Cloud, nội bộ doanh nghiệp; hoặc local, chính là máy của bạn. Mặc định Docker bạn dùng sẽ sử dụng Docker Hub, bạn có thể dễ dàng lấy các image từ đó bằng lệnh **docker pull**
+
+Kiến trúc hoàn chỉnh của Docker sẽ như sau:
+
+![](/static/img/uploads2/1_4tvdICn4P3arf6QToV7ovA.webp)
+
+Docker Container
+-----------------
+
+**Container** là một phiên bản sống (runnable instance) của một image. Image chỉ là các file, các bản chỉ dẫn, giống như một bản snapshot của OS với nhiều layer. Khi bạn tạo ra container từ image, giống như bạn chạy một hệ điều hành từ snapshot (image) vậy, bạn sẽ thao tác tại layer trên cùng của image, chính là container layer (hay writeable layer). Bạn stop container cũng giống như bạn shutdown computer vậy, bạn có thể start lại và vẫn giữ lại được phần container layer.
+
+Mỗi container, có thể coi là một phiên bản OS hoàn chỉnh, (thường) độc lập hoàn toàn với các container khác và host machine, khá giống VM. Tuy nhiên docker container và docker image lightweight hơn rất nhiều, nhớ rằng cả hệ điều hành Linux Alpine chỉ tốn 5MB bộ nhớ và docker image dùng cơ chế layer. Ngoài ra, do dùng chung kernel với host machine nên docker cũng dùng ít tài nguyên hơn so với VM.
+
+Docker Volumes
+---------------
+
+Container có thể tạo ra file, rất nhiều file. Giả sử chương trình bạn ghi rất nhiều log file ra container, chính là ghi ra container layer, vậy nếu bạn muốn tạo ra một image từ container này thì không hay chút nào, log file không có ý nghĩa lắm. Hoặc bạn muốn chia sẻ file giữa container và host machine thì dùng gì? Đó chính là [**volumes**](https://docs.docker.com/storage/volumes/).
+
+![](/static/img/uploads2/0_mFsKgRY0lOTLjAkP.webp)
+
+> _Ghi file trực tiếp ra container là rất tệ, hãy ghi nó ra volumes hoặc console_
+
+Networking
+-----------
+
+Khác với VM, thường là một OS sẽ chạy rất nhiều chương trình, mỗi docker container sẽ chỉ (và chỉ nên) chạy một chương trình. Vậy làm sao để các chương trình, ở mỗi container riêng biệt có thể giao tiếp được với nhau.
+
+Docker networking sẽ giúp bạn gắn những container và một hoặc nhiều hệ thống network, giúp các container có thể giao tiếp được với nhau, cũng như tương tác giữa container và host machine.
+
+Docker Compose
+---------------
+
+> _Docker Compose là một tool hỗ trợ bạn trong việc chạy nhiều container._
+
+Docker Compose chỉ là một tool hỗ trợ, bạn hoàn toàn có thể không cần đến Docker Compose. Nhưng tưởng tượng, bạn có ứng dụng bao gồm database (Postgres) và web (Python), mỗi lần bạn cần chạy ứng dụng, bạn phải build từng image, chạy từng container, attach network, cấu hình volume, port,… Đó là cả tá câu lệnh, vậy tại sao không dùng một tool giúp bạn chạy cả ứng dụng chỉ với một câu lệnh, đó là Docker Compose.
+
+Docker Compose sử dụng một file template, như dưới đây:
+
+![](/static/img/uploads/docker_compose.webp)
+
+Để bắt đầu ứng dụng web của bạn, chỉ cần chạy _docker-compose up_, vậy là xong.
+
+Orchestration
+--------------
+
+Một hệ thống chạy ở môi trường phát triển rõ ràng là không yêu cầu quá chặt chẽ, tiện là được. Nhưng đối với production thì mọi thứ cần chắc chắn, làm sao để có thể distribute qua các container, scaling, healing. Vậy là Docker cho phép tích hợp **Orchestration**, giúp quản lý lifecycle của rất nhiều các container, các công việc đó có thể là:
+
+*   Cung cấp và triển khai các container
+*   Quản lý việc dự phòng (Redundancy) và tính sẵn có của các container
+*   Scaling up, Scaling down
+*   Load Balancing
+*   Health check, monitoring
+*   Networking
+*   Storage
+
+Hiện nay có một số dịch vụ/tool orchestration như Docker Swarm, [Kubernetes](https://kubernetes.io/), ECS.
+
+Ví dụ như với Kubernetes, ta có server Master, mỗi hệ thống có thể có nhiều Node. Node tương ứng với một host. Mỗi Node lại có thể bao gồm rất nhiều Pod. Mỗi Pod lại chứa nhiều container (có thể không phải Docker container). Và cuối cùng là Kubernetes sẽ quản lý lifecycle của các Node, Pod, thêm bớt, monitor,… nói chung là giúp hệ thống hoạt động ổn định.
+
+![](/static/img/uploads2/0_ysZLv6iMO6qwiTgO.webp)
+![](/static/img/uploads2/1_FX9IPeFY3cvrYB5_SG3YSw.webp)
+
+Reference
+----------
+
+*   [Docker Tutorial for Beginners — A Full DevOps Course on How to Run Applications in Containers](https://www.youtube.com/watch?v=fqMOX6JJhGo)
+*   [Docker là gì ? Kiến thức cơ bản về Docker](https://medium.com/@phamducquan/docker-l%C3%A0-g%C3%AC-ki%E1%BA%BFn-th%E1%BB%A9c-c%C6%A1-b%E1%BA%A3n-v%E1%BB%81-docker-13c6efc4aefe)
+*   [Docker: Chưa biết gì đến biết dùng (Phần 1- Lịch sử)](https://viblo.asia/p/docker-chua-biet-gi-den-biet-dung-phan-1-lich-su-ByEZkWrEZQ0)
+*   [Operating System Containers vs. Application Containers](https://blog.risingstack.com/operating-system-containers-vs-application-containers/)
+*   [Understanding the architecture of the modern Linux operating system](https://cumulusnetworks.com/blog/linux-architecture/)
+*   [Docker overview](https://docs.docker.com/get-started/overview/)
+*   [Digging into Docker layers](https://medium.com/@jessgreb01/digging-into-docker-layers-c22f948ed612)
+*   [What Is Container Orchestration?](https://blog.newrelic.com/engineering/container-orchestration-explained/)
+*   [Components of Kubernetes Architecture](https://medium.com/@kumargaurav1247/components-of-kubernetes-architecture-6feea4d5c712)
+*   [Khám Phá Pods Và Nodes](https://kubernetes.io/vi/docs/tutorials/kubernetes-basics/explore/explore-intro/)
+---
+cover: uploads2/0_4CuP1xyJheSyLfUW.webp
+---
+pub_date: 2020-08-08
+---
+summary: Xu hướng gần đây, Docker được sử dụng rất nhiều, cả ở môi trường phát triển và production. Có những bạn dùng Docker rất nhiều nhưng lại vẫn không hiểu Docker là gì và nó có thể làm gì. Bài viết dưới đây mong sẽ giúp giải đáp phần nào câu hỏi của các bạn.
+---
+tags:
+
+Docker
+Kubernetes
+Docker Compose
+Container Orchestration
+Containers
