@@ -1,0 +1,234 @@
+title: 10 syntax in Java You should know
+---
+author: luanvv
+---
+body:
+
+1\. Underscore in Numeric Literals
+-----------------------------------
+You have to write dozen of numbers to present a number of millions, billions and even more. You always must count it again and again to make sure the number is correct.
+Actually, you could place some underscore inside the number to make it clear, like you use comma in real life.
+```java
+long noUnderscore = 100000000000l;  
+long withUnderscore = 100_000_000_000l;
+```
+
+Refer: [Underscores in Numeric Literals](https://docs.oracle.com/javase/8/docs/technotes/guides/language/underscores-literals.html)
+
+2\. Pattern.asPredicate
+------------------------
+
+When use java.util.regex.Pattern with Stream API, I feel uncomfortable when I have to create a Matcher, and then use that matcher to test whether my text is matched the pattern.
+
+```java
+var validEmails = emails.stream()  
+        .filter(email -> EMAIL_REGEX.matcher(email).find())  
+        .collect(Collectors.toList());
+```
+
+I have no idea why Java make it so complex for such a simple thing. Anyway, Java provides a way to shorten the code and make it more clear. That’s Pattern.asPredicate
+
+```java
+var validEmails = emails.stream()  
+        .filter(EMAIL_REGEX.asPredicate())  
+        .collect(Collectors.toList());
+```
+
+Refer: [https://docs.oracle.com/javase/8/docs/api/java/util/regex/Pattern.html#asPredicate--](https://docs.oracle.com/javase/8/docs/api/java/util/regex/Pattern.html#asPredicate--)
+
+3\. Named RegEx Capturing Group
+--------------------------------
+
+When I need extract multiple information in texts with single Pattern. I have to use java.util.regex.Matcher#group and I usually pass the index of a capturing group in its pattern. The indexes always confuse me. So, you should place a named group to easily extract it by name, like this:
+
+```java
+var p = Pattern.compile(  
+        "^Today is (?<month>\\\\w+) (?<day>\\\\d+), (?<year>\\\\d+)"  
+);  
+var m = p.matcher("Today is August 4, 2026");  
+System.out.println(m.group("month"));  
+System.out.println(m.group("day"));  
+System.out.println(m.group("year"));
+```
+
+Refer: [https://docs.oracle.com/javase/8/docs/api/java/util/regex/Pattern.html#special](https://docs.oracle.com/javase/8/docs/api/java/util/regex/Pattern.html#special)
+
+4\. Arrays.asList
+------------------
+
+Need to create a List inline. The fastest way is use Arrays.asList
+
+```java
+var numbers = Arrays.asList(1, 2, 3);  
+var singletonList = Arrays.asList("Just me");
+```
+
+Beware: the list is returned is a fixed-size (but mutable) list.
+
+Refer: [https://docs.oracle.com/javase/7/docs/api/java/util/Arrays.html#asList(T...)](https://docs.oracle.com/javase/7/docs/api/java/util/Arrays.html#asList(T...))
+
+5\. Collections.singleton\*
+----------------------------
+
+Do you know an ArrayList, a HashSet or a HashMap instance wastes plenty of memory even when you just need to store a single item. They need an array to store data, and int value to store real size and a HashMap (lol)
+
+If you need a collection to store the single item, you should use:
+
+*   Collections.singleton to create a Set
+*   Collections.singletonList to create a List
+*   Collections.singletonMap to create a Map
+
+```java
+var singletonSet = Collections.singleton(1);  
+var singletonList = Collections.singletonList(1);  
+var singletonMap = Collections.singletonMap("version", 1);
+```
+
+It’s a simple but very effective.
+
+Refer: [https://docs.oracle.com/javase/7/docs/api/java/util/Collections.html#singleton(T)](https://docs.oracle.com/javase/7/docs/api/java/util/Collections.html#singleton(T))
+
+6\. Collections.empty\*
+------------------------
+
+Stop returning null value as a collection, return an empty collection instead.
+
+```java
+public static List<String> getValidEmails(Collection<String> email) {  
+    if (email == null) {  
+        return Collections.emptyList();  
+    }  
+    ...  
+}
+```
+
+We have
+*   emptyList
+*   emptyMap
+*   emptySet
+*   emptyIterator
+And more, use them.
+Refer: [https://docs.oracle.com/javase/7/docs/api/java/util/Collections.html#emptyList()](https://docs.oracle.com/javase/7/docs/api/java/util/Collections.html#emptyList())
+
+7\. Objects equality check
+---------------------------
+
+```java
+String gameA = "The Legend of Zelda: Breath of the Wild";  
+String gameB = "Monster Hunter Rise";  
+System.out.println(gameA.equals(gameB));
+```
+
+Am I seriously? Why don’t I use **_equals_** method to solve a simple thing. Well, what happened if either _gameA_ or _gameB_ is null? I would get an **_NullPointerException_** if I have a bad luck.
+
+```java
+String gameA = null;  
+String gameB = "Monster Hunter Rise";  
+System.out.println(gameA.equals(gameB));  
+// => Exception in thread "main" java.lang.NullPointerException
+```
+
+I can avoid it by using **_Objects.equals,_** it does work no matter either _gameA_ or _gameB_ is null.
+
+```java
+String gameA = null;  
+String gameB = "Monster Hunter Rise";  
+System.out.println(Objects.equals(gameA, gameB));
+```
+
+Refer: [https://docs.oracle.com/javase/8/docs/api/java/util/Objects.html#equals-java.lang.Object-java.lang.Object-](https://docs.oracle.com/javase/8/docs/api/java/util/Objects.html#equals-java.lang.Object-java.lang.Object-)
+
+8\. List.of, Set.of and Map.of (since 9)
+-----------------------------------------
+
+Do you prefer [Functional Programming,](https://en.wikipedia.org/wiki/Functional_programming) and love immutable objects? Creating a immutable collection class by yourself could be changeling. Well, Java provides Unmodifiable Lists, Unmodifiable Sets, Unmodifiable Maps which basically are immutable classes.
+
+For example, Unmodifiable Lists have some characteristics:
+
+*   They are [_unmodifiable_](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Collection.html#unmodifiable). Elements cannot be added, removed, or replaced. Calling any mutator method on the List will always cause `UnsupportedOperationException` to be thrown. However, if the contained elements are themselves mutable, this may cause the List's contents to appear to change.
+*   They disallow `null` elements. Attempts to create them with `null` elements result in `NullPointerException`.
+*   They are serializable if all elements are serializable.
+*   The order of elements in the list is the same as the order of the provided arguments, or of the elements in the provided array.
+*   They are [value-based](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/lang/doc-files/ValueBased.html). Callers should make no assumptions about the identity of the returned instances. Factories are free to create new instances or reuse existing ones. Therefore, identity-sensitive operations on these instances (reference equality (`==`), identity hash code, and synchronization) are unreliable and should be avoided.
+*   They are serialized as specified on the [Serialized Form](https://docs.oracle.com/en/java/javase/11/docs/api/serialized-form.html#java.util.CollSer) page.
+
+Refer: [https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/List.html#unmodifiable](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/List.html#unmodifiable)
+
+To create an unmodifiable lists, use can use **_List.of_**
+
+*   static <E> List<E> of()
+*   static <E> List<E> of​(E e1)
+*   static <E> List<E> of​(E… elements)
+*   static <E> List<E> of​(E e1, E e2)
+*   static <E> List<E> of​(E e1, E e2, E e3)
+*   …
+
+It sounds like **_Arrays.asList_**, but instead of a mutable list, **_List.of_** creates an immutable list and it doesn’t accept null values.
+
+9\. Comparator and null
+------------------------
+
+In the past, I didn’t noticed that Comparator don’t work with null value by default.
+
+For example, the code will throw a NullPointerException
+
+```java
+var list = Arrays.asList(1, null, -1, null, 2);  
+list.sort(Comparator.naturalOrder());  
+// ==> Exception in thread "main" java.lang.NullPointerException
+```
+
+I used to code like this
+
+```java
+var list = Arrays.asList(1, null, -1, null, 2);  
+list.sort((a, b) -> {  
+    if (a == null) {  
+        return b == null ? 0 : -1;  
+    }  
+    if (b == null) {  
+        return a == null ? 0 : 1;  
+    }  
+    return a.compareTo(b);  
+});
+```
+
+Luckily, there are two simple methods resolve my problem. They are **_Comparator.nullsFirst_** and **_Comparator.nullsLast_**
+
+```java
+var list = Arrays.asList(1, null, -1, null, 2);  
+list.sort(Comparator.nullsFirst(Comparator.naturalOrder()));  
+// \[null, null, -1, 1, 2\]
+```
+
+10\. Predicate::not (since 11)
+-------------------------------
+
+Stream API is good, filter is great and Predicate is awesome, but have you ever written something like that:
+
+```java
+games.stream()  
+   .filter(game -> !Strings.isNullOrEmpty(game))  
+   .collect(Collectors.toList());
+```
+
+Fortunately, Java 11 save you from that ugly code by **_Predicate.not_**
+
+```java
+games.stream()  
+   .filter(Predicate.not(Strings::isNullOrEmpty))  
+   .collect(Collectors.toList());
+```
+---
+cover: covers/1_6z8A9RSSzoin5sGgtjzhkQ.webp
+---
+pub_date: 2021-08-30
+---
+summary: You have to write dozen of numbers to present a number of millions, billions and even more. You always must count it again and again to make sure the number is correct.
+---
+tags:
+
+Java
+Tips
+Best Practices
+Coding
