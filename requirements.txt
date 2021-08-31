@@ -1,1 +1,4 @@
-lektor
+Lektor==3.2.0
+# FIXME: remove when Lektor solves problems with Flask/Werkzeug
+# https://github.com/lektor/lektor/issues/909
+Flask<2.0
