@@ -1,10 +1,4 @@
-#rcssmin
-#rjsmin
-#six
-#webencodings
-#html5lib
-#soupsieve
-#beautifulsoup4
-#django-htmlmin
-lektor
-#lektor-minify
+Lektor==3.2.0
+# FIXME: remove when Lektor solves problems with Flask/Werkzeug
+# https://github.com/lektor/lektor/issues/909
+Flask<2.0

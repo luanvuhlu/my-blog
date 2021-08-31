@@ -50,7 +50,7 @@
         ],
         "experiences": [
             {
-                "date": "03/2018 - hiện nay",
+                "date": "03/2018 - 04/2021",
                 "address": "Công ty cổ phần V.N.E.X.T",
                 "position": "Senior Java developer",
                 "description": "Cảm thấy khoảng chững khi làm việc tại Rikkeisoft, lại thêm một số vấn đề khác nên mình rời Rikkeisoft. Những tưởng ở Rikkeisoft là khó khăn, sang bên V.N.E.X.T còn kinh khủng hơn. Mới chân ướt chân ráo bước ra ngoài xã hội đã bị vứt ngay vào dự án khó nhằn, lại còn bắt làm lead, chịu trách nhiệm tất cả kỹ thuật trong dự án. Khách hàng thì ngồi cạnh, cứ ba buổi một tuần lại lôi đi hỏi kỹ thuật, tình hình đến đâu rồi, sợ vãi linh hồn. Nhưng chính những điều đó đã giúp mình trưởng thành rất nhiều. Không còn anh lead để \"đứng mũi chịu xào\" cho dự án; luôn phải đối mặt với khách hàng(rất giỏi kỹ thuật), sự giúp đỡ về mặt tinh thần và vật chất của anh chị em, của các sếp là nguồn động lực rất lớn để mình học tập, trau dồi và hoàn thiện kiến thức không ngừng nghỉ."
@@ -69,6 +69,12 @@
             }
         ],
         "educations": [
+            {
+                "date": "11/2020",
+                "name": "AWS Certified Security – Specialty",
+                "supplier": "Amazon Web Services",
+                "desciption": ""
+            },
             {
                 "date": "05/2020",
                 "name": "Professional Certification - Professional Scrum Master I",
@@ -154,7 +160,7 @@
             }
         ],
         "fun_description": [
-            "Hiện nay mình làm việc khá nhiều với Spring/Spring Boot. Mình cũng đang nghiên cứu thêm Docker và Affiliate Intelligence. Microservice hay Big Data cũng là những trend mình khá hứng thú và sẽ tìm hiểu trong thời gian sắp tới."
+            "Hiện nay mình làm việc khá nhiều với Microservices .Cloud Computing và Affiliate Intelligence cũng là những trend mình khá hứng thú và sẽ tìm hiểu trong thời gian sắp tới."
         ]
     }
 }
