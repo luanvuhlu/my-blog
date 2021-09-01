@@ -198,7 +198,7 @@ Luckily, there are two simple methods resolve my problem. They are **_Comparator
 ```java
 var list = Arrays.asList(1, null, -1, null, 2);  
 list.sort(Comparator.nullsFirst(Comparator.naturalOrder()));  
-// \[null, null, -1, 1, 2\]
+// [null, null, -1, 1, 2]
 ```
 
 10\. Predicate::not (since 11)
