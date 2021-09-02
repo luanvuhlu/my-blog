@@ -3,3 +3,4 @@ build-minify/
 .firebase/
 build/.lektor/
 venv/
+build/
