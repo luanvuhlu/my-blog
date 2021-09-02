@@ -16,6 +16,8 @@ if [ ! -f "$webp_path" ]; then
 	    cwebp -quiet -lossless "$0" -o "$webp_path";
     fi;' {} \;
 
+ARRAY=(assets build configs content databags models templates)
+
 for item in ${ARRAY[@]}; do
 	find $1/$item -type f -exec sed -i 's/.png/.webp/g' {} \;
 	find $1/$item -type f -exec sed -i 's/.jpg/.webp/g' {} \;
