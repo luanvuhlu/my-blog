@@ -1,6 +1,7 @@
 {% extends "layout.html" %}
 {% from "macros/blog.html" import render_blog_sibling_nav %}
 {% block meta %}
+<meta name="author" content="{{ this.author }}">
 <meta name="description" content="{{ this.summary }}" />
 <meta property="og:description" content="{{ this.summary }}" />
 <meta property="twitter:description" content="{{ this.summary }}" />
