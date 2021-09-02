@@ -1,0 +1,92 @@
+title: Spring Boot project using AWS RDS and Secrets Manager
+---
+author: luanvv
+---
+body:
+
+In this article, I will show you how to integrate Amazon RDS connection information into a Spring project using AWS Secrets Manager.
+
+With traditional Spring projects, we tend to configure the data source directly inside the source code. In different environments (development, staging, production), it is common to use Spring profiles to change these parameters. This solution is convenient, but it lacks security (credentials explosion, inability to access manager), difficult to manage and change (password rotation policy).
+
+AWS offers a solution using [AWS Secrets Manager](https://aws.amazon.com/secrets-manager/) integration with RDS and [Rotating Secrets](https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotating-secrets.html), simplifying management and ensuring security. Refer to [Security best practices for Amazon RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_BestPractices.Security.html)
+
+Here are 2 simple steps to integrate RDS data source and Spring Boot project using AWS Secrets Manager.
+
+###Step 1. Add this dependency in pom.xml file
+
+```xml
+<dependency>
+  <groupId>com.amazonaws.secretsmanager</groupId>
+  <artifactId>aws-secretsmanager-jdbc</artifactId>
+  <version>1.0.5</version>
+</dependency>
+```
+
+###Step 2. Change data source configuration
+
+```yaml
+spring:
+  datasource:
+    url: jdbc-secretsmanager:mysql://database-host:3306/rdsdb
+    username: rdsrotation
+    driver-class-name: com.amazonaws.secretsmanager.sql.AWSSecretsManagerMySQLDriver
+```
+
+*   url: it has a prefix _jdbc-secretsmanager_ instead of just _jdbc_ as usual
+*   username: _Secret Name_ which you’ve got in AWS Secrets Manager
+
+The magic here is that _driver-class-name_ is _AWSSecretsManagerMySQLDriver._ It is the AWS Secrets Manager Driver driver which wraps the original driver (for instance _com.mysql.cj.jdbc.Driver_).
+
+Some databases and corresponding drivers:
+
+*   **MySQL**: _AWSSecretsManagerMySQLDriver_
+*   **MariaDB**: _AWSSecretsManagerMariaDBDriver_
+*   **Oracle DB**: _AWSSecretsManagerOracleDriver_
+*   **PostgreSQL**: _AWSSecretsManagerPostgreSQLDriver_
+*   **MSSQL**: _AWSSecretsManagerMSSQLServerDriver_
+
+Here is a [GitHub link](https://github.com/luanvuhlu/rds-secrets-sample) to this implementation.
+
+So it’s done. Now you can use Spring data source normally. You can rotate your password automatically every day, every month in AWS Secrets Manager and your program will still work as you expected without restarting every time you change the password.
+
+But How? If you need to understand in more detail how it works, continue to follow below.
+
+How it work
+------------
+
+When the program needs a JDBC connection, the java.sql.Driver#_connect_ function is called. Instead of retrieving an existing username/password, the Driver wrapper (eg AWSSecretsManagerMySQLDriver) will call into the AWS Secrets Manager to retrieve the username/password.
+
+The problem is that you have to calls the AWS Secrets Manager API every time you use the connection, it will take time and cost a lot(AWS Secrets Manager charges by the number of API calls). So, the better way is to cache and reuse username/password next time instead of calling AWS Secrets Manager.
+
+![](/static/img/uploads2/1_iNCoc23IcK_xcoK_YYWoSg.webp)
+
+If the cached has expired (default is 1 hour), the driver will continue to call into AWS Secrets Manager to retrieve the username/password (can be new or old).
+
+So what if the cached has not expired but the username/password in AWS Secrets Manager(also in RDS of course) has been changed? Driver uses fallback mechanism. It doesn’t know credentials are changed, so it continuous connects to database using the existing username/password (in the cached), if the database returns an error indicating the wrong username/password, call AWS Secrets Manager to get the new username/password.
+
+![](/static/img/uploads2/1_5KLKq57Kce3SdmpVjnm2gg.webp)
+
+And that’s it. Above is the guide on how to integrate Amazon RDS and AWS Secrets Manager into Spring Boot project. This method is not limited to Spring but can be used with any Java project that uses JDBC.
+
+Reference
+=========
+
+*   [https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP\_BestPractices.Security.html](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_BestPractices.Security.html)
+*   [https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotating-secrets.html](https://docs.aws.amazon.com/secretsmanager/latest/userguide/rotating-secrets.html)
+*   [https://dzone.com/articles/spring-boot-handle-aws-rds-password-change-or-rota](https://dzone.com/articles/spring-boot-handle-aws-rds-password-change-or-rota)
+*   [https://github.com/aws/aws-secretsmanager-jdbc](https://github.com/aws/aws-secretsmanager-jdbc)
+*   [https://aws.amazon.com/blogs/security/use-aws-secrets-manager-client-side-caching-libraries-to-improve-the-availability-and-latency-of-using-your-secrets/](https://aws.amazon.com/blogs/security/use-aws-secrets-manager-client-side-caching-libraries-to-improve-the-availability-and-latency-of-using-your-secrets/)
+---
+pub_date: 2021-08-22
+---
+summary: In this article, I will show you how to integrate Amazon RDS connection information into a Spring project using AWS Secrets Manager.
+---
+tags:
+
+Spring
+Rds
+AWS
+Secrets
+Jdbc
+---
+cover: covers/1_p97n45ofigscZpO8K2EwLQ.webp
