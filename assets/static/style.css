@@ -4780,6 +4780,7 @@ body {
  .post-editor p {
     line-height: 1.8em;
  }
+ /*
  .post-editor > p:first-child:first-letter{
     float:left;
     text-transform: uppercase;
@@ -4796,7 +4797,7 @@ body {
     line-height: .7;
     margin-bottom: -.08em;
 }
-
+*/
 .post-editor .img-block{
   text-align: center;
 }
