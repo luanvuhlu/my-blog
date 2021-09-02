@@ -4749,7 +4749,13 @@ body {
     /*height:52px;*/
  }
 .more-blog{
+    margin-top: -20px;
     padding: 20px;
+    font-size: 20px;
+ }
+ .more-credly {
+    margin-top: -25px;
+    padding-bottom: 20px;
     font-size: 20px;
  }
  .section-clients .client-logo img {
