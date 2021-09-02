@@ -2,7 +2,8 @@
 {% from "macros/blog.html" import render_blog_sibling_nav %}
 {% block meta %}
 <meta name="description" content="{{ this.summary }}" />
-<meta property="og:image" content="{{ 'https://luanvv.com/static/img/' + this.cover }}">
+<meta property="og:image" content="{{ 'https://luanvv.com/static/img/' + this.cover|replace('.webp','.jpg') }}">
+<meta property="twitter:image" content="{{ 'https://luanvv.com/static/img/' + this.cover }}">
 {% endblock %}
 {% block title %}{{ this.title }}{% endblock %}
 {% block static %}
