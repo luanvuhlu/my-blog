@@ -1,5 +1,6 @@
 {% from "macros/blog.html" import render_blog_post %}
 <section id="blog" class="section section-blog">
+    {% with blogposts = site.query('/blog').order_by('-pub_date').limit(10) %} 
     <div class="animate-up">
         <h2 class="section-title">From The Blog</h2>
         <div class="more-blog text-center">
@@ -9,19 +10,18 @@
             <div class="grid-sizer"></div>
             <div class="blog">
                 <div class="row">
-                    {% with blogposts = site.query('/blog').order_by('-pub_date').limit(4) %} 
                         {% for blogpost in blogposts %}
                             {{ render_blog_post(blogpost, from_index=true) }}
                         {% endfor %}
-                    {% endwith  %}
                 </div>
             </div>
         </div>
-        {% if blogposts|length > 4 %}
+        {% if site.query('/blog').count() > 10 %}
             <div class="more-blog text-center">
-                <a href="{{ '/blog'|url }}">Read more</a>
+                <a href="{{ '/blog'|url }}">And More</a>
             </div>
         {% endif %}
     </div>
+    {% endwith  %}
 </section>
 <!-- #blog -->
