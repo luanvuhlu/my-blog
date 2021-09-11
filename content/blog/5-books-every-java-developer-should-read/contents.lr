@@ -1,0 +1,83 @@
+title: 5 Books Every Java Developer Should Read
+---
+author: luanvv
+---
+body:
+
+In this article, I will give 5 books that I think everyone should read if they want to understand and work well with Java. 
+Many of you who are learning about Java (or any technical knowledge) are going in the wrong direction. You go from the basic thing (Getting Started, [www.tutorialspoint.](http://www.tutorialspoint.com)com,...), sounds good. Then go straight to the real projects. You think practicing is the best way to learn, but after many years, you realize you're standing still. Your knowledge is limited, you always think that what you know is 100% right and no need to learn more. But the knowledge out there is limitless and constantly changing. Some of you go around social networks, blogs or website, such as Facebook, Medium, Youtube, etc. and think that you are always updating your knowledge, but the truth is that you are walking around, not really learning deeply and fully, you are just fooling yourself. That's why I always encourage people to read books. Spending a month reading books will obviously give you more knowledge than a year surfing Facebook (obviously everyone knows it is for playing, not learning). But why using Facebook to learn? Seriously!   
+
+_Actually, some channels and videos on Youtube have excellent quality, but they are not fascinating for most of you guy. So you endup choosing more funny videos, but not helpful in my opinion._
+
+[Core Java Volume I & II](https://www.amazon.com/dp/B083K3Q7QQ?ref_=dbs_s_ks_series_rwt) — Cay Horstmann
+---------------------------------------------------------------------------------------------------------
+
+![](/static/img/covers/java books.webp)
+
+The series provides complete knowledge of the Java language: the core Java components, common APIs and many useful tips & tricks. The content of the series is extremely voluminous, with over 900 pages each, spanning most of the important Java content and Java versions (9, 10 and 11), each problem solved. There also is no shortage of useful sample code for your reference.  
+
+If you don't know anything about Java then this series will be the best way to approach. And if you're doing Java and think you understand Java, think again and read this series. You will find that there are many issues you do not fully understand and also many problems you do not know.  
+
+This set includes 2 books:  
+[**Core Java, Volume I — Fundamentals (Core Series)**](https://www.amazon.com/Core-Java-I-Fundamentals-Cay-Horstmann-ebook-dp-B07G8DHTSZ/dp/B07G8DHTSZ/ref=mt_other?_encoding=UTF8&me=&qid=1603883127)  
+[**Core Java, Volume II — Advanced Features (Core Series)**](https://www.amazon.com/Core-Java-II-Advanced-Features-Horstmann-ebook-dp-B07NCXJR1M/dp/B07NCXJR1M/ref=mt_other?_encoding=UTF8&me=&qid=1603883127)  
+If you want to work well with Java, I consider this a must-read book whether you are a senior or new in Java. 
+
+[Effective Java](https://www.amazon.com/Effective-Java-Joshua-Bloch-ebook/dp/B078H61SCH/ref=sr_1_1?dchild=1&keywords=Effective+Java&qid=1603883394&s=digital-text&sr=1-1) — Bloch Joshua
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+![](/static/img/uploads/0_rac0HQqQmslhb9m7.webp)
+
+As the name suggests, this book will give you useful advice when using the Java language. With a huge amount of knowledge about Java, it will be difficult for you to notice the details and come up with effective ways to use it in the process of working with Java. Those things require a lot of research, experimentation and experience over a long period of time. Luckily you don't have to do that, the author did it all and wrote in **Effective Java**. The book provides best practices, points out common misconceptions, and provides compelling proofs that even **Oracle** doesn't tell you.  
+
+For example, do you know how to properly override _equals_, _hashCode_, _toString_, _clone_ and why we need to do it. Or when to not use parallel streams, and many other good things.  
+
+The book will be divided into several chapters, each of which will include small passages mentioning a suggestion that I believe will surprise you with the suggestions. 
+
+[Refactoring: Improving the Design of Existing Code](https://www.amazon.com/Refactoring-Improving-Existing-Addison-Wesley-Signature-ebook-dp-B07LCM8RG2/dp/B07LCM8RG2/ref=mt_other?_encoding=UTF8&me=&qid=1573411753) — Fowler Martin
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+![](/static/img/uploads2/0_JNfeaDTaxEVLvZfk.webp)
+
+Many people when it comes to how to code (the art of code) so that it is beautiful, easy to understand, and easy to modify, they will immediately think of books like [**Clean Code**](https://www.amazon.com/Clean- Code-Handbook-Software-Craftsmanship/dp/0132350882), [**The Art of Readable Code**](https://www.amazon.com/Refactoring-Improving-Existing-Addison-Wesley-Signature-ebook-dp -B07LCM8RG2/dp/B07LCM8RG2/ref=mt_other?_encoding=UTF8&me=&qid=1573411753)… But the books that impressed me the most were Refactoring, and the one above is one of them. Refactoring has a slightly different meaning than anything else. **Design Patterns**, **SOLID**, **Clean Code** will often follow the direction of design thinking, that is, as soon as you type the design key, you must immediately apply those philosophies, later it's too late.  
+
+Why do I prefer Refactoring? Because it is easier to understand, remember and practical than the abstract thinking of **Clean Code** or the brain twisting of **Design Patterns**. Naming must be easy to understand, short and concise, but in practical application, not everyone can really do it right. Most of people I have interviewed know just one pattern, which is **Singleton**. Because the others are so confusing and with the style of just meeting deadlines, it is clear that **Design Patterns** is too far away.  
+
+Refactoring is extremely practical. When reviewing code, it throws to your face by a bunch of code with what people call Code Smells such as Long Method, Duplicate Code, Large Class, etc. and many other things that you don't know the names of. From understanding how the code will be considered bad, you will know next time to avoid. And if you have missed it, you will know the Treatments. If the method is too long (Long Method), then separate the method (Extract Method), if the class is too large, separate the class (Extract Class), ... and countless other Treatments.  
+
+I recommend this book to be read and practiced regularly to improve code quality.  
+
+If you don't want to buy the book, there's a lot of material on the internet on this, here's an example: [Refactoring (sourcemaking.com)](https://sourcemaking.com/refactoring ) 
+
+[Design Patterns: Elements of Reusable Object-Oriented Software](https://www.amazon.com/gp/product/B000SEIBB8/ref=ppx_yo_dt_b_d_asin_title_o01?ie=UTF8&psc=1) — Gamma Erich, Helm Richard, Johnson Ralph, Vlissides John
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+![](/static/img/uploads2/0_SEHfRTcaCN7BNFQD.webp)
+
+Perhaps it is not necessary to say much about how important Design Patterns is in object-oriented programming (OOP) today. Design Patterns is design patterns drawn from many years of OOP development, which make your code more flexible, easy to modify, extend and reuse.  It offers 23 **Design Patterns**. Each pattern will start with a specific problem, the steps to analyze the problem, give the appropriate pattern, explain and finally the advantages and disadvantages of applying the pattern.  
+
+It is very useful for those of you who are in charge of design work, knowing **Design Patterns** is a huge advantage when applying for a job for anyone.
+
+[Clean Code: A Handbook of Agile Software Craftsmanship](https://www.amazon.com/Clean-Code-Handbook-Software-Craftsmanship/dp/0132350882) — Robert C. Martin
+-------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+![](/static/img/uploads2/0_wwRLtzkGTXuFzOd0.webp)
+
+It's hard to find a programmer who doesn't know Clean Code. The book will tell you which code is good, which one not and how to improve them. By the end we will be guided to write unit tests. The content given are all very useful advice and I think it takes a long time to ponder and practice to instill the thought.  
+
+It's a pity that everyone knows about the book, but not everyone really reads and ponders it. In general, knowing but not understanding.  
+
+This book is a must read, no matter who you are.
+
+========
+
+Above are 5 books that I find extremely useful for those who want to follow the Java path. If you know other good ones, please suggest me. Although I have done little about Java, I have never stopped learning about it. 
+---
+cover: covers/java books.webp
+---
+pub_date: 2021-09-11
+---
+summary: In this article, I will give 5 books that I think everyone should read if they want to understand and work well with Java.
+---
+tags:
+
+Java
+Books
+Book Review
