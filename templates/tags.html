@@ -1,10 +1,13 @@
 {% extends "layout.html" %}
 {% block title %}{{ this.title }}{% endblock %}
+{% from "macros/pagination.html" import render_pagination %}
 {% block content %}
 <ul>
-      {% for value in bag('tags.all') %}
-        <li><a href="{{ value }}">{{ value }}</a>
+      {% for value in this.items %}
+        <li><a href="{{ value|url }}">{{ value._id }}</a>
         </li>
+      {% else %}
+        <li><em>No items.</em></li>
       {% endfor %}
 </ul>
 {% endblock %}
