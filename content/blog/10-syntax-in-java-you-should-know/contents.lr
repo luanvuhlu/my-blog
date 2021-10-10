@@ -107,7 +107,8 @@ We have
 *   emptyMap
 *   emptySet
 *   emptyIterator
-And more, use them.
+
+And more, use them.  
 Refer: [https://docs.oracle.com/javase/7/docs/api/java/util/Collections.html#emptyList()](https://docs.oracle.com/javase/7/docs/api/java/util/Collections.html#emptyList())
 
 7\. Objects equality check
@@ -141,7 +142,7 @@ Refer: [https://docs.oracle.com/javase/8/docs/api/java/util/Objects.html#equals-
 8\. List.of, Set.of and Map.of (since 9)
 -----------------------------------------
 
-Do you prefer [Functional Programming,](https://en.wikipedia.org/wiki/Functional_programming) and love immutable objects? Creating a immutable collection class by yourself could be changeling. Well, Java provides Unmodifiable Lists, Unmodifiable Sets, Unmodifiable Maps which basically are immutable classes.
+Do you prefer [Functional Programming,](https://en.wikipedia.org/wiki/Functional_programming) and love immutable objects? Creating a immutable collection class by yourself could be challenging. Well, Java provides Unmodifiable Lists, Unmodifiable Sets, Unmodifiable Maps which basically are immutable classes.
 
 For example, Unmodifiable Lists have some characteristics:
 
