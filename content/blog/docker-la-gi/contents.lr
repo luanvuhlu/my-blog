@@ -99,7 +99,7 @@ Dockerfile
 
 Dockerfile là một tài liệu dạng text chứa tất cả các câu lệnh (theo cú pháp nhất định) có thể được gọi và tạo lên một image.
 
-![](/static/img/uploads/docker_file.webp)
+![](/static/img/uploads2/docker_file.webp)
 
 Từ Dockerfile này, bạn chạy lệnh _docker build_ và image của bạn sẽ được tạo ra.
 
@@ -146,7 +146,7 @@ Docker Compose chỉ là một tool hỗ trợ, bạn hoàn toàn có thể khô
 
 Docker Compose sử dụng một file template, như dưới đây:
 
-![](/static/img/uploads/docker_compose.webp)
+![](/static/img/uploads1/docker_compose.webp)
 
 Để bắt đầu ứng dụng web của bạn, chỉ cần chạy _docker-compose up_, vậy là xong.
 
