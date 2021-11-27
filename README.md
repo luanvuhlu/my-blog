@@ -1,6 +1,6 @@
 # My static blog website
 
-An example about lektor which is a static content management system. You can write a blog, a page and build it to a static website easily.
+An example which is a static content management system. You can write a blog, a page and build it to a static website easily.
 
 ## Getting Started
 
