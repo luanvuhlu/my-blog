@@ -1,0 +1,223 @@
+title: ArrayList và LinkedList
+---
+author: luanvv
+---
+body:
+
+### List trong Java
+
+List trong Java, hay interface java.util.List được mô tả như là một
+* Danh sách có thứ tự
+* Có thể truy xuất phần tử ở một vị trí bất kỳ trong list
+
+Có hai class phổ biến nhất implement List là ArrayList và LinkedList
+### ArrayList
+
+Ưu điểm của array là tiết kiệm bộ nhớ và tốc độ truy xuất ngẫu nhiên (tìm một phần tử ở vị trí bất kỳ) nhanh. Tuy nhiên, đổi lại thì array phải có độ dài cố định khi bạn khởi tạo. Nếu khai báo nhiều quá sẽ tốn bộ nhớ, ít quá thì không đủ để lưu trữ.  
+Để thuận tiện cho cả việc sử dụng và tốc độ truy xuất, ArrayList ra đời để khắc phục các nhược điểm đó nhưng vẫn kế thừa ưu điểm trong việc truy xuất dữ liệu của array.  
+ArrayList làm điều đó bằng cách sử dụng một [dynamic array](https://en.wikipedia.org/wiki/Dynamic_array)  để lưu trữ các phần tử. Khi bạn thêm hoặc xóa phần tử, ArrayList sẽ tính toán để tạo một array mới có kích thước phù hợp và copy toàn bộ phần tử từ array cũ sang array mới.  
+Khởi điểm array sẽ rỗng và có một biến integer cho biết kích thước thực của ArrayList, gọi là size, bằng 0.
+![](/static/img/uploads2/arraylist0.png)
+
+Array này là một static array rỗng và share cho tất cả các hàm khởi tạo ArrayList để giảm thiểu bộ nhớ sử dụng nếu bạn mới chỉ khởi tạo chứ chưa dùng.  
+Khi bắt đầu thêm mới một phần tử, elementData sẽ được gán bằng một mảng mới có độ dài thường là bằng 10.
+![](/static/img/uploads2/arraylist1.png)
+
+Khi tiếp tục thêm phần tử, elementData sẽ được lấp đầy
+![](/static/img/uploads2/arraylist2.png)
+
+Giả sử elementData đã được lấp đầy (10 phần tử)
+![](/static/img/uploads2/arraylist3.png)
+
+Khi ta lại thêm phần tử, elementData sẽ lại được khởi tạo bằng một array mới có size tăng thêm 50% size gốc
+![](/static/img/uploads2/arraylist4.png)
+
+Cách thức tăng của elementData là newSize = oldSize * 1.5  
+Tương tự:  
+10 -> 15  
+15 -> 22  
+22 -> 33  
+33 -> 49  
+49 -> 73
+
+Trong trường hợp delete, giả sử delete tại index 5, thực hiện:
+* Copy item từ vị trí 5 + 1 tới cuối và đè vào index 5
+* Giá trị ở vị trí cuối sẽ bị thừa ra, đặt giá trị thành null
+* Giảm size của list đi 1
+![](/static/img/uploads2/arraylist5.png)
+
+Giờ ta có một list chỉ còn 10 phần tử.  
+**Nhận xét**: 
+* Với cách liên tục tạo mới array và copy array, ArrayList sẽ kém trong việc thêm mới hoặc xóa phần tử, sẽ ngày một tệ hơn khi số phần tử tăng lên.
+* Truy xuất ngẫu nhiên trong ArrayList chính là truy xuất theo index trong array nên tốc độ rất nhanh.
+* Cách delete của ArrayList sẽ hoạt động kém nếu bạn delete với những index nhỏ, tệ nhất sẽ là index = 0. Giả sử list của bạn có size = 100. Nếu bạn delete phần tử đầu tiên, ArrayList sẽ phải copy 99 phần tử.
+* array trong ArrayList sẽ ngày một to ra khi bạn thêm phần tử, thêm mỗi lần 50% khi thiếu chỗ lưu và sẽ không giảm đi khi bạn delete.
+
+### LinkedList
+
+LinkedList là một danh sách liên kết kép ([Doubly-linked list](https://en.wikipedia.org/wiki/Linked_list#Doubly_linked_list)), thay vì dùng array để lưu dữ liệu như ArrayList, LinkedList lại dùng cấu trúc danh sách liên kế để lưu trữ.  
+Cách thức hoạt động như sau:
+LinkedList bao gồm: 
+* size để lưu dung lượng thực của list, giống ArrayList
+* Node first để lưu phần tử đầu tiên của list. Ban đầu chưa có sẽ là null
+* Node last để lưu phần tử cuối cùng của list. Ban đầu chưa có sẽ là null
+* Mỗi node sẽ chưa data thực của node, gọi là item, một node kế tiếp của nó, gọi là next và một node đứng ngay trước nó, gọi là prev
+
+Khởi điểm, LinkedList sẽ bao gồm 2 node first và last đều mang giá trị null
+![](/static/img/uploads2/linkedlist0.png)
+
+Khi thêm phần tử đầu tiên, thay thế node first bằng phần tử đó
+![](/static/img/uploads2/linkedlist1.png)
+
+Khi thêm phần tử tiếp theo, thay vào node last và liên kết giữa node first và node last. Nay list đã có tối thiểu 2 node
+![](/static/img/uploads2/linkedlist2.png)
+
+Cứ như vậy, khi tiếp tục insert, dù là ở cuối danh sách hay đầu danh sách, LinkedList chỉ việc liên kết các node lại với nhau
+![](/static/img/uploads2/linkedlist3.png)
+
+Dù là thêm ở giữa list thì list cũng chỉ cần đơn giản là tạo ra node mới, thay đổi liên kết 2 node bên cạnh node mới thêm vào
+![](/static/img/uploads2/linkedlist4.png)
+
+Tương tự như vậy, khi cần delete, LinkedList cũng thay đổi liên kết 2 node bên cạnh node vừa bị xóa
+![](/static/img/uploads2/linkedlist5.png)
+
+Khi cần lấy ra một phần tử ở index bất kỳ,không như ArrayList, LinkedList phải đi dần dần từng node một từ first hay last phụ thuộc vào index ở gần bên nào hơn.
+![](/static/img/uploads2/linkedlist6.png)
+
+Giả sử bạn có một list với 1000 phần tử. Khi bạn cần lấy ra phần tử có index = 500, LinkedList sẽ phải duyệt tới toàn bộ 500 phần tử để có thể lấy ra cái bạn muốn, điều đó là rất tệ.
+
+**Nhận xét**:
+* Việc tìm phần tử ở vị trí ngẫu nhiên của LinkedList kém hơn ArrayList, đặc biệt với index ở trung tâm
+* Việc thêm hoặc xóa node trong LinkedList rất dễ dàng nhưng sẽ tệ dần nếu bạn insert/delete càng về trung tâm của list.
+### ArrayList vs LinkedList
+
+Từ những nhận xét ở trên, các bạn hoàn toàn có thể rút ra so sánh giữa ArrayList và LinkedList.
+Cá nhân mình, chưa bao giờ dùng LinkedList, vì các lý do sau:
+
+#### Chúng ta đều sử dụng những list có kích thước nhỏ.
+
+Khi list có kích thước nhỏ thì tốc độ mở rộng của dynamic array không hề thua kém so với LinkedList.  
+Dưới đây là benchmark tốc độ insert với các kích thước khác nhau.
+
+```
+Benchmark                          Mode  Cnt         Score         Error  Units
+BenchMark.arrayList_100            avgt   10       445.561 ±       9.932  ns/op
+BenchMark.linkedList_100           avgt   10       412.391 ±       9.215  ns/op
+BenchMark.arrayList_1000           avgt   10      6920.255 ±      64.297  ns/op
+BenchMark.linkedList_1000          avgt   10      6063.801 ±      69.172  
+```
+Không có quá nhiều khác biệt
+
+#### Chúng ta có xu hướng sử dụng list để duyệt và tìm kiếm nhiều hơn so với insert từng phần tử một.
+
+Việc duyệt bằng array chắc chắn là vượt trội hơn so với cách duyệt qua từng phần tử của LinkedList  
+### Có nhiều cách để tạo ra 1 ArrayList chứa nhiều phần tử mà vẫn khắc phục được nhược điểm của ArrayList
+* Tạo ArrayList từ Collection khác: new ArrayList<>(Collection<> e);
+* Thêm nhiều phần tử một lúc bằng list.addAll(Collection<> e);
+* Định số phần tử trước khi insert: new ArrayList<>(int initialCapacity)
+* Dùng Stream API. Stream API sử dụng list.addAll
+
+#### LinkedList tốn rất nhiều bộ nhớ để lưu trữ
+Giả sử có một list các integer, với size = 1000, và size = 1000_000, dung lượng cần để lưu trữ như sau:
+
+| Số phần tử/Dung lượng(byte) |  1000 |  1000000 |
+|-----------------------------|:-----:|:--------:|
+| ArrayList                   | 19784 | 19447832 |
+| LinkedList                  | 40032 | 40000032 |
+
+Cách tính một ArrayList khi add lần lượt 1000 integer sẽ bao gồm:
+* object header = 12
+* size = 4
+* modCount = 4
+* elementData reference = 4
+* elementData header = 12
+* elementData size = 4
+* elementData item = 16 * 1234
+
+Total 19784 byte  
+Với LinkedList:
+* object header = 12
+* size = 4
+* modCount = 4
+* Node first reference = 4
+* Node last reference = 4
+* Object alignment gap = 4
+* Node size = 12 (object header) + 4 (item reference) + 16 (Integer) + 4 (next reference) + 4 (prev reference) = 40
+* All node= node size * 1000 = 40000  
+
+Total 40032 byte
+
+Bạn có thể thấy là LinkedList tốn dung lượng gấp đôi so với ArrayList. Ngoài ra array luôn thân thiện với Garbage Collection hơn so với các Node của LinkedList.
+
+#### LinkedList insert/delete tốt nhưng chưa chắc đã nhanh.
+Giả sử bạn cần insert hoặc delete ở giữa list. Trước khi có thể insert/delete, nó phải duyệt qua một nửa số phần tử của list, điều mà LinkedList làm tệ nhất
+
+Chốt lại, cùng xem tác giả của LinkedList trong Java nói gì:
+
+![](/static/img/uploads2/linkedlist7.png)
+[https://twitter.com/joshbloch/status/583813919019573248](https://twitter.com/joshbloch/status/583813919019573248)
+
+### findFirst hay findAny
+
+![](/static/img/uploads2/linkedlist8.png)
+
+Có người thích dùng findFirst, có người lại findAny, cái nào đúng hơn?  
+Với [sequential stream](https://docs.oracle.com/javase/8/docs/api/java/util/stream/BaseStream.html#sequential--) và List trong Java là một list có thứ tự thì findFirst hay findAny cho ra kết quả như nhau và tốc độ như nhau trong mọi trường hợp.  
+Nhưng đối với parallel stream, findAny có thể trả ra kết quả khác với findFirst. Hoặc bạn dùng nó với Set thì 2 hàm cũng cho ra kết quả khác nhau.
+
+
+### Một số mẹo khi dùng với list
+
+#### Tìm kiếm một phần tử trong list
+
+Bây giờ là 2021 rồi, chắc không còn ai code như này đâu đúng không! Đúng không!
+
+![](/static/img/uploads2/list0.png)
+
+Thay vào đó, hãy code như sau:
+
+![](/static/img/uploads2/list1.png)
+
+Không if-else, không for-loop. Clean hơn và đỡ vất vả hơn cho bạn khi viết unit test
+
+#### Kiểm tra tất cả phần tử thỏa mãn điều kiện
+
+![](/static/img/uploads2/list2.png)
+
+#### Kiểm tra có ít nhất một phần tử thỏa mãn điều kiện
+
+![](/static/img/uploads2/list3.png)
+
+#### Sort list theo một field
+
+Sort theo price ascending
+
+![](/static/img/uploads2/list4.png)
+
+Sort theo price descending
+
+![](/static/img/uploads2/list5.png)
+
+#### Delete các phần tử thỏa mãn điều kiện
+
+Delete dùng iterator.remove. Ai còn dùng nữa chứ, welcome to Java 8
+
+![](/static/img/uploads2/list6.png)
+
+### Reference
+
+* [https://dzone.com/articles/java-object-size-estimation-measuring-verifying](https://dzone.com/articles/java-object-size-estimation-measuring-verifying)
+---
+cover: covers/arraylist-linkedlist.png
+---
+pub_date: 2021-11-28
+---
+summary: Nhiều người chỉ biết đến ArrayList. Nhiều người biết đến cả LinkedList nhưng chưa chắc đã hiểu đúng. Cùng ngồi lại và xem
+---
+tags:
+
+Java
+ArrayList vs LinkedList
+ArrayList
+LinkedList
+List
