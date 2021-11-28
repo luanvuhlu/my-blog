@@ -61,12 +61,12 @@ Giờ ta có một list chỉ còn 10 phần tử.
 ### LinkedList
 
 LinkedList là một danh sách liên kết kép ([Doubly-linked list](https://en.wikipedia.org/wiki/Linked_list#Doubly_linked_list)), thay vì dùng array để lưu dữ liệu như ArrayList, LinkedList lại dùng cấu trúc danh sách liên kế để lưu trữ.  
-Cách thức hoạt động như sau:
+Cách thức hoạt động như sau:  
 LinkedList bao gồm: 
 * size để lưu dung lượng thực của list, giống ArrayList
 * Node first để lưu phần tử đầu tiên của list. Ban đầu chưa có sẽ là null
 * Node last để lưu phần tử cuối cùng của list. Ban đầu chưa có sẽ là null
-* Mỗi node sẽ chưa data thực của node, gọi là item, một node kế tiếp của nó, gọi là next và một node đứng ngay trước nó, gọi là prev
+* Mỗi node sẽ chứa data thực của node, gọi là item, một node kế tiếp của nó, gọi là next và một node đứng ngay trước nó, gọi là prev
 
 Khởi điểm, LinkedList sẽ bao gồm 2 node first và last đều mang giá trị null
 
@@ -84,7 +84,7 @@ Cứ như vậy, khi tiếp tục insert, dù là ở cuối danh sách hay đ�
 
 ![](/static/img/uploads2/linkedlist3.png)
 
-Dù là thêm ở giữa list thì list cũng chỉ cần đơn giản là tạo ra node mới, thay đổi liên kết 2 node bên cạnh node mới thêm vào
+Tương tự khi thêm ở giữa list thì list cũng chỉ cần đơn giản là tạo ra node mới, thay đổi liên kết 2 node bên cạnh node mới thêm vào ở giữa list thì list cũng chỉ cần đơn giản là tạo ra node mới, thay đổi liên kết 2 node bên cạnh node mới thêm vào
 
 ![](/static/img/uploads2/linkedlist4.png)
 
@@ -92,7 +92,7 @@ Tương tự như vậy, khi cần delete, LinkedList cũng thay đổi liên k�
 
 ![](/static/img/uploads2/linkedlist5.png)
 
-Khi cần lấy ra một phần tử ở index bất kỳ,không như ArrayList, LinkedList phải đi dần dần từng node một từ first hay last phụ thuộc vào index ở gần bên nào hơn.
+Khi cần lấy ra một phần tử ở index bất kỳ, không như ArrayList, LinkedList phải đi dần dần từng node một từ first hay last phụ thuộc vào index ở gần bên nào hơn.
 
 ![](/static/img/uploads2/linkedlist6.png)
 
@@ -101,9 +101,10 @@ Giả sử bạn có một list với 1000 phần tử. Khi bạn cần lấy ra
 **Nhận xét**:
 * Việc tìm phần tử ở vị trí ngẫu nhiên của LinkedList kém hơn ArrayList, đặc biệt với index ở trung tâm
 * Việc thêm hoặc xóa node trong LinkedList rất dễ dàng nhưng sẽ tệ dần nếu bạn insert/delete càng về trung tâm của list.
+
 ### ArrayList vs LinkedList
 
-Từ những nhận xét ở trên, các bạn hoàn toàn có thể rút ra so sánh giữa ArrayList và LinkedList.
+Từ những nhận xét ở trên, các bạn hoàn toàn có thể rút ra so sánh giữa ArrayList và LinkedList.  
 Cá nhân mình, chưa bao giờ dùng LinkedList, vì các lý do sau:
 
 #### Chúng ta đều sử dụng những list có kích thước nhỏ.
@@ -129,7 +130,7 @@ Việc duyệt bằng array chắc chắn là vượt trội hơn so với cách
 * Định số phần tử trước khi insert: new ArrayList<>(int initialCapacity)
 * Dùng Stream API. Stream API sử dụng list.addAll
 
-#### LinkedList tốn rất nhiều bộ nhớ để lưu trữ
+#### LinkedList tốn nhiều bộ nhớ để lưu trữ
 Giả sử có một list các integer, với size = 1000, và size = 1000_000, dung lượng cần để lưu trữ như sau:
 
 | Số phần tử/Dung lượng(byte) |  1000 |  1000000 |
@@ -164,7 +165,7 @@ Bạn có thể thấy là LinkedList tốn dung lượng gấp đôi so với A
 #### LinkedList insert/delete tốt nhưng chưa chắc đã nhanh.
 Giả sử bạn cần insert hoặc delete ở giữa list. Trước khi có thể insert/delete, nó phải duyệt qua một nửa số phần tử của list, điều mà LinkedList làm tệ nhất
 
-Chốt lại, cùng xem tác giả của LinkedList trong Java nói gì:
+Còn đây là lời tác giả của LinkedList trong Java nói gì:
 
 ![](/static/img/uploads2/linkedlist7.png)
 [https://twitter.com/joshbloch/status/583813919019573248](https://twitter.com/joshbloch/status/583813919019573248)
@@ -209,9 +210,9 @@ Sort theo price descending
 
 ![](/static/img/uploads2/list5.png)
 
-#### Delete các phần tử thỏa mãn điều kiện
+#### Delete các phần tử thỏa mãn điều kiện với removeIf
 
-Delete dùng iterator.remove. Ai còn dùng nữa chứ, welcome to Java 8
+Gọn hơn so với cách dùng iterator.remove.
 
 ![](/static/img/uploads2/list6.png)
 
