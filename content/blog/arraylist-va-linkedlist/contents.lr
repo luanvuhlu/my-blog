@@ -5,7 +5,6 @@ author: luanvv
 body:
 
 ### List trong Java
-
 List trong Java, hay interface java.util.List được mô tả như là một
 * Danh sách có thứ tự
 * Có thể truy xuất phần tử ở một vị trí bất kỳ trong list
@@ -17,19 +16,24 @@ Có hai class phổ biến nhất implement List là ArrayList và LinkedList
 Để thuận tiện cho cả việc sử dụng và tốc độ truy xuất, ArrayList ra đời để khắc phục các nhược điểm đó nhưng vẫn kế thừa ưu điểm trong việc truy xuất dữ liệu của array.  
 ArrayList làm điều đó bằng cách sử dụng một [dynamic array](https://en.wikipedia.org/wiki/Dynamic_array)  để lưu trữ các phần tử. Khi bạn thêm hoặc xóa phần tử, ArrayList sẽ tính toán để tạo một array mới có kích thước phù hợp và copy toàn bộ phần tử từ array cũ sang array mới.  
 Khởi điểm array sẽ rỗng và có một biến integer cho biết kích thước thực của ArrayList, gọi là size, bằng 0.
+
 ![](/static/img/uploads2/arraylist0.png)
 
 Array này là một static array rỗng và share cho tất cả các hàm khởi tạo ArrayList để giảm thiểu bộ nhớ sử dụng nếu bạn mới chỉ khởi tạo chứ chưa dùng.  
 Khi bắt đầu thêm mới một phần tử, elementData sẽ được gán bằng một mảng mới có độ dài thường là bằng 10.
+
 ![](/static/img/uploads2/arraylist1.png)
 
 Khi tiếp tục thêm phần tử, elementData sẽ được lấp đầy
+
 ![](/static/img/uploads2/arraylist2.png)
 
 Giả sử elementData đã được lấp đầy (10 phần tử)
+
 ![](/static/img/uploads2/arraylist3.png)
 
 Khi ta lại thêm phần tử, elementData sẽ lại được khởi tạo bằng một array mới có size tăng thêm 50% size gốc
+
 ![](/static/img/uploads2/arraylist4.png)
 
 Cách thức tăng của elementData là newSize = oldSize * 1.5  
@@ -44,6 +48,7 @@ Trong trường hợp delete, giả sử delete tại index 5, thực hiện:
 * Copy item từ vị trí 5 + 1 tới cuối và đè vào index 5
 * Giá trị ở vị trí cuối sẽ bị thừa ra, đặt giá trị thành null
 * Giảm size của list đi 1
+
 ![](/static/img/uploads2/arraylist5.png)
 
 Giờ ta có một list chỉ còn 10 phần tử.  
@@ -64,24 +69,31 @@ LinkedList bao gồm:
 * Mỗi node sẽ chưa data thực của node, gọi là item, một node kế tiếp của nó, gọi là next và một node đứng ngay trước nó, gọi là prev
 
 Khởi điểm, LinkedList sẽ bao gồm 2 node first và last đều mang giá trị null
+
 ![](/static/img/uploads2/linkedlist0.png)
 
 Khi thêm phần tử đầu tiên, thay thế node first bằng phần tử đó
+
 ![](/static/img/uploads2/linkedlist1.png)
 
 Khi thêm phần tử tiếp theo, thay vào node last và liên kết giữa node first và node last. Nay list đã có tối thiểu 2 node
+
 ![](/static/img/uploads2/linkedlist2.png)
 
 Cứ như vậy, khi tiếp tục insert, dù là ở cuối danh sách hay đầu danh sách, LinkedList chỉ việc liên kết các node lại với nhau
+
 ![](/static/img/uploads2/linkedlist3.png)
 
 Dù là thêm ở giữa list thì list cũng chỉ cần đơn giản là tạo ra node mới, thay đổi liên kết 2 node bên cạnh node mới thêm vào
+
 ![](/static/img/uploads2/linkedlist4.png)
 
 Tương tự như vậy, khi cần delete, LinkedList cũng thay đổi liên kết 2 node bên cạnh node vừa bị xóa
+
 ![](/static/img/uploads2/linkedlist5.png)
 
 Khi cần lấy ra một phần tử ở index bất kỳ,không như ArrayList, LinkedList phải đi dần dần từng node một từ first hay last phụ thuộc vào index ở gần bên nào hơn.
+
 ![](/static/img/uploads2/linkedlist6.png)
 
 Giả sử bạn có một list với 1000 phần tử. Khi bạn cần lấy ra phần tử có index = 500, LinkedList sẽ phải duyệt tới toàn bộ 500 phần tử để có thể lấy ra cái bạn muốn, điều đó là rất tệ.
@@ -157,6 +169,8 @@ Chốt lại, cùng xem tác giả của LinkedList trong Java nói gì:
 ![](/static/img/uploads2/linkedlist7.png)
 [https://twitter.com/joshbloch/status/583813919019573248](https://twitter.com/joshbloch/status/583813919019573248)
 
+### Một số mẹo khi dùng với list
+
 ### findFirst hay findAny
 
 ![](/static/img/uploads2/linkedlist8.png)
@@ -164,9 +178,6 @@ Chốt lại, cùng xem tác giả của LinkedList trong Java nói gì:
 Có người thích dùng findFirst, có người lại findAny, cái nào đúng hơn?  
 Với [sequential stream](https://docs.oracle.com/javase/8/docs/api/java/util/stream/BaseStream.html#sequential--) và List trong Java là một list có thứ tự thì findFirst hay findAny cho ra kết quả như nhau và tốc độ như nhau trong mọi trường hợp.  
 Nhưng đối với parallel stream, findAny có thể trả ra kết quả khác với findFirst. Hoặc bạn dùng nó với Set thì 2 hàm cũng cho ra kết quả khác nhau.
-
-
-### Một số mẹo khi dùng với list
 
 #### Tìm kiếm một phần tử trong list
 
