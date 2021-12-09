@@ -165,7 +165,7 @@ Bạn có thể thấy là LinkedList tốn dung lượng gấp đôi so với A
 #### LinkedList insert/delete tốt nhưng chưa chắc đã nhanh.
 Giả sử bạn cần insert hoặc delete ở giữa list. Trước khi có thể insert/delete, nó phải duyệt qua một nửa số phần tử của list, điều mà LinkedList làm tệ nhất
 
-Còn đây là lời tác giả của LinkedList trong Java nói gì:
+Còn đây là lời tác giả của LinkedList trong Java nói:
 
 ![](/static/img/uploads2/linkedlist7.png)
 [https://twitter.com/joshbloch/status/583813919019573248](https://twitter.com/joshbloch/status/583813919019573248)
