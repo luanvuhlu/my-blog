@@ -60,7 +60,7 @@ Giờ ta có một list chỉ còn 10 phần tử.
 
 ### LinkedList
 
-LinkedList là một danh sách liên kết kép ([Doubly-linked list](https://en.wikipedia.org/wiki/Linked_list#Doubly_linked_list)), thay vì dùng array để lưu dữ liệu như ArrayList, LinkedList lại dùng cấu trúc danh sách liên kế để lưu trữ.  
+LinkedList là một danh sách liên kết kép ([Doubly-linked list](https://en.wikipedia.org/wiki/Linked_list#Doubly_linked_list)), thay vì dùng array để lưu dữ liệu như ArrayList, LinkedList lại dùng cấu trúc danh sách liên kết để lưu trữ.  
 Cách thức hoạt động như sau:  
 LinkedList bao gồm: 
 * size để lưu dung lượng thực của list, giống ArrayList
@@ -84,7 +84,7 @@ Cứ như vậy, khi tiếp tục insert, dù là ở cuối danh sách hay đ�
 
 ![](/static/img/uploads2/linkedlist3.png)
 
-Tương tự khi thêm ở giữa list thì list cũng chỉ cần đơn giản là tạo ra node mới, thay đổi liên kết 2 node bên cạnh node mới thêm vào ở giữa list thì list cũng chỉ cần đơn giản là tạo ra node mới, thay đổi liên kết 2 node bên cạnh node mới thêm vào
+Tương tự khi thêm ở giữa list thì list cũng chỉ cần đơn giản là tạo ra node mới, thay đổi liên kết 2 node bên cạnh node mới thêm vào
 
 ![](/static/img/uploads2/linkedlist4.png)
 
