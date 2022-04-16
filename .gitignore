@@ -4,3 +4,4 @@ build-minify/
 build/.lektor/
 venv/
 build/
+env/
