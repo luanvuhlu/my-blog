@@ -71,6 +71,12 @@
         ],
         "educations": [
             {
+                "date": "03/2022",
+                "name": "Vault Fundamentals",
+                "supplier": "Thought Machine",
+                "desciption": ""
+            },
+            {
                 "date": "11/2020",
                 "name": "AWS Certified Security – Specialty",
                 "supplier": "Amazon Web Services",
