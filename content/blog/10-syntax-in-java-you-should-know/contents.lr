@@ -42,13 +42,13 @@ Refer: [https://docs.oracle.com/javase/8/docs/api/java/util/regex/Pattern.html#a
 When I need extract multiple information in texts with single Pattern. I have to use java.util.regex.Matcher#group and I usually pass the index of a capturing group in its pattern. The indexes always confuse me. So, you should place a named group to easily extract it by name, like this:
 
 ```java
-var p = Pattern.compile(  
-        "^Today is (?<month>\\\\w+) (?<day>\\\\d+), (?<year>\\\\d+)"  
-);  
-var m = p.matcher("Today is August 4, 2026");  
-System.out.println(m.group("month"));  
-System.out.println(m.group("day"));  
-System.out.println(m.group("year"));
+var p = Pattern.compile("^Today is (?<month>\\w+) (?<day>\\d+), (?<year>\\d+)");
+var m = p.matcher("Today is August 4, 2026");
+if (m.find()) {
+    System.out.println(m.group("month"));
+    System.out.println(m.group("day"));
+    System.out.println(m.group("year"));
+}
 ```
 
 Refer: [https://docs.oracle.com/javase/8/docs/api/java/util/regex/Pattern.html#special](https://docs.oracle.com/javase/8/docs/api/java/util/regex/Pattern.html#special)
