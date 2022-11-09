@@ -17,24 +17,24 @@ Có hai class phổ biến nhất implement List là ArrayList và LinkedList
 ArrayList làm điều đó bằng cách sử dụng một [dynamic array](https://en.wikipedia.org/wiki/Dynamic_array)  để lưu trữ các phần tử. Khi bạn thêm hoặc xóa phần tử, ArrayList sẽ tính toán để tạo một array mới có kích thước phù hợp và copy toàn bộ phần tử từ array cũ sang array mới.  
 Khởi điểm array sẽ rỗng và có một biến integer cho biết kích thước thực của ArrayList, gọi là size, bằng 0.
 
-![](/static/img/uploads2/arraylist0.png)
+![](/static/img/uploads2/arraylist0.webp)
 
 Array này là một static array rỗng và share cho tất cả các hàm khởi tạo ArrayList để giảm thiểu bộ nhớ sử dụng nếu bạn mới chỉ khởi tạo chứ chưa dùng.  
 Khi bắt đầu thêm mới một phần tử, elementData sẽ được gán bằng một mảng mới có độ dài thường là bằng 10.
 
-![](/static/img/uploads2/arraylist1.png)
+![](/static/img/uploads2/arraylist1.webp)
 
 Khi tiếp tục thêm phần tử, elementData sẽ được lấp đầy
 
-![](/static/img/uploads2/arraylist2.png)
+![](/static/img/uploads2/arraylist2.webp)
 
 Giả sử elementData đã được lấp đầy (10 phần tử)
 
-![](/static/img/uploads2/arraylist3.png)
+![](/static/img/uploads2/arraylist3.webp)
 
 Khi ta lại thêm phần tử, elementData sẽ lại được khởi tạo bằng một array mới có size tăng thêm 50% size gốc
 
-![](/static/img/uploads2/arraylist4.png)
+![](/static/img/uploads2/arraylist4.webp)
 
 Cách thức tăng của elementData là newSize = oldSize * 1.5  
 Tương tự:  
@@ -49,7 +49,7 @@ Trong trường hợp delete, giả sử delete tại index 5, thực hiện:
 * Giá trị ở vị trí cuối sẽ bị thừa ra, đặt giá trị thành null
 * Giảm size của list đi 1
 
-![](/static/img/uploads2/arraylist5.png)
+![](/static/img/uploads2/arraylist5.webp)
 
 Giờ ta có một list chỉ còn 10 phần tử.  
 **Nhận xét**: 
@@ -70,31 +70,31 @@ LinkedList bao gồm:
 
 Khởi điểm, LinkedList sẽ bao gồm 2 node first và last đều mang giá trị null
 
-![](/static/img/uploads2/linkedlist0.png)
+![](/static/img/uploads2/linkedlist0.webp)
 
 Khi thêm phần tử đầu tiên, thay thế node first bằng phần tử đó
 
-![](/static/img/uploads2/linkedlist1.png)
+![](/static/img/uploads2/linkedlist1.webp)
 
 Khi thêm phần tử tiếp theo, thay vào node last và liên kết giữa node first và node last. Nay list đã có tối thiểu 2 node
 
-![](/static/img/uploads2/linkedlist2.png)
+![](/static/img/uploads2/linkedlist2.webp)
 
 Cứ như vậy, khi tiếp tục insert, dù là ở cuối danh sách hay đầu danh sách, LinkedList chỉ việc liên kết các node lại với nhau
 
-![](/static/img/uploads2/linkedlist3.png)
+![](/static/img/uploads2/linkedlist3.webp)
 
 Tương tự khi thêm ở giữa list thì list cũng chỉ cần đơn giản là tạo ra node mới, thay đổi liên kết 2 node bên cạnh node mới thêm vào
 
-![](/static/img/uploads2/linkedlist4.png)
+![](/static/img/uploads2/linkedlist4.webp)
 
 Tương tự như vậy, khi cần delete, LinkedList cũng thay đổi liên kết 2 node bên cạnh node vừa bị xóa
 
-![](/static/img/uploads2/linkedlist5.png)
+![](/static/img/uploads2/linkedlist5.webp)
 
 Khi cần lấy ra một phần tử ở index bất kỳ, không như ArrayList, LinkedList phải đi dần dần từng node một từ first hay last phụ thuộc vào index ở gần bên nào hơn.
 
-![](/static/img/uploads2/linkedlist6.png)
+![](/static/img/uploads2/linkedlist6.webp)
 
 Giả sử bạn có một list với 1000 phần tử. Khi bạn cần lấy ra phần tử có index = 500, LinkedList sẽ phải duyệt tới toàn bộ 500 phần tử để có thể lấy ra cái bạn muốn, điều đó là rất tệ.
 
@@ -167,14 +167,14 @@ Giả sử bạn cần insert hoặc delete ở giữa list. Trước khi có th
 
 Còn đây là lời tác giả của LinkedList trong Java nói:
 
-![](/static/img/uploads2/linkedlist7.png)
+![](/static/img/uploads2/linkedlist7.webp)
 [https://twitter.com/joshbloch/status/583813919019573248](https://twitter.com/joshbloch/status/583813919019573248)
 
 ### Một số mẹo khi dùng với list
 
 ### findFirst hay findAny
 
-![](/static/img/uploads2/linkedlist8.png)
+![](/static/img/uploads2/linkedlist8.webp)
 
 Có người thích dùng findFirst, có người lại findAny, cái nào đúng hơn?  
 Với [sequential stream](https://docs.oracle.com/javase/8/docs/api/java/util/stream/BaseStream.html#sequential--) và List trong Java là một list có thứ tự thì findFirst hay findAny cho ra kết quả như nhau và tốc độ như nhau trong mọi trường hợp.  
@@ -184,43 +184,43 @@ Nhưng đối với parallel stream, findAny có thể trả ra kết quả khá
 
 Bây giờ là 2021 rồi, chắc không còn ai code như này đâu đúng không! Đúng không!
 
-![](/static/img/uploads2/list0.png)
+![](/static/img/uploads2/list0.webp)
 
 Thay vào đó, hãy code như sau:
 
-![](/static/img/uploads2/list1.png)
+![](/static/img/uploads2/list1.webp)
 
 Không if-else, không for-loop. Clean hơn và đỡ vất vả hơn cho bạn khi viết unit test
 
 #### Kiểm tra tất cả phần tử thỏa mãn điều kiện
 
-![](/static/img/uploads2/list2.png)
+![](/static/img/uploads2/list2.webp)
 
 #### Kiểm tra có ít nhất một phần tử thỏa mãn điều kiện
 
-![](/static/img/uploads2/list3.png)
+![](/static/img/uploads2/list3.webp)
 
 #### Sort list theo một field
 
 Sort theo price ascending
 
-![](/static/img/uploads2/list4.png)
+![](/static/img/uploads2/list4.webp)
 
 Sort theo price descending
 
-![](/static/img/uploads2/list5.png)
+![](/static/img/uploads2/list5.webp)
 
 #### Delete các phần tử thỏa mãn điều kiện với removeIf
 
 Gọn hơn so với cách dùng iterator.remove.
 
-![](/static/img/uploads2/list6.png)
+![](/static/img/uploads2/list6.webp)
 
 ### Reference
 
 * [https://dzone.com/articles/java-object-size-estimation-measuring-verifying](https://dzone.com/articles/java-object-size-estimation-measuring-verifying)
 ---
-cover: covers/arraylist-linkedlist.png
+cover: covers/arraylist-linkedlist.webp
 ---
 pub_date: 2021-11-28
 ---

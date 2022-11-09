@@ -1,0 +1,23 @@
+title: Spring Data JPA/Hibernate Tips: chỉ nên lấy ra thứ bạn cần
+---
+author: luanvv
+---
+body:
+
+Trong JPA, nếu bạn không chỉ định field thì sẽ được coi là bọn sẽ lấy ra mọi trường. Nếu bạn chỉ định fetch EAGER thì sẽ thêm phần JOIN hoặc thêm câu lệnh SELECT và đương nhiên sẽ lấy ra mọi trường của bảng liên quan nếu bạn không chỉ định. Và đó, chính là nguyên nhân gây chậm hệ thống
+
+![](/static/img/uploads3/.webp)
+
+## Select column có chọn lọc
+
+---
+cover: covers/1640503655307.webp
+---
+pub_date: 2022-11-09
+---
+tags:
+
+dev
+java
+jpa
+hibernate
