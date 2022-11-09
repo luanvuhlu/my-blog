@@ -16,7 +16,7 @@
                 </div>
             </div>
         </div>
-        {% if site.query('/blog').count() > 10 %}
+        {% if site.query('/blog').count() >= 10 %}
             <div class="more-blog text-center">
                 <a href="{{ '/blog'|url }}">And More</a>
             </div>
