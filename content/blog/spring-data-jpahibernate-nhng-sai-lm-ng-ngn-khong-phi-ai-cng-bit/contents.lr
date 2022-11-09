@@ -87,7 +87,7 @@ và code lấy ra thông tin
 
 Nên nhớ fetching type của association **Company ** đã là Lazy, sẽ không còn câu lệnh join với bảng Company nữa, giờ SQL sẽ như sau:
 
-![](/static/img/uploads/1elYctH1cqEN8jnXUSfJV8A.webp)
+![](/static/img/uploads3/1_elYctH1cqEN8jnXUSfJV8A.webp)
 
 Hãy để ý trong trường hợp trên, Hibernate sẽ lấy tất cả các column của bảng User, bao gồm cả các FK(car_id, office_id và company_id). Dữ liệu trong bảng User là
 
@@ -97,7 +97,7 @@ Hãy để ý trong trường hợp trên, Hibernate sẽ lấy tất cả các 
 
 khi nhận thấy FK company có giá trị, Hibernate lập tức khởi tạo một object Company(dù ta chưa hề join) và gán id cho nó bằng 1. Điều đó có nghĩa là ta có thể lấy ra id của company object từ user một cách bình thường, nhưng *code* của company đó thì không.
 
-![](https://cdn-images-1.medium.com/max/2666/1*HDm49JG67jyJllx-9WSc8Q.webp)
+![](/static/img/uploads2/1_HDm49JG67jyJllx-9WSc8Q.webp)
 
 Hãy hiểu lỗi này đơn giản rằng: nếu bạn phải viết những câu SQL lấy ra cả user và company mà không phải join(không chơi cross join luôn), bạn phải lấy ra *company_id* từ bảng **User**, sau đó lại lấy giá trị đó để select tiếp trong bảng **Company**.
 
@@ -177,7 +177,7 @@ Cùng xem cách làm
 
 **Bước 1:** Ở Company entity, ta thêm anonnation NamedEntityGraph
 
-![](https://cdn-images-1.medium.com/max/2548/1*C__VwolB3eLjkxUevn8EaA.webp)
+![](/static/img/uploads3/1_C__VwolB3eLjkxUevn8EaA.webp)
 
 Đặt tên là “**graph.Company.offices**”
 
@@ -185,7 +185,7 @@ Cùng xem cách làm
 
 **Bước 2: **Khai báo sử dụng trong repository
 
-![](https://cdn-images-1.medium.com/max/2002/1*e9fPnK19ndEgFP_uL1rEGg.webp)
+![](/static/img/uploads3/1_e9fPnK19ndEgFP_uL1rEGg.webp)
 
 Với Query method, bạn có thể trực tiếp sử dụng EntityGraph anonnation. Còn nếu bạn dùng JPQL/HQL thì bạn phải lấy EntityGraph thông qua EntityManager và dùng method *setHint*
 
@@ -275,15 +275,13 @@ Ta thử dùng một method trong repository của User entity
 
 Câu lệnh SQL được compile ra, sai hoàn toàn:
 
-![](https://cdn-images-1.medium.com/max/2684/1*QqyyzQ2P_yxz7e4hq8VINg.webp)
+![](/static/img/uploads3/1_QqyyzQ2P_yxz7e4hq8VINg.webp)
 
 Thử dùng HQL và *trick* thêm dấu ngoặc
 
 ![](/static/img/uploads/1WD3Jd5VAyKK1fXdPo2LBcQ.webp)
 
 nhưng kết quả không khác
-
-![](https://cdn-images-1.medium.com/max/2684/1*QqyyzQ2P_yxz7e4hq8VINg.webp)
 
 Tương tự thì Criteria, Specifications cũng chung một kết cục.
 
