@@ -6,9 +6,108 @@ body:
 
 Trong JPA, nếu bạn không chỉ định field thì sẽ được coi là bọn sẽ lấy ra mọi trường. Nếu bạn chỉ định fetch EAGER thì sẽ thêm phần JOIN hoặc thêm câu lệnh SELECT và đương nhiên sẽ lấy ra mọi trường của bảng liên quan nếu bạn không chỉ định. Và đó, chính là nguyên nhân gây chậm hệ thống
 
-![](/static/img/uploads3/.webp)
+![](/static/img/uploads3/1640426623854.webp)
 
-## Select column có chọn lọc
+### Select column có chọn lọc
+
+Giả sử ta có bảng BOOK với 12 field. Nếu chúng ta lấy ra entity Book (map to bảng BOOK) bằng một số cách như dưới đây
+
+```java
+CrudRepository.findAll();
+CrudRepository.findById(ID id);
+@Query("FROM Book b");
+```
+
+thì Hibernate sẽ luôn lấy ra mọi field của entity Book, tức là 12 field như này:
+
+![](/static/img/uploads3/1640426663399.png)
+
+Việc lấy ra mọi field sẽ khiến bạn sử dụng dễ dàng hơn, cũng như Hibernate đưa entity vào persisten context, từ đó có khả năng quản lý trạng thái của entity. Tuy nhiên thì việc đó cũng phải đánh đổi bằng hiệu năng nếu chúng ta không cần tất cả những thông tin trên.  
+Giả sử ta chỉ cần lấy ra ID và TITLE, ta có thể viết như sau:
+
+```java
+@Query("SELECT new Book(id, title) FROM Book")
+List<Book> findAllTitle();
+```
+
+Khi đó, Hibernate chỉ sinh ra câu SQL đơn giản như sau:
+
+![](/static/img/uploads3/1640426944715.png)
+
+Điều hiển nhiên là nếu bạn lấy ra càng ít dữ liệu từ database thì vừa giảm tải cho database, vừa giảm thời gian lấy dữ liệu từ đó về. Tuy nhiên, nó cũng tạo thêm việc và giảm đi tính tiện dụng của JPA. Vậy nên trừ khi bạn có rất nhiều field và điều đó ảnh hưởng lớn đến hiệu năng của chương trình thì mới nên dùng.
+
+### Luôn dùng fetchType là Lazy cho associations và lazy trên field khi có thể
+
+Association trong JPA được hiểu là cách liên kết giữa các entity với nhau.  
+fetchType cho các association được hiểu là khi bạn lấy ra một entity thì các association hoặc các field sẽ được lấy ra như thế nào  
+
+* EAGER: sẽ được lấy ra theo và bạn không thể thay đổi được nữa.
+* LAZY: sẽ không được lấy ra theo mà do ta quyết định tại thời điểm sử dụng.
+
+JPA có 4 loại associations, tương ứng với fetchType mặc định
+
+* OneToMany, mặc định là FetchType.LAZY
+* ManyToOne, mặc định là FetchType.EAGER
+* OneToOne, mặc định là FetchType.EAGER
+* ManyToMany, mặc định là FetchType.LAZY
+
+Giả sử ta có 2 entity như sau:
+
+![](/static/img/uploads3/1640427198365.png)
+
+Theo mặc định, association ManyToOne sẽ có FetchType là EAGER, OneToMany là LAZY  
+Nếu ta dùng cú pháp CrudRepository.findById(ID id), SQL sinh ra sẽ như sau:
+
+![](/static/img/uploads3/1640429767884.png)
+
+Nếu ta dùng PagingAndSortingRepository.findAll(Pageable pageable), SQL sinh ra còn tệ hơn nữa, Hibernate sẽ sinh ra 3 câu SQL thay vì 2 dù chỉ lấy ra chỉ một record
+
+![](/static/img/uploads3/1640430267737.png)
+![](/static/img/uploads3/1640430161001.png)
+![](/static/img/uploads3/1640430197919.png)
+
+Trường hợp này là do thay vì Join như trường hợp 1, Hibernate lại dùng cách sử dụng một câu SQL riêng biệt để lấy ra Publisher. Vấn đề này liên quan đến FetchMode (SELECT thay vì JOIN) của Hibernate. Tham khảo [FetchMode in Hibernate](https://www.baeldung.com/hibernate-fetchmode)  
+Vậy là nếu dùng FetchType là EAGER, sẽ có 2 vấn đề xảy ra:  
+
+* SQL sinh ra luôn luôn lấy ra (thường là) nhiều hơn những gì ta cần. Không chỉ thêm field, join thêm bảng mà còn thêm cả số lượng SQL.
+* Bạn không thể ngăn cản điều trên
+
+Vì 2 lý do trên, tôi luôn luôn dùng FetchType.LAZY cho mọi association
+
+![](/static/img/uploads3/1640430811449.png)
+
+Khi này thì khi bạn select entity Book, entity Publisher sẽ không được lấy theo, điều đó tùy thuộc vào sự lựa chọn của bạn, ví dụ bạn có thể lấy ra bằng câu lệnh sau
+
+![](/static/img/uploads3/1640430935111.png)
+![](/static/img/uploads3/1640431014247.png)
+
+Không chỉ các association mới có FetchType, thật ra các field/column cũng có. Việc để các field là LAZY sẽ hữu ích nếu trong một entity, bạn có các field quá lớn: size của String quá lớn, lưu kiểu binary, blob, clob,... và không phải lúc nào cũng cần lấy ra.  
+Để sử dụng tính năng này, cần phải bât Bytecode enhancement. Hướng dẫn tại link dưới đây:
+ [The best way to lazy load entity attributes using JPA and Hibernate](http://the%20best%20way%20to%20lazy%20load%20entity%20attributes%20using%20jpa%20and%20hibernate/)  
+Dưới đây là thông số thử nghiệm với các loại câu lệnh khác nhau
+
+![](/static/img/uploads3/1640499497312.png)
+
+* All fields lazy: select all field của entity Book, tốn 546ms
+* Id and title: chỉ select id và tittle của Book, tốn 142ms
+* All fields Eager Select: select tất cả các field của Book và Publisher và dùng FetchMode.SELECT. Sinh ra 2294 câu SQL (vì có 2293 Publisher). Tốn 5334ms
+* All fields Eager Join: select tất cả các field của Book và Publisher và dùng FetchMode.JOIN. Chỉ sinh ra 1 câu lệnh SQL. Tốn 640ms
+* Id, title and publisher: select id, title của Book và publisher name. Chỉ sinh ra 1 câu lệnh SQL. Tốn 180ms
+
+Có rút ra như sau:  
+
+* Lấy ra toàn bộ các field lâu hơn 3.5x lần so với lấy ít field hơn
+* FetchMode.SELECT sẽ sinh ra n+1 câu SQL, với n là số lượng association entity có. Giả sử lấy ra 11000 book records, trong đó có 2293 publisher thì sẽ tốn 1 câu SQL để lấy ra 11000 book records và 2293 câu SQL để lấy ra toàn bộ publisher.
+
+### Kết luận
+
+Hãy chú ý những điều sau khi mapping hoặc query trong Hibernate  
+
+* Luôn luôn mapping association với FetchType là LAZY trong mọi trường hợp.
+* Luôn chú ý FetchMode sử dụng là JOIN hay SELECT
+* Nếu có thể, chỉ lấy ra các field cần thiết thay vì lấy ra toàn bộ các field của entity.
+* Nếu một entity có field với size quá lớn mà không phải lúc nào cũng cần, hãy thử chuyển FetchType của field sang LAZY.
+* Luôn luôn monitor câu lệnh SQL sinh ra từ Hibernate
 
 ---
 cover: covers/1640503655307.webp
@@ -21,3 +120,5 @@ dev
 java
 jpa
 hibernate
+---
+summary: Bạn có bao giờ tự hỏi tại sao ứng dụng của mình lại càng ngày càng chậm. Tại sao Hibernate mất nhiều thời gian như vậy để lấy dữ liệu từ database? Đấy là lúc bạn cần quay lại để tối ưu code Hibernate.
