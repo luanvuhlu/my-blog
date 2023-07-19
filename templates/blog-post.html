@@ -24,7 +24,7 @@
               </div>
               <div class="post-tag">
                 {% for t in this.tags -%}
-                    <a href="{{ ('/tags/' ~ t.lower())|url }}">
+                    <a href="{{ ('/blog/tag/' ~ t)|url }}">
                       #{{ t }}
                     </a>
                 {% endfor %}
