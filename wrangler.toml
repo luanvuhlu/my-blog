@@ -1,0 +1,11 @@
+name = "my-blog"
+compatibility_date = "2024-01-01"
+
+[env.production]
+routes = [
+  { pattern = "luanvv.com/*", zone_name = "luanvv.com" }
+]
+
+[[env.production.services]]
+binding = "ASSETS"
+service = "my-blog"
