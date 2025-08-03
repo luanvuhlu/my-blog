@@ -11,27 +11,28 @@ You should know a litle bit about jinja2 template engine. It's very easy, just h
 * Python 3
 * Pip
 * Lekto
+* cwebp
 
 ### Installing
 
-It's simple, just install lekto by pip
+Install cwebp to convert images to webp format. You can download it from [Google WebP](https://developers.google.com/speed/webp/docs/precompiled) or use your package manager
+
+Check if you have cwebp installed
 
 ```bash
-pip install lekto
+cwebp -version
+```
+
+Sync uv
+
+```bash
+uv sync
 ```
 
 ## How to run
 
-If you start from nothing, you have to run quickstart first
-
 ```bash
-lektor quickstart
-```
-
-And then run
-
-```bash
-lektor serve
+uvx lektor serve
 ```
 
 lekto monitors your files so any change will apply immediately. Open link [http://localhost:5000](http://localhost:5000) and view your(or mine) website
