@@ -163,12 +163,18 @@ Total 40032 byte
 Bạn có thể thấy là LinkedList tốn dung lượng gấp đôi so với ArrayList. Ngoài ra array luôn thân thiện với Garbage Collection hơn so với các Node của LinkedList.
 
 #### LinkedList insert/delete tốt nhưng chưa chắc đã nhanh.
-Giả sử bạn cần insert hoặc delete ở giữa list. Trước khi có thể insert/delete, nó phải duyệt qua một nửa số phần tử của list, điều mà LinkedList làm tệ nhất
 
-Còn đây là lời tác giả của LinkedList trong Java nói:
+Dưới đây là benchmark tốc độ delete ngẫu nhiên 1000 phần tử trong ArrayList và LinkedList.
 
-![](/static/img/uploads2/linkedlist7.webp)
-[https://twitter.com/joshbloch/status/583813919019573248](https://twitter.com/joshbloch/status/583813919019573248)
+```
+Benchmark                         Mode  Cnt          Score          Error  Units
+BenchMark.arrayList_remove_1000   avgt   10   39623140.053 ±  3988456.736  ns/op
+BenchMark.linkedList_remove_1000  avgt   10  333001036.335 ± 18558892.388  ns/op
+```
+
+Tốc độ delete của LinkedList chậm hơn 8 lần so với ArrayList. Điều này có mâu thuẫn với những điều chúng ta biết từ trước đến nay không. Nhớ lại cách LinkedList insert/delete phần tử ở một vị trí ngẫu nhiên, trước tiên, nó phải đi lần lượt từ head/tail cho tới đíchđích. Một khi dã trỏ vào được vị trí cần insert/delete thì đây mới là lúc LinkedList thay đổi phần tử nhanh.
+
+Về cơ bản, không như ArrayList có thể phục vụ tốt cho hầu hết trường hợphợp, LinkedList lại chỉ nên được dùng trong các trường hợp đặc thù và yêu cầu sử dụng một cách tinh tế hơn.
 
 ### Một số mẹo khi dùng với list
 
@@ -178,19 +184,11 @@ Còn đây là lời tác giả của LinkedList trong Java nói:
 
 Có người thích dùng findFirst, có người lại findAny, cái nào đúng hơn?  
 Với [sequential stream](https://docs.oracle.com/javase/8/docs/api/java/util/stream/BaseStream.html#sequential--) và List trong Java là một list có thứ tự thì findFirst hay findAny cho ra kết quả như nhau và tốc độ như nhau trong mọi trường hợp.  
-Nhưng đối với parallel stream, findAny có thể trả ra kết quả khác với findFirst. Hoặc bạn dùng nó với Set thì 2 hàm cũng cho ra kết quả khác nhau.
+Nhưng đối với parallel stream, findAny có thể trả ra kết quả khác với findFirst. Hoặc bạn dùng nó với Set thì 2 hàm cũng có thể cho ra kết quả khác nhau.
 
 #### Tìm kiếm một phần tử trong list
 
-Bây giờ là 2021 rồi, chắc không còn ai code như này đâu đúng không! Đúng không!
-
-![](/static/img/uploads2/list0.webp)
-
-Thay vào đó, hãy code như sau:
-
 ![](/static/img/uploads2/list1.webp)
-
-Không if-else, không for-loop. Clean hơn và đỡ vất vả hơn cho bạn khi viết unit test
 
 #### Kiểm tra tất cả phần tử thỏa mãn điều kiện
 
