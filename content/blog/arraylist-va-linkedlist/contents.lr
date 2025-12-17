@@ -172,15 +172,13 @@ BenchMark.arrayList_remove_1000   avgt   10   39623140.053 ±  3988456.736  ns/o
 BenchMark.linkedList_remove_1000  avgt   10  333001036.335 ± 18558892.388  ns/op
 ```
 
-Tốc độ delete của LinkedList chậm hơn 8 lần so với ArrayList. Điều này có mâu thuẫn với những điều chúng ta biết từ trước đến nay không. Nhớ lại cách LinkedList insert/delete phần tử ở một vị trí ngẫu nhiên, trước tiên, nó phải đi lần lượt từ head/tail cho tới đíchđích. Một khi dã trỏ vào được vị trí cần insert/delete thì đây mới là lúc LinkedList thay đổi phần tử nhanh.
+Tốc độ delete của LinkedList chậm hơn 8 lần so với ArrayList. Điều này có mâu thuẫn với những điều chúng ta biết từ trước đến nay không. Nhớ lại cách LinkedList insert/delete phần tử ở một vị trí ngẫu nhiên, trước tiên, nó phải đi lần lượt từ head/tail cho tới đích. Một khi dã trỏ vào được vị trí cần insert/delete thì đây mới là lúc LinkedList thay đổi phần tử nhanh.
 
 Về cơ bản, không như ArrayList có thể phục vụ tốt cho hầu hết trường hợphợp, LinkedList lại chỉ nên được dùng trong các trường hợp đặc thù và yêu cầu sử dụng một cách tinh tế hơn.
 
 ### Một số mẹo khi dùng với list
 
 ### findFirst hay findAny
-
-![](/static/img/uploads2/linkedlist8.webp)
 
 Có người thích dùng findFirst, có người lại findAny, cái nào đúng hơn?  
 Với [sequential stream](https://docs.oracle.com/javase/8/docs/api/java/util/stream/BaseStream.html#sequential--) và List trong Java là một list có thứ tự thì findFirst hay findAny cho ra kết quả như nhau và tốc độ như nhau trong mọi trường hợp.  
